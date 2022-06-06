@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/public/css/nav.css" rel="stylesheet">
+    <link rel="preconect" href="/public/css/nav.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="contenedor-nav flex-container">
+            <div style="order: 1; flex-grow: 1;">
+                <img class="logo" src="/imagenes/Logo.jpg"> <!--- aqui va el logo--->
+            </div>
+            <div class = "busqueda" style="order: 2; flex-grow: 5;">
+                <div class="conetendor-busqueda">
+                    <input class="barra" type="text">
+                    <button class="lupa"><ion-icon name="search-outline"></ion-icon></button>
+                </div>
+                <ul class="contenedor-botones">
+                    <li class="nav-menu">
+                        <a href="#" class="nav-link">Mascotas</a>
+                    </li>
+                    <li class="nav-menu">
+                        <a href="#" class="nav-link">Marcas</a>
+                    </li>
+                    <li class="nav-menu">
+                        <a href="#" class="nav-link">Sucursales</a>
+                    </li>
+                    <li class="nav-menu">
+                        <a href="#" class="nav-link">Promociones</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="iconos" style="order: 3; flex-grow: 1;">
+                <button class="icono-boton"><ion-icon name="location-outline" class="dos-iconos"></ion-icon></button>
+                <button class="icono-boton"><ion-icon name="cart-outline" class="dos-iconos"></ion-icon></button>
+            </div>    
+        </div>
+    </nav>
+</header>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</html>

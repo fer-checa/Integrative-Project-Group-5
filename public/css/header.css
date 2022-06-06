@@ -1,0 +1,287 @@
+@import url(normalize.css);
+
+:root{
+    --azul1:#05668D;
+    --azul2: #427AA1;
+    --azul3: #EBF2FA;
+    --verde1: #679436;
+    --verde2: #A5BE00;
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+.main-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+#busqueda{
+    width: 140%;
+    height: 5vh;
+    border-radius: 10px;
+    padding-right: 20%;
+    padding: 0%;
+   
+}
+
+.logo-barra{
+    background-color: var(--Amarillo);
+    position: relative;
+}
+
+
+.lupa{
+    position: absolute;
+    right: 40px;
+    top: 37px;
+    color: #a29b9b;
+}
+
+::placeholder{
+    color: #a29b9b;
+}
+
+.logo{
+    width: 16vw;
+    margin-left: 40%;
+    margin-top: 10%;
+    padding-top: 5px;
+   margin-right: 0%;
+}
+
+form.search-form{
+    padding: 0%;
+}
+
+header{
+    background-color: #05668D;
+    padding-bottom: 2%;
+    width: 100vw;
+}
+
+.iconito {
+  color: #a5be00;
+}
+
+.iconito:hover {
+    color: var(--verde2);
+  }
+
+.iconito:active{
+    color: red;
+}
+
+
+.icono-header{
+    width: 20%;
+    /* text-align: right; */
+    font-size: 120%;
+    margin-right: 4vw;
+    
+}
+
+.carrito{
+    transition: 1s;
+    color: #ebebeb;
+    /* padding: 15px; */
+    /* margin-top: 20%; */
+    /* display: none; */
+    /* margin-right: 0%; */
+}
+
+
+.carrito:hover{
+    color: #679436;
+    
+}
+
+
+
+nav ul li a{
+    margin-left: 0px;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:active{
+    
+    color: var(--verde1)
+}
+
+ul{
+    padding-left: 5%;
+    margin-bottom: 10px;
+    padding-right: 5%;
+}
+
+ul li{
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+
+
+.nav-bar{
+    display: none;
+}
+
+.burger-menu{
+    text-align: center;
+    border: 1px solid #427AA1;
+    width: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #427AA1;
+    color: white;
+    margin: auto;
+    justify-content: center;
+    padding: 2px;
+    margin-top: 0%;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 426px){
+
+    .logo{
+        width: 10vw;
+    }
+
+    .nav-bar{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-top: 1.5%;
+        margin-left: 5%;
+    }
+
+    .carrito{
+        
+        /* padding: 25px; */
+        display: inline-block
+    }
+
+    ul li{
+        list-style-type: none;
+        padding-left: 5px;
+        font-size: 80%;
+        padding-top: 2%;
+    }
+
+    .lupa{
+        left: 380px;
+        /* right: 155px; */
+        top: 40px;
+        
+    }
+
+    .burger-menu{
+        display: none;
+    }
+
+    .icono-header{
+        width: auto;
+        text-align: right;
+        font-size: 100%;
+        margin-right: 10vw;
+               
+    }
+    
+    .main-header{
+        margin-bottom: -3%;
+    }
+    
+    #busqueda{
+        margin-left: -10%;
+        width: 150%;
+        height: 6vh;
+        border-radius: 5px;
+    }
+
+    
+    
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px){
+
+    .logo{
+        width: 7vw;
+    }
+
+    .nav-bar{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-top: 10px;
+        padding-top: 2%;
+        margin-bottom: -1%;
+    }
+
+    .carrito{
+        
+        /* padding: 25px; */
+        display: inline-block
+    }
+
+    ul li{
+        list-style-type: none;
+        margin-left: 0%;
+        font-size: 100%;
+        margin-top: -2%;
+    }
+
+    .burger-menu{
+        display: none;
+    }
+
+    .icono-header{
+        width: 10%;
+        text-align: right;
+        font-size: 120%;
+        margin-right: 10vw;
+       
+    }
+        
+    #busqueda{
+        margin-left: -50%;
+        width: 250%;
+        height: 6vh;
+        border-radius: 5px;
+    }
+
+    .lupa{
+        left: 580px;
+        /* right: 155px; */
+        top: 40px;
+        
+    }
+
+    .main-header{
+        margin-bottom: -4%;
+    }
+
+    
+    
+}

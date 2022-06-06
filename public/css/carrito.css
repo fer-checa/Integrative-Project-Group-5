@@ -1,0 +1,216 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+
+main{
+    background-color: #EBF2FA;
+}
+.orden{
+    color: #679436;
+    font-size: 2vw;
+    text-align: left;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background-color: #EBF2FA;
+    padding-top: 3%;
+}
+
+/*TABLA*/
+
+table{
+	width: 90%;
+	margin-bottom : .5em;
+    table-layout: fixed;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+	border: 1px solid #ccc;
+	text-align: center;
+    font-size: 50%;
+}
+
+th{
+	font-weight: bold;
+	background-color: #EEE;
+}
+
+.tabla-cabecera{
+    text-align: center;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.img-tabla{
+    width: 70%;
+    height: 50%;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 10%;
+    padding: 5%;
+}
+
+.tabla-cantidad{
+    width: 50%;
+    font-size: 150%;
+    text-align: left;
+    position: relative;
+}
+
+.plus{
+    position: relative;
+    top: -4px;
+    left: -15px;
+}
+
+.tabla-footer{
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.trash {
+    font-size: 50%;
+    color: #86888a;
+    cursor: pointer;
+}
+
+.trash:hover{
+    color: red;
+}
+
+button{
+	padding: 10px 5px 10px 5px;
+	border: 0;
+	border-bottom: 1px solid;
+	font-size: 0.5em;
+	cursor: pointer;
+	margin: 20%;    
+	margin-top: 3px;
+	height: 100%;
+	width: 35%;
+    display: block;
+    clear: both;
+    margin: 10px 0px;
+    margin-bottom: 4%;
+    border-radius: 10px;
+}
+
+#confirmar-compra{
+    background-color:#679436;
+    color: rgb(219, 219, 13);
+    margin-left: 5%;
+    margin-right: 3%;
+}
+
+#seguir-comprando{
+    background-color:#86888a;
+    color: rgb(11, 11, 11);
+}
+
+.boton-final{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-right: 2%;
+    margin-top: 3%;
+    }
+
+
+
+@media (min-width: 425px){
+    
+    td, th {
+        
+        font-size: 80%;
+    }
+
+    .boton-final{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-right: 2%;
+        margin-top: 3%;
+        }
+
+        button{
+            padding: 15px 5px 15px 5px;
+            border: 0;
+            border-bottom: 1px solid;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 20%;
+            margin-top: 3px;
+            height: 100%;
+            width: 30%;
+            display: block;
+            clear: both;
+            margin: 10px 0px;
+            margin-bottom: 3%;
+            border-radius: 10px;
+        }
+
+        .tabla-cantidad{
+            width: 30%;
+            font-size: 130%;
+           
+        }
+
+        .trash {
+            font-size: 70%;
+            
+        }
+}
+
+
+
+
+
+@media (min-width: 768px){
+    
+
+    td, th {
+        
+        font-size: 80%;
+    }
+
+    .boton-final{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-right: 2%;
+        margin-top: 3%;
+        }
+
+        button{
+            padding: 15px 5px 15px 5px;
+            border: 0;
+            border-bottom: 1px solid;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 20%;
+            margin-top: 3px;
+            height: 100%;
+            width: 27%;
+            display: block;
+            clear: both;
+            margin: 10px 0px;
+            margin-bottom: 3%;
+            border-radius: 10px;
+        }
+
+        .tabla-cantidad{
+            width: 25%;
+            font-size: 150%;
+           text-align: center;
+        }
+
+           
+}

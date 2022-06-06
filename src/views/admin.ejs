@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--------------------- HEAD ----------------->
+
+<%- include('./partials/head') %>
+    <!--------------------- BODY ----------------->
+
+    <body>
+        <!--------------------- HEADER ----------------->
+        <%- include('./partials/header') %>
+
+            <!-------------------- MAIN --------------------->
+
+            <main>
+
+                <h1> Alta - Baja - Modificacion de producto </h1>
+
+                <form action="/admin" method="post">
+
+                    <!-- Agregar el nombre del producto -->
+                    <div>
+                        <label for="nombre">Nombre del Producto:</label>
+                        <input type="text" id="nombre" name="nombre" class="input" required>
+                    </div>
+
+                    <!-- Agregar una descripcion del producto -->
+                    <div>
+                        <label> Descripcion: </label>
+                        <textarea type="consulta" id="consulta" placeholder="descripcion"
+                            class="carga-descripcion"></textarea>
+                    </div>
+
+                    <!-- Agregar categoria del producto -->
+                    <label for="nombre"> Categoria:</label>
+                    <select class="select-img">
+                        <option></option>
+                        <option>Perro</option>
+                        <option>Gato</option>
+                    </select>
+
+                    <!-- Agregar imagen del producto -->
+                    <div>
+                        <label for="nombre"> Foto del producto: </label>
+                        <input type="file" name="foto" id="foto" class="input">
+                    </div>
+
+                    <!-- Agregar color/talle del producto -->
+                    <div>
+                        <label for="nombre">Colores:</label>
+                        <input type="text" id="nombre" name="nombre" class="input" required>
+                    </div>
+
+                    <!-- Agregar el precio del producto -->
+                    <div>
+                        <label for="nombre">Precio:</label>
+                        <input type="text" id="nombre" name="nombre" class="input" required>
+                    </div>
+
+                    <!-- Codigo del producto -->
+                    <div>
+                        <label for="nombre">Codigo del producto:</label>
+                        <input type="text" id="nombre" name="nombre" class="input" required>
+                    </div>
+
+                    <!-- Producto ACTIVO - SI/NO -->
+                    <label for="nombre"> Producto Activo:</label>
+                    <select class="select-img">
+                        <option></option>
+                        <option>SI</option>
+                        <option>NO</option>
+                    </select>
+
+
+                    <!-- Botones para agregar y eliminar un producto -->
+                    <div class="boton">
+                        <button type="submit" class="agregar-producto"> <i class="far fa-check-circle"></i> Guardar
+                        </button>
+                        <!-- <button type="reset" class="borrar"> <i class="fas fa-trash-alt"></i> Eliminar producto </button> -->
+                    </div>
+                </form>
+
+
+            </main>
+
+            <!-- FOOTER -->
+            <%- include ('./partials/footer.ejs') %>
+    </body>
+
+</html>
