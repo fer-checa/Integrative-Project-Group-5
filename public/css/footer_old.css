@@ -1,0 +1,278 @@
+:root {
+    --azul_zafiro: #05668d;
+    --azul_acero: #427aa1;
+    --azul_clarito: #ebf2fa;
+    --verde: #679436;
+    --verde_acido: #a5be00;
+  }
+
+.logo-footer{
+    width: 15vw;
+    text-align: center;
+}
+
+
+footer{
+    background-color: #05668D;
+    text-align: center
+}
+
+.pie{
+    padding-top: 20px;
+}
+
+.icono{
+        
+    color: #A5BE00;
+    font-size: 1.2em;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.icono-uno{
+        
+    color: #A5BE00;
+    font-size: 1.2em;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 100%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+    text-align: center;
+}
+
+.subtitulo{
+    margin-top: 1%;
+    padding-left: 15% ;
+    padding-right: 15%;
+    margin-bottom: 0%;
+    font-size: 70%;
+    text-align: center;
+    color: aliceblue;
+}
+
+.footer-section{
+    margin-bottom: 3%;
+}
+
+.copyrigth{
+    margin-top: 6%;
+    font-weight: bold;
+    padding-bottom: 2%;
+    font-size: 60%;
+    text-align: center;
+}
+
+.social-media{
+    
+    width: 50%;
+    display: inline;
+    justify-content: center;
+    
+}
+
+.social-media-icon{
+    display: inline-block ;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+}
+
+.social-media-icon:hover{
+    background: #fff;
+    color: #05668D;
+}
+
+.social-media-icon i{
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.copyrigth-texto{
+    font-size: 90%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+
+
+/* //QUERIES */
+
+
+
+
+@media (min-width: 426px){
+
+    .logo-footer{
+        width: 15vw;
+        
+    }
+
+    .pie{
+        padding-top: 2%;
+    }
+
+    .titulo{
+        
+        font-size: 100%;
+        
+    }
+    
+    .subtitulo{
+        font-size: 80%;
+        padding-left: 15% ;
+        padding-right: 15%;
+    }
+
+
+    .social-media{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        
+    }
+    
+    .social-media-icon{
+        display: inline-block ;
+        margin-left: 20px;
+        width: 60px;
+        height: 60px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        text-align: center;
+        color: #EBF2FA
+    }
+    
+    .social-media-icon:hover{
+        background: #EBF2FA;
+        color: #05668D;
+    }
+    
+    .social-media-icon i{
+        font-size: 30px;
+        line-height: 60px;
+    }
+    
+    .copyrigth{
+        margin-top: 2%;
+    }
+
+    .copyrigth-texto{
+        font-size: 110%;
+        
+    }
+
+}
+
+
+@media (min-width: 769px){
+    
+        /* .footer-section{
+            display: flex;
+            align-items: flex-start;
+            padding-right: 2%;
+            padding-left: 2%;
+            padding-top: 2%;
+        } */
+
+         .footer-primero{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            padding-right: 2%;
+            padding-left: 2%;
+            padding-bottom: 2%;
+            padding-top: 0%;
+            background-color: var(--verde);
+            margin-top: -1%;
+        } 
+
+        .footer-segundo{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            padding-right: 2%;
+            padding-left: 2%;
+            padding-top: 2%; 
+            background-color: var(--azul_acero);
+            margin-top: -3%;
+            padding-bottom: 2%;
+        } 
+
+        
+
+    .titulo{
+        font-size: 100%;
+        margin-bottom: 1%;
+        width: 90%;
+    }
+
+    .pie{
+        width: 27%;
+    }
+    
+    .subtitulo{
+        font-size: 90%;
+        width: 100% ;
+        padding: 0%;
+    }
+
+    .copyrigth{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-footer{
+        width: 30%;
+        margin-left: 10%;
+        
+        
+    }
+
+        .social-media{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            
+        }
+        
+        .social-media-icon{
+            display: inline-block ;
+            margin-left: 20px;
+            width: 60px;
+            height: 60px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .social-media-icon:hover{
+            background: #fff;
+            color: #05668D;
+        }
+        
+        .social-media-icon i{
+            font-size: 30px;
+            line-height: 60px;
+        }
+        
+        
+
+        .copyrigth-texto{
+            width: 25%;
+            font-size: 150%;
+        }
+
+}

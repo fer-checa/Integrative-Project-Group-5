@@ -7,14 +7,11 @@ Acid Green: #A5BE00
 */
 
 /* iMPORTAMOS  */
-@import url(normalize.css);
-/* PREGUNTAR SI VAMOS A USAR NORMALIZE */
 @import url(index.css);
 @import url(header.css);
 @import url(footer.css);
 @import url(carrito.css);
-/* @import url(admin.css); */
-@import url(sucursales.css);
+
 
 :root {
   --azul_zafiro: #05668d;
