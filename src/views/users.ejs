@@ -85,33 +85,24 @@
         
         <h1>Usuarios Registrados: </h1>
 
+                   
+                <% for(let user of usuarios) { %>
                 
-        <ul>
-            <% for(let i = 0; i<lista.length; i++) { %>
-                <li>
-                    <a href="/users/detail/<%= lista[i].id %> "> <%= lista[i].nombre %></a>
-                    <form method="POST" action="/users/delete/<%= lista[i].id %>?_method=DELETE">
-                        <button type="submit">Delete</button>
-                    </form>
-                </li> 
-                <li>
-                    <a href="/seguridad/edit/<%= lista[i].id %> "> <%= lista[i].nombre %></a>
-                    <form method="GET" action="/seguridad/edit/<%= lista[i].id %>">
-                        <button type="submit">Editar</button>
-                    </form>
-
-                </li>
-                <% } %> 
-        </ul>
-        <h2>Search</h2>
-        <form action="/users/search" method="GET">
-            <input type="text" name="search">
-            <input type="submit" value="search">
-        </form>
-       
-
-
-
+                    <div class="user-container">
+                        <a href="/seguridad/edit/<%= user.id %> ">
+                            
+                                <p>Id: <%= user.id %></p>
+                                <p>Nombre: <%= user.name %></p>
+                                <p>Password: <%= user.password %> </p>
+                                <p>Repetir Password : <%= user.rePassword %> </p>
+                          
+                        </a>
+                    </div>
+                
+                <% } %>
+           
+          
+        
 
     </main>
 

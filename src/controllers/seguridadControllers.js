@@ -68,6 +68,16 @@ const seguridadController =
 		res.redirect("/seguridad/login");
 	},
 
+	list: function (req, res){
+
+        /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
+        /* let lista = JSON.parse(archivoJSON); */
+
+		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+        res.render('users', {usuarios : usuarios})
+    },
+
     admin: (req, res) => 
     {
         res.render('admin',{titulo:'Mundo Mascota DH-ABM Producto'});        

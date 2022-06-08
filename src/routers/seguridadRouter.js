@@ -8,6 +8,7 @@ router.get('/login',seguridadController.login);
 router.get('/register',seguridadController.register);
 router.post('/register',seguridadController.create);
 
+router.get('/list', seguridadController.list);
 router.get('/edit/:id', seguridadController.edit); 
 router.patch('/edit/:id', seguridadController.update); 
 

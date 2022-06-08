@@ -107,11 +107,19 @@
                     <br>
                     <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
                 </div>
-                <div >
-                    <button type="submit" class="btn-success boton-editar">
-                        <i class="fa-solid fa-user-check"></i>  Guardar Cambios</button>
-                </div>
-                
+
+               
+                    <div >
+                        <button type="submit" class="btn-success boton-editar">
+                            <i class="fa-solid fa-user-check"></i>  Guardar Cambios</button>
+                     </div>
+                     <div class="form-delete">
+                        <form action="/seguridad/edit/delete/<%= userToEdit.id %>?_method=DELETE" method="POST"  >
+                         <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
+                        </form>
+                    </div>
+               
+
             </div>
         </form>
 
@@ -120,7 +128,7 @@
 
     </main>
 
-    
+   
     <footer>
         <div class="footer-section">
             <div class="footer-primero">

@@ -1,9 +1,23 @@
 [
  {
-  "id": 1,
+  "id": "1",
   "name": "Adolfo Wirth",
   "email": "adolfowirth@hotmail.com",
   "password": "12345",
   "rePassword": "12345"
+ },
+ {
+  "id": "2",
+  "name": "Santi",
+  "email": "santi@yahoo.com.ar",
+  "password": "1234",
+  "rePassword": "1234"
+ },
+ {
+  "id": "3",
+  "name": "Fernanda",
+  "email": "fer@gmail.com",
+  "password": "123",
+  "rePassword": "123"
  }
 ]
