@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Etiqueta VIEWPORT -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Titulo que aparecera en el navegador -->
+        <title>Editar Usuario</title>
+       
+        <!-- link para GOOGLE Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <!--Fin link para GOOGLE Fonts -->
+        
+        <!-- links font awesone -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/1e24a630c6.js" crossorigin="anonymous"></script>
+        <!-- fin links font awesone -->
+        
+        <!-- links css personalizados -->
+        <link rel="stylesheet" href="/css/styles.css">
+    
+        <!--fin links css personalizados -->
+    
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+        <!--links bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!--fin links bootstrap-->
+    </head>
+
+<body>
+    <header>
+    
+        <div class="main-header">
+               <a href="/"><img src="/img/logo.jpg" alt="logo mundo mascota DH" class="logo" ></a> <br>
+              
+                
+                    
+                
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" id="busqueda" placeholder=" ¿Que estás necesitando?">
+                    <i class="fas fa-search lupa"></i>
+                </form>
+               
+    
+                <!-- <div class="icono-header">
+                    <a href="/venta/productCart"> <i  class="fa-solid fa-cart-shopping carrito"></i></a>
+    
+                </div> -->
+        </div>
+    
+      
+    
+        <div >
+            
+            <nav >
+                
+                <ul class="nav-bar">
+                    
+                    <li><a href="/venta/todosLosProductos">Todos los productos</a> <i class="fas fa-paw iconito"></i></li>
+                    <li><a href="/venta/mascotas">Mascotas</a> <i class="fas fa-paw iconito"></i></li>
+                    <li><a href="#">Mis compras</a> <i class="fas fa-shopping-basket iconito"></i></li>
+                    <li><a href="/venta/sucursales">Sucursales</a> <i  class="fa-solid fa-location-dot iconito"></i> </li>
+                    <li><a href="/seguridad/login">Ingresar</a> <i class="fas fa-user iconito"></i> </li>
+                    <li><a href="/seguridad/register">Registrate</a> <i class="fa-solid fa-address-card iconito"></i> </li>
+                    <li> <a href="/venta/productCart"> <i  class="fa-solid fa-cart-shopping carrito"></i></a></li>
+        
+                    
+                </ul>
+            </nav>
+        </div>
+         
+        <div class="burger-menu">
+        <i class="fas fa-bars menu"></i>
+        </div>
+    </header>
+    <main>
+        
+        <h1>Usuarios Registrados: </h1>
+
+                
+        <ul>
+            <% for(let i = 0; i<lista.length; i++) { %>
+                <li>
+                    <a href="/users/detail/<%= lista[i].id %> "> <%= lista[i].nombre %></a>
+                    <form method="POST" action="/users/delete/<%= lista[i].id %>?_method=DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li> 
+                <li>
+                    <a href="/seguridad/edit/<%= lista[i].id %> "> <%= lista[i].nombre %></a>
+                    <form method="GET" action="/seguridad/edit/<%= lista[i].id %>">
+                        <button type="submit">Editar</button>
+                    </form>
+
+                </li>
+                <% } %> 
+        </ul>
+        <h2>Search</h2>
+        <form action="/users/search" method="GET">
+            <input type="text" name="search">
+            <input type="submit" value="search">
+        </form>
+       
+
+
+
+
+    </main>
+
+    
+    <footer>
+        <div class="footer-section">
+            <div class="footer-primero">
+                <section class="pie">
+                    <i class="fa-solid fa-credit-card icono-uno"></i>
+                    <p class="titulo">Pagá con tarjeta o en efectivo</p>
+                    <p class="subtitulo">con VISA o MASTERCARD, tenés cuotas sin interés con tarjeta o efectivo en
+                        puntos de pago. ¡Y siempre es seguro!</p>
+                </section>
+                <section class="pie">
+                    <i class="fa-solid fa-gift icono-uno"></i>
+                    <p class="titulo">Envío gratis desde $ 1.000</p>
+                    <p class="subtitulo">Solo por estar registrad@ en MUNDO MASCOTA DH tenés envíos gratis en miles de
+                        productos. Es un beneficio de Mercado Puntos.</p>
+                </section>
+                <section class="pie">
+                    <i class="fa-solid fa-user-shield icono-uno"></i>
+                    <p class="titulo">Seguridad, de principio a fin</p>
+                    <p class="subtitulo">¿No te gusta? ¡Devolvelo! En MUNDO MASCOTA DH, no hay nada que no puedas hacer,
+                        porque estás siempre protegid@.</p>
+                </section>
+            </div>
+        </div>
+    
+        <div class="footer-section">
+            <div class="footer-segundo">
+    
+    
+    
+                <section class="pie-dos">
+                    <i class="fa-solid fa-people-group icono"></i>
+                    <p class="titulo">Institucional</p>
+                    <p class="subtitulo">Nuestra Empresa</p>
+                    <p class="subtitulo">Staff Mundo Mascota - DH</p>
+                </section>
+    
+                <section class="pie-dos">
+                    <i class="fa-solid fa-house icono"></i>
+                    <p class="titulo">Servicios</p>
+                    <p class="subtitulo">Catalogo</p>
+                    <p class="subtitulo"> Sucursales</p>
+                    <p class="subtitulo">Medios de pago</p>
+                </section>
+    
+                <section class="pie-dos">
+                    <i class="fa-solid fa-hand-holding-hand icono"></i>
+                    <p class="titulo">Compra online</p>
+                    <p class="subtitulo">Mis pedidos</p>
+                    <p class="subtitulo">Mi carrito</p>
+                    <p class="subtitulo">Costos de envio</p>
+                </section>
+    
+                <section class="pie-dos">
+                    <i class="fa-solid fa-phone icono"></i>
+                    <p class="titulo">Atencion al cliente</p>
+                    <p class="subtitulo">Atencion Telefonica : 0810 -123 -4567</p>
+                    <p class="subtitulo">Preguntas Frecuentes</p>
+                    <p class="subtitulo">Terminos y condiciones</p>
+                </section>
+            </div>
+        </div>
+    
+        <section class="copyrigth">
+            
+            <section>
+                <a href="/"><img src="/img/logo.jpg" alt="logo mundo mascota DH" class="logo-footer"></a>
+                <!-- <p style="text-align: center; margin-left: 45px; width: 142px; height: 50px; color:black; margin-top: 450px; ">MUNDO MASCOTAS DH </p> -->
+            </section>
+            
+        <section>
+                <img src="/img/data-fiscal.png" alt="data fiscal" style="width: 150px;">
+        </section>
+            
+            
+            <div class="social-media">
+               
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-twitter' ></i>
+                </a> 
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-facebook' ></i>
+                </a> 
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-instagram' ></i>
+                </a> 
+            </div>
+    
+            <h3 class="copyrigth-texto">Copyright © 1999-2022 MUNDO MASCOTA DH - Grupo 5 - Comision 13 </h3>
+            
+        </section>
+    
+    </footer>
+</body>
+
+</html>

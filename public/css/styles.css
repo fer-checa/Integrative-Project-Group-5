@@ -56,6 +56,17 @@ h3 {
   margin-left: 25px;
 }
 
+.form-input-edit{
+  width: 40%;
+  text-align: center;
+}
+
+.boton-editar{
+  
+  margin: auto;
+  margin-top: 5%;
+}
+
 p {
   text-align: justify;
   margin-top: 25px;
