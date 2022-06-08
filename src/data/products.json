@@ -128,5 +128,83 @@
         "fecha": "10/05/2022",
         "usuario": "user_id",
         "activo": true
+    },
+    {
+        "id": 11,
+        "nombre": "ARENA AGLOM. SANICAT STRONG CLUMPS X 7 KG",
+        "descripción": "La arena Sanicat Strong Clumps es una arena bentonita ultra aglomerante que elimina de forma natural y eficiente los olores desagradables absorbiendo el olor de forma natural, reteniendo 2.5 veces su peso en orina. Las propiedades de esta arena aportan un alto rendimiento por sus aglomerados más duros e instantáneos. Además, genera muy poco polvo. Estos aglomerados sólidos, que se forman de manera natural, retienen el mal olor mientras absorben la orina. Gracias a que son muy fáciles de retirar, se pueden recoger regularmente para una mayor frescura e higiene de la bandeja sanitaria.",
+        "imagen": "https://catycanar.vtexassets.com/arquivos/ids/159732-800-auto?v=637733197917770000&width=800&height=auto&aspect=true",
+        "categoria": "Higiene",
+        "familia": "Gatos",
+        "precio": 1456,
+        "descuento": 0,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
+    },
+    {
+        "id": 12,
+        "nombre": "CAMA COLCHONETA PERRO RECTANGULAR CON CORDERITO 73 X 51 CM",
+        "descripción": "Colchoneta con corderito ideal para permitir un plácido descanso a tu mascota. Al estar elevada 7,6 cm del suelo, tu perro estará aislado del frío y la humedad del suelo. Además, tiene corderito en su superficie para mantenerlo cálido. Es desmontable, lo que la vuelve muy fácil de limpiar. Medidas: 73 x 51 cm.",
+        "imagen": "https://catycanar.vtexassets.com/arquivos/ids/157001-800-auto?v=637732972920400000&width=800&height=auto&aspect=true",
+        "categoria": "Camas",
+        "familia": "Perros",
+        "precio": 8339,
+        "descuento": 13,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
+    },
+    {
+        "id": 13,
+        "nombre": "CHAPITA BASIC BOSTON TERRIER",
+        "descripción": "",
+        "imagen": "https://catycanar.vtexassets.com/arquivos/ids/159099-800-auto?v=637732986263670000&width=800&height=auto&aspect=true",
+        "categoria": "Articulos",
+        "familia": "Perros",
+        "precio": 2794,
+        "descuento": 0,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
+    },
+    {
+        "id": 14,
+        "nombre": "CORREA CORDON ALPINO 20 MM X 120 CM",
+        "descripción": "La correa cordón alpino para perros es súper resistente y de fácil ajuste. La calidad del material brinda una mayor seguridad para controlar a tu mascota.",
+        "imagen": "https://catycanar.vtexassets.com/arquivos/ids/157064-800-auto?v=637732973290400000&width=800&height=auto&aspect=true",
+        "categoria": "Articulos",
+        "familia": "Perros",
+        "precio": 1794,
+        "descuento": 0,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
+    },
+    {
+        "id": 15,
+        "nombre": "RASCADOR PARA GATOS SISAL CATF1 - CONDO DELUXE MULTINIVEL",
+        "descripción": "",
+        "imagen": "https://catycanar.vtexassets.com/arquivos/ids/159708-800-auto?v=637733197784730000&width=800&height=auto&aspect=true",
+        "categoria": "Articulos",
+        "familia": "Gatos",
+        "precio": 27300,
+        "descuento": 18,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
+    },
+    {
+        "id": 16,
+        "nombre": "Kong Peluche Marvin Moose Medium Perros- Petit Pet Shop",
+        "descripción": "Los KONG Cozie™ Brights son juguetes de peluche blandos y adorables excelentes para acurrucarse con ternura. Los KONG Cozie™ Brights están hechos con una capa adicional de material para mayor resistencia y son juguetes ideales para sesiones de mordida suave y diversión dentro de casa. Sin duda, ¡tu perro adorará los juguetes KONG Cozie™ Brights tanto para acurrucarse como para jugar!",
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_676755-MLA45684455234_042021-O.webp",
+        "categoria": "Juguetes",
+        "familia": "Perros",
+        "precio": 3200,
+        "descuento": 0,
+        "fecha": "10/05/2022",
+        "usuario": "user_id",
+        "activo": true
     }
 ]
