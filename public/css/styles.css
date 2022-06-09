@@ -77,9 +77,10 @@ h3 {
 .boton-eliminar {
   border: 1px solid black;
   margin: auto;
-  margin-top: 3%;
+  margin-top: -3%;
   background-color: #23677e;
   color: #ebf2fa;
+  width: 220px;
 }
 
 p {

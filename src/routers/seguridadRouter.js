@@ -12,7 +12,7 @@ router.get('/list', seguridadController.list);
 router.get('/edit/:id', seguridadController.edit); 
 router.patch('/edit/:id', seguridadController.update); 
 
-/* router.delete('/delete/:id', seguridadController.destroy); */
+router.delete('/delete/:id', seguridadController.destroy);
  
 router.get('/admin',seguridadController.admin); 
 

@@ -65,7 +65,7 @@ const seguridadController =
 		usuarios[indice] = editedUser;
 
 		fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
-		res.redirect("/seguridad/login");
+		res.redirect("/seguridad/list");
 	},
 
 	list: function (req, res){
@@ -77,6 +77,14 @@ const seguridadController =
 
         res.render('users', {usuarios : usuarios})
     },
+
+	destroy : (req, res) => {
+		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+		let finalUsuarios = usuarios.filter(product => product.id != req.params.id)
+		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsuarios, null, " "));
+		res.redirect('/seguridad/list');
+		
+	},
 
     admin: (req, res) => 
     {
