@@ -3,7 +3,7 @@
   "id": 1,
   "name": "Adolfo Wirth",
   "email": "adolfowirth@hotmail.com",
-  "password": 123,
-  "rePassword": 123
+  "password": "12345",
+  "rePassword": "12345"
  }
 ]
