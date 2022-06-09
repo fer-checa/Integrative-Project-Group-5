@@ -1,86 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Etiqueta VIEWPORT -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Titulo que aparecera en el navegador -->
-        <title>Editar Usuario</title>
-       
-        <!-- link para GOOGLE Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <!--Fin link para GOOGLE Fonts -->
-        
-        <!-- links font awesone -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/1e24a630c6.js" crossorigin="anonymous"></script>
-        <!-- fin links font awesone -->
-        
-        <!-- links css personalizados -->
-        <link rel="stylesheet" href="/css/styles.css">
-    
-        <!--fin links css personalizados -->
-    
-        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-        <!--links bootstrap-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <!--fin links bootstrap-->
-    </head>
+    <%- include('./partials/head') %>
 
 <body>
-    <header>
+    <%- include('./partials/header') %>
     
-        <div class="main-header">
-               <a href="/"><img src="/img/logo.jpg" alt="logo mundo mascota DH" class="logo" ></a> <br>
-              
-                
-                    
-                
-                <form action="/search" method="GET" class="search-form">
-                    <input type="text" id="busqueda" placeholder=" ¿Que estás necesitando?">
-                    <i class="fas fa-search lupa"></i>
-                </form>
-               
-    
-                <!-- <div class="icono-header">
-                    <a href="/venta/productCart"> <i  class="fa-solid fa-cart-shopping carrito"></i></a>
-    
-                </div> -->
-        </div>
-    
-      
-    
-        <div >
-            
-            <nav >
-                
-                <ul class="nav-bar">
-                    
-                    <li><a href="/venta/todosLosProductos">Todos los productos</a> <i class="fas fa-paw iconito"></i></li>
-                    <li><a href="/venta/mascotas">Mascotas</a> <i class="fas fa-paw iconito"></i></li>
-                    <li><a href="#">Mis compras</a> <i class="fas fa-shopping-basket iconito"></i></li>
-                    <li><a href="/venta/sucursales">Sucursales</a> <i  class="fa-solid fa-location-dot iconito"></i> </li>
-                    <li><a href="/seguridad/login">Ingresar</a> <i class="fas fa-user iconito"></i> </li>
-                    <li><a href="/seguridad/register">Registrate</a> <i class="fa-solid fa-address-card iconito"></i> </li>
-                    <li> <a href="/venta/productCart"> <i  class="fa-solid fa-cart-shopping carrito"></i></a></li>
-        
-                    
-                </ul>
-            </nav>
-        </div>
-         
-        <div class="burger-menu">
-        <i class="fas fa-bars menu"></i>
-        </div>
-    </header>
     <main>
         
         <h1>Editar Usuario</h1>
@@ -128,6 +53,7 @@
 
     </main>
 
+<<<<<<< HEAD
    
     <footer>
         <div class="footer-section">
@@ -221,6 +147,10 @@
         </section>
     
     </footer>
+=======
+    <%- include ('./partials/footer.ejs') %>
+        
+>>>>>>> dc7797c5df65babae81dcd216cc70ad5fbf5c5b9
 </body>
 
 </html>

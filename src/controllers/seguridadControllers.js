@@ -42,7 +42,7 @@ const seguridadController =
 		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 		const iduser = req.params.id;
 		const userToEdit = usuarios.find(row =>{ return row.id == iduser})
-		res.render('editar', {userToEdit})
+		res.render('editar', {userToEdit, titulo:'Editar usuario'})
 
 	},
 

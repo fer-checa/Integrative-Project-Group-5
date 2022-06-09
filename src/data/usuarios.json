@@ -7,6 +7,7 @@
   "rePassword": "12345"
  },
  {
+<<<<<<< HEAD
   "id": "2",
   "name": "Santi",
   "email": "santi@yahoo.com.ar",
@@ -20,4 +21,12 @@
   "password": "123",
   "rePassword": "123"
  }
+=======
+    "id": 2,
+    "name": "Martin Estevez",
+    "email": "martin.2003estevez@gmail.com",
+    "password": "345",
+    "rePassword": "345"
+   }
+>>>>>>> dc7797c5df65babae81dcd216cc70ad5fbf5c5b9
 ]
