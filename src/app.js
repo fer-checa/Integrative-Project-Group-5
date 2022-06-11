@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
-const path= require('path');
 
 //Carpeta archivos estaticos.
 app.use(express.static("public"));
@@ -12,6 +12,15 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set('views',path.resolve(__dirname, 'views'));
 
+//Para el motodo POST
+//Con esto se captura todo lo que viene de un formulario en forma de un objeto literal y luego
+//convertirlo en formato JSON si queremos
+app.use(express.urlencoded({ extended : false}));
+app.use(express.json());
+
+//Para el put/delete hay que instalar el npm instal method-override --save
+const methodOverride = require('method-override');
+app.use(methodOverride("_method"));
 
 // requerir archivos de rutas.
 const indexRouter = require('./routers/indexRouter');

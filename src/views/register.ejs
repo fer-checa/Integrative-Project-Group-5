@@ -10,12 +10,15 @@
     <!-------------------- MAIN --------------------->
     <main>
         <h1>Registro de Usuario</h1>
-        <form action="/register" method="GET" class="form-seguridad" >
+
+        <form action="/seguridad/register" method="POST" class="form-seguridad">
             <div class="contenedor-seguridad">
-                <div><input type="text" class="input-registro" placeholder="Nombre"></div>
-                <div><input class="input-registro" type="email" placeholder="E-mail"></div>
-                <div><input class="input-registro" type="password" placeholder="Contraseña"></div>
-                <div><input class="input-registro" type="password" placeholder="Repetir contraseña"></div>
+                <div>
+                    <input type="text" class="input-registro" id="name" name="name" placeholder="Nombre">
+                </div>
+                <div><input class="input-registro" type="email" id="email" name="email" placeholder="E-mail"></div>
+                <div><input class="input-registro" type="password" id="password" name="password" placeholder="Contraseña"></div>
+                <div><input class="input-registro" type="password" id="rePassword" name="rePassword" placeholder="Repetir contraseña"></div>
 
                 <div class="boton-final contenedor-botones " >
                     <button id="" type="submit" class="btn-success boton-seguridad">
