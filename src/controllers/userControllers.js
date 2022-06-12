@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 
-const seguridadController = 
+const userController = 
 {
     login: (req, res) => 
     {
@@ -33,7 +33,7 @@ const seguridadController =
 		fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
 		 
 
-		res.redirect('/seguridad/login');
+		res.redirect('/user/login');
    
     },
 
@@ -65,7 +65,7 @@ const seguridadController =
 		usuarios[indice] = editedUser;
 
 		fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
-		res.redirect("/seguridad/list");
+		res.redirect("/user/list");
 	},
 
 	list: function (req, res){
@@ -75,14 +75,14 @@ const seguridadController =
 
 		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
-        res.render('users', {usuarios : usuarios})
+        res.render('users', {usuarios, titulo:'Lista usuarios' })
     },
 
 	destroy : (req, res) => {
 		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 		let finalUsuarios = usuarios.filter(product => product.id != req.params.id)
 		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsuarios, null, " "));
-		res.redirect('/seguridad/list');
+		res.redirect('/user/list');
 		
 	},
 
@@ -93,4 +93,4 @@ const seguridadController =
                 
 }
 
-module.exports = seguridadController;
+module.exports = userController;

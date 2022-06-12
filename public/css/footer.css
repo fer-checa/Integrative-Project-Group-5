@@ -30,7 +30,8 @@ footer {
 .footer-segundo {
   margin: auto;
   padding: 20px;
-  background-color: var(--azul_acero);
+  background-color: var(--azul_zafiro);
+  border-bottom: 1px solid #ebf2fa;
 }
 
 .copyrigth {
@@ -77,7 +78,7 @@ footer {
 
 .titulo {
   font-weight: bold;
-  font-size: 90%;
+  font-size: 100%;
   margin-top: 1%;
   margin-bottom: 0%;
   text-align: center;
@@ -89,7 +90,7 @@ footer {
   padding-left: 15%;
   padding-right: 15%;
   margin-bottom: 0%;
-  font-size: 80%;
+  font-size: 90%;
   text-align: center;
   color: aliceblue;
 }

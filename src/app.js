@@ -24,9 +24,9 @@ app.use(methodOverride("_method"));
 
 // requerir archivos de rutas.
 const indexRouter = require('./routers/indexRouter');
-const seguridadRouter = require('./routers/seguridadRouter');
+const userRouter = require('./routers/userRouter');
 const ventaRouter = require('./routers/ventaRouter');
-
+const footerRouter = require('./routers/footerRouter')
 
 //Servidor.
 app.listen(3050,() => {
@@ -36,6 +36,7 @@ app.listen(3050,() => {
 
 //mapeo de rutas
 app.use('/', indexRouter);
-app.use('/seguridad', seguridadRouter);
+app.use('/user', userRouter);
 app.use('/venta', ventaRouter);
+app.use('/footer', footerRouter);
 

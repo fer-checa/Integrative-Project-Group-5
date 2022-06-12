@@ -10,7 +10,7 @@
         
         <h1>Editar Usuario</h1>
 
-        <form action="/seguridad/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad">
+        <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad">
             <div class="contenedor-seguridad">
                 <div >
                     <label for="name" class="input-registro">Nombre del Usuario:</label>
@@ -44,7 +44,7 @@
                 </form>
                 
                 <div class="form-delete">
-                   <form action="/seguridad/delete/<%= userToEdit.id %>?_method=DELETE" method="POST"  >
+                   <form action="/user/delete/<%= userToEdit.id %>?_method=DELETE" method="POST"  >
                     <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
                    </form>
                </div>
