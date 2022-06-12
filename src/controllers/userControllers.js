@@ -84,13 +84,8 @@ const userController =
 		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsuarios, null, " "));
 		res.redirect('/user/list');
 		
-	},
-
-    admin: (req, res) => 
-    {
-        res.render('admin',{titulo:'Mundo Mascota DH-ABM Producto'});        
-    }
-                
+	}
+       
 }
 
 module.exports = userController;

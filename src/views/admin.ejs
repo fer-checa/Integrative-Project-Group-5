@@ -12,75 +12,103 @@
 
             <!-------------------- MAIN --------------------->
 
+
             <main>
+                <div class="container">
+                    <h1> Alta - Baja - Modificacion de producto </h1>
 
-                <h1> Alta - Baja - Modificacion de producto </h1>
-
-                <form action="/admin" method="post">
-
-                    <!-- Agregar el nombre del producto -->
-                    <div>
-                        <label for="nombre">Nombre del Producto:</label>
-                        <input type="text" id="nombre" name="nombre" class="input" required>
-                    </div>
-
-                    <!-- Agregar una descripcion del producto -->
-                    <div>
-                        <label> Descripcion: </label>
-                        <textarea type="consulta" id="consulta" placeholder="descripcion"
-                            class="carga-descripcion"></textarea>
-                    </div>
-
-                    <!-- Agregar categoria del producto -->
-                    <label for="nombre"> Categoria:</label>
-                    <select class="select-img">
-                        <option></option>
-                        <option>Perro</option>
-                        <option>Gato</option>
-                    </select>
-
-                    <!-- Agregar imagen del producto -->
-                    <div>
-                        <label for="nombre"> Foto del producto: </label>
-                        <input type="file" name="foto" id="foto" class="input">
-                    </div>
-
-                    <!-- Agregar color/talle del producto -->
-                    <div>
-                        <label for="nombre">Colores:</label>
-                        <input type="text" id="nombre" name="nombre" class="input" required>
-                    </div>
-
-                    <!-- Agregar el precio del producto -->
-                    <div>
-                        <label for="nombre">Precio:</label>
-                        <input type="text" id="nombre" name="nombre" class="input" required>
-                    </div>
-
-                    <!-- Codigo del producto -->
-                    <div>
-                        <label for="nombre">Codigo del producto:</label>
-                        <input type="text" id="nombre" name="nombre" class="input" required>
-                    </div>
-
-                    <!-- Producto ACTIVO - SI/NO -->
-                    <label for="nombre"> Producto Activo:</label>
-                    <select class="select-img">
-                        <option></option>
-                        <option>SI</option>
-                        <option>NO</option>
-                    </select>
+                    <form action="/admin" method="post">
 
 
-                    <!-- Botones para agregar y eliminar un producto -->
-                    <div class="boton">
-                        <button type="submit" class="agregar-producto"> <i class="far fa-check-circle"></i> Guardar
-                        </button>
-                        <!-- <button type="reset" class="borrar"> <i class="fas fa-trash-alt"></i> Eliminar producto </button> -->
-                    </div>
-                </form>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="nombre" type="text" class="form-control" name="nombre"
+                                placeholder="Nombre del Producto">
+                        </div>
+
+                        <div class="input-group" style="width:100% ;">
+                            <label for="comment">Descripcion del producto :</label>
+                            <textarea class="form-control" rows="5" id="descripcion"></textarea>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="sel1">Seleccione categoria:</label>
+                                    <select class="form-control" id="sel1">
+                                        <option>Seleccione Categoria</option>
+                                        <option>Perro</option>
+                                        <option>Gato</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-md-6">
+                                <div class="form-group">
+                                    <label for="sel1">Seleccione familia:</label>
+                                    <select class="form-control" id="sel1">
+                                        <option>Seleccione Familia</option>
+                                        <option>Alimentos</option>
+                                        <option>Juguetes</option>
+                                        <option>Snack</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="nombre"> Foto del producto: </label>
+                                    <input type="file" name="foto" id="foto" class="input">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="/img/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input step="0.01" min="1" type="number" id="precio" class="form-control"
+                                        name="precio" placeholder="Precio del Producto">
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input step="0.01" min="0" id="descuento" type="number" class="form-control"
+                                        name="descuento" placeholder="Descuento del Producto">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="selActivo">Producto activo:</label>
+                            <select id="selectActivo" class="form-control" id="selActivo">
+                                <option>Seleccione si el producto esta activo SI/NO</option>
+                                <option>SI</option>
+                                <option>NI</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-6">
+                                <button id="btnGuardar" type="submit" class="btn btn-success btn-lg btn-block"><i
+                                        class="far fa-check-circle"></i> Guardar</button>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <button id="btnLimpiar" type="reset" class="btn btn-warning btn-lg btn-block">Limpiar</button>
+                            </div>
+                        </div>
 
 
+                    </form>
+                </div>
             </main>
 
             <!-- FOOTER -->

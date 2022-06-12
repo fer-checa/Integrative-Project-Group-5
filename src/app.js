@@ -27,6 +27,7 @@ const indexRouter = require('./routers/indexRouter');
 const userRouter = require('./routers/userRouter');
 const ventaRouter = require('./routers/ventaRouter');
 const footerRouter = require('./routers/footerRouter')
+const adminRouter = require('./routers/adminRouter')
 
 //Servidor.
 app.listen(3050,() => {
@@ -39,4 +40,5 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/venta', ventaRouter);
 app.use('/footer', footerRouter);
+app.use('/admin', adminRouter);
 

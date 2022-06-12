@@ -6,7 +6,7 @@ const footerController = require('../controllers/footerController');
 router.get('/staff',footerController.staff);
 router.get('/empresa',footerController.empresa);
 
-
+    
 router.get('/medioDePago',footerController.medioDePago);
 
 router.get('/costoDeEnvio',footerController.costoDeEnvio);
