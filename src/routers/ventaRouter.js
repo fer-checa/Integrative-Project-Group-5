@@ -12,9 +12,4 @@ router.get('/sucursales',ventaController.sucursales);
 router.get('/mascotas',ventaController.mascotas);
 router.get('/todosLosProductos',ventaController.todosLosProductos);
 
-
-
-
-
-
 module.exports = router;

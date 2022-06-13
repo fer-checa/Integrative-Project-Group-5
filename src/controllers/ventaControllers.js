@@ -34,6 +34,11 @@ const ventaController =
     {
         res.render('todosLosProductos',{titulo:'Mundo Mascota DH-Productos'});        
     },
+    admin: (req, res) => 
+    {
+        res.render('admin',{titulo:'Mundo Mascota DH-ABM Producto'});        
+    }
+            
 }
 
 
