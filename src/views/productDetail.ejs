@@ -2,365 +2,79 @@
 <html lang="en">
 
 <!--------------------- HEAD ----------------->
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mundo Mascota DH-Detalle de Productos</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/1e24a630c6.js" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/detalle-producto.css">
-
-  <script src="https://kit.fontawesome.com/1e24a630c6.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
-  <!--links bootstrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
-</head>
-
-<!--------------------- BODY ----------------->
-
-<body>
-
-  <!--------------------- HEADER ----------------->
-  <%- include('./partials/header') %>
-
-    <!-------------------- MAIN --------------------->
-    <main>
-
-      <div class="container" style="margin-top: 30px; margin-right: 40px">
-
-        <div class="row">
-
-          <div class=" col-xs-12 col-sm-6 col-md-4">
-
-            <!-- class="section-producto"
-
-            class="producto"  -->
-
-            <section>
-
-              <article>
-
-                <!--ALIMENTO para PERROS -->
-                <img src="/img/alimento-perros1.jpg" alt="alimento-perros1" class="foto-producto">
-
-                <div class="detalle-Producto" class=" col-xs-12 col-sm-6 col-md-4">
-
-                  <div class="precio-descuento" class=" col-xs-12 col-sm-6 col-md-4">
-                    <p id="precios">$6.770</p>
-                    <p id="descuentos">40% OFF Efectivo</p>
-
-                  </div>
-                  <P class="descripciones" class=" col-xs-12 col-sm-6 col-md-4">Alimento Pedigree Sano Crecimiento para
-                    perro cachorro todos los
-                    tamaños sabor mix en bolsa de 21 kg</P>
-                </div>
-
-                <!-- Boton para agregar al carrito -->
-                <div>
-                  <button type="submit" class="boton-comprar"> <i class="fa-solid fa-cart-shopping"
-                      class=" col-xs-12 col-sm-6 col-md-4" "></i> Agregar
-                  al carrito</button>
-              </div>
-            </article>
-
-        </div>
-
-      </div>
-
-      </div>
-
-      <!--********************************************************************************************-->
-
-
-      <div class=" container">
-
-                      <div class="row">
-
-                        <div class=" col-xs-12 col-sm-6 col-md-4">
-                          <h1>Características de Mars Petcare Pedigree Sano Crecimiento Perro Cachorro</h1>
-
-                          <article class="caracteristicas">
-
-                            <P> <i class="far fa-check-circle icono "></i> Marca recomendada: Perro</P>
-
-                            <p> <i class="far fa-check-circle icono "></i> Tamaño de la raza: Todos los tamaños</p>
-
-                            <P> <i class="far fa-check-circle icono "></i> Sabor: Mix</P>
-
-                            <p> <i class="far fa-check-circle icono "></i> Etapa de la vida de la mascota: Cachorro</p>
-
-                            <p> <i class="far fa-check-circle icono "></i> Tipo de comida: Seca</p>
-                          </article>
-
-                        </div>
-
-                        <!--  -->
-
-                      </div>
-
-                </div>
-
-
-
-                <!-- CARACTERISTICAS GENERALES -->
-
-
-                <div class="container">
-                  <h3>Caracteristicas generales</h3>
-                  <table class="table table-striped" classe="tabla-caracteristicas">
-
-                    <tbody>
-                      <tr>
-                        <td>Fabricante</td>
-                        <td>Mars Petcare</td>
-                      </tr>
-                      <tr>
-                        <td>Marca</td>
-                        <td>Pedigree</td>
-                      </tr>
-                      <tr>
-                        <td>Linea</td>
-                        <td>Sano Crecimiento</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <!-- CARACTERISTICAS DE LA MASCOTA -->
-
-
-                <div class="container">
-                  <h3>Caracteristicas de la mascota</h3>
-                  <table class="table table-striped" classe="tabla-caracteristicas">
-
-                    <tbody>
-                      <tr>
-                        <td>Mascota recomendada</td>
-                        <td>Perro</td>
-                      </tr>
-                      <tr>
-                        <td>Etapa de vida de la mascota</td>
-                        <td>Cachorro</td>
-                      </tr>
-                      <tr>
-                        <td>Tamaño de la raza</td>
-                        <td>Todos los tamaños</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-
-                <!-- ESPECIFICACIONES -->
-
-                <div class="container">
-                  <h3>Especificaciones</h3>
-                  <table class="table table-striped" classe="tabla-caracteristicas">
-
-                    <tbody>
-                      <tr>
-                        <td>Sabor</td>
-                        <td>Mix</td>
-                      </tr>
-                      <tr>
-                        <td>Peso de la unidad</td>
-                        <td>21Kg</td>
-                      </tr>
-                      <tr>
-                        <td>Tipo de envase</td>
-                        <td>Bolsa</td>
-                      </tr>
-                      <tr>
-                        <td>Tipo de comida para mascotas</td>
-                        <td>Seca</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <h3>Descripcion</h3>
-                <article class="detalle-final">
-
-                  <p class="caracteristicas">
-                    La selección de un alimento adecuado para tu mascota es muy importante para garantizar su
-                    crecimiento, desarrollo y
-                    salud. Con esta opción de Pedigree podrás cubrir las necesidades nutricionales y energéticas de
-                    tu perro.
-
-                    Tu mascota siempre saludable
-                    Ellos son parte de la familia y nos regalan su compañía y su cariño. Para que se mantengan sanos
-                    y fuertes, una
-                    alimentación balanceada es esencial. Brindale a tu perro los nutrientes que necesita para que
-                    pueda correr, saltar y
-                    jugar todo el día.
-
-                    Beneficios del alimento seco
-                    La mayor ventaja de la comida seca para mascotas es que se puede almacenar por mucho más tiempo
-                    sin que se deteriore, y
-                    evita la aparición de hongos o bacterias. Además, este tipo de alimento ayuda a eliminar el
-                    sarro y a retrasar la
-                    formación de la placa dental con el proceso de masticación y trituración.
-                  </p>
-
-                </article>
-
-                <h2>Productos similares</h2>
-
-                <section>
-
-                  <!-- ALIMENTO 2 -->
-                  <article class="producto">
-                    <img src="/img/alimento-perros2.jpg" alt="alimento-perros2" class="foto-producto">
-
-                    <div class="detalle-Producto">
-
-
-                      <div class="precio-descuento">
-                        <p id="precios">$6.770</p>
-                        <p id="descuentos">40% OFF</p>
-                      </div>
-
-                      <P class="descripciones">Alimentos perros 2</P>
-                    </div>
-                  </article>
-
-                  <!-- ALIMENTO 3 -->
-                  <article class="producto">
-                    <img src="/img/alimento-perros3.jpg" alt="alimento-perros3" class="foto-producto">
-
-                    <div class="detalle-Producto">
-
-
-                      <div class="precio-descuento">
-                        <p id="precios">$6.770</p>
-                        <p id="descuentos">40% OFF</p>
-                      </div>
-
-                      <P class="descripciones">Alimentos perros 3</P>
-                    </div>
-                  </article>
-
-                  <!-- ALIMENTO 4 -->
-                  <article class="producto">
-                    <img src="/img/alimento-perros4.jpg" alt="alimento-perros4" class="foto-producto">
-
-                    <div class="detalle-Producto">
-
-
-                      <div class="precio-descuento">
-                        <p id="precios">$6.770</p>
-                        <p id="descuentos">40% OFF</p>
-                      </div>
-
-                      <P class="descripciones">Alimentos perros 4</P>
-                    </div>
-                  </article>
-
-                  <!-- ALIMENTO 5 -->
-                  <article class="producto">
-                    <img src="/img/alimento-perros5.jpg" alt="alimento-perros5" class="foto-producto">
-
-                    <div class="detalle-Producto">
-
-
-                      <div class="precio-descuento">
-                        <p id="precios">$6.770</p>
-                        <p id="descuentos">40% OFF</p>
-                      </div>
-
-                      <P class="descripciones">Alimentos perros 5</P>
-                    </div>
-                  </article>
-
-
-                  <!-- ALIMENTO 6 -->
-                  <article class="producto">
-                    <img src="/img/alimento-perros6.jpg" alt="alimento-perros6" class="foto-producto">
-
-                    <div class="detalle-Producto">
-
-
-                      <div class="precio-descuento">
-                        <p id="precios">$6.770</p>
-                        <p id="descuentos">40% OFF</p>
-                      </div>
-
-                      <P class="descripciones">Alimentos perros 6</P>
-                    </div>
-                  </article>
-
-                  <!-- MEDIOS DE PAGO -->
-                  <h1>Medios de Pago</h1>
-
-                  <div class="footer-pago">
-                    <article class="medios-de-pago">
-
-                      <div>
-                        <h4>Hasta 12 cuotas sin tarjeta</h4>
-
-
-                      </div>
-
-                      <div>
-                        <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de crédito</h4>
-                        <p> <i class="fas fa-university"></i> ¡Cuotas sin interés con bancos seleccionados! </p>
-                        <p> <i class="fab fa-cc-visa"></i> Visa </p>
-                        <p> <i class="fab fa-cc-mastercard"></i> MasterCard </p>
-                        <p> <i class="fab fa-cc-amex"></i> American Expres </p>
-
-                        <h4 class="texto-pago" class="tc-texto"> Hasta 6 cuotas sin interés con estos bancos </h4>
-                        <img src="/img/6-cuotas-TC.jpg" alt="6-cuotas-TC" class="foto-producto">
-
-
-                        <h4> O hasta 12 cuotas con interés </h4>
-                        <img src="/img/12-cuotasTC.jpg" alt="12-cuotasTC" class="foto-producto">
-
-                      </div>
-
-                      <div>
-                        <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de débito</h4>
-                        <p> <i class="fab fa-cc-visa"></i> Visa - Debito </p>
-                        <p> <i class="fab fa-cc-mastercard"></i> MasterCard - Debito</p>
-                      </div>
-
-                      <div>
-                        <h4 style="text-decoration: underline;">Efectivo</h4>
-                        <p class="texto-pago">Dinero en tu cuenta de Mercado Pago
-
-                          Al finalizar tu compra, pagás con el dinero disponible en tu cuenta.</p>
-                        <p>Podés ingresar dinero a Mercado
-                          Pago con tu tarjeta de débito, en efectivo o por transferencia bancaria.
-
-                          Acreditación instantánea.</p>
-                        <!-- <img src="/img/mercado-pago.jpg" alt="mercado-pago" class="foto-producto"> -->
-                      </div>
-
-                    </article>
-                  </div>
-                </section>
-
-
-    </main>
-    <!-- ---------------------------------- FOOTER -------------------------------------------- -->
-
-    <%- include ('./partials/footer.ejs') %>
-</body>
+<%- include('./partials/head') %>
+  <!--------------------- BODY ----------------->
+
+  <body>
+
+    <!--------------------- HEADER ----------------->
+    <%- include('./partials/header') %>
+
+      <!-------------------- MAIN --------------------->
+  <main>
+        <!-- DETALLE DEL PRODUCTO -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Detalle del producto: <%= product.name %></h2>
+			</div>
+		</div>
+		<div class="product-detail">
+			<div class="row">
+				<div class="col-12 col-lg-8">
+					<img src="/img/products/<%= product.image %>" alt="product image" class="product-detail-img">
+					<p class="product-detail-description">
+						<%= product.description %>
+					</p>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"><%= product.name %></h2>
+						<% if(product.discount > 0) { 
+							let finalPrice = (product.price * ((100 - product.discount) / 100)).toFixed(0)
+						%>
+							<p class="product-detail-price small">
+								<span> $ <%= product.price %></span>
+								/
+								<b><%= product.discount %>% OFF</b>
+							</p>
+							<p class="product-detail-price">
+								$<%= finalPrice %>
+							</p>
+						<% } else { %>
+							<p class="product-detail-price">
+								$<%= product.price %>
+							</p>
+						<% } %>
+
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card"></i>
+								<p>Pagá en 12 cuotas sin interes</p>
+							</li>
+							<li>
+								<i class="fas fa-store"></i>
+								<p>Retiro gratis en locales del vendedor</p>
+							</li>
+						</ul>
+
+						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
+						<hr>
+            
+						<a href="/todosLosProductos/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/todosLosProductos/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </main>
+
+      <!-------------------- FOOTER --------------------->
+      <%- include ('./partials/footer.ejs') %>
+  </body>
 
 </html>

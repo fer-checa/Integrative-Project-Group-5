@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %>
-    
-<body>
+<!--------------------- HEAD ----------------->
+<%- include('./partials/head') %>
 
-    <%- include('./partials/header') %>
+    <!--------------------- BODY ----------------->
 
-    
+    <body>
+        <!--------------------- HEADER ----------------->
+        <%- include('./partials/header') %>
 
-    <main>
-        
-        <h1>Usuarios Registrados: </h1>
 
-                   
+            <!--------------------- MAIN ----------------->
+            <main>
+
+                <h1>Usuarios Registrados: </h1>
+
+
                 <% for(let user of usuarios) { %>
-                
+
                     <div class="user-container">
                         <a href="/user/edit/<%= user.id %> ">
-                            
-                                <p>Id: <%= user.id %></p>
-                                <p>Nombre: <%= user.name %></p>
-                                <p>Password: <%= user.password %> </p>
-                                <p>Repetir Password : <%= user.rePassword %> </p>
 
-                                <!-- <div class="form-delete">
+                            <p>Id: <%= user.id %>
+                            </p>
+                            <p>Nombre: <%= user.name %>
+                            </p>
+                            <p>Password: <%= user.password %>
+                            </p>
+                            <p>Repetir Password : <%= user.rePassword %>
+                            </p>
+
+                            <!-- <div class="form-delete">
                                     <form action="/user/edit/delete/<%= user.id %>?_method=DELETE" method="POST"  >
                                      <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
                                     </form>
@@ -32,17 +39,19 @@
 
                         </a>
                     </div>
-                
-                <% } %>
-           
-          
-        
 
-    </main>
+                    <% } %>
 
-    
-    
-</body>
 
-<%- include ('./partials/footer.ejs') %>
+
+
+            </main>
+
+
+
+    </body>
+
+    <!--------------------- FOOTER ----------------->
+    <%- include ('./partials/footer.ejs') %>
+
 </html>

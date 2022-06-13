@@ -2,19 +2,19 @@
 <html lang="en">
 <!--------------------- HEAD ----------------->
  <%- include('./partials/head') %> 
-    <!--------------------- BODY ----------------->
 
+    <!--------------------- BODY ----------------->
     <body>
+        
         <!--------------------- HEADER ----------------->
         <%- include('./partials/header') %>
 
             <!--------------------- MAIN ----------------->
             <main>
-
+                <!-- SUCURSALES -->
                 <h1> Nuestras Sucursales</h1>
 
                 <!-- Sucursal Buenos Aires -->
-
                 <section class="sucursales">
 
                     <h2> Sucursal Buenos Aires</h2>
@@ -29,7 +29,6 @@
                 </section>
 
                 <!-- Sucursal Tucuman -->
-
                 <section class="sucursales">
 
                     <h2>Sucursal Tucuman</h2>
@@ -43,8 +42,6 @@
                 </section>
 
                 <!-- Sucursal Mexico -->
-
-
                 <section class="sucursales">
 
                     <h2>Sucursal Mexico</h2>
@@ -59,15 +56,15 @@
                 </section>
 
 
-
+                <!-- TEXTO, REALIZA TUS CONSULTAS -->
                 <h2>Realiza tus consultas</h2>
 
                 <p class="comentario">
                     Completá el siguiente formulario con tus datos y tu consulta o sugerencia para que podamos ponernos
                     en contacto con vos. Te responderemos lo más pronto posible.</P>
 
-                <!-- FORMULARIO PARA CONSULTAS -->
-
+                
+                    <!-- FORMULARIO PARA CONSULTAS -->
                 <form action="/login" method="post">
 
                     <!-- NOMBRE Y APELLIDO -->
@@ -82,7 +79,6 @@
                     </div>
 
                     <!-- CONSULTA -->
-
                     <div>
                         <label></label>
                         <textarea type="consulta" id="consulta" placeholder="Consulta"

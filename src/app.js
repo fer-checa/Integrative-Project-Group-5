@@ -25,7 +25,7 @@ app.use(methodOverride("_method"));
 // requerir archivos de rutas.
 const indexRouter = require('./routers/indexRouter');
 const userRouter = require('./routers/userRouter');
-const ventaRouter = require('./routers/ventaRouter');
+const productsRouter = require('./routers/productsRouter');
 const footerRouter = require('./routers/footerRouter')
 const adminRouter = require('./routers/adminRouter')
 
@@ -34,11 +34,10 @@ app.listen(3050,() => {
     console.log("Servidor corriendo en http://localhost:3050");
 });
 
-
 //mapeo de rutas
 app.use('/', indexRouter);
 app.use('/user', userRouter);
-app.use('/venta', ventaRouter);
+app.use('/products', productsRouter);
 app.use('/footer', footerRouter);
 app.use('/admin', adminRouter);
 

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %>
+<!--------------------- HEAD ----------------->
+<%- include('./partials/head') %>
 
+<!--------------------- BODY ----------------->
 <body>
-    <!--------------------- body ----------------->
+    <!--------------------- HEADER ----------------->
     <%- include('./partials/header')  %>
 
     <!-------------------- MAIN --------------------->
+
     <main>
         <h1>Registro de Usuario</h1>
 
+        <!-------------------- FORMULARIO DE REGISTRO --------------------->
         <form action="/user/register" method="POST" class="form-seguridad">
             <div class="contenedor-seguridad">
                 <div>
@@ -35,6 +39,7 @@
         </form>
     </main>
 
+    <!-------------------- FOOTER --------------------->
     <%- include ('./partials/footer.ejs') %>
 </body>
 
