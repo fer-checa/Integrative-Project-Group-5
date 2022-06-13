@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
+const { validationResult} = require('express-validator');
 
 const userController = 
+
 {
     login: (req, res) => 
     {
@@ -15,27 +17,36 @@ const userController =
 
 
     create : (req, res) => {
+
+		let errors = validationResult(req);
         
-		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+		if(errors.isEmpty()){
+			const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+	
+			let newUser = {
+	
+				id: usuarios[usuarios.length-1].id + 1,
+				  name: req.body.name,
+				email: req.body.email,
+				password: req.body.password,
+				rePassword: req.body.rePassword
+			} 
+	
+			
+	
+			usuarios.push(newUser);
+			fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
+			 
+	
+			res.redirect('/user/login');
+	   
 
-		let newUser = {
-
-			id: usuarios[usuarios.length-1].id + 1,
-  			name: req.body.name,
-			email: req.body.email,
-			password: req.body.password,
-			rePassword: req.body.rePassword
-		} 
-
-        
-
-		usuarios.push(newUser);
-		fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
-		 
-
-		res.redirect('/user/login');
-   
-    },
+		} else{
+			
+			return res.render('register', {titulo:'Mundo Mascota DH-Register', errors : errors.errors } );
+		}
+			
+    }, 
 
     edit: (req, res) => {
 		const usersFilePath = path.join(__dirname, '../data/usuarios.json');
