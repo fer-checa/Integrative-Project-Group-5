@@ -26,10 +26,6 @@ const productsController =
     sucursales: (req, res) => 
     {
         res.render('sucursales',{titulo:'Mundo Mascota DH-Sucursales'});        
-    },
-    admin: (req, res) => 
-    {
-        res.render('admin',{titulo:'Mundo Mascota DH-ABM Producto'});        
     }
             
 }

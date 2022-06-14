@@ -11,12 +11,14 @@ const indexController =
 		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		const visited = todosLosProductos.filter(function (product) {
-			return product.category == 'visited'
+			return product.categoria == 'Gatos'
 		});
 		const inSale = todosLosProductos.filter(function (product) {
-			return product.category == 'in-sale'
+			return product.categoria == 'Perros'
 		});
+		
 		res.render('index', { titulo: 'Mundo Mascota DH', visited, inSale });
+
 	},
 
 }
