@@ -10,14 +10,14 @@ const indexController =
 		/* Filtramos los productos mas visitados y los que estan en oferta */
 		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
-		const visited = todosLosProductos.filter(function (product) {
+		const Gatos = todosLosProductos.filter(function (product) {
 			return product.familia == 'Gatos'
 		});
-		const inSale = todosLosProductos.filter(function (product) {
+		const Perros = todosLosProductos.filter(function (product) {
 			return product.familia == 'Perros'
 		});
 		
-		res.render('index', { titulo: 'Mundo Mascota DH', visited, inSale });
+		res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros });
 
 	},
 
