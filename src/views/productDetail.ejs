@@ -16,34 +16,34 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Detalle del producto: <%= product.name %></h2>
+				<h2 class="products-title">Detalle del producto: <%= product.nombre %></h2>
 			</div>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<div class="col-12 col-lg-8">
-					<img src="/img/products/<%= product.image %>" alt="product image" class="product-detail-img">
+					<img src="/img/products/<%= product.imagen %>" alt="product image" class="product-detail-img">
 					<p class="product-detail-description">
 						<%= product.description %>
 					</p>
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title"><%= product.name %></h2>
-						<% if(product.discount > 0) { 
-							let finalPrice = (product.price * ((100 - product.discount) / 100)).toFixed(0)
+						<h2 class="product-detail-title"><%= product.nombre %></h2>
+						<% if(product.descuento > 0) { 
+							let finalPrice = (product.precio * ((100 - product.descuento) / 100)).toFixed(0)
 						%>
 							<p class="product-detail-price small">
-								<span> $ <%= product.price %></span>
+								<span> $ <%= product.precio %></span>
 								/
-								<b><%= product.discount %>% OFF</b>
+								<b><%= product.descuento %>% OFF</b>
 							</p>
 							<p class="product-detail-price">
 								$<%= finalPrice %>
 							</p>
 						<% } else { %>
 							<p class="product-detail-price">
-								$<%= product.price %>
+								$<%= product.precio %>
 							</p>
 						<% } %>
 
