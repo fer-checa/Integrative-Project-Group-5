@@ -15,10 +15,8 @@
 
             <main>
                 <div class="container">
-                    <h1> Alta - Baja - Modificacion de producto </h1>
-
-                    <form action="/admin" method="post">
-
+                    <h1> Alta Producto </h1>
+                    <form action="/products" method="post">
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -63,7 +61,7 @@
                                     <input type="file" name="foto" id="foto" class="input">
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="/img/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
+                                    <img src="/img/products/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
                                 </div>
                             </div>
                         </div>
@@ -97,12 +95,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-xs-12 col-md-6">
+                            <div class="col-xs-12 col-md-4">
                                 <button id="btnGuardar" type="submit" class="btn btn-success btn-lg btn-block"><i
                                         class="far fa-check-circle"></i> Guardar</button>
                             </div>
-                            <div class="col-xs-12 col-md-6">
+                            <div class="col-xs-12 col-md-4">
                                 <button id="btnLimpiar" type="reset" class="btn btn-warning btn-lg btn-block">Limpiar</button>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <button  id="btnCancelar" type="button" class="btn btn-danger btn-lg btn-block">Cancelar</button>
                             </div>
                         </div>
 

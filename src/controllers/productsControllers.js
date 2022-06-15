@@ -29,7 +29,45 @@ const productsController =
     sucursales: (req, res) => 
     {
         res.render('sucursales',{titulo:'Mundo Mascota DH-Sucursales'});        
-    }
+    },
+    productAdmin : (req,res) => 
+    {
+        const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        res.render('productAdmin',{titulo:'Mundo Mascota DH-Productos Admin',todosLosProductos});        
+    },
+    
+    productNew : (req, res) =>{
+        res.render('productNew', {titulo: "Mundo Mascota DH-Alta Producto"})
+    },
+
+    productEdit : (req, res) =>{
+        res.render('productEdit', {titulo: "Mundo Mascota DH-Editar Producto"})
+    },
+
+
+    destroy : (req, res) => {
+        const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let unProd = todosLosProductos.filter(product => product.id == req.params.id)
+
+        let editProducto = {
+			id: req.params.id,
+			nombre: unProd[0].nombre,
+			descripción: unProd[0].descripción,
+            imagen: unProd[0].imagen,
+            categoria: unProd[0].categoria,
+            familia: unProd[0].familia,
+            precio: unProd[0].precio,
+            descuento: unProd[0].descuento,
+            fecha: unProd[0].fecha,
+            usuario: unProd[0].usuario,
+            activo: false,
+		}
+        let indice = todosLosProductos.findIndex(product => product.id == req.params.id);
+		todosLosProductos[indice] = editProducto;
+		fs.writeFileSync(productsFilePath, JSON.stringify(todosLosProductos, null, " "));
+        
+        res.redirect("/products/productAdmin");
+	}
             
 }
 module.exports = productsController;

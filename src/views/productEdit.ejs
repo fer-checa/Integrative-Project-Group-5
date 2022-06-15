@@ -15,11 +15,8 @@
 
             <main>
                 <div class="container">
-                    <h1> Administrar</h1>
-                   
-                    <a href="/products/productAdmin"> <h3>Productos <i class="fa-solid fa-file-circle-plus iconito"></i></h3> </a>
-                    <!-- <form action="/admin" method="post">
-
+                    <h1>Editar Producto </h1>
+                    <form action="/products" method="post">
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -64,7 +61,7 @@
                                     <input type="file" name="foto" id="foto" class="input">
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="/img/products/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
+                                    <img src="/img/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +69,7 @@
                         <div class="form-group row">
                             <div class="col-xs-12 col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <span class="input-group-addon"><i class="fa-solid fa-sack-dollar"></i></span>
                                     <input step="0.01" min="1" type="number" id="precio" class="form-control"
                                         name="precio" placeholder="Precio del Producto">
                                 </div>
@@ -80,7 +77,7 @@
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <span class="input-group-addon"><i class="fa-solid fa-percent"></i></span>
                                     <input step="0.01" min="0" id="descuento" type="number" class="form-control"
                                         name="descuento" placeholder="Descuento del Producto">
                                 </div>
@@ -92,7 +89,7 @@
                             <select id="selectActivo" class="form-control" id="selActivo">
                                 <option>Seleccione si el producto esta activo SI/NO</option>
                                 <option>SI</option>
-                                <option>NI</option>
+                                <option>NO</option>
 
                             </select>
                         </div>
@@ -103,17 +100,19 @@
                                         class="far fa-check-circle"></i> Guardar</button>
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <button id="btnLimpiar" type="reset" class="btn btn-warning btn-lg btn-block">Limpiar</button>
+                                <button id="btnEliminar" type="reset" class="btn btn-danger btn-lg btn-block"><i
+                                    style=" font-size: 20px ; "
+                                    class="fa-solid fa-trash-can"></i> Eliminar Producto</button>
                             </div>
                         </div>
 
 
-                    </form> -->
+                    </form>
                 </div>
             </main>
 
             <!-- FOOTER -->
             <%- include ('./partials/footer.ejs') %>
     </body>
-
+   
 </html>
