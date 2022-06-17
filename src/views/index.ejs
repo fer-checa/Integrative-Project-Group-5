@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- SECCION ENVIOS -->
-                <div class="seccion-envios">
+                <div class="seccion-envios" style="text-align:center;">
                     <div class="row">
                         <section class="col-xs-12 col-sm-6 col-md-4 ">
                             <img src="/img/products/1.png" alt="compra" class="text-align: center; margin: auto; margin-top: 10px;">
@@ -65,8 +65,7 @@
                             <img src="/img/products/3.png" alt="envio" class="text-align: center;">
                             <p class="titulo">COMPRA SEGURA</p>
                             <p class="subtitulo">Gestionamos tus datos con absoluta confidencialidad. Ademas ¿No te
-                                gusta? ¡Devolvelo! En MUNDO MASCOTA DH, no hay nada que no puedas hacer,
-                                porque estás siempre protegido.</p>
+                                gusta? ¡Devolvelo! Aqui no hay nada que no puedas.</p>
                         </section>
                     </div>
                 </div>
@@ -84,19 +83,19 @@
                             let finalPrice= (product.precio * ((100 - product.descuento) / 100)).toFixed(0) %>
 
                             <div class="col-12 col-sm-6 col-lg-3">
-                                <section class="product-box">
-                                    <a href="/todosLosProductos/productDetail/<%= product.id %>">
+                                <section class="product-box" style="text-align:center;">
+                                    <a href="/products/productDetail/id<%= product.id %>">
                                         <figure class="product-box_image">
-                                            <img src="/img/products/<%= product.imagen %>" alt="imagen de producto">
+                                            <img src="<%= product.imagen %>" alt="imagen de producto"style="width:170px;">
                                         </figure>
-                                        <article class="product-box_data">
-                                            <h2>
+                                        <article class="product-box_data" >
+                                            <h2 >
                                                 <%= finalPrice %>
                                             </h2>
-                                            <span>
+                                            <span >
                                                 <%= product.descuento %> %OFF
                                             </span>
-                                            <p>
+                                            <p >
                                                 <%= product.nombre %>
                                             </p>
                                             <i class="fas fa-paw iconito"></i>
@@ -118,11 +117,11 @@
                                 <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
                                     product.descuento) / 100)).toFixed(0) %>
                                     <div class="col-12 col-sm-6 col-lg-3">
-                                        <section class="product-box">
+                                        <section class="product-box" style="text-align:center;">
                                             <a href="/todosLosProductos/productDetail/<%= product.id %>">
-                                                <figure class="product-box_image">
-                                                    <img src="/img/products/<%= product.imagen %>"
-                                                        alt="imagen de producto">
+                                                <figure class="product-box_image" >
+                                                    <img src="<%= product.imagen %>"
+                                                        alt="imagen de producto" style="width:170px;">
                                                 </figure>
                                                 <article class="product-box_data">
                                                     <h2>

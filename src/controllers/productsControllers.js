@@ -20,7 +20,7 @@ const productsController =
 		let id = req.params.id
 		let product = todosLosProductos.find(product => product.id == id)
 		res.render('productDetail',{titulo:'Mundo Mascota DH-Detalle Producto', product})
-
+        
 	}, 
     productCart: (req, res) => 
     {
