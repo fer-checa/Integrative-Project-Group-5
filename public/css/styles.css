@@ -67,10 +67,7 @@ h3 {
   margin-top: 5%;
 }
 
-.form-delete{
-  
 
-}
 
 .boton-eliminar {
   border: 1px solid black;
@@ -170,21 +167,21 @@ p {
 
 /* FORMULARIO ADMINISTRADOR */
 
-form {
+/* form {
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
   border-radius: 5px;
-}
+} */
 
-form label {
+/* form label {
   text-align: center;
   font-size: 20px;
   margin: 0 0 10px;
   border-radius: 5px;
-}
+} */
 
-.input {
+/* .input {
   font-size: 80%;
   margin: 0 0 20px;
   padding: 10px 25px;
@@ -192,7 +189,7 @@ form label {
   text-align: center;
   border-radius: 5px;
   border: none;
-}
+} */
 
 .agregar-producto {
   width: 20%;

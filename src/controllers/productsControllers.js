@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-
 const productsFilePath = path.join(__dirname, '../data/products.json');
-const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const { validationResult} = require('express-validator');
+
 const productsController = 
 {
     index: (req, res) => {
@@ -10,7 +10,8 @@ const productsController =
 	},
     todosLosProductos: (req, res) => 
     {
-        res.render('todosLosProductos',{titulo:'Mundo Mascota DH-Productos',todosLosProductos})        
+        const productsFilePath = path.join(__dirname, '../data/products.json');
+        res.render('todosLosProductos',{titulo:'Mundo Mascota DH-Productos',productsFilePath})        
     },
     productDetail: (req, res) => {
         const productsFilePath = path.join(__dirname, '../data/products.json');
@@ -36,11 +37,42 @@ const productsController =
         res.render('productAdmin',{titulo:'Mundo Mascota DH-Productos Admin',todosLosProductos});        
     },
     
-    productNew : (req, res) =>{
+    New : (req, res) =>{
         res.render('productNew', {titulo: "Mundo Mascota DH-Alta Producto"})
     },
 
-    productEdit : (req, res) =>{
+    create : (req, res) =>{
+        let errors = validationResult(req);
+        console.log(req);
+
+        if(errors.isEmpty())
+        {
+            const allProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            let newProduct = 
+            {
+                id: parseInt(allProducts[allProducts.length-1].id) + 1,
+                nombre:req.body.nombre,
+                descripcion:req.body.descripcion,
+                categoria:req.body.categoria,
+                familia:req.body.familiaProducto,
+                precio: parseFloat(req.body.precio),
+                descuento:parseFloat(req.body.descuento),
+                activo:req.body.activo=="SI" ? 1 : 0,
+                imagen:req.file.filename,
+                usuario:'Admin'
+            }
+            allProducts.push(newProduct);
+			fs.writeFileSync(productsFilePath, JSON.stringify(allProducts, null, " "));
+            res.redirect('/products/productAdmin');
+        } else 
+        {
+            const alert = errors.array();
+            return  res.render('productNew', {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body})
+            
+        }
+    },
+
+    Edit : (req, res) =>{
         res.render('productEdit', {titulo: "Mundo Mascota DH-Editar Producto"})
     },
 
