@@ -9,110 +9,154 @@
     <body>
         <!--------------------- HEADER ----------------->
         <%- include('./partials/header') %>
+        
+      
 
             <!-------------------- MAIN --------------------->
-
-
             <main>
                 <div class="container">
-                    <h1>Editar Producto </h1>
-                    <form action="/products" method="post">
-
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="nombre" type="text" class="form-control" name="nombre"
-                                placeholder="Nombre del Producto">
-                        </div>
-
-                        <div class="input-group" style="width:100% ;">
-                            <label for="comment">Descripcion del producto :</label>
-                            <textarea class="form-control" rows="5" id="descripcion"></textarea>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-xs-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="sel1">Seleccione categoria:</label>
-                                    <select class="form-control" id="sel1">
-                                        <option>Seleccione Categoria</option>
-                                        <option>Perro</option>
-                                        <option>Gato</option>
-
-                                    </select>
-                                </div>
+                    <h1>Editar Producto</h1>
+                    <h4>Id : <%= productToEdit.id %> - <%= productToEdit.nombre %></h4>
+                    
+                    <% if(typeof alert !='undefined' ) { %>
+                        <% alert.forEach(function(error) { %>
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <%= error.msg %>
                             </div>
-                            <div class="col-xs-12  col-md-6">
-                                <div class="form-group">
-                                    <label for="sel1">Seleccione familia:</label>
-                                    <select class="form-control" id="sel1">
-                                        <option>Seleccione Familia</option>
-                                        <option>Alimentos</option>
-                                        <option>Juguetes</option>
-                                        <option>Snack</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                            <% }) %>
+                                <% } %>
 
-                        <div>
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label for="nombre"> Foto del producto: </label>
-                                    <input type="file" name="foto" id="foto" class="input">
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="/img/Alimento-Perros1.jpg" alt="" style="width:500px; height:600px ;">
-                                </div>
-                            </div>
-                        </div>
+                                    <form action="/products/productEdit/<%= productToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+                                        <a class="btn" href="/products/productAdmin"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre Producto:</label>
+                                            <input id="nombre" type="text" class="form-control" name="nombre"
+                                                value="<%=productToEdit.nombre %>" placeholder="<%= productToEdit.nombre %>">
+                                        </div>
+ 
 
-                        <div class="form-group row">
-                            <div class="col-xs-12 col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa-solid fa-sack-dollar"></i></span>
-                                    <input step="0.01" min="1" type="number" id="precio" class="form-control"
-                                        name="precio" placeholder="Precio del Producto">
-                                </div>
+                                        <div class="input-group" style="width:100% ;">
+                                            <label for="comment">Descripcion del producto :</label>
+                                            <textarea class="form-control" rows="5" id="descripcion"
+                                                 placeholder="<%= productToEdit.descripcion %>"
+                                                name="descripcion"><%= productToEdit.descripcion %></textarea>
+                                        </div>
 
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa-solid fa-percent"></i></span>
-                                    <input step="0.01" min="0" id="descuento" type="number" class="form-control"
-                                        name="descuento" placeholder="Descuento del Producto">
-                                </div>
-                            </div>
-                        </div>
+                                        <div class=" row">
+                                            <div class="col-xs-12 col-md-6">
 
-                        <div class="form-group">
-                            <label for="selActivo">Producto activo:</label>
-                            <select id="selectActivo" class="form-control" id="selActivo">
-                                <option>Seleccione si el producto esta activo SI/NO</option>
-                                <option>SI</option>
-                                <option>NO</option>
-
-                            </select>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-xs-12 col-md-6">
-                                <button id="btnGuardar" type="submit" class="btn btn-success btn-lg btn-block"><i
-                                        class="far fa-check-circle"></i> Guardar</button>
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                                <button id="btnEliminar" type="reset" class="btn btn-danger btn-lg btn-block"><i
-                                    style=" font-size: 20px ; "
-                                    class="fa-solid fa-trash-can"></i> Eliminar Producto</button>
-                            </div>
-                        </div>
+                                                <div class="form-group">
+                                                    <label for="categoria">Seleccione categoria:</label>
+                                                    <select class="form-control" id="categoria" name="categoria">
+                                                        <option></option>
+                                                        <option>Perros</option>
+                                                        <option>Gatos</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12  col-md-6">
+                                                <div class="form-group">
+                                                    <label for="familia">Seleccione familia:</label>
+                                                    <select class="form-control" id="familia"
+                                                        name="familia">
+                                                        <option></option>
+                                                        <option>Alimentos</option>
+                                                        <option>Juguetes</option>
+                                                        <option>Snack</option>
+                                                        <option>Higiene</option>
+                                                        <option>Ropa</option>
+                                                        <option>Comederos</option>
+                                                        <option>Camas</option>
+                                                        <option>Articulos</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-                    </form>
+                                        <div class="form-group row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="input-group">
+                                                    <span title="Importe Producto"  class="input-group-addon"><i
+                                                            class="fa-solid fa-sack-dollar"></i></span>
+                                                    <input step="0.01" min="1" type="number" name="precio" id="precio"
+                                                        class="form-control" name="precio"
+                                                        placeholder="<%= productToEdit.precio %>"
+                                                        value="<%= productToEdit.precio %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <div class="input-group">
+                                                    <span title="Descuento Producto" class="input-group-addon"><i
+                                                            class="fa-solid fa-percent"></i></span>
+                                                    <input step="0.01" min="0" name="descuento" id="descuento"
+                                                        type="number" class="form-control" name="descuento"
+                                                        placeholder="<%= productToEdit.descuento %>"
+                                                        value="<%= productToEdit.descuento %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <%= productToEdit.imagen%>
+                                        <div class="form-group row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <label for="fotoProducto">Imagen del producto: </label>
+                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= productToEdit.imagen%>">
+                                            </div>
+                                            <div class="col-xs-12  col-md-6">
+                                                        <img src="<%= productToEdit.imagen%>"
+                                                            alt="imagen-no-disponible" style="width:250px; height:300px ;">
+                                                    </div>
+
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-xs-6 col-md-4">
+                                               <label for="activo">Producto activo:</label>
+                                               <select id="activo" name="activo" class="form-control">
+                                                   <option></option>
+                                                   <option>SI</option>
+                                                   <option>NO</option>
+
+                                               </select>
+                                           </div>
+                                          </div> 
+                                              
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-12 ">
+                                                <button id="btnGuardar" type="submit"
+                                                    class="btn btn-primary btn-md btn-block"><i
+                                                        class="far fa-check-circle"></i>
+                                                    Guardar</button>
+                                            </div>
+                                            
+                                         
+                                        </div>
+                                        
+                                        <script type="text/javascript">
+                                            document.getElementById("categoria").value = '<%=productToEdit.categoria%>';
+                                            document.getElementById("familia").value = '<%=productToEdit.familia%>';
+                                            
+                                            if ('<%=productToEdit.activo%>' == 1) 
+                                            {
+                                                document.getElementById("activo").value ='SI';
+                                            } else {document.getElementById("activo").value = 'NO'}
+                                            
+                                            
+                                            
+                                           
+                                        </script>
+                                        
+                                   
+                                    </form>
                 </div>
+                
             </main>
 
             <!-- FOOTER -->
             <%- include ('./partials/footer.ejs') %>
+          
     </body>
    
 </html>

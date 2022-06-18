@@ -8,8 +8,10 @@
 
     <body>
         <!--------------------- HEADER ----------------->
-        <%- include('./partials/header') %>
-
+  
+        <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        </script>
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
@@ -35,8 +37,7 @@
                                         <div class="input-group" style="width:100% ;">
                                             <label for="comment">Descripcion del producto :</label>
                                             <textarea class="form-control" rows="5" id="descripcion"
-                                                value="<%=locals.old && old.descripcion%>"
-                                                name="descripcion"></textarea>
+                                                name="descripcion"><%=locals.old && old.descripcion%></textarea>
                                         </div>
 
                                         <div class=" row">
@@ -53,13 +54,18 @@
                                             </div>
                                             <div class="col-xs-12  col-md-6">
                                                 <div class="form-group">
-                                                    <label for="familiaProducto">Seleccione familia:</label>
-                                                    <select class="form-control" id="familiaProducto"
-                                                        name="familiaProducto">
+                                                    <label for="familia">Seleccione familia:</label>
+                                                    <select class="form-control" id="familia"
+                                                        name="familia">
                                                         <option></option>
                                                         <option>Alimentos</option>
                                                         <option>Juguetes</option>
                                                         <option>Snack</option>
+                                                        <option>Higiene</option>
+                                                        <option>Ropa</option>
+                                                        <option>Comederos</option>
+                                                        <option>Camas</option>
+                                                        <option>Articulos</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -115,13 +121,13 @@
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
                                                 <button id="btnGuardar" type="submit"
-                                                    class="btn btn-success btn-md btn-block"><i
+                                                    class="btn btn-primary btn-md btn-block"><i
                                                         class="far fa-check-circle"></i>
                                                     Guardar</button>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                                 <button id="btnLimpiar" type="reset"
-                                                    class="btn btn-primary btn-md btn-block"><i class="fa-solid fa-broom"></i> Limpiar</button>
+                                                    class="btn btn-warning btn-md btn-block"><i class="fa-solid fa-broom"></i> Limpiar</button>
                                             </div>
                                          
                                         </div>
@@ -134,3 +140,4 @@
     </body>
 
 </html>
+

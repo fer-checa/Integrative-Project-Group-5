@@ -13,6 +13,10 @@
     margin: 0%;
 }
 
+main{
+    min-height:27.5vw;
+}
+
 .main-header{
     display: flex;
     flex-wrap: wrap;

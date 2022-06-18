@@ -11,10 +11,10 @@ const indexController =
 		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		const Gatos = todosLosProductos.filter(function (product) {
-			return product.familia == 'Gatos'
+			return product.categoria == 'Gatos'
 		});
 		const Perros = todosLosProductos.filter(function (product) {
-			return product.familia == 'Perros'
+			return product.categoria == 'Perros'
 		});
 		
 		res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros });

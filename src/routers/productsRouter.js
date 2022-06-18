@@ -49,7 +49,9 @@ router.get('/todosLosProductos',productsController.todosLosProductos);
 router.get('/productAdmin',productsController.productAdmin);
 router.get('/productNew',productsController.New);
 router.post('/productNew',upload.single('fotoProducto'), validarDatosNew,productsController.create);
-router.get('/productEdit',productsController.Edit);
-router.post('/productDelete/:id', productsController.destroy);
+router.get('/productEdit/:id',productsController.Edit);
+router.patch('/productEdit/:id',upload.single('fotoProducto'), validarDatosNew, productsController.update); 
+router.post('/productInactivar/:id', productsController.inactivar);
+router.post('/productActivar/:id', productsController.activar);
 
 module.exports = router;

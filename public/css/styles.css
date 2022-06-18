@@ -389,6 +389,35 @@ p {
   box-shadow: 0 0 5px var(--green);
 }
 
+.btn-inactivar-grid
+{
+  background-color:transparent; 
+  border: 0; 
+  display: inline; 
+  margin: 0; 
+  padding: 0; 
+  color: darkred !important;
+  font-size: 18px;
+}
+
+.btn-activar-grid
+{
+  background-color:transparent; 
+  border: 0; 
+  display: inline; 
+  margin: 0; 
+  padding: 0; 
+  color: darkgreen !important;
+  font-size: 18px;
+}
+
+
+.btn-edit-grid
+{
+  color:darkblue; 
+  font-size: 18px ;
+}
+
 @media (min-width: 425px) {}
 
 
