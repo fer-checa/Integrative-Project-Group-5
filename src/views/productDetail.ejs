@@ -30,13 +30,13 @@
 							</div>
 							<div class="col-12 col-lg-4">
 								<article class="product-detail-info">
-									<h2 class="product-detail-title">
-										<%= product.nombre %>
-									</h2>
+									<p class="product-detail-title">
+										<%= product.descripcion %>
+									</p>
 									<% if(product.descuento> 0) {
 										let finalPrice = (product.precio * ((100 - product.descuento) / 100)).toFixed(0)
 										%>
-										<p class="product-detail-price small" style="text-align:center">
+										<p class="product-detail-price small" style="text-align:center; ">
 											<span> $ <%= product.precio %></span>
 											/
 											<b>
