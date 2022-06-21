@@ -50,7 +50,8 @@
                 <div class="seccion-envios" style="text-align:center;">
                     <div class="row">
                         <section class="col-xs-12 col-sm-6 col-md-4 ">
-                            <img src="/img/home/1.jpg" alt="compra" class="text-align: center; margin: auto; margin-top: 10px;">
+                            <img src="/img/home/1.jpg" alt="compra"
+                                class="text-align: center; margin: auto; margin-top: 10px;">
                             <p class="titulo">ENVIOS SIN CARGO</p>
                             <p class="subtitulo">Solo por estar registrado en MUNDO MASCOTA DH y si vivis hasta 6km de
                                 cada sucursal el delivery es totalmente gratuito.</p>
@@ -76,26 +77,27 @@
                     <div class="row">
                         <div class="col-12">
                             <h2 class="products-title">Productos para perros</h2>
-                            
+
                         </div>
-                        
-                        <% Perros.forEach(function(product){ 
-                            let finalPrice= (product.precio * ((100 - product.descuento) / 100)).toFixed(0) %>
+
+                        <% Perros.forEach(function(product){ let finalPrice=(product.precio * ((100 - product.descuento)
+                            / 100)).toFixed(0) %>
 
                             <div class="col-12 col-sm-6 col-lg-3">
                                 <section class="product-box" style="text-align:center;">
                                     <a href="/products/productDetail/<%= product.id %>">
                                         <figure class="product-box_image">
-                                            <img src="<%= product.imagen %>" alt="imagen de producto" style="width:170px;">
+                                            <img src="<%= product.imagen %>" alt="imagen de producto"
+                                                style="width:170px;">
                                         </figure>
-                                        <article class="product-box_data" >
-                                            <h2 >
+                                        <article class="product-box_data">
+                                            <h2>
                                                 <%= finalPrice %>
                                             </h2>
-                                            <span >
+                                            <span>
                                                 <%= product.descuento %> %OFF
                                             </span>
-                                            <p >
+                                            <p>
                                                 <%= product.nombre %>
                                             </p>
                                             <i class="fas fa-paw iconito"></i>
@@ -106,46 +108,54 @@
                             <% }) %>
                     </div>
 
-                    
-                   
+
+
                     <div class="container products-wrapper">
                         <div class="row">
                             <div class="col-12">
                                 <h2 class="products-title">Productos para Gatos</h2>
                             </div>
-                            
-                                <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
-                                    product.descuento) / 100)).toFixed(0) %>
-                                    <div class="col-12 col-sm-6 col-lg-3">
-                                        <section class="product-box" style="text-align:center;">
-                                            <a href="/products/productDetail/<%= product.id %>">
-                                                <figure class="product-box_image" >
-                                                    <img src="<%= product.imagen %>"
-                                                        alt="imagen de producto" style="width:170px;">
-                                                </figure>
-                                                <article class="product-box_data">
-                                                    <h2>
-                                                        <%= finalPrice %>
-                                                    </h2>
-                                                    <span>
-                                                        <%= product.descuento %> %OFF
-                                                    </span>
-                                                    <p>
-                                                        <%= product.nombre %>
-                                                    </p>
-                                                    
-                                                    <i class="fas fa-paw iconito"></i>
-                                                </article>
-                                            </a>
-                                        </section>
-                                    </div>
-                                    <% }) %>
+
+                            <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
+                                product.descuento) / 100)).toFixed(0) %>
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <section class="product-box" style="text-align:center;">
+                                        <a href="/products/productDetail/<%= product.id %>">
+                                            <figure class="product-box_image">
+                                                <img src="<%= product.imagen %>" alt="imagen de producto"
+                                                    style="width:170px;">
+                                            </figure>
+                                            <article class="product-box_data">
+                                                <h2>
+                                                    <%= finalPrice %>
+                                                </h2>
+                                                <span>
+                                                    <%= product.descuento %> %OFF
+                                                </span>
+                                                <p>
+                                                    <%= product.nombre %>
+                                                </p>
+
+                                                <i class="fas fa-paw iconito"></i>
+                                            </article>
+                                        </a>
+                                    </section>
+                                </div>
+                                <% }) %>
                         </div>
                     </div>
 
-                    
+
+                    /* <div class=""></div>
+
+                    <form>
+                        <imput type="email" size="40" class="newsletter-email" placeholder="Ingresa tu email">
+                            <input type="submit" class="newsletter-submit" value="¡Suscribete!">
+                    </form> */
 
                     <img src="/img/home/banner-perrosygatos.jpg" alt="promocional" style="width:100%;">
+
+      
 
             </main>
 
