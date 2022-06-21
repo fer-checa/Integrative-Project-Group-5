@@ -29,9 +29,11 @@ soy una persona resiliente y perseverante. - [fer-checa](https://github.com/fer-
 * **Martin Estevez** - Tengo 19 años, soy de Buenos aires, Argentina. Trabajo como Community manager de una distribuidora ferretera y proximamente como programador. Soy un apasionado de la musica, los deportes y los videojuegos. - [MartinEstevez](https://github.com/MartinEstevez)
 
 
-## Tablero y Wireframes
+## Tablero 
 
 * [Tablero de Trello](https://trello.com/b/Do965XMg/dh-full-stack)
+
+## Wireframes
 
 * [Wireframes Web](https://marvelapp.com/prototype/dd57f7g)
 * [Wireframes Mobile](https://marvelapp.com/prototype/6gbgf68)

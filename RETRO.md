@@ -41,7 +41,14 @@ Avisar el estado en que esta el proyecto.
 
 ## Sprint 4 - "JSON + Metodos HTTP"
 
+Este sprint fue muy distinto a todos. Cuando arranco en el grupo eramos 5 integrantes, se dio de baja uno de ellos, y ahora quedamos 4. 
 
+Hicimos la divicion de tareas, e implementemos todas las mejoras del sitio web. 
+Realizamos una organizacion diferente, apuntamos a que se cumplan todos los objetivos del sprint y a implementar todas las mejoras necesarias.
+
+Si bien cumplimos con todas las tareas del sprint actual, tuvimos que solicitar 2 dias mas de extencion para la entrega, para poder finalizar con todo. Mas alla de esto notamos una gran mejora en el equipo, en cuanto a la comunicacion y la fluidez para lograr todas las tareas.
+
+La unica cosa relevante por cambiar aun es que en cada weekly se muestren los cambios o avances que se estan realizando para poder compratirlos con el grupo, asi en caso de alguna dificultad se pueda ayudar y resolver los inconvenientes a tiempo y con tiempo. Y asi los mismos sean plasmados en el proyecto. 
 
 
 ## Sprint 5 - Middlewares + Auth"
