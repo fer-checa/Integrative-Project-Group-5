@@ -1,98 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--------------------- HEAD ----------------->
- <%- include('./partials/head') %> 
+<%- include('./partials/head') %>
 
     <!--------------------- BODY ----------------->
+
     <body>
-        
+
         <!--------------------- HEADER ----------------->
         <%- include('./partials/header') %>
 
             <!--------------------- MAIN ----------------->
             <main>
                 <!-- SUCURSALES -->
-                <h1> Nuestras Sucursales</h1>
 
-                <!-- Sucursal Buenos Aires -->
-                <section class="sucursales">
-
-                    <h2> Sucursal Buenos Aires</h2>
-
-                    <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
-                    <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91167852177</p>
-                    <p class="sucursales"> <i class="fas fa-at icono"></i> info@mundomascota-dh.com.ar</p>
-                    <p class="sucursales"> <i class="fas fa-home icono"></i> Av. San Martin 5000 - Cap Fed - Argentina
-                    </p>
-                    <p class="sucursales"> <i class="fas fa-clock icono"></i> Lunes a Sabado de 9 a 21 hs</p>
-
-                </section>
-
-                <!-- Sucursal Tucuman -->
-                <section class="sucursales">
-
-                    <h2>Sucursal Tucuman</h2>
-
-                    <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
-                    <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91155729935</p>
-                    <p class="sucursales"> <i class="fas fa-at icono"></i> info@petplanetshop.com.ar</p>
-                    <p class="sucursales"> <i class="fas fa-home icono"></i> Av. Aconquija 600 - Tucuman - Argentina</p>
-                    <p class="sucursales"> <i class="fas fa-clock icono"></i> Lunes a Sabado de 9 a 21 hs</p>
-
-                </section>
-
-                <!-- Sucursal Mexico -->
-                <section class="sucursales">
-
-                    <h2>Sucursal Mexico</h2>
-
-                    <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
-                    <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91123411408</p>
-                    <p class="sucursales"> <i class="fas fa-at icono"></i> info@mundomascota-dh.com.ar</p>
-                    <p class="sucursales"> <i class="fas fa-home icono"></i> Av. Cuauhtémoc Blanco 890 - Queretaro -
-                        Mexico</p>
-                    <p class="sucursales"> <i class="fas fa-clock icono"></i> Horarios: Lunes a Sabado de 9 a 21 hs</p>
-
-                </section>
-
-
-                <!-- TEXTO, REALIZA TUS CONSULTAS -->
-                <h2>Realiza tus consultas</h2>
-
-                <p class="comentario">
-                    Completá el siguiente formulario con tus datos y tu consulta o sugerencia para que podamos ponernos
-                    en contacto con vos. Te responderemos lo más pronto posible.</P>
-
-                
-                    <!-- FORMULARIO PARA CONSULTAS -->
-                <form action="/login" method="post">
-
-                    <!-- NOMBRE Y APELLIDO -->
-                    <div>
-                        <label for="nombre"> Nombre y Apellido: </label>
-                        <input type="text" id="nombre" name="nombre" class="input" required>
+                <div class="container" class="text-align: center">
+                    <div class=" jumbotron" style="padding:70px ;">
+                        <h1>Nuestras Sucursales</h1>
                     </div>
+                    
+                    <!-- Sucursal Buenos Aires -->
+                    <section class="sucursales">
 
-                    <div>
-                        <label for="mail"> Email: </label>
-                        <input type="text" id="mail" name="mail" class="input" required>
-                    </div>
+                        <h2>Buenos Aires</h2>
 
-                    <!-- CONSULTA -->
-                    <div>
-                        <label></label>
-                        <textarea type="consulta" id="consulta" placeholder="Consulta"
-                            class="consulta-cliente"></textarea>
-                    </div>
+                        <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
+                        <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91167852177</p>
+                        <p class="sucursales"> <i class="fas fa-at icono"></i> info@mundomascota-dh.com.ar</p>
+                        <p class="sucursales"> <i class="fas fa-home icono"></i> Av. San Martin 5000 - Cap Fed -
+                            Argentina
+                        </p>
+                        <p class="sucursales"> <i class="fas fa-clock icono"></i> Lunes a Sabado de 9 a 21 hs</p>
 
-                    <!-- Botones ENVIAR -->
-                    <div class="boton">
-                        <button type="submit" class="consulta"> <i class="far fa-check-circle"></i>
-                            Enviar</button>
+                    </section>
 
-                    </div>
+                    <!-- Sucursal Tucuman -->
+                    <section class="sucursales">
 
-                </form>
+                        <h2>Tucuman</h2>
+
+                        <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
+                        <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91155729935</p>
+                        <p class="sucursales"> <i class="fas fa-at icono"></i> info@petplanetshop.com.ar</p>
+                        <p class="sucursales"> <i class="fas fa-home icono"></i> Av. Aconquija 600 - Tucuman - Argentina
+                        </p>
+                        <p class="sucursales"> <i class="fas fa-clock icono"></i> Lunes a Sabado de 9 a 21 hs</p>
+
+                    </section>
+
+                    <!-- Sucursal Mexico -->
+                    <section class="sucursales">
+
+                        <h2>Mexico</h2>
+
+                        <p class="sucursales"> <i class="fa-solid fa-phone icono"></i> 0810 -123 -4567 </p>
+                        <p class="sucursales"> <i class="fas fa-mobile-alt icono"></i> 91123411408</p>
+                        <p class="sucursales"> <i class="fas fa-at icono"></i> info@mundomascota-dh.com.ar</p>
+                        <p class="sucursales"> <i class="fas fa-home icono"></i> Av. Cuauhtémoc Blanco 890 - Queretaro -
+                            Mexico</p>
+                        <p class="sucursales"> <i class="fas fa-clock icono"></i> Horarios: Lunes a Sabado de 9 a 21 hs
+                        </p>
+
+                    </section>
+
+                    <div style="margin-bottom: 50px; margin-top:50px; text-align: center">
+                        <img src="/img/home/mapa1.jpg" alt="mapa1" style="width:100%;">
+                        </div>
+                    
 
             </main>
             <!--------------------- FOOTER ----------------->
