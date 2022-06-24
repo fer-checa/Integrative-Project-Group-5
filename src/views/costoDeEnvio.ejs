@@ -3,24 +3,89 @@
 
 <!-------------------- HEAD --------------------->
 <%- include('./partials/head') %>
-    
-    <!-------------------- BODY --------------------->
-    <body>
-        <!-------------------- HEADER --------------------->
-        <%- include('./partials/header') %>
 
-            <!-------------------- MAIN --------------------->
-            <main>
-                <!-------------------- CONTENEDOR GRIS--------------------->
-                <div class="container" class="text-align: center">
-                    <div class=" jumbotron" style="padding:70px ;">
-                        <h1>Costos de envio</h1>
+  <!-------------------- BODY --------------------->
+
+  <body>
+    <!-------------------- HEADER --------------------->
+    <%- include('./partials/header') %>
+
+      <!-------------------- MAIN --------------------->
+      <main>
+        <!-------------------- CONTENEDOR GRIS--------------------->
+        <div class="container" class="text-align: center">
+          <div class=" jumbotron" style="padding:70px ;">
+            <h1>Costos de envio</h1>
+          </div>
+
+          <!-- ENCABEZADO -->
+          <div class="page-header">
+            <h1>Envio gratis desde $ 6.500.-</h1>
+
+          </div>
+          <!-- DESPLEGABLE CON LOS DIAS Y HORARIOS -->
+          <div>
+            <h2>Dias y horarios de entrega</h2>
+          </div>
+
+          <div class="alert alert-info">
+            <i class="fas fa-exclamation-circle"></i> La fecha de entrega puede variar a la programada en caso de que el
+            pedido entre en un
+            estado de validación interna. No se realizan entregas los días feriados.
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ultimo div -->
+        </div>
+        <!-- ultimo div -->
+
+
+
+
+
+        <!-- <div class="container">
+                    <h2>Dynamic Tabs</h2>
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                      <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+                      <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                      <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+                    </ul>
+                  
+                    <div class="tab-content">
+                      <div id="home" class="tab-pane fade in active">
+                        <h3>HOME</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                      <div id="menu1" class="tab-pane fade">
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      </div>
+                      <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                      </div>
+                      <div id="menu3" class="tab-pane fade">
+                        <h3>Menu 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                      </div>
                     </div>
-                </div>
-            </main>
+                  </div>
+                   -->
 
-            <!-------------------- FOOTER --------------------->
-            <%- include ('./partials/footer.ejs') %>
-    </body>
+      </main>
+
+      <!-------------------- FOOTER --------------------->
+      <%- include ('./partials/footer.ejs') %>
+  </body>
 
 </html>
