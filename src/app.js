@@ -40,4 +40,3 @@ app.use('/user', userRouter);
 app.use('/products', productsRouter);
 app.use('/footer', footerRouter);
 app.use('/admin', adminRouter);
-
