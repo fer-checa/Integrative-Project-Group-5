@@ -8,80 +8,142 @@
         <%- include('./partials/header') %>
             <!-------------------- MAIN --------------------->
             <main>
-                
-                <div class="container" class="text-align: center">
-                    <div class=" jumbotron" style="padding:70px ;">
-                        <h1>Medios de Pago</h1>
+                <div>
+                    <div class="container" class="text-align: center">
+                        <div class=" jumbotron" style="padding:70px ;">
+                            <h1>Medios de Pago</h1>
+                        </div>
+
+                        <!-- HOY ES EL DIA DEL DESCUENTO -->
+                        <div>
+                            <h2>¡Hoy es viernes!</h2>
+                            <div style="text-align:center">
+                                <img src="/img/payments/promo1-viernes.jpg" alt="promo 1 viernes" class="img-rounded"
+                                    style="width:50%;">
+                            </div>
+
+                            <div style="text-align:center">
+                                <img src="/img/payments/promo2-viernes.jpg" alt="promo 2 viernes" class="img-rounded"
+                                    style="width:50%;margin-top: 50px;">
+                            </div>
+
+                        </div>
+
+
+                        <!-- CARRUSEL CON LOS DIAS DE DESCUENTOS -->
+                        <div>
+                            <h2>Descuentos de la semana</h2>
+
+                            <!-- CARUSEL -->
+                            <div class="container-slider" style="height: auto">
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="4" class="active"></li>
+                                    </ol>
+
+                                    <!-- IMAGENES -->
+                                    <div class="carousel-inner">
+                                        <div class="item active ">
+                                            <img src="/img/payments/lunes-promo.jpg" alt="promocional" style="width: 100%;">
+                                        </div>
+
+                                        <div class="item ">
+                                            <img src="/img/payments/martes-promo.jpg" alt="martes promo" style="width: 100%;">
+                                        </div>
+
+                                        <div class="item ">
+                                            <img src="/img/payments/miercoles-promo.jpg" alt="miercoles promo" style="width: 100%;">
+                                        </div>
+
+                                        <div class="item ">
+                                            <img src="/img/payments/jueves-promo.jpg" alt="jueves promo" style="width: 100%;">
+                                        </div>
+
+                                        <div class="item ">
+                                            <img src="/img/payments/viernes-promo.jpg" alt="viernes promo" style="width: 100%;">
+                                        </div>
+                                    </div>
+
+                                    <!-- CONTROLES izquierdo y derecho -->
+                                    <a class=" left carousel-control" href="#myCarousel" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- BANCOS Y TARJETAS -->
+                        <div>
+                            <h2>Tarjetas y Bancos</h2>
+
+                            
+
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+
+                        <!-- MEDIOS DE PAGOS -->
+                        <div class="footer-pago">
+                            <article class="medios-de-pago">
+
+                                <div>
+                                    <h4>Hasta 12 cuotas sin tarjeta</h4>
+                                </div>
+
+                                <div>
+                                    <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de crédito</h4>
+                                    <p> <i class="fas fa-university"></i> ¡Cuotas sin interés con bancos seleccionados!
+                                    </p>
+                                    <p> <i class="fab fa-cc-visa"></i> Visa </p>
+                                    <p> <i class="fab fa-cc-mastercard"></i> MasterCard </p>
+                                    <p> <i class="fab fa-cc-amex"></i> American Expres </p>
+
+                                    <h4 class="texto-pago" class="tc-texto"> Hasta 6 cuotas sin interés con estos bancos
+                                    </h4>
+                                    <img src="/img/home/6-cuotas-TC.jpg" alt="6-cuotas-TC" class="foto-producto">
+
+
+                                    <h4> O hasta 12 cuotas con interés </h4>
+                                    <img src="/img/home/12-cuotasTC.jpg" alt="12-cuotasTC" class="foto-producto">
+
+                                </div>
+
+                                <div>
+                                    <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de débito</h4>
+                                    <p> <i class="fab fa-cc-visa"></i> Visa - Debito </p>
+                                    <p> <i class="fab fa-cc-mastercard"></i> MasterCard - Debito</p>
+                                </div>
+
+                                <div>
+                                    <h4 style="text-decoration: underline;">Efectivo</h4>
+                                    <p class="texto-pago">Dinero en tu cuenta de Mercado Pago
+
+                                        Al finalizar tu compra, pagás con el dinero disponible en tu cuenta.</p>
+                                    <p>Podés ingresar dinero a Mercado
+                                        Pago con tu tarjeta de débito, en efectivo o por transferencia bancaria.
+
+                                        Acreditación instantánea.</p>
+                                </div>
+
+                            </article>
+                        </div>
+                        <%- include ('./partials/newsletter.ejs') %>
                     </div>
 
-                    <!-- HOY ES EL DIA DEL DESCUENTO -->
-                <div>
-                    <h2>¡Hoy es viernes!</h2>
-
-                </div>
-
-
-                <!-- CARRUSEL CON LOS DIAS DE DESCUENTOS -->
-                <div>
-                    <h2>Descuentos de la semana</h2>
-                </div>
-
-
-                <!-- BANCOS Y TARJETAS -->
-                <div>
-                    <h2>Trjetas y bancos</h2>
-                </div>
-                <br>
-                <br>
-                <br>
-
-                <!-- MEDIOS DE PAGOS -->
-                <div class="footer-pago">
-                        <article class="medios-de-pago">
-
-                            <div>
-                                <h4>Hasta 12 cuotas sin tarjeta</h4>
-                            </div>
-
-                            <div>
-                                <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de crédito</h4>
-                                <p> <i class="fas fa-university"></i> ¡Cuotas sin interés con bancos seleccionados! </p>
-                                <p> <i class="fab fa-cc-visa"></i> Visa </p>
-                                <p> <i class="fab fa-cc-mastercard"></i> MasterCard </p>
-                                <p> <i class="fab fa-cc-amex"></i> American Expres </p>
-
-                                <h4 class="texto-pago" class="tc-texto"> Hasta 6 cuotas sin interés con estos bancos
-                                </h4>
-                                <img src="/img/home/6-cuotas-TC.jpg" alt="6-cuotas-TC" class="foto-producto">
-
-
-                                <h4> O hasta 12 cuotas con interés </h4>
-                                <img src="/img/home/12-cuotasTC.jpg" alt="12-cuotasTC" class="foto-producto">
-
-                            </div>
-
-                            <div>
-                                <h4 class="tc-texto" style="text-decoration: underline;">Tarjetas de débito</h4>
-                                <p> <i class="fab fa-cc-visa"></i> Visa - Debito </p>
-                                <p> <i class="fab fa-cc-mastercard"></i> MasterCard - Debito</p>
-                            </div>
-
-                            <div>
-                                <h4 style="text-decoration: underline;">Efectivo</h4>
-                                <p class="texto-pago">Dinero en tu cuenta de Mercado Pago
-
-                                    Al finalizar tu compra, pagás con el dinero disponible en tu cuenta.</p>
-                                <p>Podés ingresar dinero a Mercado
-                                    Pago con tu tarjeta de débito, en efectivo o por transferencia bancaria.
-
-                                    Acreditación instantánea.</p>
-
-                            </div>
-
-                        </article>
-                    </div> 
-                    
-                    <%- include ('./partials/newsletter.ejs') %>
             </main>
 
             <%- include ('./partials/footer.ejs') %>
