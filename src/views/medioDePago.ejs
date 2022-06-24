@@ -8,31 +8,37 @@
         <%- include('./partials/header') %>
             <!-------------------- MAIN --------------------->
             <main>
-                <div>
+                <div class="row">
                     <div class="container" class="text-align: center">
                         <div class=" jumbotron" style="padding:70px ;">
                             <h1>Medios de Pago</h1>
+                            <br>
+                            <br>
                         </div>
 
                         <!-- HOY ES EL DIA DEL DESCUENTO -->
                         <div>
                             <h2>¡Hoy es viernes!</h2>
-                            <div style="text-align:center">
+                            <br>
+                            <br>
+                            <div style="text-align:center" class="col-sm-6">
                                 <img src="/img/payments/promo1-viernes.jpg" alt="promo 1 viernes" class="img-rounded"
-                                    style="width:50%;">
+                                    style="width:100%;">
                             </div>
 
-                            <div style="text-align:center">
+                            <div style="text-align:center" class="col-sm-6">
                                 <img src="/img/payments/promo2-viernes.jpg" alt="promo 2 viernes" class="img-rounded"
-                                    style="width:50%;margin-top: 50px;">
+                                    style="width:100%; margin-bottom: 50px;">
                             </div>
-
+                            
                         </div>
-
+                        
 
                         <!-- CARRUSEL CON LOS DIAS DE DESCUENTOS -->
                         <div>
                             <h2>Descuentos de la semana</h2>
+                            <br>
+                            <br>
 
                             <!-- CARUSEL -->
                             <div class="container-slider" style="height: auto">
@@ -84,18 +90,16 @@
                             </div>
 
                         </div>
+                        <br>
+                        <br>
 
                         <!-- BANCOS Y TARJETAS -->
                         <div>
                             <h2>Tarjetas y Bancos</h2>
 
-                            
-
                         </div>
                         <br>
-                        <br>
-                        <br>
-
+                        
                         <!-- MEDIOS DE PAGOS -->
                         <div class="footer-pago">
                             <article class="medios-de-pago">
@@ -143,7 +147,7 @@
                         </div>
                         <%- include ('./partials/newsletter.ejs') %>
                     </div>
-
+                </div>
             </main>
 
             <%- include ('./partials/footer.ejs') %>
