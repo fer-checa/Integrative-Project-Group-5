@@ -205,5 +205,17 @@
   "fecha": "10/05/2022",
   "usuario": "user_id",
   "activo": 1
+ },
+ {
+  "id": "17",
+  "nombre": "dasdasd3212",
+  "descripcion": "asdasdasdasdasdsad",
+  "imagen": "/img/products/img-1656036242205.pdf",
+  "categoria": "Perros",
+  "familia": "Alimentos",
+  "precio": 111,
+  "descuento": 1,
+  "usuario": "Admin",
+  "activo": 1
  }
 ]

@@ -8,11 +8,11 @@ const userController =
 {
     login: (req, res) => 
     {
-        res.render('login',{titulo:'Mundo Mascota DH-Login'});        
+        res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
     },
     register: (req, res) => 
     {
-        res.render('register',{titulo:'Mundo Mascota DH-Register'});        
+        res.render('users/register',{titulo:'Mundo Mascota DH-Register'});        
     },
 
 
@@ -43,7 +43,7 @@ const userController =
 
 		} else{
 			
-			return res.render('register', {titulo:'Mundo Mascota DH-Register', errors : errors.errors } );
+			return res.render('users/register', {titulo:'Mundo Mascota DH-Register', errors : errors.errors } );
 		}
 			
     }, 
@@ -86,7 +86,7 @@ const userController =
 
 		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
-        res.render('users', {usuarios, titulo:'Lista usuarios' })
+        res.render('users/users', {usuarios, titulo:'Lista usuarios' })
     },
 
 	destroy : (req, res) => {

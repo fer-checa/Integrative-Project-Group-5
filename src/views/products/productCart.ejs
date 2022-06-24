@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header')  %> 
+    <main>
+            <h2 class="orden"><i class="fa-solid fa-circle-check"></i>  CONFIRMA TU ORDEN</h2>
+
+
+            <table>
+                <thead>
+                    <tr class="tabla-cabecera">
+                        <th class="tabla-cabecera">Descripcion</th>
+                        <th class="tabla-cabecera">Cantidad</th>
+                        <th class="tabla-cabecera">Precio Unitario</th>
+                        <th class="tabla-cabecera">Precio Total</th>
+                    </tr>
+                </thead>
+                
+                
+                <tbody>
+                    <tr class="tabla-cuerpo">
+                        <td> <a href="#"><img src="/img/products/product18.jpg" alt="img alimento" class="img-tabla"> </a></td>
+                        <td><input type="text" name="cantidad" placeholder="1" class="tabla-cantidad"><i class="fa-solid fa-plus-minus plus"></i></td>
+                        <td>Precio Unitario</td>
+                        <td>Precio Total</td>
+                    </tr>
+
+                    <tr>
+                        <td>Detalle del Producto</td>
+                        <td></td>
+                        <td></td>
+                        <td class="trash">Eliminar <i class="fa-solid fa-trash-can" ></i></td>
+                    </tr>
+                   
+                    <tr class="tabla-cuerpo">
+                        <td> <a href="#"><img src="/img/products/product21.jpg" alt="img alimento" class="img-tabla"></a></td>
+                        <td><input type="text" name="cantidad" placeholder="2" class="tabla-cantidad"><i class="fa-solid fa-plus-minus plus"></i></td>
+                        <td>Precio Unitario</td>
+                        <td>Precio Total</td>
+                    </tr>
+
+                    <tr>
+                        <td>Detalle del Producto</td>
+                        <td></td>
+                        <td></td>
+                        <td class="trash">Eliminar <i class="fa-solid fa-trash-can"></i></td>
+                    </tr>
+
+                    <tr class="tabla-footer">
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td>IMPORTE TOTAL</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="boton-final">
+                <button id="seguir-comprando" class="boton">  <i class="fa-solid fa-cart-shopping"></i>   SEGUIR COMPRANDO</button>
+                <button id="confirmar-compra" class="boton">  <i class="fa-solid fa-circle-check"></i>  CONFIRMAR COMPRA</button>
+            </div>
+    </main>
+
+    
+    <%- include ('../partials/footer.ejs') %> 
+</body>
+
+</html>

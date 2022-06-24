@@ -12,7 +12,7 @@ const productsController = {
     const todosLosProductos = JSON.parse(
       fs.readFileSync(productsFilePath, "utf-8")
     );
-    res.render("todosLosProductos", {
+    res.render("products/todosLosProductos", {
       titulo: "Mundo Mascota DH-Productos",
       todosLosProductos,
     });
@@ -24,14 +24,14 @@ const productsController = {
     );
     let id = req.params.id;
     let product = todosLosProductos.find((product) => product.id == id);
-    res.render("productDetail", {
+    res.render("products/productDetail", {
       titulo: "Mundo Mascota DH-Detalle Producto",
       product,
     });
   },
 
   productCart: (req, res) => {
-    res.render("productCart", { titulo: "Mundo Mascota DH-Carrito" });
+    res.render("products/productCart", { titulo: "Mundo Mascota DH-Carrito" });
   },
 
   sucursales: (req, res) => {
@@ -42,14 +42,14 @@ const productsController = {
     const todosLosProductos = JSON.parse(
       fs.readFileSync(productsFilePath, "utf-8")
     );
-    res.render("productAdmin", {
+    res.render("products/productAdmin", {
       titulo: "Mundo Mascota DH-Productos Admin",
       todosLosProductos,
     });
   },
 
   New: (req, res) => {
-    res.render("productNew", { titulo: "Mundo Mascota DH-Alta Producto" });
+    res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto" });
   },
 
   create: (req, res) => {
@@ -78,7 +78,7 @@ const productsController = {
       res.redirect("/products/productAdmin");
     } else {
       const alert = errors.array();
-      return res.render("productNew", {
+      return res.render("products/productNew", {
         titulo: "Mundo Mascota DH-Alta Producto",
         alert,
         old: req.body,
@@ -89,7 +89,7 @@ const productsController = {
   Edit: (req, res) => {
     const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let productToEdit = allProducts.find((user) => req.params.id == user.id);
-    res.render("productEdit", {
+    res.render("products/productEdit", {
       titulo: "Mundo Mascota DH-Editar Producto",
       productToEdit,
     });

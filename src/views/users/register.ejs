@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--------------------- HEAD ----------------->
+<%- include('../partials/head') %>
+
+<!--------------------- BODY ----------------->
+<body>
+    <!--------------------- HEADER ----------------->
+    <%- include('../partials/header')  %>
+
+    <!-------------------- MAIN --------------------->
+
+    <main>
+        <h1>Registro de Usuario</h1>
+
+        <!-------------------- FORMULARIO DE REGISTRO --------------------->
+       <% if(locals.errors != undefined) { %>
+            <ul>
+                <% for (let i=0; i<locals.errors.length; i++) { %>
+                    <li style="color: red">
+                        <%= errors[i].msg %> 
+                    </li>
+                    <% } %> 
+            </ul>
+
+        <% } %> 
+
+        <form action="/user/register" method="POST" class="form-seguridad">
+            <div class="contenedor-seguridad">
+                <div>
+                    <input type="text" class="input-registro" id="name" name="name" placeholder="Nombre">
+                </div>
+                <div><input class="input-registro" type="email" id="email" name="email" placeholder="E-mail"></div>
+                <div><input class="input-registro" type="password" id="password" name="password" placeholder="Contraseña"></div>
+                <div><input class="input-registro" type="password" id="rePassword" name="rePassword" placeholder="Repetir contraseña"></div>
+
+                <div class="boton-final contenedor-botones " >
+                    <button id="" type="submit" class="btn-success boton-seguridad">
+                        <i class="fa-solid fa-user-check"></i> Crear cuenta
+                    </button>
+
+                    
+                    <button id="" type="reset" class="boton-seguridad">
+                        <i class="fas fa-trash-alt"></i> Limpiar
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <!-------------------- FOOTER --------------------->
+    <%- include ('../partials/footer.ejs') %>
+</body>
+
+</html>
