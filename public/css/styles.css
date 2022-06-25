@@ -19,6 +19,7 @@ Acid Green: #A5BE00
   --azul_clarito: #ebf2fa;
   --verde: #679436;
   --verde_acido: #a5be00;
+  --verde2: #39b54a;
 }
 
 * {
@@ -343,7 +344,7 @@ p {
 .product-box_data span {
   font-size: 1.5em;
   font-weight: 300;
-  color: var(--green);
+  color: #39b54a;
   margin: 0 0 0 10px;
 }
 
@@ -358,7 +359,7 @@ p {
 }
 
 .product-box_data i {
-  color: var(--green);
+  color: #05668d;
   font-size: 1.8em;
   width: 35px;
   height: 35px;
@@ -386,7 +387,7 @@ p {
 
 .product-box:hover i {
   transform: rotate(360deg);
-  box-shadow: 0 0 5px var(--green);
+  box-shadow: 0 0 5px #39b54a;
 }
 
 .btn-inactivar-grid

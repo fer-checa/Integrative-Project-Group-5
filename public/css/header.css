@@ -5,6 +5,7 @@
     --azul3: #EBF2FA;
     --verde1: #679436;
     --verde2: #A5BE00;
+    --celeste: #31B0D5;
 }
 
 *{
@@ -99,13 +100,10 @@ header{
     /* margin-right: 0%; */
 }
 
-
 .carrito:hover{
     color: #679436;
     
 }
-
-
 
 nav ul li a{
     margin-left: 0px;
@@ -129,8 +127,6 @@ ul li{
     padding-left: 20px;
 }
 
-
-
 .nav-bar{
     display: none;
 }
@@ -149,6 +145,35 @@ ul li{
     margin-top: 0%;
     margin-bottom: 20px;
 }
+  /* BANNER COMUNICACION*/
+  .banner-comunicacion {
+    background: #31B0D5;
+    height: 50px;
+    overflow: hidden;
+    color: #fff;
+    z-index: 19;
+    position: relative;
+}
+.banner-day{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    .banner-comunicacion .banner-content-mobile img {
+        padding-right: 14px;
+        max-width: 59px;
+        height: auto;
+    }
+    
+
+
+
+
+
 
 /* MEDIAS QUERYS*/
 
@@ -208,9 +233,7 @@ ul li{
         height: 6vh;
         border-radius: 5px;
     }
-
-    
-    
+      
 }
 
 @media (min-width: 769px){

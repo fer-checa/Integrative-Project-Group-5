@@ -17,49 +17,68 @@
 					<div class="row">
 						<div class="col-12">
 							<h2 class="products-title">Detalle del producto: <%= product.nombre %>
+									<br>
+									<br>
 							</h2>
 						</div>
 					</div>
-					<div class="product-detail" >
+					<div class="product-detail">
 						<div class="row">
 							<div class="col-12 col-lg-8">
-								<img src="<%= product.imagen %>" alt="product imagen" class="product-detail-img" style="width:500px; ">
-								<p class="product-detail-description" style="text-align: center;">
-									<%= product.description %>
+								<br>
+								<br>
+
+								<img src="<%= product.imagen %>" alt="product imagen" style="text-align:center; width: 500px;display: block;margin: auto;">
+								<br>
+								<br>
+
+								<h3 class="product-detail-description">
+									<%= product.description %> Descripcion: 
+								</h3>
+								
+								<p class="product-detail-title" style="text-align: justify; ">
+									<%= product.descripcion %>
 								</p>
 							</div>
 							<div class="col-12 col-lg-4">
 								<article class="product-detail-info">
-									<p class="product-detail-title">
-										<%= product.descripcion %>
-									</p>
+
 									<% if(product.descuento> 0) {
 										let finalPrice = (product.precio * ((100 - product.descuento) / 100)).toFixed(0)
 										%>
-										<p class="product-detail-price small" style="text-align:center; ">
-											<span> $ <%= product.precio %></span>
+
+										<h2 class="products-title"><%= product.nombre %>
+												<br>
+												<br>
+										</h2>
+
+										<p  style="text-align:center; font-size: 1.8em;color: #39b54a;">
+											<span style="text-decoration: line-through;"> $ <%= product.precio %></span>
 											/
-											<b>
 												<%= product.descuento %>% OFF
 											</b>
 										</p>
-										<p class="product-detail-price" style="text-align:center">
+
+										<p class="product-detail-price" style="text-align:center; font-size: 1.8em;">
 											$<%= finalPrice %>
 										</p>
 										<% } else { %>
 											<p class="product-detail-price" style="text-align:center">
 												$<%= product.precio %>
 											</p>
+											
 											<% } %>
 
 												<ul class="actions-list">
 													<li>
-														
-														<p><i class="fas fa-credit-card iconito"></i> Pagá en 12 cuotas sin interes</p>
+
+														<p><i class="fas fa-credit-card icono"></i> Pagá en 12 cuotas
+															sin interes</p>
 													</li>
 													<li>
-														
-														<p><i class="fas fa-store icono"></i> Retira gratis en nuestros locales</p>
+
+														<p><i class="fas fa-store icono"></i> Retira gratis en nuestros
+															locales</p>
 													</li>
 												</ul>
 
@@ -67,24 +86,15 @@
 													<button id="" type="submit" class="btn-success boton-seguridad">
 														COMPRAR
 													</button>
-												
 
-													<button hidden="true" id="" type="submit" class="btn-success boton-seguridad" style="background-color:  #05668d ;">
-														<i class="fas fa-pencil-alt"></i> Editar 
-													</button>
-
-
-													<button id="" hidden="true" type="reset" class="boton-seguridad" style="background-color: orangered;">
-														<i class="fas fa-trash-alt"></i> Eliminar
-													</button>
 												</div>
-
+											
 								</article>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
 			</main>
 
 			<!-------------------- FOOTER --------------------->
