@@ -78,6 +78,9 @@
                         <div class="col-12">
                             <h2 class="products-title">Productos para perros</h2>
 
+                            <img src="/img/home/perro.jpg" alt="perro" class="img-circle" class="media-object"
+                                    style="width:300px">
+
                         </div>
 
                         <% Perros.forEach(function(product){ let finalPrice=(product.precio * ((100 - product.descuento)
@@ -108,12 +111,15 @@
                             <% }) %>
                     </div>
 
-                    <img src="/img/home/banner-bonito.jpg" alt="promocional" style="width:100%;">
+                    <img src="/img/home/banner-perros.jpg" alt="promocional" style="width:100%;">
 
                     <div class="container products-wrapper">
                         <div class="row">
                             <div class="col-12">
                                 <h2 class="products-title">Productos para Gatos</h2>
+
+                                /<img src="/img/home/mascota-gato.jpg" alt="gato" class="img-circle" class="media-object"
+                                    style="width:300px"> 
                             </div>
 
                             <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
