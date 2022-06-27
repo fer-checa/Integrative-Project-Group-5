@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {body} = require('express-validator');
+const {body, check} = require('express-validator');
 
 const validarDatos = [
     body('name').notEmpty().withMessage('Debes Completar el Nombre').bail(),
@@ -11,7 +11,13 @@ const validarDatos = [
 
 const userController = require('../controllers/userControllers');
 
+/* LOGIN */
 router.get('/login',userController.login);
+router.post('/login', [
+check('email').isEmail().withMessage('Email invalido'),
+check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.processLogin),
+
+/* REGISTRACION */
 router.get('/register',userController.register);
 router.post('/register', validarDatos ,userController.create);
 

@@ -10,6 +10,19 @@ const userController =
     {
         res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
     },
+	
+	/* INICIAR SESION */
+    processLogin: (req, res) => {
+		let errors = validationResult(req);
+
+		if (errors.isEmpty()) {
+			/* Logica a implementar */
+		} else{
+			res.render('users/login',{errors: errors.errors});
+		}
+    
+                
+    },
     register: (req, res) => 
     {
         res.render('users/register',{titulo:'Mundo Mascota DH-Register'});        

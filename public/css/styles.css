@@ -68,8 +68,6 @@ h3 {
   margin-top: 5%;
 }
 
-
-
 .boton-eliminar {
   border: 1px solid black;
   margin: auto;
@@ -301,8 +299,8 @@ p {
 
 /* PRODUCTOS */
 .products-wrapper {
-  margin-top: 30px;
-  margin-bottom: 30px;
+ /*  margin-top: 30px; */
+  /* margin-bottom: 30px; */
 }
 
 .products-title {
