@@ -26,7 +26,7 @@
 
         <% } %> 
 
-        <form action="/user/register" method="POST" class="form-seguridad">
+        <form action="/user/register" method="POST" class="form-seguridad" enctype="multipart/form-data">
             <div class="contenedor-seguridad">
                 <div>
                     <input type="text" class="input-registro" id="name" name="name" placeholder="Nombre">
@@ -34,6 +34,18 @@
                 <div><input class="input-registro" type="email" id="email" name="email" placeholder="E-mail"></div>
                 <div><input class="input-registro" type="password" id="password" name="password" placeholder="Contraseña"></div>
                 <div><input class="input-registro" type="password" id="rePassword" name="rePassword" placeholder="Repetir contraseña"></div>
+
+
+
+                
+                <div>
+                    <label for="product-image" class="input-registro">Imagen:</label>
+                    <input type="file" id="product-image" name="product-image" class="product-image">
+                </div>
+
+
+
+
 
                 <div class="boton-final contenedor-botones " >
                     <button id="" type="submit" class="btn-success boton-seguridad">

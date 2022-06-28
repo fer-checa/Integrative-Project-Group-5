@@ -16,20 +16,26 @@
 
                 <h1>Usuarios Registrados: </h1>
 
-
-                <% for(let user of usuarios) { %>
-
-                    <div class="user-container">
+                <div class="box-usuarios">
+                    <% for(let user of usuarios) { %>
+                   
+                    <div  class="user-container">
                         <a href="/user/edit/<%= user.id %> ">
 
-                            <p>Id: <%= user.id %>
+                            <p class="user-font">Id: <%= user.id %>
                             </p>
-                            <p>Nombre: <%= user.name %>
+                            <p class="user-font">Nombre: <%= user.name %>
                             </p>
-                            <p>Password: <%= user.password %>
+                            <p class="user-font">Password: <%= user.password %>
                             </p>
-                            <p>Repetir Password : <%= user.rePassword %>
+                            <p class="user-font">Repetir Password : <%= user.rePassword %>
                             </p>
+
+                            <figure >
+                                <img class="box-imagen" src="/img/usersImage/<%= user.image %> " alt="imagen de usuario">
+                            </figure>
+
+                            
 
                             <!-- <div class="form-delete">
                                     <form action="/user/edit/delete/<%= user.id %>?_method=DELETE" method="POST"  >
@@ -42,7 +48,7 @@
 
                     <% } %>
 
-
+                </div>
 
 
             </main>

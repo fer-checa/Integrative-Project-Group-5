@@ -30,7 +30,7 @@ const userController =
 
 
     create : (req, res) => {
-
+		console.log(req.file);
 		let errors = validationResult(req);
         
 		if(errors.isEmpty()){
@@ -39,10 +39,11 @@ const userController =
 			let newUser = {
 	
 				id: usuarios[usuarios.length-1].id + 1,
-				  name: req.body.name,
+				name: req.body.name,
 				email: req.body.email,
 				password: req.body.password,
-				rePassword: req.body.rePassword
+				rePassword: req.body.rePassword,
+				image: req.file.filename
 			} 
 	
 			
@@ -81,7 +82,9 @@ const userController =
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
-			rePassword: req.body.rePassword
+			rePassword: req.body.rePassword,
+			// if ternario ===> condicion? verdadero : falso
+			image: req.file ? req.file.filename : userToEdit.image
 		}
 
 
