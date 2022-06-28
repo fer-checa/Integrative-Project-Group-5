@@ -1,9 +1,10 @@
 [
  {
-  "id": "1",
-  "name": "Adolfo Wirth ",
-  "email": "adolfowirth@hotmail.com",
-  "password": "123456",
-  "rePassword": "123456"
+  "id": 1,
+  "name": "Admin",
+  "email": "admin@mundomascotadh.com.ar",
+  "password": "admin",
+  "rePassword": "admin",
+  "image": "adm.jpg"
  }
 ]

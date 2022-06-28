@@ -15,7 +15,7 @@
         
         <h1>Editar Usuario</h1>
 
-        <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad">
+        <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad" enctype="multipart/form-data">
             <div class="contenedor-seguridad">
                 <div >
                     <label for="name" class="input-registro">Nombre del Usuario:</label>
@@ -36,6 +36,11 @@
                     <label for="rePassword" class="input-registro">Repetir Contraseña:</label>
                     <br>
                     <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
+                </div>
+                
+                <div>
+                    <label for="product-image" class="input-registro">Imagen:</label>
+                    <input type="file" id="product-image" name="product-image" class="product-image">
                 </div>
 
                
