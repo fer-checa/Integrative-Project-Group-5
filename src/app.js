@@ -33,6 +33,7 @@ const productsRouter = require('./routers/productsRouter');
 const footerRouter = require('./routers/footerRouter')
 const adminRouter = require('./routers/adminRouter')
 
+
 //Servidor.
 app.listen(3050,() => {
     console.log("Servidor corriendo en http://localhost:3050");
