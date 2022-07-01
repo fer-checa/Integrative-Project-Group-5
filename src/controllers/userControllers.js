@@ -29,7 +29,7 @@ const userController =
 				let isOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
 				if (isOk) {
 					req.session.user
-					return res.redirect('login/:profile')
+					return res.redirect('/login/:profile')
 				}
 
 				}

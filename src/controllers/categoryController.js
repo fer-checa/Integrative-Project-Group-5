@@ -8,7 +8,7 @@ const categoryController =
 {
 	todasLasCategorias: (req, res) => {
 		const categorias = JSON.parse(fs.readFileSync(categoryFilePath, 'utf-8'));
-		res.render('todasLasCategorias', { titulo: 'Mundo Mascota DH-Productos', categorias })
+		res.render('products/todasLasCategorias', { titulo: 'Mundo Mascota DH-Productos', categorias })
 	},
 	category: (req, res) => {
 		let categoria = req.params.categoria
