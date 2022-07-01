@@ -1,0 +1,50 @@
+[
+    {
+     "id": "1",
+     "nombre": "Juguetes",
+     "usuario": "Admin",
+     "activo": 1
+    },
+    {
+     "id": 2,
+     "nombre": "Alimentos",
+     "usuario": "Admin",
+     "activo": 1
+    },
+    {
+     "id": 3,
+     "nombre": "Belleza",
+     "usuario": "user_id",
+     "activo": 1
+    },
+    {
+     "id": 4,
+     "nombre": "Camas",
+     "usuario": "user_id",
+     "activo": 1
+    },
+    {
+     "id": 5,
+     "nombre": "Higiene",
+     "usuario": "user_id",
+     "activo": 1
+    },
+    {
+     "id": 6,
+     "nombre": "Ropa",
+     "usuario": "user_id",
+     "activo": 1
+    },
+    {
+     "id": 7,
+     "nombre": "Articulos",
+     "usuario": "user_id",
+     "activo": 1
+    },
+    {
+        "id": 8,
+        "nombre": "Comederos",
+        "usuario": "user_id",
+        "activo": 1
+    }
+    ]

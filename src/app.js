@@ -32,6 +32,7 @@ const userRouter = require('./routers/userRouter');
 const productsRouter = require('./routers/productsRouter');
 const footerRouter = require('./routers/footerRouter')
 const adminRouter = require('./routers/adminRouter')
+const categoryRouter = require('./routers/categoryRouter');
 
 
 //Servidor.
@@ -44,4 +45,5 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/products', productsRouter);
 app.use('/footer', footerRouter);
+app.use('/category', categoryRouter);
 app.use('/admin', adminRouter);

@@ -14,16 +14,38 @@ const userController =
 	
 	/* INICIAR SESION */
     processLogin: (req, res) => {
+		/* let userToLogin = user.findByField('email', req.body.email);
+
+		if(userToLogin) {
+			let isOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			if (isOk) {
+				req.session.user
+				return res.redirect('/user/profile')
+			}
+		} */
+		let userToLogin = user.findByField('email', req.body.email);
+
+			if(userToLogin) {
+				let isOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
+				if (isOk) {
+					req.session.user
+					return res.redirect('login/:profile')
+				}
+
+				}
+
+
 		let errors = validationResult(req);
 
 		if (errors.isEmpty()) {
-			/* Logica a implementar */
+			
 		} else{
 			res.render('users/login',{errors: errors.errors});
 		}
     
                 
     },
+
     register: (req, res) => 
     {
         res.render('users/register',{titulo:'Mundo Mascota DH-Register'});        
@@ -79,7 +101,8 @@ const userController =
 		let userToEdit = usuarios.find(user => req.params.id == user.id);
 
 		let editedUser = {
-			id: req.params.id,
+			id: req.
+			params.id,
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,

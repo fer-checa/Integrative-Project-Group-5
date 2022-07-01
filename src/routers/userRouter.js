@@ -28,12 +28,14 @@ const validarDatos = [
 ]
 
 const userController = require('../controllers/userControllers');
+const { processLogin } = require('../controllers/userControllers');
 
 /* LOGIN */
 router.get('/login',userController.login);
 router.post('/login', [
 check('email').isEmail().withMessage('Email invalido'),
 check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.processLogin),
+router.post('/user/login/:profile' , userController.processLogin)
 
 /* REGISTRACION */
 router.get('/register',userController.register);

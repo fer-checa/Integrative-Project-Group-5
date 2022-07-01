@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--------------------- HEAD ----------------->
+
+<%- include('./partials/head') %>
+    <!--------------------- BODY ----------------->
+
+    <body>
+        <!--------------------- HEADER ----------------->
+        <%- include('./partials/header') %>
+
+            <!-------------------- MAIN --------------------->
+
+
+            <main>
+                <div class="container">
+                    <h1> Agregar - modificar Categorias / Familias </h1>
+                    
+                    <br><br>
+                    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+                    <br>
+                    <table style="margin-left: 0; margin-right:0 ;" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Familia</th>
+                                <th>Activo</th>
+                                <th>Acciones</th>
+                                <th>Acciones</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <% for (let aux of categorias ){ %>
+                                <tr>
+                                    <td>
+                                        <%= aux.id%>
+                                    </td>
+                                    <td>
+                                        <%= aux.nombre%>
+                                    </td>
+                                    <td>
+                                        <%= aux.activo%>
+                                    </td>
+
+                                    <td><a href="<%= aux.id%>"><i title="Editar categoria"
+                                                style="color:darkblue; font-size: 20px ; "
+                                                class="fa-solid fa-pen-to-square"></i></a>
+
+                                    </td>
+                                    <td>
+                                        <!-- <form action="/category/categoryDelete/<%= aux.id%>" method="POST">
+                                            <button type="submit" class="btn"><i title="Eliminar categoria"
+                                                    style="color:darkred; font-size: 20px ; "
+                                                    class="fa-solid fa-trash-can"></i></button>
+                                        </form> -->
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <%- include ('./partials/footer.ejs') %>
+    </body>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+</html>
