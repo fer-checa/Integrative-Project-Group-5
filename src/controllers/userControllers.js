@@ -6,52 +6,45 @@ const bcrypt = require('bcrypt');
 
 const userController = 
 
-{
+{	/* LOGIN */
     login: (req, res) => 
     {
         res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
     },
 	
+
 	/* INICIAR SESION */
-    processLogin: (req, res) => {
-		/* let userToLogin = user.findByField('email', req.body.email);
-
-		if(userToLogin) {
-			let isOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-			if (isOk) {
-				req.session.user
-				return res.redirect('/user/profile')
-			}
-		} */
-		let userToLogin = user.findByField('email', req.body.email);
-
-			if(userToLogin) {
-				let isOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
-				if (isOk) {
-					req.session.user
-					return res.redirect('/login/:profile')
-				}
-
-				}
+    loginProcess: (req, res) => {
+		
 
 
-		let errors = validationResult(req);
 
-		if (errors.isEmpty()) {
-			
-		} else{
-			res.render('users/login',{errors: errors.errors});
-		}
-    
-                
+
+
+
+		return res.send(req.body);
+		/* return res.redirect('/login/:profile') */  
     },
 
+
+	/* PERFIL */
+	profile: (req,res) => 
+	{
+		return res.render('userProfile');
+	},
+
+
+
+
+
+
+
+	/* REGISTRACION */
     register: (req, res) => 
     {
         res.render('users/register',{titulo:'Mundo Mascota DH-Register'});        
     },
-
-
+	
     create : (req, res) => {
 		console.log(req.file);
 		let errors = validationResult(req);

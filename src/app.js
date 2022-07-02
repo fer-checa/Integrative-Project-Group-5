@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const session = require('express-session');
+const session = require('express-session'); // Requerimos sesion
 
 
 //Carpeta archivos estaticos.
@@ -18,8 +18,14 @@ app.set('views',path.resolve(__dirname, 'views'));
 //convertirlo en formato JSON si queremos
 app.use(express.urlencoded({ extended : false}));
 app.use(express.json());
-app.use(session({secret: 'Secreto'})); // Se agrega la session para el inicion de session
+// Se agrega la session para el inicion de session
+// PASA COMO UN MIDDLEWARE
+app.use(session({
+    secret: "Secreto", 
+    resave: false,
+    saveUninitialized: false
 
+})); 
 
 //Para el put/delete hay que instalar el npm instal method-override --save
 const methodOverride = require('method-override');
