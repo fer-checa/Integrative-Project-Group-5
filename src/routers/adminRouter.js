@@ -3,8 +3,9 @@ const router = express.Router();
 
 
 const adminController = require('../controllers/adminController');
+const userRouteAdminMW = require('../middlewares/userRouteAdminMW');
 
-router.get('/',adminController.index);
+router.get('/',userRouteAdminMW,adminController.index);
 
 
 module.exports = router;

@@ -23,12 +23,13 @@ const upload = multer({storage: storage});
 const validarDatos = [
     body('name').notEmpty().withMessage('Debes Completar el Nombre').bail(),
     body('email').notEmpty().withMessage('Debes Completar el email').bail().isEmail().withMessage('Debes completar un email valido'),
-    body('password').notEmpty().withMessage('Debes Completar la contraseña').bail().isLength({min: 8}).withMessage('La constraseña debe tener como minimo 8 caracteres'),
-    body('rePassword').notEmpty().withMessage('Debes Completar Repetir la contraseña').bail().isLength({min: 8}).withMessage('La constraseña debe tener como minimo 8 caracteres')
+    body('password').notEmpty().withMessage('Debes Completar la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 8 caracteres'),
+    /* body('rePassword').notEmpty().withMessage('Debes Completar Repetir la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 8 caracteres') */
 ]
 
 const userController = require('../controllers/userControllers');
-const { loginProcess } = require('../controllers/userControllers');
+const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
+
 
 /* LOGIN */
 router.get('/login',userController.login);
@@ -44,9 +45,9 @@ router.post('/user/login/:profile' , userController.loginProcess);
 router.get('/register',userController.register);
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
 
-router.get('/list', userController.list);
-router.get('/edit/:id', userController.edit); 
-router.patch('/edit/:id',upload.single("product-image"), userController.update); 
-router.delete('/delete/:id', userController.destroy);
+router.get('/list',userRouteAdminMW, userController.list);
+router.get('/edit/:id',userRouteAdminMW, userController.edit); 
+router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
+router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
 module.exports = router;

@@ -58,7 +58,7 @@ const userController =
 				name: req.body.name,
 				email: req.body.email,
 				password: bcrypt.hashSync(req.body.password, 10),
-				rePassword: bcrypt.hashSync(req.body.rePassword, 10),
+				/* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
 				image: req.file.filename
 			} 
 	
@@ -99,7 +99,7 @@ const userController =
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
-			rePassword: req.body.rePassword,
+			/* rePassword: req.body.rePassword, */
 			// if ternario ===> condicion? verdadero : falso
 			image: req.file ? req.file.filename : userToEdit.image
 		}
