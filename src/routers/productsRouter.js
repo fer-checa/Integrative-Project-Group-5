@@ -30,9 +30,10 @@ const validarDatosNew = [
 
 const productsController = require('../controllers/productsControllers');
 const userRouteAdminMW = require('../middlewares/userRouteAdminMW');
+const userRouteMW = require('../middlewares/userRouteMW');
 
 router.get('/',productsController.index);
-router.get('/productCart',productsController.productCart);
+router.get('/productCart',userRouteMW,productsController.productCart);
 router.get('/productDetail/:id',productsController.productDetail);
 router.get('/sucursales',productsController.sucursales);
 router.get('/todosLosProductos',productsController.todosLosProductos);
