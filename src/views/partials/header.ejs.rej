@@ -1,0 +1,9 @@
+diff a/src/views/partials/header.ejs b/src/views/partials/header.ejs	(rejected hunks)
+@@ -16,6 +16,7 @@
+     <br>
+ </div>  -->
+ <header>
++    <div class="aa">
+         <div class="" style="width: 10% ;">
+             <a href="/"><img src="/img/home/logo.jpg" alt="logo mundo mascota DH" class="logo">
+ 
