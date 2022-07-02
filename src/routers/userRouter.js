@@ -28,7 +28,8 @@ const validarDatos = [
 ]
 
 const userController = require('../controllers/userControllers');
-const { processLogin } = require('../controllers/userControllers');
+const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
+
 
 /* LOGIN */
 router.get('/login',userController.login);
@@ -41,9 +42,9 @@ router.post('/user/login/:profile' , userController.processLogin)
 router.get('/register',userController.register);
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
 
-router.get('/list', userController.list);
-router.get('/edit/:id', userController.edit); 
-router.patch('/edit/:id',upload.single("product-image"), userController.update); 
-router.delete('/delete/:id', userController.destroy);
+router.get('/list',userRouteAdminMW, userController.list);
+router.get('/edit/:id',userRouteAdminMW, userController.edit); 
+router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
+router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
 module.exports = router;
