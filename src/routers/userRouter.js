@@ -29,10 +29,11 @@ const validarDatos = [
 
 const userController = require('../controllers/userControllers');
 const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
+const userRouteMW= require('../middlewares/userRouteMW');
 
 
 /* LOGIN */
-router.get('/login',userController.login);
+router.get('/login',userRouteMW,userController.login);
 
 /* PROCESAR EL LOGIN */
 router.post('/login', [
