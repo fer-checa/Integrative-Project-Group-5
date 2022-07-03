@@ -10,12 +10,31 @@
 
             <!-------------------- MAIN --------------------->
             <main>
+                <br>
+                <br>
                 <h1>Iniciar sesion</h1>
-                <form class="form-seguridad" action="/login" method="GET">
+                <br>
+                <form class="form-seguridad" action="/user/profile" method="POST">
                     <div class="contenedor-seguridad">
-                        <div><input type="email" class="input-registro" placeholder="Email"></div>
-                        
+
+                        <div><input type="email" class="input-registro" text= "email" name= "email" placeholder="Email">
+
+                            <% if (locals.errors && errors.email) {%> 
+                                <div class="text-danger" style="color: red">
+                                    <%= errors.email.msg %> 
+                                </div>
+                            <% } %>  
+                            
+                        </div>
                         <div><input type="password" class="input-registro" placeholder="Contraseña"></div>
+                        <br>
+                        
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Recordarme
+                            </label>
+                        </div> <br>
+
 
                         <div class="boton-final contenedor-botones ">
                             <button id="" type="submit" class="btn-success boton-seguridad">
@@ -25,7 +44,10 @@
                         <a class="links-seguridad" href="/recuperar">¿Olvidaste tu contraseña?</a>
 
                         <a class="links-seguridad" href="/user/register">Crear una cuenta</a>
+                        <br>
+                        <br>
                     </div>
+                    
                 </form>
 
             </main>

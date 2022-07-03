@@ -28,26 +28,38 @@ const validarDatos = [
 ]
 
 const userController = require('../controllers/userControllers');
+/* MIDDLEWARS */
 const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
+const guestRouteMW = require('../middlewares/guestRouteMW');
+const authRouteMW = require('../middlewares/authRouteMW');
 
 
-/* LOGIN */
-router.get('/login',userController.login);
 
-/* PROCESAR EL LOGIN */
-router.post('/login', [
-check('email').isEmail().withMessage('Email invalido'),
-check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess),
-
-router.post('/user/login/:profile' , userController.loginProcess);
+/* ******************************************************************************************************** */
 
 /* REGISTRACION */
-router.get('/register',userController.register);
+router.get('/register', guestRouteMW, userController.register);
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
 
 router.get('/list',userRouteAdminMW, userController.list);
 router.get('/edit/:id',userRouteAdminMW, userController.edit); 
 router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
 router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
+
+/* ******************************************************************************************************** */
+
+/* FORMULARIO LOGIN */
+router.get('/login', guestRouteMW, userController.login); 
+
+/* PROCESAR EL LOGIN */
+router.post('/login', 
+[check('email').isEmail().withMessage('Email invalido'),
+check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
+
+/* PERFIL DEL USUARIO */
+router.get('/profile' , authRouteMW,  userController.loginProcess);
+
+/* DESLOGUEARSE*/
+router.get('/logout', userController.logout);
 
 module.exports = router;

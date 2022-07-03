@@ -2,42 +2,63 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 const { validationResult} = require('express-validator');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 const userController = 
 
 {	/* LOGIN */
     login: (req, res) => 
-    {
-        res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
+    {/*  */
+		/* console.log(req.session); */
+       return res.render("./users/login",{titulo:'Mundo Mascota DH-Login'});        
     },
-	
-
 	/* INICIAR SESION */
     loginProcess: (req, res) => {
+		/* aqui hacemos la comparacion contra el email que se loguea el usuario */
+		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+		let userToLogin = usuarios.filter(x => x.email == req.body.email);
 		
-
-
-
-
-
-
-		return res.send(req.body);
-		/* return res.redirect('/login/:profile') */  
+		if(userToLogin){
+			let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			
+			if(isOkPassword) {
+				delete userToLogin.password; // Me elimina la contraseña para que no sea vista
+				req.session.userLogged = userToLogin; // aca permance la sseccion, el usuario permanece logueado
+				return res.redirect("/user/profile");
+			}
+			return res.render("./user/login",{
+				errors: {
+					email: {
+						msg: 'las credenciales son invalidas'
+					}
+				}
+			});
+		}
+		return res.render("./user/login",{
+			errors: {
+				email: {
+					msg: "No se encuentra en nuestra base de datos"
+				}
+			}
+		});
     },
-
-
-	/* PERFIL */
+/* PERFIL DEL USUARIO*/
 	profile: (req,res) => 
-	{
-		return res.render('userProfile');
+	//ACA VEO QUE ESTA CUANDO LA SESSION ACTIVA:
+
+	{	/* console.log('estas en profile');
+		console.log(req.session); */
+		return res.render("/user/profile", {
+			usuarios: req.session.userLogged
+	});
+	
 	},
-
-
-
-
-
-
+	logout: (req,res) => 
+	{
+		req.session.destroy(); // borra todo lo q esta en sesion, lo destruye
+		console.log(re.session);
+		return res.redirect('/'); // Redirecciona a la HOME
+	},
 
 	/* REGISTRACION */
     register: (req, res) => 
@@ -57,7 +78,7 @@ const userController =
 				id: usuarios[usuarios.length-1].id + 1,
 				name: req.body.name,
 				email: req.body.email,
-				password: bcrypt.hashSync(req.body.password, 10),
+				password: bcryptjs.hashSync(req.body.password, 10),
 				/* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
 				image: req.file.filename
 			} 

@@ -30,5 +30,11 @@
   "password": "$2b$10$EasvIWGOnjdRccjPlDZLJ.DFYtTz0VTeQlZ4Hj3lseRGbvcsxMd/i",
   "rePassword": "$2b$10$pEMY.r2jSI01zwrMidY55OhRB2U1IsKg2daQ7cv7ht3bl3gEyFcIq",
   "image": "user-1656786418391.jpg"
+ },
+ {
+  "id": "5",
+  "name": "pepita",
+  "email": "pepita@gmail.com",
+  "image": "user-1656823539036.jpg"
  }
 ]
