@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const session = require('express-session'); // Requerimos sesion
 
-const logMiddleware = require("./middlewares/logMiddleware");
+// const logMiddleware = require("./middlewares/logMiddleware");
 
 //Carpeta archivos estaticos.
 app.use(express.static("public"));
@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
 
-app.use(logMiddleware);
+// app.use(logMiddleware);
 
 //Para el motodo POST
 //Con esto se captura todo lo que viene de un formulario en forma de un objeto literal y luego

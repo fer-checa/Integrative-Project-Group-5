@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Se ingreso en la página /admin el Sat Jul 02 2022 15:33:20 GMT-0300 (hora estándar de Argentina)
 Se ingreso en la página /admin el Sat Jul 02 2022 15:33:44 GMT-0300 (hora estándar de Argentina)
 Se ingreso en la página /admin el Sat Jul 02 2022 15:34:24 GMT-0300 (hora estándar de Argentina)
@@ -439,3 +440,5 @@ Se ingreso en la página /public/img/home/footer_subscribe.jpg el Sun Jul 03 202
 Se ingreso en la página /user/login el Sun Jul 03 2022 00:31:08 GMT-0300 (hora estándar de Argentina)
 Se ingreso en la página /user/login el Sun Jul 03 2022 00:31:10 GMT-0300 (hora estándar de Argentina)
 Se ingreso en la página /user/login el Sun Jul 03 2022 00:32:14 GMT-0300 (hora estándar de Argentina)
+=======
+>>>>>>> e8929121154cd10105210bf263452de4bf8091a3
