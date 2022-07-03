@@ -4,7 +4,7 @@ const path = require('path');
 const familyFilePath = path.join(__dirname, '../data/family.json');
 
 
-const categoryController =
+const familyController =
 {
 	todasLasFamilias: (req, res) => {
 		const familias = JSON.parse(fs.readFileSync(familyFilePath, 'utf-8'));
