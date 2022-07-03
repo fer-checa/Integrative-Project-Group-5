@@ -37,6 +37,7 @@ app.use(methodOverride("_method"));
 // requerir archivos de rutas.
 const indexRouter = require("./routers/indexRouter");
 const userRouter = require("./routers/userRouter");
+const familyRouter = require("./routers/familyRouter");
 const productsRouter = require("./routers/productsRouter");
 const footerRouter = require("./routers/footerRouter");
 const adminRouter = require("./routers/adminRouter");
@@ -53,7 +54,7 @@ app.use("/user", userRouter);
 app.use("/products", productsRouter);
 app.use("/footer", footerRouter);
 app.use("/category", categoryRouter);
-
+app.use("/family", familyRouter);
 app.use("/admin", adminRouter);
 
 app.use((req, res, next) => {
