@@ -13,5 +13,13 @@
   "email": "fer@fer.com",
   "password": "$2b$10$9L2ZVCDnu5kJUl7zfoG.beb/D7i7wvOEGBnmxQVe1PDY.4eheHsQO",
   "image": "user-1656807934713.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Matias",
+  "email": "mamenendez@gmail.com",
+  "password": "$2b$10$B22KA7YrnZCeFVm2Mnvhk.vsWikUOVbqpNrgyjXSmhmF/OvDqn7Z.",
+  "image": "user-1656890512744.png",
+  "isAdmin": 0
  }
 ]

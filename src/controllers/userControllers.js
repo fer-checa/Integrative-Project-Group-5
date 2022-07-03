@@ -64,7 +64,9 @@ const userController =
 				email: req.body.email,
 				password: bcrypt.hashSync(req.body.password, 10),
 				/* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
-				image: req.file.filename
+				image: req.file.filename,
+				isAdmin:0
+
 			} 
 	
 			usuarios.push(newUser);
@@ -96,12 +98,19 @@ const userController =
 		
 		let userToEdit = usuarios.find(user => req.params.id == user.id);
 
+		let isAdminAux= req.body.isAdmin;
+		if (isAdminAux=="on") 
+		{
+			isAdminAux=1;
+		} else {isAdminAux=0;}
+
 		let editedUser = {
 			id: req.
 			params.id,
 			name: req.body.name,
 			email: req.body.email,
-			password: req.body.password,
+			password:userToEdit.password,
+			isAdmin: isAdminAux,
 			/* rePassword: req.body.rePassword, */
 			// if ternario ===> condicion? verdadero : falso
 			image: req.file ? req.file.filename : userToEdit.image
