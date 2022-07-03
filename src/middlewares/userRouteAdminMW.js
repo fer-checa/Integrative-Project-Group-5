@@ -1,6 +1,6 @@
 const userRouteAdminMW = (req, res, next) => {
     //por session.  tiene que ser admin el usuario.
-  req.session.idUser = 0;
+  req.session.idUser = 1;
     
     
   if (req.session.idUser == undefined || req.session.idUser <=0) {

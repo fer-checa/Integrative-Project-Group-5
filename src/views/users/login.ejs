@@ -11,12 +11,30 @@
             <!-------------------- MAIN --------------------->
             <main>
                 <h1>Iniciar sesion</h1>
-                <form class="form-seguridad" action="/login" method="GET">
+                <form class="form-seguridad" action="/user/login" method="POST">
                     <div class="contenedor-seguridad">
-                        <div><input type="email" class="input-registro" placeholder="Email"></div>
-                        
-                        <div><input type="password" class="input-registro" placeholder="Contraseña"></div>
 
+                        <div><input type="email" class="input-registro" text= "email" name= "email" placeholder="Email">
+
+                            <% if (locals.errors && errors.email) {%> 
+                                <div class="text-danger" style="color: red">
+                                    <%= errors.email.msg %> 
+                                </div>
+                            <% } %>  
+                            
+                        </div>
+                        
+                        <div><input type="password" class="input-registro" text="contraseña"  name= "Contraseña" placeholder="Contraseña">
+                        
+                        </div>
+
+                        <!-- RECORDARME -->
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Recordarme
+                            </label>
+                        </div> <br>
+                        
                         <div class="boton-final contenedor-botones ">
                             <button id="" type="submit" class="btn-success boton-seguridad">
                                 <i class="fa-solid fa-user-check"></i> Ingresar

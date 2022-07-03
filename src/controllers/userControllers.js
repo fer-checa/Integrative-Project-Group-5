@@ -9,34 +9,39 @@ const userController =
 {	/* LOGIN */
     login: (req, res) => 
     {
-        res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
+       return res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
     },
 	
-
 	/* INICIAR SESION */
     loginProcess: (req, res) => {
+
+		/* aqui hacemos la comparacion contra el email que se loguea el usuario */
+		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+		let userToLogin = usuarios.filter(x => x.email == req.body.email);
 		
+		if(userToLogin){
+			/* let isOkPassword = bcrypt.compareSync(req.body.password, userToLogin.password); */
+			if(userToLogin){
+				return res.send('users/login',{titulo:'Mundo Mascota DH-Login'});
+			}
+			return res.render('users/login',{titulo:'Mundo Mascota DH-Login'}, {
+				errors: {
+					email: {
+						msg: "No se encuentra en nuestra base de datos"
+					}
+				}
+			});
+		}
 
-
-
-
-
-
-		return res.send(req.body);
-		/* return res.redirect('/login/:profile') */  
+		
     },
 
 
-	/* PERFIL */
+	/* PERFIL DEL USUARIO*/
 	profile: (req,res) => 
 	{
-		return res.render('userProfile');
+		return res.render('users/profile');
 	},
-
-
-
-
-
 
 
 	/* REGISTRACION */
@@ -61,8 +66,6 @@ const userController =
 				/* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
 				image: req.file.filename
 			} 
-	
-			
 	
 			usuarios.push(newUser);
 			fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
@@ -103,7 +106,6 @@ const userController =
 			// if ternario ===> condicion? verdadero : falso
 			image: req.file ? req.file.filename : userToEdit.image
 		}
-
 
 		let indice = usuarios.findIndex(user => user.id == req.params.id);
 		usuarios[indice] = editedUser;

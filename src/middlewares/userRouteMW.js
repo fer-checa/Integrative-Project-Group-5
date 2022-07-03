@@ -1,5 +1,3 @@
-
-
 const userRouteMW =  (req,res,next) => 
 {
       //por session.  tiene que ser admin el usuario.
