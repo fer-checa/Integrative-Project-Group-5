@@ -35,7 +35,7 @@ const authRouteMW = require('../middlewares/authRouteMW');
 /* ********************************************************************************************************+ */
 
 /* LOGIN */
-router.get('/login', userRouteMW,  userController.login);
+router.get('/login', guestRouteMW ,  userController.login);
 
 /* PROCESAR EL LOGIN */
 router.post('/login', 

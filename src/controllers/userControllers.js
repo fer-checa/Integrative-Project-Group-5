@@ -25,9 +25,9 @@ const userController =
 			if(isOkPassword) {
 				delete userToLogin.password; // Me elimina la contraseña para que no sea vista
 				req.session.userLogged = userToLogin; // aca permance la sseccion, el usuario permanece logueado
-				return res.redirect("/user/profile");
+				return res.redirect("users/profile");
 			}
-			return res.render("./user/login",{
+			return res.render('users/login',{
 				errors: {
 					email: {
 						msg: 'las credenciales son invalidas'
@@ -35,7 +35,7 @@ const userController =
 				}
 			});
 		}
-		return res.render("./user/login",{
+		return res.render('users/login',{
 			errors: {
 				email: {
 					msg: "No se encuentra en nuestra base de datos"
