@@ -43,9 +43,7 @@ router.post('/login',
 check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
 
 /* PERFIL DEL USUARIO */
-router.get('/profile' , userController.login);
-
-
+router.get('/profile' ,authRouteMW, userController.profile);
 
 /* REGISTRACION */
 
@@ -54,7 +52,6 @@ router.get('/register',userController.register);
 
 /* PROCESAR EL REGISTRO */
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
-
 router.get('/list',userRouteAdminMW, userController.list);
 router.get('/edit/:id',userRouteAdminMW, userController.edit); 
 router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
