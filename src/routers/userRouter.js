@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {body, check} = require('express-validator');
 const path = require('path');
-//
+
 const multer = require('multer');
 
-//multer
+/* MULTER */
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({storage: storage});
-
 
 const validarDatos = [
     body('name').notEmpty().withMessage('Debes Completar el Nombre').bail(),
@@ -33,12 +32,27 @@ const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
 const guestRouteMW = require('../middlewares/guestRouteMW');
 const authRouteMW = require('../middlewares/authRouteMW');
 
+/* ********************************************************************************************************+ */
+
+/* LOGIN */
+router.get('/login', userRouteMW,  userController.login);
+
+/* PROCESAR EL LOGIN */
+router.post('/login', 
+[check('email').isEmail().withMessage('Email invalido'),
+check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
+
+/* PERFIL DEL USUARIO */
+router.get('/profile' , userController.login);
 
 
-/* ******************************************************************************************************** */
 
 /* REGISTRACION */
-router.get('/register', guestRouteMW, userController.register);
+
+/* FORMULARIO DE REGISTRO */
+router.get('/register',userController.register);
+
+/* PROCESAR EL REGISTRO */
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
 
 router.get('/list',userRouteAdminMW, userController.list);

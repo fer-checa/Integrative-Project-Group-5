@@ -4,68 +4,83 @@
 <!-------------------- HEAD --------------------->
 <%- include('../partials/head') %>
 
-<!-------------------- BODY --------------------->
-<body>
+    <!-------------------- BODY --------------------->
 
-    <!-------------------- HEADER --------------------->
-    <%- include('../partials/header') %>
+    <body>
 
-    <!-------------------- MAIN --------------------->
-    <main>
-        
-        <h1>Editar Usuario</h1>
+        <!-------------------- HEADER --------------------->
+        <%- include('../partials/header') %>
 
-        <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad" enctype="multipart/form-data">
-            <div class="contenedor-seguridad">
-                <div >
-                    <label for="name" class="input-registro">Nombre del Usuario:</label>
-                    <br>
-                    <input type="text" value="<%= userToEdit.name %>" id="name" name="name" placeholder="<%= userToEdit.name %>" class="form-input-edit">
-                </div>
-                <div >
-                    <label for="email" class="input-registro">Email del Usuario:</label>
-                    <br>
-                    <input type="email" value="<%= userToEdit.email %>" id="email" name="email" placeholder="<%= userToEdit.email %>" class="form-input-edit">
-                </div>
-                <!-- <div >
-                    <label for="password" class="input-registro">Contraseña:</label>
-                    <br>
-                    <input type="text" value="<%= userToEdit.password %>" id="password" name="password" placeholder="<%= userToEdit.password %>" class="form-input-edit">
-                </div> -->
-                <!-- <div >
-                    <label for="rePassword" class="input-registro">Repetir Contraseña:</label>
-                    <br>
-                    <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
-                </div> -->
-                
-                <div>
-                    <label for="product-image" class="input-registro">Imagen:</label>
-                    <input type="file" id="product-image" name="product-image" class="product-image">
-                </div>
+            <!-------------------- MAIN --------------------->
+            <main>
 
-               
-                    <div >
-                         <button type="submit" class="btn-success boton-editar">
-                            <i class="fa-solid fa-user-check"></i>  Guardar Cambios</button>
-                     </div>
-                     
-                     
+                <h1>Editar Usuario</h1>
+
+                <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad"
+                    enctype="multipart/form-data">
+                    <div class="contenedor-seguridad">
+                        <div>
+                            <label for="name" class="input-registro">Nombre del Usuario:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.name %>" id="name" name="name"
+                                placeholder="<%= userToEdit.name %>" class="form-input-edit">
+                        </div>
+                        <div>
+                            <label for="email" class="input-registro">Email del Usuario:</label>
+                            <br>
+                            <input type="email" value="<%= userToEdit.email %>" id="email" name="email"
+                                placeholder="<%= userToEdit.email %>" class="form-input-edit">
+                        </div>
+                        <div>
+                            <label for="isAdmin" class="input-registro">Es usuario administrador :</label>
+                            <br>
+                            <% if (userToEdit.isAdmin) { %>
+                                <input type="checkbox" name="isAdmin"  checked > 
+                              
+                            <% } else { %>  
+                                <input type="checkbox" name="isAdmin"   >
+                            <% } %>  
+                            
+                        </div>
+                        <!-- <div >
+                            <label for="password" class="input-registro">Contraseña:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.password %>" id="password" name="password" placeholder="<%= userToEdit.password %>" class="form-input-edit">
+                        </div> -->
+                                <!-- <div >
+                            <label for="rePassword" class="input-registro">Repetir Contraseña:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
+                        </div> -->
+
+                        <div>
+                            <label for="product-image" class="input-registro">Imagen:</label>
+                            <input type="file" id="product-image" name="product-image" class="product-image">
+                        </div>
+
+
+                        <div>
+                            <button type="submit" class="btn-success boton-editar">
+                                <i class="fa-solid fa-user-check"></i> Guardar Cambios</button>
+                        </div>
+
+
                     </div>
                 </form>
-                
+
                 <div class="form-delete">
-                   <form action="/user/delete/<%= userToEdit.id %>?_method=DELETE" method="POST"  >
-                    <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
-                   </form>
-               </div>
+                    <form action="/user/delete/<%= userToEdit.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
+                    </form>
+                </div>
 
 
 
-    </main>
+            </main>
 
-    <!-------------------- FOOTER --------------------->
-    <%- include ('../partials/footer.ejs') %>
-        
-</body>
+            <!-------------------- FOOTER --------------------->
+            <%- include ('../partials/footer.ejs') %>
+
+    </body>
 
 </html>

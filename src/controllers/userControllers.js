@@ -8,12 +8,13 @@ const userController =
 
 {	/* LOGIN */
     login: (req, res) => 
-    {/*  */
-		/* console.log(req.session); */
-       return res.render("./users/login",{titulo:'Mundo Mascota DH-Login'});        
+    {
+       return res.render('users/login',{titulo:'Mundo Mascota DH-Login'});        
     },
+	
 	/* INICIAR SESION */
     loginProcess: (req, res) => {
+
 		/* aqui hacemos la comparacion contra el email que se loguea el usuario */
 		const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 		let userToLogin = usuarios.filter(x => x.email == req.body.email);
@@ -82,10 +83,10 @@ const userController =
 				email: req.body.email,
 				password: bcryptjs.hashSync(req.body.password, 10),
 				/* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
-				image: req.file.filename
+				image: req.file.filename,
+				isAdmin:0
+
 			} 
-	
-			
 	
 			usuarios.push(newUser);
 			fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
@@ -116,17 +117,23 @@ const userController =
 		
 		let userToEdit = usuarios.find(user => req.params.id == user.id);
 
+		let isAdminAux= req.body.isAdmin;
+		if (isAdminAux=="on") 
+		{
+			isAdminAux=1;
+		} else {isAdminAux=0;}
+
 		let editedUser = {
 			id: req.
 			params.id,
 			name: req.body.name,
 			email: req.body.email,
-			password: req.body.password,
+			password:userToEdit.password,
+			isAdmin: isAdminAux,
 			/* rePassword: req.body.rePassword, */
 			// if ternario ===> condicion? verdadero : falso
 			image: req.file ? req.file.filename : userToEdit.image
 		}
-
 
 		let indice = usuarios.findIndex(user => user.id == req.params.id);
 		usuarios[indice] = editedUser;

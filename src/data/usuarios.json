@@ -5,36 +5,8 @@
   "email": "admin@mundomascotadh.com.ar",
   "password": "admin",
   "rePassword": "admin",
-  "image": "adm.jpg"
- },
- {
-  "id": 2,
-  "name": "Fernanda",
-  "email": "fernanda.checa2015@gmail.com",
-  "password": "$2b$10$pF.FtGPTEfx6lqg2XCHatO3kYNyoYQFZOYwycusZUMrWLa7X2fEV2",
-  "rePassword": "$2b$10$DSw09n64lKdohYimvIJLuejStqpgfTQgsAkfqrh6cJV3Skyv8Uesa",
-  "image": "user-1656731896846.jpg"
- },
- {
-  "id": 3,
-  "name": "Fernanda",
-  "email": "fernanda.checa2015@gmail.com",
-  "password": "$2b$10$zXXYB7fL9diAPkvBxL.63O1Mue7gX7UiEJ1HMz1dxxDtvPalEFfsq",
-  "rePassword": "$2b$10$or2I49ryoTFgAs50W57dzurDrL1FCc/r747iTARUQRgYkcbV5guRe",
-  "image": "user-1656783043645.jpg"
- },
- {
-  "id": 4,
-  "name": "fer",
-  "email": "fernanda_checa@hotmail.com",
-  "password": "$2b$10$EasvIWGOnjdRccjPlDZLJ.DFYtTz0VTeQlZ4Hj3lseRGbvcsxMd/i",
-  "rePassword": "$2b$10$pEMY.r2jSI01zwrMidY55OhRB2U1IsKg2daQ7cv7ht3bl3gEyFcIq",
-  "image": "user-1656786418391.jpg"
- },
- {
-  "id": "5",
-  "name": "pepita",
-  "email": "pepita@gmail.com",
-  "image": "user-1656823539036.jpg"
+  "image": "adm.jpg",
+  "isAdmin": 1
  }
+ 
 ]

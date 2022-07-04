@@ -1,5 +1,3 @@
-
-
 const userRouteMW =  (req,res,next) => 
 {
       //por session.  tiene que ser admin el usuario.
@@ -8,8 +6,9 @@ const userRouteMW =  (req,res,next) =>
         //no esta logueado.
         res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
       } else {
-        //si esta logueado , ejecutamos next() para seguir con la ejecucion.
+
         next();
+        //si esta logueado , ejecutamos next() para seguir con la ejecucion.
       }
       
 }
