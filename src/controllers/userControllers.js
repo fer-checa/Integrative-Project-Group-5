@@ -63,6 +63,8 @@ const userController =
 	/* REGISTRACION */
     register: (req, res) => 
     {
+		// lo guardo por 30 seg en el navegador
+		res.cookie('testing', 'hola mundo', {maxAge: 1000 * 30 })
         res.render('users/register',{titulo:'Mundo Mascota DH-Register'});        
     },
 	

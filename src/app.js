@@ -1,7 +1,10 @@
 const express = require("express");
-const app = express();
-const path = require('path');
 const session = require('express-session'); // Requerimos sesion, la inicializamos
+const cookies = require('cookie-parser');
+
+const path = require('path');
+
+const app = express();
 
 const logMiddleware = require("./middlewares/logMiddleware");
 
@@ -15,6 +18,8 @@ app.use(express.static("public"));
 //referencia
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
+
+app.use(cookies());
 
 app.use(userLoggedMW);
 
