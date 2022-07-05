@@ -7,28 +7,40 @@ const bcryptjs = require("bcryptjs");
 const userController = {
   /* LOGIN */
   login: (req, res) => {
+    req.session.userLogged = "PEPE";
     return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
   },
 
   /* INICIAR SESION */
   loginProcess: (req, res) => {
-    req.session.userLogged =false;
+    
     /* aqui hacemos la comparacion contra el email que se loguea el usuario */
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     let userToLogin = usuarios.filter((x) => x.email == req.body.email);
 	
     if (userToLogin.length > 0) {
+
       let isOkPassword = true; //bcryptjs.compareSync(req.body.password, userToLogin.password);
 
       if (isOkPassword) {
-        delete userToLogin.password; // Me elimina la contraseña para que no sea vista
-        req.session.userLogged = true; // aca permance la sseccion, el usuario permanece logueado
-        res.render("users/profile", {
-          titulo: "Mundo Mascosta DH - Profile",
-          usuarios: userToLogin,
+        // delete userToLogin.password; // Me elimina la contraseña para que no sea vista
+        
+        req.session.userLogged=userToLogin; // aca permance la sseccion, el usuario permanece logueado
+        
+        const productsFilePath = path.join(__dirname, "../data/products.json");
+        const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+        const Gatos = todosLosProductos.filter(function (product) {
+          return product.categoria == 'Gatos'
         });
-      } else {
-        res.render("users/login", {
+        const Perros = todosLosProductos.filter(function (product) {
+          return product.categoria == 'Perros'
+        });
+        
+
+        res.render("index", {titulo: "Mundo Mascosta DH - Index",usuarios: userToLogin,Gatos,Perros});
+      } else 
+      {
+        res.render("users/login",userLoggedMW, {
           titulo: "Mundo Mascosta DH - Login",
           errors: { email: { msg: "las credenciales son invalidas" } },
         });
@@ -43,13 +55,11 @@ const userController = {
   /* PERFIL DEL USUARIO*/
   profile: (req, res) =>
     //ACA VEO QUE ESTA CUANDO LA SESSION ACTIVA:
-
     {
-      /* console.log('estas en profile');
-		console.log(req.session); */
-      const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-      let miUsuario = usuarios.filter((x) => x.email == req.body.email);
-       res.render("users/profile", { titulo: "Mundo Mascosta DH - Login",usuarios: miUsuario});
+
+      // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+      // let miUsuario = usuarios.filter((x) => x.email == req.body.email);
+       res.render("users/profile", { titulo: "Mundo Mascosta DH - Profile"});
     },
   logout: (req, res) => {
     req.session.destroy(); // borra todo lo q esta en sesion, lo destruye
