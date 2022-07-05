@@ -20,24 +20,13 @@ const userController = {
 	
     if (userToLogin.length > 0) {
 
-      let isOkPassword = true; //bcryptjs.compareSync(req.body.password, userToLogin.password);
+      let isOkPassword = true;// bcryptjs.compareSync(req.body.password, userToLogin.password);
 
       if (isOkPassword) {
         // delete userToLogin.password; // Me elimina la contraseña para que no sea vista
-        
         req.session.userLogged=userToLogin; // aca permance la sseccion, el usuario permanece logueado
-        
-        const productsFilePath = path.join(__dirname, "../data/products.json");
-        const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-        const Gatos = todosLosProductos.filter(function (product) {
-          return product.categoria == 'Gatos'
-        });
-        const Perros = todosLosProductos.filter(function (product) {
-          return product.categoria == 'Perros'
-        });
-        
-
-        res.render("index", {titulo: "Mundo Mascosta DH - Index",usuarios: userToLogin,Gatos,Perros});
+        res.redirect('/');
+       
       } else 
       {
         res.render("users/login",userLoggedMW, {

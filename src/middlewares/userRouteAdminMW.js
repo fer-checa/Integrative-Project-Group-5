@@ -1,8 +1,6 @@
 const userRouteAdminMW = (req, res, next) => {
     //por session.  tiene que ser admin el usuario.
   req.session.idUser = 1;
-    
-    
   if (req.session.userLog == undefined ) {
     //no esta logueado.
     res.render("user/login", { titulo: "Mundo Mascota DH-Login" });
@@ -14,8 +12,6 @@ const userRouteAdminMW = (req, res, next) => {
     //si esta logueado , ejecutamos next() para seguir con la ejecucion.
     next();
   }
-  
-  
   
 };
 
