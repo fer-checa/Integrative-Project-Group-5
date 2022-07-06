@@ -1,9 +1,14 @@
 const express = require("express");
-const app = express();
+const session = require('express-session'); // Requerimos sesion, la inicializamos
+const cookies = require('cookie-parser');
+
 const path = require('path');
-const session = require('express-session'); // Requerimos sesion
+
+const app = express();
 
 // const logMiddleware = require("./middlewares/logMiddleware");
+
+const userLoggedMW= require('./middlewares/userLoggedMW');
 
 //Carpeta archivos estaticos.
 app.use(express.static("public"));
@@ -14,7 +19,11 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
 
-// app.use(logMiddleware);
+
+app.use(userLoggedMW);
+app.use(cookies());
+
+
 
 //Para el motodo POST
 //Con esto se captura todo lo que viene de un formulario en forma de un objeto literal y luego
@@ -61,3 +70,4 @@ app.use((req, res, next) => {
   res.status(404).render('404');
   next();
 });
+ 

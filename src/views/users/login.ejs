@@ -10,8 +10,11 @@
 
             <!-------------------- MAIN --------------------->
             <main>
+                <br>
+                <br>
                 <h1>Iniciar sesion</h1>
-                <form class="form-seguridad" action="/user/login" method="POST">
+                <br>
+                <form class="form-seguridad" action="login" method="POST">
                     <div class="contenedor-seguridad">
 
                         <div><input type="email" class="input-registro" text= "email" name= "email" placeholder="Email">
@@ -23,12 +26,9 @@
                             <% } %>  
                             
                         </div>
+                        <div><input type="password" class="input-registro" placeholder="Contraseña"></div>
+                        <br>
                         
-                        <div><input type="password" class="input-registro" text="contraseña"  name= "Contraseña" placeholder="Contraseña">
-                        
-                        </div>
-
-                        <!-- RECORDARME -->
                         <div class="form-check mb-3">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" name="remember"> Recordarme
@@ -43,7 +43,10 @@
                         <a class="links-seguridad" href="/recuperar">¿Olvidaste tu contraseña?</a>
 
                         <a class="links-seguridad" href="/user/register">Crear una cuenta</a>
+                        <br>
+                        <br>
                     </div>
+                    
                 </form>
 
             </main>
