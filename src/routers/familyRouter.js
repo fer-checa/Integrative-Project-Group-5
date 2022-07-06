@@ -3,12 +3,15 @@ const router = express.Router();
 
 const familyController = require ('../controllers/familyController')
 
+const userRouteAdminMW = require('../middlewares/userRouteAdminMW');
+
 router.get('/',familyController.todasLasFamilias);
 
-router.get('/familyNew',userRouteAdminMW,familyController.New);
-router.post('/familyNew',userRouteAdminMW,validarDatosNew,familyController.create);
+// router.post('/familyNew',userRouteAdminMW,familyController.new);
+
+router.post('/familyNew',userRouteAdminMW,familyController.create);
 router.get('/familyEdit/:id',userRouteAdminMW,familyController.Edit);
-router.patch('/familyEdit/:id',userRouteAdminMW,validarDatosNew, familyController.update); 
+router.patch('/familyEdit/:id',userRouteAdminMW, familyController.update); 
 router.post('/familyInactivar/:id',userRouteAdminMW, familyController.inactivar);
 router.post('/familyActivar/:id',userRouteAdminMW, familyController.activar);
 
