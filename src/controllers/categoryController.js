@@ -88,8 +88,8 @@ const categoryController =
 	
 		let editCategory = {
 		  id: req.params.id,
-		  nombre: unProd[0].nombre,
-		  usuario: unProd[0].usuario,
+		  nombre: unCatego[0].nombre,
+		  usuario: unCatego[0].usuario,
 		  activo: 0,
 		};
 		let indice = todasLasCategorias.findIndex(
