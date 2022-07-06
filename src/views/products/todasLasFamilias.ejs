@@ -43,18 +43,25 @@
                                         <%= aux.activo%>
                                     </td>
 
-                                    <td><a href="<%= aux.id%>"><i title="Editar familia"
-                                                style="color:darkblue; font-size: 20px ; "
-                                                class="fa-solid fa-pen-to-square"></i></a>
-
-                                    </td>
                                     <td>
-                                        <!-- <form action="/category/categoryDelete/<%= aux.id%>" method="POST">
-                                            <button type="submit" class="btn"><i title="Eliminar categoria"
-                                                    style="color:darkred; font-size: 20px ; "
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                        </form> -->
-                                    </td>
+                                        <a href="/family/familyEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Familia"
+                                        
+                                        class="fa-solid fa-pen-to-square"></i></a>
+
+                                        <% if (aux.activo==1) { %> 
+                                            <form style="display:inline; " action="/family/familyInactivar/<%= aux.id%>" method="POST">
+                                                <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar Familia"
+                                                        class="fa-solid fa-thumbs-down"></i></button>
+                                            </form>
+
+                                            <% } else { %>
+                                                <form style="display:inline; " action="/family/familyActivar/<%= aux.id%>" method="POST">
+                                                    <button type="submit"  class="btn-activar-grid"><i title="Activar familia"
+                                                            class="fa-solid fa-thumbs-up"></i></button>
+                                                </form>
+                                                <% } %>
+
+                            </td>
                                 </tr>
                                 <%}%>
                         </tbody>
