@@ -7,34 +7,33 @@ const bcryptjs = require("bcryptjs");
 const userController = {
   /* LOGIN */
   login: (req, res) => {
-    req.session.userLogged = "PEPE";
     return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
   },
 
   /* INICIAR SESION */
   loginProcess: (req, res) => {
-    
     /* aqui hacemos la comparacion contra el email que se loguea el usuario */
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     let userToLogin = usuarios.filter((x) => x.email == req.body.email);
-	
-    if (userToLogin.length > 0) {
 
-      let isOkPassword = true;// bcryptjs.compareSync(req.body.password, userToLogin.password);
+    if (userToLogin.length > 0) {
+      let isOkPassword = true; //bcryptjs.compareSync(req.body.password, userToLogin.password);
 
       if (isOkPassword) {
         // delete userToLogin.password; // Me elimina la contraseña para que no sea vista
-        req.session.userLogged=userToLogin; // aca permance la sseccion, el usuario permanece logueado
-        res.redirect('/');
-       
-      } else 
-      {
-        res.render("users/login",userLoggedMW, {
+        //si esta ok , mail y psw , redireccionamos al index.
+        req.session.userLogged = userToLogin; // aca permance la sseccion, el usuario permanece logueado
+        
+        res.redirect("/");
+      } else {
+        //psw incorrecto , nuevamente redireccionamos al login mostrando mensaje de error.
+        res.render("users/login",  {
           titulo: "Mundo Mascosta DH - Login",
-          errors: { email: { msg: "las credenciales son invalidas" } },
+          errors: { email: { msg: "Las credenciales son invalidas" } },
         });
       }
     } else {
+      //el Mail no esta en la BD redireccionamos al login nuevamente.
       return res.render("users/login", {
         titulo: "Mundo Mascosta DH - Login",
         errors: { email: { msg: "No se encuentra en nuestra base de datos" } },
@@ -45,10 +44,9 @@ const userController = {
   profile: (req, res) =>
     //ACA VEO QUE ESTA CUANDO LA SESSION ACTIVA:
     {
-
       // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
       // let miUsuario = usuarios.filter((x) => x.email == req.body.email);
-       res.render("users/profile", { titulo: "Mundo Mascosta DH - Profile"});
+      res.render("users/profile", { titulo: "Mundo Mascosta DH - Profile" });
     },
   logout: (req, res) => {
     req.session.destroy(); // borra todo lo q esta en sesion, lo destruye

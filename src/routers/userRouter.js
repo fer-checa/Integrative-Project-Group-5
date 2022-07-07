@@ -30,43 +30,47 @@ const userController = require('../controllers/userControllers');
 
 /* MIDDLEWARS */
 const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
-const guestRouteMW = require('../middlewares/guestRouteMW');
-const authRouteMW = require('../middlewares/authRouteMW');
+// const guestRouteMW = require('../middlewares/guestRouteMW');
+const userLoggedMW = require('../middlewares/userLoggedMW');
 
 /* ********************************************************************************************************+ */
 
-/* LOGIN */
-router.get('/login', guestRouteMW ,  userController.login);
-
-/* PROCESAR EL LOGIN */
-router.post('/login', 
-[check('email').isEmail().withMessage('Email invalido'),
-check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
 
 
 /* REGISTRACION */
 
 /* FORMULARIO DE REGISTRO */
+// para registrar no usamos MW
 router.get('/register',userController.register);
 
 /* PROCESAR EL REGISTRO */
+//aca queremos insertar el registro en la BD , no usamos MW
 router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
+//aca listamos  todos los usuarios, para poder editarlos o eliminarlos. solo pueden ingresar los admin
 router.get('/list',userRouteAdminMW, userController.list);
+//aca presenta los datos para editar un usuario, solo pueden ingresar los admin
 router.get('/edit/:id',userRouteAdminMW, userController.edit); 
+//graba la edicion en BD solo pueden ingresar los admin
 router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
+//borra un usuario en BD solo pueden ingresar los admin
 router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
 
-/* PROCESAR EL LOGIN */
+/* LOGIN */
+//Presenta la pantalla para loguearse , tiene un MW que si esta logueado te redirecciona.
+router.get('/login', userController.login); 
+// guestRouteMW ,
+
+/* PROCESAR EL LOGIN No tiene MW */ 
 router.post('/login', 
 [check('email').isEmail().withMessage('Email invalido'),
 check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
 
 
-/* PERFIL DEL USUARIO */
-router.get('/profile', authRouteMW,  userController.profile);
+/* PERFIL DEL USUARIO tiene un MW que valida si el usuario esta logueado */
+router.get('/profile', userLoggedMW,  userController.profile);
 
 /* DESLOGUEARSE*/
-router.get('/logout', userController.logout);
+//router.get('/logout', userController.logout);
 
 module.exports = router;

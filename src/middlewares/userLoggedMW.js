@@ -1,6 +1,6 @@
 const userLoggedMW = (req, res, next) => {
   // setea esto para que pueda ser visto en cualquier vista
-
+// console.log("Paso por aca : " + req.session.userLogged);
   if (req.session == undefined) {
     res.locals.isLogged = false;
   } else {
@@ -13,7 +13,6 @@ const userLoggedMW = (req, res, next) => {
     }
   }
   
-
   // if ( req.session.userLogged== undefined) {
   //     res.locals.isLogged = false;
   //     /* res.locals.userLogged = req.session.userLogged; */

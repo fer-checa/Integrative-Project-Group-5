@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const indexController = require('../controllers/indexControllers');
-const userLogged = require('../middlewares/userLoggedMW');
+const userLoggedMW = require('../middlewares/userLoggedMW');
 
 
-router.get('/', userLogged, indexController.index);
+router.get('/', userLoggedMW, indexController.index);
 
 
 module.exports = router;

@@ -5,7 +5,17 @@ const { validationResult } = require("express-validator");
 
 const productsController = {
   index: (req, res) => {
-    res.render("index", { titulo: "Mundo Mascota DH" });
+    	/* Filtramos los productos mas visitados y los que estan en oferta */
+		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		
+		const Gatos = todosLosProductos.filter(function (product) {
+			return product.categoria == 'Gatos'
+		});
+		const Perros = todosLosProductos.filter(function (product) {
+			return product.categoria == 'Perros'
+		});
+		
+    res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros });
   },
 
   todosLosProductos: (req, res) => {

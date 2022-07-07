@@ -4,8 +4,6 @@ const guestRouteMW = (req, res, next) => {
         // res.redirect('/user/profile')
         res.render('users/profile',{titulo: "Mundo Mascota DH - Profile"});
     }
-    
-
     next();
 }
 module.exports = guestRouteMW;
