@@ -19,13 +19,13 @@
 
 
 <header>
-  
+
     <div class="main-header">
 
         <a href="/"><img src="/img/home/logo.jpg" alt="logo mundo mascota DH" class="logo"></a> <br>
         <!-- NOMBRE -->
         <p style="margin-left: 60px ;font-family: 'Montserrat', sans-serif; color:  #ebebeb;">MUNDO MASCOTA DH</p>
-        
+
         <!-- BUSCADOR DE PRODUCTOS -->
 
         <form action="/search" method="GET" class="">
@@ -36,23 +36,32 @@
     <div>
         <nav>
             <ul class="nav-bar">
-                <% if (locals.isLogged) { %> 
-                <li><a href="/products/todosLosProductos">Todos los productos</a> <i class="fas fa-paw iconito"></i></a></li>
-                <li><a href="#">Mis pedidos</a> <i class="fas fa-shopping-basket iconito"></i></a></li>
-                <li><a href="/products/sucursales">Sucursales</a> <i class="fa-solid fa-location-dot iconito"></i></li>
-                <li> <a href="/products/productCart">Carrito <i class="fa-solid fa-cart-shopping iconito"></i></a></li> 
-                <li> <a href="/admin">Administrar <i class="fa-solid fa-gear iconito"></i></a></li>
+                <li><a href="/products/todosLosProductos">Todos los productos</a> <i
+                    class="fas fa-paw iconito"></i></a></li>
 
-                    <%  }  else { %> 
-                
-               <li><a href="/user/register">Registrate</a> <i class="fa-solid fa-address-card iconito"></i></a></li>
-               
-                <li><a href="/user/login">Ingresar</a> <i class="fas fa-user iconito"></i></a></li>
-                <li> <a href="/user/profile">Hello User! <i class="fas fa-user-circle iconito"></i></a></li>
-                
-                        <% } %> 
-                        
+                    <li><a href="/products/sucursales">Sucursales</a> <i class="fa-solid fa-location-dot iconito"></i>
+                    </li>
+                    
+                <% if (locals.isLogged) { %>
+                    
+                    <li><a href="#">Mis pedidos</a> <i class="fas fa-shopping-basket iconito"></i></a></li>
+                    <li> <a href="/products/productCart">Carrito <i class="fa-solid fa-cart-shopping iconito"></i></a>
+                    </li>
+                    <li> <a href="/user/profile">Hello User! <i class="fas fa-user-circle iconito"></i></a></li>
 
+                    <% } else { %>
+
+                        <!-- <li><a href="/user/register">Registrate</a> <i class="fa-solid fa-address-card iconito"></i></a>
+                        </li> -->
+
+                        <li><a href="/user/login">Ingresar</a> <i class="fas fa-user iconito"></i></a></li>
+                       
+
+                            <% } %>
+
+                            <% if (locals.isAdmin) { %>
+                                <li> <a href="/admin">Administrar <i class="fa-solid fa-gear iconito"></i></a></li>
+                                <% } %>
             </ul>
         </nav>
     </div>

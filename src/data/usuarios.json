@@ -14,7 +14,7 @@
   "email": "pepe@pepe.com",
   "password": "$2a$10$YcanSWUjjvfmBKFVzSUFfOJOc8hi779u8UolVXrtz8PGw7ktgWq0S",
   "image": "user-1656894678330.jpg",
-  "isAdmin": 0
+  "isAdmin": 1
  },
  {
   "id": 3,

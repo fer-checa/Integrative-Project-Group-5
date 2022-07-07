@@ -9,6 +9,9 @@ const userLoggedMW = (req, res, next) => {
     } else {
       if (req.session.userLogged.length > 0) {
         res.locals.isLogged = true;
+        if (req.session.userLogged[0].isAdmin == 1) {
+          res.locals.isAdmin = true;
+        }
       }
     }
   }
