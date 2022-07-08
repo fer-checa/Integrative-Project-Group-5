@@ -9,15 +9,16 @@
     <body>
         <!--------------------- HEADER ----------------->
         <%- include('../partials/header') %>
-        
-  
-        <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        </script>
+
+
+            <script>
+                document.getElementById("demo").innerHTML = "Hello JavaScript!";
+            </script>
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
                     <h1>Alta Familia</h1>
+                    
                     <% if(typeof alert !='undefined' ) { %>
                         <% alert.forEach(function(error) { %>
                             <div class="alert alert-danger alert-dismissible fade in">
@@ -27,31 +28,24 @@
                             <% }) %>
                                 <% } %>
 
-                                    <form action="/products/familyNew" method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/products/category"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                    <form action="/admin/familyNew" method="POST" >
+                                        <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>
+                                            Volver</a>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=locals.old && old.nombre%>" placeholder="Nombre de la familia">
+                                                value="<%=locals.old && old.nombre%>"
+                                                placeholder="Nombre de la familia">
                                         </div>
-                                        
-        
-                                            </div>
+                                        <div class="col-xs-12 col-md-6">
+                                            <label for="selActivo">Familia Activa:</label>
+                                            <select id="selectActivo" name="activo" class="form-control" id="selActivo">
+                                                <option></option>
+                                                <option>SI</option>
+                                                <option>NO</option>
+                                            </select>
                                         </div>
-
-                                            <div class="col-xs-12 col-md-6">
-                                                <label for="selActivo">Familia Activa:</label>
-                                                <select id="selectActivo" name="activo" class="form-control"
-                                                    id="selActivo">
-                                                    <option></option>
-                                                    <option>SI</option>
-                                                    <option>NO</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <hr>
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
@@ -62,17 +56,17 @@
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                                 <button id="btnLimpiar" type="reset"
-                                                    class="btn btn-warning btn-md btn-block"><i class="fa-solid fa-broom"></i> Limpiar</button>
+                                                    class="btn btn-warning btn-md btn-block"><i
+                                                        class="fa-solid fa-broom"></i> Limpiar</button>
                                             </div>
-                                         
+
                                         </div>
+
                                     </form>
                 </div>
             </main>
-
             <!-- FOOTER -->
             <%- include ('../partials/footer.ejs') %>
     </body>
 
 </html>
-

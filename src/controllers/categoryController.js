@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { all } = require('../routers/categoryRouter');
+
 
 const categoryFilePath = path.join(__dirname, '../data/category.json');
 
@@ -11,70 +11,67 @@ const categoryController =
 		const categorias = JSON.parse(fs.readFileSync(categoryFilePath, 'utf-8'));
 		res.render('products/todasLasCategorias', { titulo: 'Mundo Mascota DH-Productos', categorias })
 	},
-	category: (req, res) => {
-		let categoria = req.params.categoria
-		categoria = todosLosProductos.find(product => product.categoria == categoria)
-		res.render('category', { titulo: 'Mundo Mascota DH-Detalle Producto', categoria })
-	},
+	new: (req, res) => {
+		res.render("products/categoryNew", { titulo: "Mundo Mascota DH-Alta de Categoria Producto" });
+	  },
 
+	
 	create: (req, res) => {
-		let errors = validationResult(req);
-		if (errors.isEmpty()) {
-		  const allCategory = JSON.parse(
-			fs.readFileSync(categoryFilePath, "utf-8")
-		  );
+		//let errors = validationResult(req);
+		// if (errors.isEmpty()) {
+		const allCategory = JSON.parse(fs.readFileSync(categoryFilePath, "utf-8"));
 		  let newCategory = {
 			id: parseInt(allCategory[allCategory.length - 1].id) + 1,
 			nombre: req.body.nombre,
-			activo: req.body.activo == "SI" ? 1 : 0,
 			usuario: "Admin",
+			activo: req.body.activo == "SI" ? 1 : 0
 		  };
 		  allCategory.push(newCategory);
 		  fs.writeFileSync(
 			categoryFilePath,
 			JSON.stringify(allCategory, null, " ")
 		  );
-		  res.redirect("/products/category");
-		} else {
-		  const alert = errors.array();
-		  return res.render("products/categoryNew", {
-			titulo: "Mundo Mascota DH-Alta Producto",
-			alert,
-			old: req.body,
-		  });
-		}
+		  res.redirect("/admin/category");
 	  },
+
+
+	  category: (req, res) => {
+		let categoria = req.params.categoria
+		categoria = todosLosProductos.find(product => product.categoria == categoria)
+		res.render('category', { titulo: 'Mundo Mascota DH-Detalle ', categoria })
+	},
 
 	Edit: (req, res) => {
 		const allCategory = JSON.parse(fs.readFileSync(categoryFilePath, "utf-8"));
 		let categoryToEdit = allCategory.find((user) => req.params.id == user.id);
-		res.render("products/category", {
+		res.render("products/categoryEdit", {
 		  titulo: "Mundo Mascota DH-Editar Producto",
 		  categoryToEdit,
 		});
 	  },
 
 	  update: (req, res) => {
-		let errors = validationResult(req);
-		if (errors.isEmpty()) {
-		  const allCategory = JSON.parse(
-			fs.readFileSync(categoryFilePath, "utf-8")
-		  );
-		  let categoryToEdit = allCategory.find((prod) => req.params.id == prod.id);
+		//let errors = validationResult(req);
+		
+		// if (errors.isEmpty()) {
+		  const allCategory = JSON.parse(fs.readFileSync(categoryFilePath, "utf-8"));
+		  //let categoryToEdit = allCategory.find((x) => req.params.id == x.id);
+		  
 		  let editedCategory = {
 			id: parseInt(req.params.id),
 			nombre: req.body.nombre,
 			usuario: "Admin",
 			activo: req.body.activo == "SI" ? 1 : 0,
 		  };
-		  let indice = allCategory.findIndex((prod) => prod.id == req.params.id);
+
+		  let indice = allCategory.findIndex((x) => x.id == req.params.id);
 		  allCategory[indice] = editedCategory;
 		  fs.writeFileSync(
 			categoryFilePath,
 			JSON.stringify(allCategory, null, " ")
 		  );
-		  res.redirect("/products/category");
-		  }
+		  res.redirect("/admin/category");
+		  //}
 
 	  },
 
@@ -101,7 +98,7 @@ const categoryController =
 		  JSON.stringify(todasLasCategorias, null, " ")
 		);
 	
-		res.redirect("/products/category");
+		res.redirect("/admin/category");
 	  },
 	
 	  activar: (req, res) => {
@@ -128,7 +125,7 @@ const categoryController =
 		  JSON.stringify(todasLasCategorias, null, " ")
 		);
 	
-		res.redirect("/products/category");
+		res.redirect("/admin/category");
 	  },
 	};
 

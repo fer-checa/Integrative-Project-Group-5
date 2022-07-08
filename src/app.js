@@ -21,11 +21,7 @@ app.set("views", path.resolve(__dirname, "views"));
 
 
 //app.use(userLoggedMW);
-
-
-// app.use(cookies());
-
-
+app.use(cookies());
 
 //Para el motodo POST
 //Con esto se captura todo lo que viene de un formulario en forma de un objeto literal y luego
@@ -48,11 +44,9 @@ app.use(methodOverride("_method"));
 // requerir archivos de rutas.
 const indexRouter = require("./routers/indexRouter");
 const userRouter = require("./routers/userRouter");
-const familyRouter = require("./routers/familyRouter");
 const productsRouter = require("./routers/productsRouter");
 const footerRouter = require("./routers/footerRouter");
 const adminRouter = require("./routers/adminRouter");
-const categoryRouter = require("./routers/categoryRouter");
 
 //Servidor.
 app.listen(3050, () => {
@@ -64,8 +58,6 @@ app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/products", productsRouter);
 app.use("/footer", footerRouter);
-app.use("/category", categoryRouter);
-app.use("/family", familyRouter);
 app.use("/admin", adminRouter);
 
 app.use((req, res, next) => {

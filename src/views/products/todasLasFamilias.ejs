@@ -16,7 +16,8 @@
             <main>
                 <div class="container">
                     <h1> Agregar - modificar Familias </h1>
-                    
+                    <a class="btn" href="/admin"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                    <a class="btn" href="/admin/familyNew">Crear Familia <i class="fa-solid fa-file"></i></a>
                     <br><br>
                     <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
                     <br>
@@ -44,18 +45,18 @@
                                     </td>
 
                                     <td>
-                                        <a href="/family/familyEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Familia"
+                                        <a href="/admin/familyEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Familia"
                                         
                                         class="fa-solid fa-pen-to-square"></i></a>
 
                                         <% if (aux.activo==1) { %> 
-                                            <form style="display:inline; " action="/family/familyInactivar/<%= aux.id%>" method="POST">
+                                            <form style="display:inline; " action="/admin/familyInactivar/<%= aux.id%>" method="POST">
                                                 <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar Familia"
                                                         class="fa-solid fa-thumbs-down"></i></button>
                                             </form>
 
                                             <% } else { %>
-                                                <form style="display:inline; " action="/family/familyActivar/<%= aux.id%>" method="POST">
+                                                <form style="display:inline; " action="/admin/familyActivar/<%= aux.id%>" method="POST">
                                                     <button type="submit"  class="btn-activar-grid"><i title="Activar familia"
                                                             class="fa-solid fa-thumbs-up"></i></button>
                                                 </form>

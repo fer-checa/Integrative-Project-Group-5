@@ -17,6 +17,7 @@ const userController = {
     let userToLogin = usuarios.filter((x) => x.email == req.body.email);
 
     if (userToLogin.length > 0) {
+
       let isOkPassword = true; //bcryptjs.compareSync(req.body.password, userToLogin.password);
 
       if (isOkPassword) {

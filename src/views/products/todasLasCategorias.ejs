@@ -15,8 +15,9 @@
 
             <main>
                 <div class="container">
-                    <h1> Agregar - modificar Categorias / Familias </h1>
-                    
+                    <h1> Agregar - modificar Categorias</h1>
+                    <a class="btn" href="/admin"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                    <a class="btn" href="/admin/categoryNew">Crear Categoria <i class="fa-solid fa-file"></i></a>
                     <br><br>
                     <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
                     <br>
@@ -27,7 +28,7 @@
                                 <th>Familia</th>
                                 <th>Activo</th>
                                 <th>Acciones</th>
-                                <th>Acciones</th>
+
 
                             </tr>
                         </thead>
@@ -45,26 +46,29 @@
                                     </td>
 
                                     <td>
-                                        <a href="/category/categoryEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Categoria"
-                                        
-                                        class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="/admin/categoryEdit/<%= aux.id%>" class="btn-edit-grid"><i
+                                                title="Editar Categoria" class="fa-solid fa-pen-to-square"></i></a>
 
-                                        <% if (aux.activo==1) { %> 
-                                            <form style="display:inline; " action="/category/categoryInactivar/<%= aux.id%>" method="POST">
-                                                <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar categoria"
+                                        <% if (aux.activo==1) { %>
+                                            <form style="display:inline; "
+                                                action="/admin/categoryInactivar/<%= aux.id%>" method="POST">
+                                                <button type="submit" class="btn-inactivar-grid"><i
+                                                        title="Inactivar categoria"
                                                         class="fa-solid fa-thumbs-down"></i></button>
                                             </form>
 
                                             <% } else { %>
-                                                <form style="display:inline; " action="/category/categoryActivar/<%= aux.id%>" method="POST">
-                                                    <button type="submit"  class="btn-activar-grid"><i title="Activar categoria"
+                                                <form style="display:inline; "
+                                                    action="/admin/categoryActivar/<%= aux.id%>" method="POST">
+                                                    <button type="submit" class="btn-activar-grid"><i
+                                                            title="Activar categoria"
                                                             class="fa-solid fa-thumbs-up"></i></button>
                                                 </form>
                                                 <% } %>
 
-                                        
 
-                            </td>
+
+                                    </td>
                                 </tr>
                                 <%}%>
                         </tbody>

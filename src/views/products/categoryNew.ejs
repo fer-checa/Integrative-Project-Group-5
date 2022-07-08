@@ -9,11 +9,7 @@
     <body>
         <!--------------------- HEADER ----------------->
         <%- include('../partials/header') %>
-        
-  
-        <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        </script>
+
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
@@ -27,30 +23,27 @@
                             <% }) %>
                                 <% } %>
 
-                                    <form action="/products/categoryNew" method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/products/category"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                    <form action="/admin/categoryNew" method="POST">
+                                        <a class="btn" href="/admin/category"><i class="fa-solid fa-circle-left"></i>
+                                            Volver</a>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=locals.old && old.nombre%>" placeholder="Nombre de la categoria">
-                                        </div>
-                                        
-        
-                                            </div>
+                                                value="<%=locals.old && old.nombre%>"
+                                                placeholder="Nombre de la categoria">
                                         </div>
 
-                                            <div class="col-xs-12 col-md-6">
-                                                <label for="selActivo">Categoria Activa:</label>
-                                                <select id="selectActivo" name="activo" class="form-control"
-                                                    id="selActivo">
-                                                    <option></option>
-                                                    <option>SI</option>
-                                                    <option>NO</option>
+                                        <div class="col-xs-12 col-md-6">
+                                            <label for="selActivo">Categoria Activa:</label>
+                                            <select id="selectActivo" name="activo" class="form-control" id="selActivo">
+                                                <option></option>
+                                                <option>SI</option>
+                                                <option>NO</option>
 
-                                                </select>
-                                            </div>
+                                            </select>
                                         </div>
+
 
                                         <hr>
                                         <div class="form-group row">
@@ -62,9 +55,10 @@
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                                 <button id="btnLimpiar" type="reset"
-                                                    class="btn btn-warning btn-md btn-block"><i class="fa-solid fa-broom"></i> Limpiar</button>
+                                                    class="btn btn-warning btn-md btn-block"><i
+                                                        class="fa-solid fa-broom"></i> Limpiar</button>
                                             </div>
-                                         
+
                                         </div>
                                     </form>
                 </div>
@@ -75,4 +69,3 @@
     </body>
 
 </html>
-
