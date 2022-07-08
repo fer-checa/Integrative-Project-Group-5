@@ -3,67 +3,16 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/usuarios.json");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const User = require('../models/User');
 
 const userController = {
-  /* LOGIN */
-  login: (req, res) => {
-    return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
-  },
 
-  /* INICIAR SESION */
-  loginProcess: (req, res) => {
-    /* aqui hacemos la comparacion contra el email que se loguea el usuario */
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let userToLogin = usuarios.filter((x) => x.email == req.body.email);
-
-    if (userToLogin.length > 0) {
-
-      let isOkPassword = true; //bcryptjs.compareSync(req.body.password, userToLogin.password);
-
-      if (isOkPassword) {
-        // delete userToLogin.password; // Me elimina la contraseña para que no sea vista
-        //si esta ok , mail y psw , redireccionamos al index.
-        req.session.userLogged = userToLogin; // aca permance la sseccion, el usuario permanece logueado
-        
-        res.redirect("/");
-      } else {
-        //psw incorrecto , nuevamente redireccionamos al login mostrando mensaje de error.
-        res.render("users/login",  {
-          titulo: "Mundo Mascosta DH - Login",
-          errors: { email: { msg: "Las credenciales son invalidas" } },
-        });
-      }
-    } else {
-      //el Mail no esta en la BD redireccionamos al login nuevamente.
-      return res.render("users/login", {
-        titulo: "Mundo Mascosta DH - Login",
-        errors: { email: { msg: "No se encuentra en nuestra base de datos" } },
-      });
-    }
-  },
-  /* PERFIL DEL USUARIO*/
-  profile: (req, res) =>
-    //ACA VEO QUE ESTA CUANDO LA SESSION ACTIVA:
-    {
-      // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-      // let miUsuario = usuarios.filter((x) => x.email == req.body.email);
-      res.render("users/profile", { titulo: "Mundo Mascosta DH - Profile" });
-    },
-  logout: (req, res) => {
-    req.session.destroy(); // borra todo lo q esta en sesion, lo destruye
-    console.log(re.session);
-    return res.redirect("/"); // Redirecciona a la HOME
-  },
-
-  /* REGISTRACION */
   register: (req, res) => {
-    // lo guardo por 30 seg en el navegador
-    res.cookie("testing", "hola mundo", { maxAge: 1000 * 30 });
+  
     res.render("users/register", { titulo: "Mundo Mascota DH-Register" });
   },
 
   create: (req, res) => {
-    console.log(req.file);
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
@@ -74,7 +23,6 @@ const userController = {
         name: req.body.name,
         email: req.body.email,
         password: bcryptjs.hashSync(req.body.password, 10),
-        /* rePassword: bcrypt.hashSync(req.body.rePassword, 10), */
         image: req.file.filename,
         isAdmin: 0,
       };
@@ -90,6 +38,103 @@ const userController = {
       });
     }
   },
+
+
+
+
+
+  login: (req, res) => {
+    return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
+  },
+
+ 
+
+
+
+  loginProcess: (req, res) => {
+    let userToLogin = User.findByField('email', req.body.email);
+		
+		if(userToLogin) {
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+
+				if(req.body.remember_user) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
+				return res.redirect('/user/profile');
+			} 
+			return res.render('users/login', { titulo: "Mundo Mascota DH-Login",
+				errors: {
+					email: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+
+		return res.render('users/login', {titulo: "Mundo Mascota DH-Login",
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+
+
+    /* const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    let userToLogin = usuarios.filter((x) => x.email == req.body.email); */
+/* 
+    if (userToLogin.length > 0) {
+
+      let isOkPassword = true; 
+
+      if (isOkPassword) {
+        
+        req.session.userLogged = userToLogin; 
+        
+        res.redirect("/");
+      } else {
+        
+        res.render("users/login",  {
+          titulo: "Mundo Mascosta DH - Login",
+          errors: { email: { msg: "Las credenciales son invalidas" } },
+        });
+      }
+    } else {
+      
+      return res.render("users/login", {
+        titulo: "Mundo Mascosta DH - Login",
+        errors: { email: { msg: "No se encuentra en nuestra base de datos" } },
+      });
+    }
+  },
+
+
+ */
+
+
+
+
+ 
+  profile: (req, res) => {
+		return res.render('users/profile', {titulo: "Mundo Mascota DH- Profile",
+			user: req.session.userLogged
+		});
+	},
+
+
+
+
+  logout: (req, res) => {
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/');
+	},
+
 
   edit: (req, res) => {
     const usersFilePath = path.join(__dirname, "../data/usuarios.json");

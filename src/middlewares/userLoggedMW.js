@@ -1,6 +1,33 @@
+const User = require('../models/User');
+
 const userLoggedMW = (req, res, next) => {
-  // setea esto para que pueda ser visto en cualquier vista
-// console.log("Paso por aca : " + req.session.userLogged);
+	res.locals.isLogged = false;
+
+	let emailInCookie = req.cookies.userEmail;
+	let userFromCookie = User.findByField('email', emailInCookie);
+  
+
+	if (userFromCookie) {
+		req.session.userLogged = userFromCookie;
+	}
+
+	if (req.session.userLogged) {
+		res.locals.isLogged = true;
+		res.locals.userLogged = req.session.userLogged;
+	}
+
+    
+  
+
+	next();
+}
+
+module.exports = userLoggedMW;
+
+//CODIGO ANTERIOR
+/* 
+const userLoggedMW = (req, res, next) => {
+ 
   if (req.session == undefined) {
     res.locals.isLogged = false;
   } else {
@@ -16,12 +43,6 @@ const userLoggedMW = (req, res, next) => {
     }
   }
   
-  // if ( req.session.userLogged== undefined) {
-  //     res.locals.isLogged = false;
-  //     /* res.locals.userLogged = req.session.userLogged; */
-  // } else {res.locals.isLogged = true;}
-
   next();
-};
+}; */
 
-module.exports = userLoggedMW;

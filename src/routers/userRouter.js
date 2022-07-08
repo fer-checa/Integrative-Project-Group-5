@@ -30,8 +30,9 @@ const userController = require('../controllers/userControllers');
 
 /* MIDDLEWARS */
 const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
-// const guestRouteMW = require('../middlewares/guestRouteMW');
+const guestRouteMW = require('../middlewares/guestRouteMW');
 const userLoggedMW = require('../middlewares/userLoggedMW');
+const authRouteMW = require('../middlewares/authRouteMW');
 
 /* ********************************************************************************************************+ */
 
@@ -41,7 +42,7 @@ const userLoggedMW = require('../middlewares/userLoggedMW');
 
 /* FORMULARIO DE REGISTRO */
 // para registrar no usamos MW
-router.get('/register',userController.register);
+router.get('/register',guestRouteMW ,userController.register);
 
 /* PROCESAR EL REGISTRO */
 //aca queremos insertar el registro en la BD , no usamos MW
@@ -58,19 +59,13 @@ router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
 /* LOGIN */
 //Presenta la pantalla para loguearse , tiene un MW que si esta logueado te redirecciona.
-router.get('/login', userController.login); 
-// guestRouteMW ,
-
-/* PROCESAR EL LOGIN No tiene MW */ 
-router.post('/login', 
-[check('email').isEmail().withMessage('Email invalido'),
-check('password').isLength({min: 8}).withMessage('Contraseña Incorrecta')], userController.loginProcess);
-
+router.get('/login', guestRouteMW ,userController.login); 
+router.post('/login', userController.loginProcess);
 
 /* PERFIL DEL USUARIO tiene un MW que valida si el usuario esta logueado */
-router.get('/profile', userLoggedMW,  userController.profile);
+router.get('/profile', authRouteMW,  userController.profile);
 
 /* DESLOGUEARSE*/
-//router.get('/logout', userController.logout);
+router.get('/logout', userController.logout);
 
 module.exports = router;

@@ -14,7 +14,50 @@
                 <br>
                 <h1>Iniciar sesion</h1>
                 <br>
-                <form class="form-seguridad" action="login" method="POST">
+
+                            <form method="POST" action="login" class="form-seguridad">
+                                <div class="contenedor-seguridad">
+                                    <div class="col-md-6 my-2">
+                                        <div class="form-group">
+                                            <label><b>Email:</b></label>
+                                            <input type="text" name="email" class="form-control">
+                                            <% if (locals.errors && errors.email) { %>
+                                                <div class="text-danger">
+                                                    <%= errors.email.msg %>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 my-2">
+                                        <div class="form-group">
+                                            <label><b>Password:</b></label>
+                                            <input type="password" name="password" class="form-control">
+                                            <div class="invalid-feedback">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 my-2">
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="remember_user">Recordar mi usuario
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 my-3">
+                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-user-check"></i> Ingresar</button>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                       
+                            <a class="links-seguridad" href="/user/register">Crear una cuenta</a>
+
+
+
+
+
+                <!-- <form class="form-seguridad" action="login" method="POST">
                     <div class="contenedor-seguridad">
 
                         <div><input type="email" class="input-registro" text= "email" name= "email" placeholder="Email">
@@ -47,7 +90,7 @@
                         <br>
                     </div>
                     
-                </form>
+                </form> -->
 
             </main>
 

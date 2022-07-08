@@ -23,5 +23,13 @@
   "password": "$2a$10$D.Etj6Uxd5fB.GlNZ.3zUu5sr1w9bT7UW0tDPPYpqq6BU4Pag1qQa",
   "image": "user-1656900684972.png",
   "isAdmin": 0
+ },
+ {
+  "id": 4,
+  "name": "Adolfo Wirth",
+  "email": "adolfowirth@hotmail.com",
+  "password": "$2a$10$hfWFNL.zT2gIvdzl2/kvXOefGQlY/mMw4nXGWq6aFV8RIF1bYQZ4a",
+  "image": "user-1657299147699.jpeg",
+  "isAdmin": 0
  }
 ]
