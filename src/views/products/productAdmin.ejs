@@ -19,7 +19,7 @@
                     <h1> Alta - Baja - Modificacion de producto </h1>
                     <br>
                     <a class="btn" href="/admin"><i class="fa-solid fa-circle-left"></i> Volver</a>
-                    <a class="btn" href="/products/productNew">Crear Producto <i class="fa-solid fa-file"></i></a>
+                    <a class="btn" href="/admin/productNew">Crear Producto <i class="fa-solid fa-file"></i></a>
                     <br><br>
                     <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
                     <br>
@@ -55,18 +55,18 @@
                                     </td>
 
                                      <td>
-                                                <a href="/products/productEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar producto"
+                                                <a href="/admin/productEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar producto"
                                                 
                                                 class="fa-solid fa-pen-to-square"></i></a>
 
                                                 <% if (aux.activo==1) { %> 
-                                                    <form style="display:inline; " action="/products/productInactivar/<%= aux.id%>" method="POST">
+                                                    <form style="display:inline; " action="/admin/productInactivar/<%= aux.id%>" method="POST">
                                                         <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar producto"
                                                                 class="fa-solid fa-thumbs-down"></i></button>
                                                     </form>
 
                                                     <% } else { %>
-                                                        <form style="display:inline; " action="/products/productActivar/<%= aux.id%>" method="POST">
+                                                        <form style="display:inline; " action="/admin/productActivar/<%= aux.id%>" method="POST">
                                                             <button type="submit"  class="btn-activar-grid"><i title="Activar producto"
                                                                     class="fa-solid fa-thumbs-up"></i></button>
                                                         </form>

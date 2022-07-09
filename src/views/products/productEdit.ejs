@@ -27,8 +27,8 @@
                             <% }) %>
                                 <% } %>
 
-                                    <form action="/products/productEdit/<%= productToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/products/productAdmin"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                    <form action="/admin/productEdit/<%= productToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i> Volver</a>
                                         <div class="form-group">
                                             <label for="nombre">Nombre Producto:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"

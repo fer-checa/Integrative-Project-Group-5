@@ -39,22 +39,14 @@ const userController = {
     }
   },
 
-
-
-
-
   login: (req, res) => {
     return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
   },
 
- 
-
-
-
   loginProcess: (req, res) => {
     let userToLogin = User.findByField('email', req.body.email);
 		
-		if(userToLogin) {
+		if(userToLogin) { 
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
 				delete userToLogin.password;

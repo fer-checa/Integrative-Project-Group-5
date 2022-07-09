@@ -15,7 +15,7 @@
 
             <main>
                 <div class="container">
-                    <h1> Agregar - modificar Familias </h1>
+                    <h1>Alta - Baja - Modificacion de Familias </h1>
                     <a class="btn" href="/admin"><i class="fa-solid fa-circle-left"></i> Volver</a>
                     <a class="btn" href="/admin/familyNew">Crear Familia <i class="fa-solid fa-file"></i></a>
                     <br><br>
@@ -24,10 +24,10 @@
                     <table style="margin-left: 0; margin-right:0 ;" class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Activo</th>
-                                <th>Acciones</th>
-                                <th>Acciones</th>
+                                <th style="width: 5%; text-align: center; ">id</th>
+                                <th style="width: 70%;text-align: center;">Nombre</th>
+                                <th style="width: 10%;text-align: center;">Activo</th>
+                                <th style="width: 15%;text-align: center;">Acciones</th>
 
                             </tr>
                         </thead>
@@ -41,9 +41,8 @@
                                         <%= aux.nombre%>
                                     </td>
                                     <td>
-                                        <%= aux.activo%>
+                                        <% if (aux.activo==0) { %> NO<%} else { %> SI<% } %> 
                                     </td>
-
                                     <td>
                                         <a href="/admin/familyEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Familia"
                                         

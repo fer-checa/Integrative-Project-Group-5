@@ -46,31 +46,5 @@
   "nombre": "Comederos",
   "usuario": "user_id",
   "activo": 1
- },
- {
-  "id": 9,
-  "activo": 0,
-  "usuario": "Admin"
- },
- {
-  "id": 10,
-  "activo": 0,
-  "usuario": "Admin"
- },
- {
-  "id": 11,
-  "usuario": "Admin",
-  "activo": 0
- },
- {
-  "id": 12,
-  "usuario": "Admin",
-  "activo": 0
- },
- {
-  "id": "13",
-  "nombre": "213",
-  "usuario": "Admin",
-  "activo": 1
  }
 ]

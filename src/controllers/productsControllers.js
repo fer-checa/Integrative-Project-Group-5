@@ -85,7 +85,7 @@ const productsController = {
         productsFilePath,
         JSON.stringify(allProducts, null, " ")
       );
-      res.redirect("/products/productAdmin");
+      res.redirect("/admin/products");
     } else {
       const alert = errors.array();
       return res.render("products/productNew", {
@@ -131,7 +131,7 @@ const productsController = {
         productsFilePath,
         JSON.stringify(allProducts, null, " ")
       );
-      res.redirect("/products/productAdmin");
+      res.redirect("/admin/products");
     // }else {
     //     const alert = errors.array();
     //     return res.render("productEdit", {
@@ -172,7 +172,7 @@ const productsController = {
       JSON.stringify(todosLosProductos, null, " ")
     );
 
-    res.redirect("/products/productAdmin");
+    res.redirect("/admin/products");
   },
 
   activar: (req, res) => {
@@ -205,7 +205,7 @@ const productsController = {
       JSON.stringify(todosLosProductos, null, " ")
     );
 
-    res.redirect("/products/productAdmin");
+    res.redirect("/admin/products");
   },
 };
 module.exports = productsController;

@@ -31,13 +31,9 @@ const userController = require('../controllers/userControllers');
 /* MIDDLEWARS */
 const userRouteAdminMW= require('../middlewares/userRouteAdminMW');
 const guestRouteMW = require('../middlewares/guestRouteMW');
-const userLoggedMW = require('../middlewares/userLoggedMW');
 const authRouteMW = require('../middlewares/authRouteMW');
 
 /* ********************************************************************************************************+ */
-
-
-
 /* REGISTRACION */
 
 /* FORMULARIO DE REGISTRO */

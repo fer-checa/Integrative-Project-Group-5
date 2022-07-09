@@ -6,7 +6,7 @@ const familyFilePath = path.join(__dirname, "../data/family.json");
 const familyController = {
   todasLasFamilias: (req, res) => {
     const familias = JSON.parse(fs.readFileSync(familyFilePath, "utf-8"));
-    res.render("products/TodasLasFamilias", {
+    res.render("products/familyAdmin", {
       titulo: "Mundo Mascota DH-Productos",
       familias,
     });

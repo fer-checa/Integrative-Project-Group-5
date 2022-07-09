@@ -31,5 +31,13 @@
   "password": "$2a$10$hfWFNL.zT2gIvdzl2/kvXOefGQlY/mMw4nXGWq6aFV8RIF1bYQZ4a",
   "image": "user-1657299147699.jpeg",
   "isAdmin": 0
+ },
+ {
+  "id": 5,
+  "name": "Matias Menendez",
+  "email": "mamenendez@gmail.com",
+  "password": "$2a$10$XThwyRRNxf6HxyNVFFyr6uec42QwAMKg0COhF4RWFEfP8m6pfx29u",
+  "image": "user-1657369017923.png",
+  "isAdmin": 0
  }
 ]

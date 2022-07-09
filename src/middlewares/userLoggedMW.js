@@ -2,23 +2,25 @@ const User = require('../models/User');
 
 const userLoggedMW = (req, res, next) => {
 	res.locals.isLogged = false;
+  res.locals.isAdmin = false;
 
 	let emailInCookie = req.cookies.userEmail;
 	let userFromCookie = User.findByField('email', emailInCookie);
   
 
 	if (userFromCookie) {
+    
 		req.session.userLogged = userFromCookie;
+    console.log("aa " + req.session.userLogged.isAdmin);
 	}
 
 	if (req.session.userLogged) {
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
+    if (req.session.userLogged.isAdmin == 1) {
+      res.locals.isAdmin = true;
+    }
 	}
-
-    
-  
-
 	next();
 }
 
