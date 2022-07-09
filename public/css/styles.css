@@ -299,10 +299,6 @@ p {
 }
 
 /* PRODUCTOS */
-.products-wrapper {
- /*  margin-top: 30px; */
-  /* margin-bottom: 30px; */
-}
 
 .products-title {
   font-size: 2.4em;
@@ -327,11 +323,19 @@ p {
 }
 
 .product-box_data {
+  color:#05668d;
   padding: 15px;
   position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  align-items: baseline;
+  background-color: white;
+  width: 100%;
+  border-top: 10px var(--Gris-claro) solid;
+  text-align: left;
+  border-width: 1px;
+    
 }
 
 .product-box_data h2 {

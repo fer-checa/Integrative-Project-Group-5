@@ -192,18 +192,5 @@
   "fecha": "10/05/2022",
   "usuario": "user_id",
   "activo": 1
- },
- {
-  "id": 16,
-  "nombre": "Kong Peluche Marvin Moose Medium Perros",
-  "descripcion": "Los KONG Cozie™ Brights son juguetes de peluche blandos y adorables excelentes para acurrucarse con ternura. Los KONG Cozie™ Brights están hechos con una capa adicional de material para mayor resistencia y son juguetes ideales para sesiones de mordida suave y diversión dentro de casa. Sin duda, ¡tu perro adorará los juguetes KONG Cozie™ Brights tanto para acurrucarse como para jugar!",
-  "imagen": "/img/products/product16.jpg",
-  "categoria": "Perros",
-  "familia": "Juguetes",
-  "precio": 3200,
-  "descuento": 10,
-  "fecha": "10/05/2022",
-  "usuario": "user_id",
-  "activo": 1
  }
 ]

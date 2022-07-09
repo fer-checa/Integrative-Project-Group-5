@@ -92,6 +92,9 @@
                                             <img src="<%= product.imagen %>" alt="imagen de producto"
                                                 style="width:170px;">
                                         </figure>
+                                        <hr>
+                                    </a>
+                                        
                                         <article class="product-box_data">
                                             <h2>
                                                 $ <%= finalPrice %>
@@ -104,30 +107,38 @@
                                             </p>
                                             <i class="fas fa-paw iconito"></i>
                                         </article>
-                                    </a>
+                                    
                                 </section>
                             </div>
                             <% }) %>
                     </div>
 
                     <img src="/img/home/banner-perros.jpg" alt="promocional" style="width:100%;">
-
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <div class="container products-wrapper">
                         <div class="row">
                             <div class="col-12">
                                 <h2 class="products-title">Productos para Gatos</h2>
 
                             </div>
-
+                           
                             <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
                                 product.descuento) / 100)).toFixed(0) %>
                                 <div class="col-12 col-sm-6 col-lg-3">
+
                                     <section class="product-box" style="text-align:center;">
                                         <a href="/products/productDetail/<%= product.id %>">
                                             <figure class="product-box_image">
                                                 <img src="<%= product.imagen %>" alt="imagen de producto"
                                                     style="width:170px;">
                                             </figure>
+                                            <hr>
+                                        </a>
+                                            
+                                        
                                             <article class="product-box_data">
                                                 <h2>
                                                   $  <%= finalPrice %>
@@ -141,13 +152,16 @@
 
                                                 <i class="fas fa-paw iconito"></i>
                                             </article>
-                                        </a>
+                                        
                                     </section>
                                 </div>
                                 <% }) %>
                         </div>
                     </div>
-
+                    <br>
+                    <br>
+                    <br>
+                    
                     <img src="/img/home/banner-higiene.jpg" alt="promocional" style="width:100%;">
 
              
