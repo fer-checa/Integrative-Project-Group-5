@@ -47,5 +47,13 @@
   "password": "$2a$10$1jwiQr6/fDwNPSVSR6au9.xpvTI0WxWInrRL1WjbGX8XmddH5vopa",
   "image": "user-1657375372211.jpg",
   "isAdmin": 0
+ },
+ {
+  "id": 7,
+  "name": "Fernanda",
+  "email": "fernanda.checa2015@gmail.com",
+  "password": "$2a$10$ucTXC.Un8qn90lZcDPA0Ee3P1KX5LdVr4C0SU9gMv.v7SZdzx3.hG",
+  "image": "user-1657418233845.jpg",
+  "isAdmin": 0
  }
 ]

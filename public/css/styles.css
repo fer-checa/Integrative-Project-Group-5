@@ -357,7 +357,7 @@ p {
   color: var(--gray);
   margin: 0;
   height: 0;
-  transition: 300ms;
+  transition: 100ms;
   overflow: hidden;
 }
 
