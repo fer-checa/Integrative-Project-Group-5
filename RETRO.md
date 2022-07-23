@@ -53,6 +53,18 @@ La unica cosa relevante por cambiar aun es que en cada weekly se muestren los ca
 
 ## Sprint 5 - Middlewares + Auth"
 
+En este sprint realizamos la división de tareas, priorizando las más importantes, las que lleven a un producto mínimo viable, pero sin descuidar
+las implementaciones de mejoras del sitio web.
+
+Si bien cumplimos con todas las tareas del sprint actual, tuvimos que solicitar 2 días más de extensión para la entrega, para poder finalizar
+con los detalles del login de los usuarios.
+
+Lo que aún sigue siendo relevante es el compromiso de cada sprint, no solo asistir a las daylis sino cumplimentar con los commits en tiempo y forma,
+para poder avanzar todos en equipo y en conjunto.
+
+Como posible mejora para este nuevo sprint, sería ideal seguir con más comunicación, contestar a los mjs y las preguntas respecto a los avances del proyecto en el equipo.
+
+Más allá de esto logramos una gran mejora en el sitio web, en todo el proyecto, con respecto al frontend y a las funcionalidades del backend. 
 
 ## Sprint 6 - "Base de Datos"
 
