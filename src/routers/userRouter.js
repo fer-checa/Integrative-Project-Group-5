@@ -64,4 +64,8 @@ router.get('/profile', authRouteMW,  userController.profile);
 /* DESLOGUEARSE*/
 router.get('/logout', userController.logout);
 
+/* *********************************************************************************************************** */
+
+/*  */
+
 module.exports = router;

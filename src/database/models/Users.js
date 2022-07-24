@@ -32,6 +32,10 @@ module.exports = (sequelize, dataTypes) => {
 
             type: dataTypes.STRING
         },
+        role_id: {
+
+            type: dataTypes.INTEGER
+        },
 
     };
 
@@ -42,5 +46,30 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const User = sequelize.define( alias, cols, config);
+
+    /* Aqui van las asociaciones */
+
+    User.associate = function (models) {
+        // Asociacion con la tabla de roles
+        User.hasMany(models.Role, {
+            as: "roles",
+            foreignKey: "role_id"
+        });
+        // Asociacion con la tabla de productos
+        User.belongsTo(models.Product, {
+            as: "products",
+            foreignKey: "role_id"
+        });
+        // Asociacion con la tabla de FamilyProduct
+        User.belongsTo(models.FamilyProduct, {
+            as: "FamilyProduct",
+            foreignKey: "user_id"
+        });
+
+    }
+
+
+
+
     return User;
 }

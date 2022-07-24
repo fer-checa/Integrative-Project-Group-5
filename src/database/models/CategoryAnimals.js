@@ -19,12 +19,12 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         active: {
-
+            // CONSULTAR - TIPO DE DATO? - BIT
             type: dataTypes.STRING
         },
 
         dateRelease: {
-
+            // CONSULTAR - TIPO DE DATO? - DATETIME
             type: dataTypes.STRING
         }
 
@@ -37,5 +37,16 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const CategoryAnimal = sequelize.define( alias, cols, config);
+
+     /* Aqui va la asociacion */
+
+     CategoryAnimal.associate = function (models) {
+        // Asociacion con la tabla de productos
+        CategoryAnimal.belongsTo(models.Product, {
+            as: "products",
+            foreignKey: "categoryAnimal_id"
+        });
+    }
+
     return CategoryAnimal;
 }

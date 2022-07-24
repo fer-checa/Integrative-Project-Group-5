@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-
 const categoryFilePath = path.join(__dirname, '../data/category.json');
 
+/* const db = require('../database/models'); */
 
 const categoryController =
 {

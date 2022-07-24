@@ -3,9 +3,22 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/usuarios.json");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+
 const User = require('../models/User');
 
+/* const db = require('../database/models'); */
+/* const sequelize = db.Sequelize; */
+
 const userController = {
+  
+
+
+
+
+
+
+
+
 
   register: (req, res) => {
   
@@ -77,48 +90,11 @@ const userController = {
 	},
 
 
-    /* const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let userToLogin = usuarios.filter((x) => x.email == req.body.email); */
-/* 
-    if (userToLogin.length > 0) {
-
-      let isOkPassword = true; 
-
-      if (isOkPassword) {
-        
-        req.session.userLogged = userToLogin; 
-        
-        res.redirect("/");
-      } else {
-        
-        res.render("users/login",  {
-          titulo: "Mundo Mascosta DH - Login",
-          errors: { email: { msg: "Las credenciales son invalidas" } },
-        });
-      }
-    } else {
-      
-      return res.render("users/login", {
-        titulo: "Mundo Mascosta DH - Login",
-        errors: { email: { msg: "No se encuentra en nuestra base de datos" } },
-      });
-    }
-  },
-
-
- */
-
-
-
-
- 
   profile: (req, res) => {
 		return res.render('users/profile', {titulo: "Mundo Mascota DH- Profile",
 			user: req.session.userLogged
 		});
 	},
-
-
 
 
   logout: (req, res) => {

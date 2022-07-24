@@ -38,14 +38,28 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
-        dateRelease: {
+        date_release: {
 
-            type: dataTypes.STRING
+            type: dataTypes.DATA
         },
 
         active: {
 
             type: dataTypes.STRING
+        },
+        user_id: {
+
+            type: dataTypes.INTEGER
+        },
+
+        familyProduct_id: {
+
+            type: dataTypes.INTEGER
+        },
+
+        categoryAnimal_id: {
+
+            type: dataTypes.INTEGER
         },
     };
 
@@ -53,8 +67,32 @@ module.exports = (sequelize, dataTypes) => {
         
         tableName: 'products',
         timestamps: false
+
     }
 
     const Product = sequelize.define( alias, cols, config);
+
+    /* Aqui van las asociaciones */
+
+    Product.associate = function(models) {
+        // Asociacion con la tabla de productos
+        Product.hasMany(models.User, {
+            as: "user",
+            foreignKey: "user_id"
+        });
+        // Asociacion con la tabla de productos familyProducts
+        Product.hasMany(models.FamilyProduct, {
+            as: "familyProduct",
+            foreignKey: "familyProduct_id"
+        });
+        // Asociacion con la tabla de productos categoryAnimals
+        Product.hasMany(models.CategoryAnimal, {
+            as: "categoryAnimal",
+            foreignKey: "categoryAnimal_id"
+        });
+
+
+    }
+
     return Product;
 }

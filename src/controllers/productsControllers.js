@@ -3,9 +3,19 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const { validationResult } = require("express-validator");
 
+/* const db = require('../database/models');
+const sequelize = db.Sequelize; */
+
 const productsController = {
+
+
+
+
+
+
+
+
   index: (req, res) => {
-    	/* Filtramos los productos mas visitados y los que estan en oferta */
 		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		const Gatos = todosLosProductos.filter(function (product) {
@@ -34,10 +44,7 @@ const productsController = {
     );
     let id = req.params.id;
     let product = todosLosProductos.find((product) => product.id == id);
-    res.render("products/productDetail", {
-      titulo: "Mundo Mascota DH-Detalle Producto",
-      product,
-    });
+    res.render("products/productDetail", { titulo: "Mundo Mascota DH-Detalle Producto", product,});
   },
 
   productCart: (req, res) => {
@@ -52,10 +59,7 @@ const productsController = {
     const todosLosProductos = JSON.parse(
       fs.readFileSync(productsFilePath, "utf-8")
     );
-    res.render("products/productAdmin", {
-      titulo: "Mundo Mascota DH-Productos Admin",
-      todosLosProductos,
-    });
+    res.render("products/productAdmin", { titulo: "Mundo Mascota DH-Productos Admin", todosLosProductos,});
   },
 
   New: (req, res) => {
@@ -88,11 +92,7 @@ const productsController = {
       res.redirect("/admin/products");
     } else {
       const alert = errors.array();
-      return res.render("products/productNew", {
-        titulo: "Mundo Mascota DH-Alta Producto",
-        alert,
-        old: req.body,
-      });
+      return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
     }
   },
 
