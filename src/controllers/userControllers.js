@@ -6,19 +6,20 @@ const bcryptjs = require("bcryptjs");
 
 const User = require('../models/User');
 
-/* const db = require('../database/models'); */
-/* const sequelize = db.Sequelize; */
+const db = require('../database/models');
+const sequelize = db.Sequelize;
 
 const userController = {
   
-
-
-
-
-
-
-
-
+  // list: (req,res) =>
+  // {
+  //    db.user.findAll()
+  //   .then((resultado)=> 
+  //   {
+  //     res.send(resultado);
+  //   })
+    
+  // },
 
   register: (req, res) => {
   

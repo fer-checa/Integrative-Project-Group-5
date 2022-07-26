@@ -1,75 +1,50 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
-    
-    let alias = 'FamilyProduct';
-    
-    let cols = {
+  let cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
 
-        id: {
+    name: {
+      type: dataTypes.STRING,
+    },
 
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+    active: {
+      type: dataTypes.STRING,
+    },
 
-        name:{
+    dateRelease: {
+      type: dataTypes.STRING,
+    },
+    user_id: {
+      type: dataTypes.INTEGER,
+    },
+  };
 
-            type: dataTypes.STRING
-        },
+  let config = {
+    tableName: "familyProducts",
+    timestamps: false,
+  };
 
-        active: {
+  const FamilyProduct = sequelize.define("familyProduct", cols, config);
 
-            type: dataTypes.STRING
-        },
+  /* Aqui va la asociacion */
 
-        dateRelease: {
+  FamilyProduct.associate = function (models) {
+    // Asociacion con la tabla de productos
+    FamilyProduct.belongsTo(models.product, {
+      as: "product",
+      foreignKey: "familyProduct_id",
+    });
+    // Asociacion con la tabla de User
+    FamilyProduct.hasMany(models.user, {
+      as: "user",
+      foreignKey: "user_id",
+    });
+  };
 
-            type: dataTypes.STRING
-        },
-        user_id: {
-
-            type: dataTypes.INTEGER
-        },
-
-
-    };
-
-    let config = {
-        
-        tableName: 'familyProducts',
-        timestamps: false
-    }
-
-    const FamilyProduct = sequelize.define( alias, cols, config);
-
-    /* Aqui va la asociacion */
-
-    FamilyProduct.associate = function(models) {
-        // Asociacion con la tabla de productos
-        FamilyProduct.belongsTo(models.Product, {
-            as: "products",
-            foreignKey: "familyProduct_id"
-        });
-        // Asociacion con la tabla de User
-        FamilyProduct.hasMany(models.User, {
-            as: "user",
-            foreignKey: "user_id"
-        });
-
-
-
-    }
-
-   
-        
-
-
-    
-
-
-
-
-
-    return FamilyProduct;
-}
+  return FamilyProduct;
+};

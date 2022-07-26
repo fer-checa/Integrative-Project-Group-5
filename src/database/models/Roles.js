@@ -2,8 +2,7 @@ const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
     
-    let alias = 'Roles';
-    
+   
     let cols = {
 
         id: {
@@ -22,17 +21,17 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         
-        tableName: 'roles',
+        tableName: 'Roles',
         timestamps: false
     }
 
-    const Role = sequelize.define( alias, cols, config);
+    const Role = sequelize.define('role', cols, config);
 
     /* Aqui va la asociacion */
 
     Role.associate = function (models) {
-        Role.belongsTo(models.User, {
-            as: "roles",
+        Role.belongsTo(models.user, {
+            as: "user",
             foreignKey: "role_id"
         })
     }
