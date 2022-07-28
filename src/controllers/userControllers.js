@@ -11,15 +11,6 @@ const sequelize = db.Sequelize;
 
 const userController = {
   
-  // list: (req,res) =>
-  // {
-  //    db.user.findAll()
-  //   .then((resultado)=> 
-  //   {
-  //     res.send(resultado);
-  //   })
-    
-  // },
 
   register: (req, res) => {
   
@@ -149,9 +140,14 @@ const userController = {
     /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
     /* let lista = JSON.parse(archivoJSON); */
 
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    //const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
 
-    res.render("users/users", { usuarios, titulo: "Lista usuarios" });
+    db.user.findAll()
+    .then((resultado)=> 
+    {
+      res.send(resultado);
+    })
   },
 
   destroy: (req, res) => {

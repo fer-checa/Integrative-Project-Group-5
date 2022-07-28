@@ -33,18 +33,18 @@ module.exports = (sequelize, dataTypes) => {
 
   /* Aqui va la asociacion */
 
-  FamilyProduct.associate = function (models) {
-    // Asociacion con la tabla de productos
-    FamilyProduct.belongsTo(models.product, {
-      as: "product",
-      foreignKey: "familyProduct_id",
-    });
-    // Asociacion con la tabla de User
-    FamilyProduct.hasMany(models.user, {
-      as: "user",
-      foreignKey: "user_id",
-    });
-  };
+  // FamilyProduct.associate = function (models) {
+  //   // Asociacion con la tabla de productos
+  //   FamilyProduct.belongsTo(models.product, {
+  //     as: "product",
+  //     foreignKey: "familyProduct_id",
+  //   });
+  //   // Asociacion con la tabla de User
+  //   FamilyProduct.hasMany(models.user, {
+  //     as: "user",
+  //     foreignKey: "user_id",
+  //   });
+  // };
 
   return FamilyProduct;
 };

@@ -51,26 +51,31 @@ module.exports = (sequelize, dataTypes) => {
 
     User.associate = function (models) {
         // Asociacion con la tabla de roles
+
+        //VER : ASOCIACIONES  ver linea 58. 
+        //VER INCLUDE 
         User.hasMany(models.role, {
             as: "role",
-            foreignKey: "role_id"
-        });
-        // Asociacion con la tabla de productos
-        User.belongsTo(models.product, {
-            as: "userProduct",
-            foreignKey: "role_id"
+            foreignKey: "id" //USER_ID
         });
 
-        // Asociacion con la tabla de FamilyProduct
-        User.belongsTo(models.familyProduct, {
-            as: "familyProduct",
-            foreignKey: "user_id"
-        });
-        // Asociacion con la tabla de CategoryAnimal
-        User.belongsTo(models.categoryAnimal, {
-            as: "categoryAnimal",
-            foreignKey: "user_id"
-        });
+
+        // // Asociacion con la tabla de productos
+        // User.belongsTo(models.product, {
+        //     as: "userProduct",
+        //     foreignKey: "role_id"
+        // });
+
+        // // Asociacion con la tabla de FamilyProduct
+        // User.belongsTo(models.familyProduct, {
+        //     as: "familyProduct",
+        //     foreignKey: "user_id"
+        // });
+        // // Asociacion con la tabla de CategoryAnimal
+        // User.belongsTo(models.categoryAnimal, {
+        //     as: "categoryAnimal",
+        //     foreignKey: "user_id"
+        // });
     }
     return User;
 }

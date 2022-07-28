@@ -72,26 +72,26 @@ module.exports = (sequelize, dataTypes) => {
 
     /* Aqui van las asociaciones */
 
-    Product.associate = function(models) {
-        // Asociacion con la tabla de productos
-        Product.hasMany(models.user, {
-            as: "user",
-            foreignKey: "user_id"
-        });
+    // Product.associate = function(models) {
+    //     // Asociacion con la tabla de productos
+    //     Product.hasMany(models.user, {
+    //         as: "user",
+    //         foreignKey: "user_id"
+    //     });
 
-        // Asociacion con la tabla de productos familyProducts
-        Product.hasMany(models.familyProduct, {
-            as: "familyProduct",
-            foreignKey: "familyProduct_id"
-        });
-        // Asociacion con la tabla de productos categoryAnimals
-        Product.hasMany(models.categoryAnimal, {
-            as: "categoryAnimal",
-            foreignKey: "categoryAnimal_id"
-        });
+    //     // Asociacion con la tabla de productos familyProducts
+    //     Product.hasMany(models.familyProduct, {
+    //         as: "familyProduct",
+    //         foreignKey: "familyProduct_id"
+    //     });
+    //     // Asociacion con la tabla de productos categoryAnimals
+    //     Product.hasMany(models.categoryAnimal, {
+    //         as: "categoryAnimal",
+    //         foreignKey: "categoryAnimal_id"
+    //     });
 
 
-     }
+    //  }
 
     return Product;
 }

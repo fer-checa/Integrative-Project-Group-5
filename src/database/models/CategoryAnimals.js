@@ -32,18 +32,18 @@ module.exports = (sequelize, dataTypes) => {
 
   /* Aqui va la asociacion */
 
-  CategoryAnimal.associate = function (models) {
-    // Asociacion con la tabla de productos
-    CategoryAnimal.belongsTo(models.product, {
-      as: "product",
-      foreignKey: "categoryAnimal_id",
-    });
-    // Asociacion con la tabla de User
-    CategoryAnimal.hasMany(models.user, {
-        as: "user",
-        foreignKey: "user_id",
-      });
-  };
+  // CategoryAnimal.associate = function (models) {
+  //   // Asociacion con la tabla de productos
+  //   CategoryAnimal.belongsTo(models.product, {
+  //     as: "product",
+  //     foreignKey: "categoryAnimal_id",
+  //   });
+  //   // Asociacion con la tabla de User
+  //   CategoryAnimal.hasMany(models.user, {
+  //       as: "user",
+  //       foreignKey: "user_id",
+  //     });
+  // };
 
   return CategoryAnimal;
 };
