@@ -7,11 +7,28 @@ const bcryptjs = require("bcryptjs");
 const User = require('../models/User');
 
 const db = require('../database/models');
+
+const Role = db.role;
+const User1 = db.user;
+
 const sequelize = db.Sequelize;
 
 const userController = {
   
+  list: function (req, res) {
+    /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
+    /* let lista = JSON.parse(archivoJSON); */
 
+    //const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
+
+    User1.findAll({ require_once: Role })
+    .then((resultado)=> 
+    {
+      console.log(resultado);
+      res.send(resultado);
+    })
+  },
   register: (req, res) => {
   
     res.render("users/register", { titulo: "Mundo Mascota DH-Register" });
@@ -136,19 +153,7 @@ const userController = {
     res.redirect("/user/list");
   },
 
-  list: function (req, res) {
-    /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
-    /* let lista = JSON.parse(archivoJSON); */
-
-    //const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
-
-    db.user.findAll()
-    .then((resultado)=> 
-    {
-      res.send(resultado);
-    })
-  },
+  
 
   destroy: (req, res) => {
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));

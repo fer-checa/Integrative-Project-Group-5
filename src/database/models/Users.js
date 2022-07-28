@@ -55,8 +55,8 @@ module.exports = (sequelize, dataTypes) => {
         //VER : ASOCIACIONES  ver linea 58. 
         //VER INCLUDE 
         User.hasMany(models.role, {
-            as: "role",
-            foreignKey: "id" //USER_ID
+            as: "roles",
+            foreignKey: "role_id" //USER_ID
         });
 
 
