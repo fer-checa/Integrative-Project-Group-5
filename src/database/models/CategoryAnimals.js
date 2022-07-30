@@ -1,52 +1,51 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
-    
-    let alias = 'CategoryAnimals';
-    
-    let cols = {
+  let cols = {
+    id: {
+      type: dataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
 
-        id: {
+    name: {
+      type: dataTypes.STRING,
+    },
 
-            type: dataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+    active: {
+      // CONSULTAR - TIPO DE DATO? - BIT
+      type: dataTypes.BOOLEAN,
+    },
 
-        name:{
+    date_Release: {
+      // CONSULTAR - TIPO DE DATO? - DATETIME
+      type: dataTypes.STRING,
+    },
+  };
 
-            type: dataTypes.STRING
-        },
+  let config = {
+    tableName: "categoryanimals",
+    timestamps: false,
+  };
 
-        active: {
-            // CONSULTAR - TIPO DE DATO? - BIT
-            type: dataTypes.STRING
-        },
+  const CategoryAnimal = sequelize.define("CategoryAnimals", cols, config);
 
-        dateRelease: {
-            // CONSULTAR - TIPO DE DATO? - DATETIME
-            type: dataTypes.STRING
-        }
+  /* Aqui va la asociacion */
 
-    };
+  CategoryAnimal.associate = function (models) {
 
-    let config = {
+    // Asociacion con la tabla de User
+    CategoryAnimal.belongsTo(models.Users, {
+        as: "users",
+        foreignKey: "user_id",
+      });
 
-        tableName: 'categoryAnimals',
-        timestamps: false
-    }
+    // Asociacion con la tabla de productos
+    CategoryAnimal.hasMany(models.Products, {
+      as: "products",
+      foreignKey: "categoryAnimal_id",
+    });
+  };
 
-    const CategoryAnimal = sequelize.define( alias, cols, config);
-
-     /* Aqui va la asociacion */
-
-     CategoryAnimal.associate = function (models) {
-        // Asociacion con la tabla de productos
-        CategoryAnimal.belongsTo(models.Product, {
-            as: "products",
-            foreignKey: "categoryAnimal_id"
-        });
-    }
-
-    return CategoryAnimal;
-}
+  return CategoryAnimal;
+};

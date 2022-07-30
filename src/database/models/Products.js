@@ -2,8 +2,6 @@ const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
     
-    let alias = 'Products';
-    
     let cols = {
 
         id: {
@@ -45,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
 
         active: {
 
-            type: dataTypes.STRING
+            type: dataTypes.BOOLEAN
         },
         user_id: {
 
@@ -70,28 +68,31 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const Product = sequelize.define(alias, cols, config);
+    const Product = sequelize.define('Products', cols, config);
     
     /* Aqui van las asociaciones */
 
     Product.associate = function(models) {
         // Asociacion con la tabla de productos
-        Product.hasMany(models.User, {
-            as: "user",
+        Product.belongsTo(models.Users, {
+            as: "users",
             foreignKey: "user_id"
         });
-        // Asociacion con la tabla de productos familyProducts
-        Product.hasMany(models.FamilyProduct, {
-            as: "familyProduct",
+
+        //Asociacion con la tabla de productos fami lyProducts
+        Product.belongsTo(models.FamilyProducts, {
+            as: "familyProducts",
             foreignKey: "familyProduct_id"
         });
+
         // Asociacion con la tabla de productos categoryAnimals
-        Product.hasMany(models.CategoryAnimal, {
-            as: "categoryAnimal",
+        Product.belongsTo(models.CategoryAnimals, {
+            as: "categoryAnimals",
             foreignKey: "categoryAnimal_id"
         });
 
     }
+     }
+
     return Product;
     /* return Product; */
-}

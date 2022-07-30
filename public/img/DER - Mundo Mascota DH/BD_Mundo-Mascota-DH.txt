@@ -1,3 +1,6 @@
+DROP database mundo_mascota;
+CREATE database mundo_mascota;
+use mundo_mascota;
 
 
 CREATE TABLE `users` (
@@ -68,11 +71,13 @@ CREATE TABLE `productsOrdersDetails` (
 );
 
 CREATE TABLE `roles` (
-   `id`  NOT NULL,
+   `id` INT AUTO_INCREMENT,
    `role` VARCHAR(50) NOT NULL,
    PRIMARY KEY (`id`)
 );
 
+
+ALTER TABLE `users` ADD CONSTRAINT `FK_c5568438-9c47-4529-9666-4b51b935eae6` FOREIGN KEY (`role_id`) REFERENCES `roles`(`id`)  ;
 
 ALTER TABLE `products` ADD CONSTRAINT `FK_bb4bb40c-0f7b-4b34-9d7e-0dc7eb57d7e6` FOREIGN KEY (`familyProduct_id`) REFERENCES `familyProducts`(`id`)  ;
 
@@ -89,5 +94,3 @@ ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_74aca87d-d560-4c92-aad4-4
 ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_fa4aa56e-ca40-4788-8487-c3aa4933e787` FOREIGN KEY (`order_detail_id`) REFERENCES `ordersDetails`(`id`)  ;
 
 ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_68617930-9ce9-4211-a378-d5a27e956835` FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`)  ;
-
-ALTER TABLE `roles` ADD CONSTRAINT `FK_e7035c92-d56d-430d-a20c-b55448136e09` FOREIGN KEY (`role`) REFERENCES `users`(`id`)  ;

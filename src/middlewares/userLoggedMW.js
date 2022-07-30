@@ -11,7 +11,7 @@ const userLoggedMW = (req, res, next) => {
 	if (userFromCookie) {
     
 		req.session.userLogged = userFromCookie;
-    console.log("aa " + req.session.userLogged.isAdmin);
+    //console.log("aa " + req.session.userLogged.isAdmin);
 	}
 
 	if (req.session.userLogged) {

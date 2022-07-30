@@ -11,15 +11,23 @@ const sequelize = db.Sequelize;
 
 const userController = {
   
+  list: function (req, res) {
+    /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
+    /* let lista = JSON.parse(archivoJSON); */
 
+    //const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
 
-
-
-
-
-
-
-
+    db.Users.findAll({  
+      include : 'roles' ,
+      attributes : ['id','name','email', 'role_id']
+     }) 
+    .then((resultado)=> 
+    {
+      console.log(resultado);
+      res.send(resultado);
+    })
+  },
   register: (req, res) => {
   
     res.render("users/register", { titulo: "Mundo Mascota DH-Register" });
@@ -144,14 +152,7 @@ const userController = {
     res.redirect("/user/list");
   },
 
-  list: function (req, res) {
-    /* let archivoJSON = fs.readFileSync('usuarios.json', {encoding : 'utf-8'}); */
-    /* let lista = JSON.parse(archivoJSON); */
-
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-
-    res.render("users/users", { usuarios, titulo: "Lista usuarios" });
-  },
+  
 
   destroy: (req, res) => {
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
