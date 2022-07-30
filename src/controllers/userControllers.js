@@ -8,11 +8,6 @@ const User = require('../models/User');
 
 const db = require('../database/models');
 
-const Role = db.role;
-const User1 = db.user;
-
-const sequelize = db.Sequelize;
-
 const userController = {
   
   list: function (req, res) {
@@ -22,7 +17,10 @@ const userController = {
     //const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
 
-    User1.findAll({ require_once: Role })
+    db.Users.findAll({  
+      include : 'roles' ,
+      attributes : ['id','name','email', 'role_id']
+     }) 
     .then((resultado)=> 
     {
       console.log(resultado);

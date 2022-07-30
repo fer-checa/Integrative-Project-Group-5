@@ -43,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
 
         active: {
 
-            type: dataTypes.STRING
+            type: dataTypes.BOOLEAN
         },
         user_id: {
 
@@ -63,35 +63,34 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         
-        tableName: 'Products',
+        tableName: 'products',
         timestamps: false
 
     }
 
-    const Product = sequelize.define('product', cols, config);
+    const Product = sequelize.define('Products', cols, config);
 
     /* Aqui van las asociaciones */
 
-    // Product.associate = function(models) {
-    //     // Asociacion con la tabla de productos
-    //     Product.hasMany(models.user, {
-    //         as: "user",
-    //         foreignKey: "user_id"
-    //     });
+    Product.associate = function(models) {
+        // Asociacion con la tabla de productos
+        Product.belongsTo(models.Users, {
+            as: "users",
+            foreignKey: "user_id"
+        });
 
-    //     // Asociacion con la tabla de productos familyProducts
-    //     Product.hasMany(models.familyProduct, {
-    //         as: "familyProduct",
-    //         foreignKey: "familyProduct_id"
-    //     });
-    //     // Asociacion con la tabla de productos categoryAnimals
-    //     Product.hasMany(models.categoryAnimal, {
-    //         as: "categoryAnimal",
-    //         foreignKey: "categoryAnimal_id"
-    //     });
+        //Asociacion con la tabla de productos fami lyProducts
+        Product.belongsTo(models.FamilyProducts, {
+            as: "familyProducts",
+            foreignKey: "familyProduct_id"
+        });
 
-
-    //  }
+        // Asociacion con la tabla de productos categoryAnimals
+        Product.belongsTo(models.CategoryAnimals, {
+            as: "categoryAnimals",
+            foreignKey: "categoryAnimal_id"
+        });
+     }
 
     return Product;
 }

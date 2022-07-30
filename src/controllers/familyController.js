@@ -3,15 +3,24 @@ const path = require("path");
 
 const familyFilePath = path.join(__dirname, "../data/family.json");
 
-/* const db = require('../database/models'); */
+const db = require('../database/models');
 
 const familyController = {
   todasLasFamilias: (req, res) => {
-    const familias = JSON.parse(fs.readFileSync(familyFilePath, "utf-8"));
-    res.render("products/familyAdmin", {
-      titulo: "Mundo Mascota DH-Productos",
-      familias,
-    });
+    db.Users.findAll(
+       //{attributes : ['id','name',]},
+       {include : ['roles']}
+      
+    )
+    .then((resultado) => 
+    {
+      res.send(resultado);
+    })
+    // const familias = JSON.parse(fs.readFileSync(familyFilePath, "utf-8"));
+    // res.render("products/familyAdmin", {
+    //   titulo: "Mundo Mascota DH-Productos",
+    //   familias,
+    // });
   },
   new: (req, res) => {
     res.render("products/familyNew", { titulo: "Mundo Mascota DH-Alta de Familia Producto" });

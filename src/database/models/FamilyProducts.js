@@ -13,10 +13,10 @@ module.exports = (sequelize, dataTypes) => {
     },
 
     active: {
-      type: dataTypes.STRING,
+      type: dataTypes.BOOLEAN,
     },
 
-    dateRelease: {
+    date_release: {
       type: dataTypes.STRING,
     },
     user_id: {
@@ -25,26 +25,29 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   let config = {
-    tableName: "familyProducts",
+    tableName: "familyproducts",
     timestamps: false,
   };
 
-  const FamilyProduct = sequelize.define("familyProduct", cols, config);
+  const FamilyProduct = sequelize.define("FamilyProducts", cols, config);
 
   /* Aqui va la asociacion */
 
-  // FamilyProduct.associate = function (models) {
-  //   // Asociacion con la tabla de productos
-  //   FamilyProduct.belongsTo(models.product, {
-  //     as: "product",
-  //     foreignKey: "familyProduct_id",
-  //   });
-  //   // Asociacion con la tabla de User
-  //   FamilyProduct.hasMany(models.user, {
-  //     as: "user",
-  //     foreignKey: "user_id",
-  //   });
-  // };
+  FamilyProduct.associate = function (models) {
+   
+    // Asociacion con la tabla de User
+    FamilyProduct.belongsTo(models.Users, {
+      as: "users",
+      foreignKey: "user_id",
+    });
+
+     // Asociacion con la tabla de productos
+    FamilyProduct.hasMany(models.Products, {
+      as: "products",
+      foreignKey: "familyProduct_id",
+    });
+
+  };
 
   return FamilyProduct;
 };

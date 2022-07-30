@@ -14,36 +14,38 @@ module.exports = (sequelize, dataTypes) => {
 
     active: {
       // CONSULTAR - TIPO DE DATO? - BIT
-      type: dataTypes.STRING,
+      type: dataTypes.BOOLEAN,
     },
 
-    dateRelease: {
+    date_Release: {
       // CONSULTAR - TIPO DE DATO? - DATETIME
       type: dataTypes.STRING,
     },
   };
 
   let config = {
-    tableName: "CategoryAnimals",
+    tableName: "categoryanimals",
     timestamps: false,
   };
 
-  const CategoryAnimal = sequelize.define("categoryAnimal", cols, config);
+  const CategoryAnimal = sequelize.define("CategoryAnimals", cols, config);
 
   /* Aqui va la asociacion */
 
-  // CategoryAnimal.associate = function (models) {
-  //   // Asociacion con la tabla de productos
-  //   CategoryAnimal.belongsTo(models.product, {
-  //     as: "product",
-  //     foreignKey: "categoryAnimal_id",
-  //   });
-  //   // Asociacion con la tabla de User
-  //   CategoryAnimal.hasMany(models.user, {
-  //       as: "user",
-  //       foreignKey: "user_id",
-  //     });
-  // };
+  CategoryAnimal.associate = function (models) {
+
+    // Asociacion con la tabla de User
+    CategoryAnimal.belongsTo(models.Users, {
+        as: "users",
+        foreignKey: "user_id",
+      });
+
+    // Asociacion con la tabla de productos
+    CategoryAnimal.hasMany(models.Products, {
+      as: "products",
+      foreignKey: "categoryAnimal_id",
+    });
+  };
 
   return CategoryAnimal;
 };
