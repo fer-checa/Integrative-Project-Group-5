@@ -16,7 +16,7 @@
             <main>
                 <div class="container">
                     <h1>Editar Familia</h1>
-                    <h4>Id : <%= familyToEdit.id %> - <%= familyToEdit.nombre %>
+                    <h4>Id : <%= familyToEdit.id %> - <%= familyToEdit.name %>
                     </h4>
 
                     <% if(typeof alert !='undefined' ) { %>
@@ -34,8 +34,8 @@
                                         <div class="form-group">
                                             <label for="nombre">Nombre Categoria:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=familyToEdit.nombre %>"
-                                                placeholder="<%= familyToEdit.nombre %>">
+                                                value="<%=familyToEdit.name %>"
+                                                placeholder="<%= familyToEdit.name %>">
                                         </div>
 
 
@@ -67,7 +67,7 @@
 
                                         <script type="text/javascript">
 
-                                            if ('<%=familyToEdit.activo%>' == 1) {
+                                            if ('<%=familyToEdit.active%>' == 1) {
                                                 document.getElementById("activo").value = 'SI';
                                             } else { document.getElementById("activo").value = 'NO' }
 
