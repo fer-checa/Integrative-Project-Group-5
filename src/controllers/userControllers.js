@@ -6,8 +6,8 @@ const bcryptjs = require("bcryptjs");
 
 const User = require('../models/User');
 
-/* const db = require('../database/models'); */
-/* const sequelize = db.Sequelize; */
+const db = require('../database/models');
+const sequelize = db.Sequelize;
 
 const userController = {
   

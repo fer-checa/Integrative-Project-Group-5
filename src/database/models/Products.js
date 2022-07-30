@@ -40,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
 
         date_release: {
 
-            type: dataTypes.DATA
+            type: dataTypes.DATE
         },
 
         active: {
@@ -70,8 +70,8 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
-    const Product = sequelize.define( alias, cols, config);
-
+    const Product = sequelize.define(alias, cols, config);
+    
     /* Aqui van las asociaciones */
 
     Product.associate = function(models) {
@@ -91,8 +91,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "categoryAnimal_id"
         });
 
-
     }
-
     return Product;
+    /* return Product; */
 }

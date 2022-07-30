@@ -1,6 +1,8 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, dataTypes) => {
+
+  
     
     let alias = 'Users';
     
@@ -45,30 +47,30 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
 
-    const User = sequelize.define( alias, cols, config);
+    
 
     /* Aqui van las asociaciones */
 
-    User.associate = function (models) {
+ /*    User.associate = function (models) */ /* { */
         // Asociacion con la tabla de roles
-        User.hasMany(models.Role, {
+       /*  User.hasMany(models.Role, {
             as: "roles",
             foreignKey: "role_id"
-        });
+        }); */
         // Asociacion con la tabla de productos
-        User.belongsTo(models.Product, {
+       /*  User.belongsTo(models.Product, {
             as: "products",
             foreignKey: "role_id"
-        });
+        }); */
         // Asociacion con la tabla de FamilyProduct
-        User.belongsTo(models.FamilyProduct, {
+        /* User.belongsTo(models.FamilyProduct, {
             as: "FamilyProduct",
             foreignKey: "user_id"
-        });
+        }); */
 
-    }
+   /*  } */
 
-
+   const User = sequelize.define( alias, cols, config);
 
 
     return User;
