@@ -43,14 +43,15 @@
                                     </td>
                                     <td>
                                         
-                                        <% if (aux.active==0) { %> NO<%} else { %> SI<% } %> 
+                                        <% if (aux.active==false) { %> NO<%} else { %> SI<% } %> 
                                     </td>
+                                    
                                     <td>
                                         <a href="/admin/familyEdit/<%= aux.id%>" class="btn-edit-grid"><i title="Editar Familia"
                                         
                                         class="fa-solid fa-pen-to-square"></i></a>
 
-                                        <% if (aux.activo==1) { %> 
+                                        <% if (aux.active==true) { %> 
                                             <form style="display:inline; " action="/admin/familyInactivar/<%= aux.id%>" method="POST">
                                                 <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar Familia"
                                                         class="fa-solid fa-thumbs-down"></i></button>
