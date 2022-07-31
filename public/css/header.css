@@ -18,11 +18,26 @@ main{
     min-height:27.5vw;
 }
 
+.input-group{
+  display: flex;
+  flex-direction: row;
+}
+
+.form-outline{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-control{
+  text-align: left;
+}
+
 .main-header{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+ /*    justify-content: space-between; */
     
 }
 
@@ -69,6 +84,7 @@ header{
     padding-bottom: 2%;
     width: 100vw;
 }
+
 
 .iconito {
   color: #a5be00;
