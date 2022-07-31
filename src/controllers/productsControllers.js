@@ -3,8 +3,8 @@ const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const { validationResult } = require("express-validator");
 
-/* const db = require('../database/models');
-const sequelize = db.Sequelize; */
+const db = require('../database/models');
+const sequelize = db.Sequelize;
 
 const productsController = {
 

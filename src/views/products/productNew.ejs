@@ -33,13 +33,13 @@
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=locals.old && old.nombre%>" placeholder="Nombre del Producto">
+                                                value="<%=locals.old && old.name%>" placeholder="Nombre del Producto">
                                         </div>
 
                                         <div class="input-group" style="width:100% ;">
                                             <label for="comment">Descripcion del producto :</label>
                                             <textarea class="form-control" rows="5" id="descripcion"
-                                                name="descripcion"><%=locals.old && old.descripcion%></textarea>
+                                                name="descripcion"><%=locals.old && old.description%></textarea>
                                         </div>
 
                                         <div class=" row">
@@ -82,7 +82,7 @@
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
                                                         placeholder="Precio del Producto"
-                                                        value="<%=locals.old && old.precio%>">
+                                                        value="<%=locals.old && old.price%>">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
@@ -92,7 +92,7 @@
                                                     <input step="0.01" min="0" name="descuento" id="descuento"
                                                         type="number" class="form-control" name="descuento"
                                                         placeholder="Descuento del Producto"
-                                                        value="<%=locals.old && old.descuento%>">
+                                                        value="<%=locals.old && old.discount%>">
                                                 </div>
                                             </div>
                                         </div>

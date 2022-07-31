@@ -42,16 +42,16 @@
                                         <%= aux.id%>
                                     </td>
                                     <td>
-                                        <%= aux.nombre%>
+                                        <%= aux.name%>
                                     </td>
                                     <td>
-                                        <%= aux.categoria%>
+                                        <%= aux.category%>
                                     </td>
                                     <td>
-                                        <%= aux.familia%>
+                                        <%= aux.family%>
                                     </td>
                                     <td>
-                                        <% if (aux.activo==0) { %> NO<%} else { %> SI<% } %> 
+                                        <% if (aux.active==0) { %> NO<%} else { %> SI<% } %> 
                                     </td>
 
                                      <td>
@@ -59,7 +59,7 @@
                                                 
                                                 class="fa-solid fa-pen-to-square"></i></a>
 
-                                                <% if (aux.activo==1) { %> 
+                                                <% if (aux.active==1) { %> 
                                                     <form style="display:inline; " action="/admin/productInactivar/<%= aux.id%>" method="POST">
                                                         <button type="submit"  class="btn-inactivar-grid"><i title="Inactivar producto"
                                                                 class="fa-solid fa-thumbs-down"></i></button>

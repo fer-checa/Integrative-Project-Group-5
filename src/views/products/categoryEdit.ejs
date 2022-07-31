@@ -16,7 +16,7 @@
             <main>
                 <div class="container">
                     <h1>Editar Categoria</h1>
-                    <h4>Id : <%= categoryToEdit.id %> - <%= categoryToEdit.nombre %>
+                    <h4>Id : <%= categoryToEdit.id %> - <%= categoryToEdit.name %>
                     </h4>
 
                     <% if(typeof alert !='undefined' ) { %>
@@ -68,7 +68,7 @@
 
                                         <script type="text/javascript">
 
-                                            if ('<%=categoryToEdit.activo%>' == 1) {
+                                            if ('<%=categoryToEdit.active%>' == 1) {
                                                 document.getElementById("activo").value = 'SI';
                                             } else { document.getElementById("activo").value = 'NO' }
 

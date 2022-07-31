@@ -37,17 +37,17 @@
                                         <%= aux.id%>
                                     </td>
                                     <td>
-                                        <%= aux.nombre%>
+                                        <%= aux.name%>
                                     </td>
                                     <td>
-                                        <% if (aux.activo==0) { %> NO<%} else { %> SI<% } %> 
+                                        <% if (aux.active==0) { %> NO<%} else { %> SI<% } %> 
                                     </td>
 
                                     <td>
                                         <a href="/admin/categoryEdit/<%= aux.id%>" class="btn-edit-grid"><i
                                                 title="Editar Categoria" class="fa-solid fa-pen-to-square"></i></a>
 
-                                        <% if (aux.activo==1) { %>
+                                        <% if (aux.active==1) { %>
                                             <form style="display:inline; "
                                                 action="/admin/categoryInactivar/<%= aux.id%>" method="POST">
                                                 <button type="submit" class="btn-inactivar-grid"><i

@@ -3,9 +3,8 @@ const path = require("path");
 
 const familyFilePath = path.join(__dirname, "../data/family.json");
 
-/* const db = require("../database/models"); */
-
 const db = require('../database/models');
+const sequelize = db.Sequelize;
 
 const familyController = {
 

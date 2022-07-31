@@ -16,7 +16,7 @@
             <main>
                 <div class="container">
                     <h1>Editar Producto</h1>
-                    <h4>Id : <%= productToEdit.id %> - <%= productToEdit.nombre %></h4>
+                    <h4>Id : <%= productToEdit.id %> - <%= productToEdit.name %></h4>
                     
                     <% if(typeof alert !='undefined' ) { %>
                         <% alert.forEach(function(error) { %>
@@ -32,15 +32,15 @@
                                         <div class="form-group">
                                             <label for="nombre">Nombre Producto:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=productToEdit.nombre %>" placeholder="<%= productToEdit.nombre %>">
+                                                value="<%=productToEdit.name %>" placeholder="<%= productToEdit.name %>">
                                         </div>
  
 
                                         <div class="input-group" style="width:100% ;">
                                             <label for="comment">Descripcion del producto :</label>
                                             <textarea class="form-control" rows="5" id="descripcion"
-                                                 placeholder="<%= productToEdit.descripcion %>"
-                                                name="descripcion"><%= productToEdit.descripcion %></textarea>
+                                                 placeholder="<%= productToEdit.description %>"
+                                                name="descripcion"><%= productToEdit.description %></textarea>
                                         </div>
 
                                         <div class=" row">
@@ -82,8 +82,8 @@
                                                             class="fa-solid fa-sack-dollar"></i></span>
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
-                                                        placeholder="<%= productToEdit.precio %>"
-                                                        value="<%= productToEdit.precio %>">
+                                                        placeholder="<%= productToEdit.price %>"
+                                                        value="<%= productToEdit.price %>">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
@@ -92,19 +92,19 @@
                                                             class="fa-solid fa-percent"></i></span>
                                                     <input step="0.01" min="0" name="descuento" id="descuento"
                                                         type="number" class="form-control" name="descuento"
-                                                        placeholder="<%= productToEdit.descuento %>"
-                                                        value="<%= productToEdit.descuento %>">
+                                                        placeholder="<%= productToEdit.discount %>"
+                                                        value="<%= productToEdit.discount %>">
                                                 </div>
                                             </div>
                                         </div>
-                                        <%= productToEdit.imagen%>
+                                        <%= productToEdit.image%>
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
                                                 <label for="fotoProducto">Imagen del producto: </label>
-                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= productToEdit.imagen%>">
+                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= productToEdit.image%>">
                                             </div>
                                             <div class="col-xs-12  col-md-6">
-                                                        <img src="<%= productToEdit.imagen%>"
+                                                        <img src="<%= productToEdit.image%>"
                                                             alt="imagen-no-disponible" style="width:250px; height:300px ;">
                                                     </div>
 
@@ -135,10 +135,10 @@
                                         </div>
                                         
                                         <script type="text/javascript">
-                                            document.getElementById("categoria").value = '<%=productToEdit.categoria%>';
-                                            document.getElementById("familia").value = '<%=productToEdit.familia%>';
+                                            document.getElementById("categoria").value = '<%=productToEdit.category%>';
+                                            document.getElementById("familia").value = '<%=productToEdit.family%>';
                                             
-                                            if ('<%=productToEdit.activo%>' == 1) 
+                                            if ('<%=productToEdit.active%>' == 1) 
                                             {
                                                 document.getElementById("activo").value ='SI';
                                             } else {document.getElementById("activo").value = 'NO'}

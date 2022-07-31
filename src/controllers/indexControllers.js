@@ -7,7 +7,7 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const indexController =
 {
 	index: (req, res) => {
-		/* Filtramos los productos mas visitados y los que estan en oferta */
+		
 		const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		
 		const Gatos = todosLosProductos.filter(function (product) {
