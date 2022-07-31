@@ -29,12 +29,13 @@ module.exports = (sequelize, dataTypes) => {
     timestamps: false,
   };
 
+ 
   const FamilyProduct = sequelize.define("FamilyProducts", cols, config);
 
   /* Aqui va la asociacion */
 
   FamilyProduct.associate = function (models) {
-   
+
     // Asociacion con la tabla de User
     FamilyProduct.belongsTo(models.Users, {
       as: "users",
@@ -50,4 +51,4 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   return FamilyProduct;
-};
+}

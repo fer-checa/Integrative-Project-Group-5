@@ -3,16 +3,32 @@ const path = require("path");
 
 const familyFilePath = path.join(__dirname, "../data/family.json");
 
-const db = require("../database/models");
+/* const db = require("../database/models"); */
+
+const db = require('../database/models');
 
 const familyController = {
+
+  
   todasLasFamilias: (req, res) => {
-    db.FamilyProducts.findAll().then((familias) => {
+
+    db.Users.findAll(
+      //{attributes : ['id','name',]},
+      {include : ['roles']}
+
+   )
+   .then((resultado) => 
+   {
+     res.send(resultado);
+   })
+
+
+    /* db.FamilyProducts.findAll().then((familias) => {
       res.render("products/familyAdmin", {
         titulo: "Mundo Mascota DH-Familia de Productos",
         familias,
       });
-    });
+    }); */
   },
 
   new: (req, res) => {
@@ -20,6 +36,7 @@ const familyController = {
       titulo: "Mundo Mascota DH-Alta de Familia Producto",
     });
   },
+
 
   create: (req, res) => {
     db.FamilyProducts.create({

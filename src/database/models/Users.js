@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        name:{
+        name: {
             type: dataTypes.STRING
         },
 
@@ -36,12 +36,12 @@ module.exports = (sequelize, dataTypes) => {
 
     /* Aqui van las asociaciones */
 
- /*    User.associate = function (models) */ /* { */
+    User.associate = function (models) {
         // Asociacion con la tabla de roles
         User.belongsTo(models.Roles, {
             as: "roles",
             foreignKey: 'role_id' //USER_ID
-        });     
+        });
 
         // Asociacion con la tabla de FamilyProduct
         User.hasMany(models.FamilyProducts, {
@@ -49,18 +49,21 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "user_id"
         });
 
-
-    // Asociacion con la tabla de CategoryAnimal
+        // Asociacion con la tabla de CategoryAnimal
         User.hasMany(models.CategoryAnimals, {
             as: "categoryAnimals",
             foreignKey: "user_id"
         });
+
 
         //Asociacion con la tabla de productos
         User.hasMany(models.Products, {
             as: "products",
             foreignKey: "user_id"
         });
-    
+
     }
+
     return User;
+
+}

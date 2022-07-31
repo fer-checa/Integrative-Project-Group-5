@@ -68,6 +68,7 @@ module.exports = (sequelize, dataTypes) => {
 
     }
 
+    
     const Product = sequelize.define('Products', cols, config);
     
     /* Aqui van las asociaciones */
@@ -90,9 +91,11 @@ module.exports = (sequelize, dataTypes) => {
             as: "categoryAnimals",
             foreignKey: "categoryAnimal_id"
         });
-
-    }
      }
 
     return Product;
+
+     }
+
+    
     /* return Product; */

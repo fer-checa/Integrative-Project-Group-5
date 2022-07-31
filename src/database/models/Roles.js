@@ -25,8 +25,8 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
 
+   
     const Role = sequelize.define('Roles', cols, config);
-
     /* Aqui va la asociacion */
 
     Role.associate = function (models) {

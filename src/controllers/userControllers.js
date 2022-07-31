@@ -28,6 +28,8 @@ const userController = {
       res.send(resultado);
     })
   },
+
+  
   register: (req, res) => {
   
     res.render("users/register", { titulo: "Mundo Mascota DH-Register" });
