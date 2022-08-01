@@ -23,7 +23,6 @@ const categoryController =
 		res.render('products/categoryAdmin', { titulo: 'Mundo Mascota DH-Productos', categorias }) */ 
 	},
 
-
 	/* ******************************************************************** */
 	/* NO MIDUFICAR */
 	new: (req, res) => {

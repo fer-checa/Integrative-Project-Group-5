@@ -26,12 +26,12 @@
 								<h2 class="products-title">Todos los productos</h2>
 							</div>
 
-							<% todosLosProductos.forEach(function(product){ let finalPrice=(product.precio * ((100 - product.descuento) / 100)).toFixed(0)%>
+							<% todosLosProductos.forEach(function(product){ let finalPrice=(product.price * ((100 - product.discount) / 100)).toFixed(0)%>
 								<div class="col-12 col-sm-6 col-lg-3">
 									<section class="product-box" style="text-align:center;">
 										<a href="/products/productDetail/<%= product.id %>">
 											<figure class="product-box_image">
-												<img src="<%= product.imagen %>" alt="imagen de producto" style="width:170px;  margin: 0px auto">
+												<img src="<%= product.image %>" alt="imagen de producto" style="width:170px;  margin: 0px auto">
 											</figure>
 											<hr>
 										</a>
@@ -40,10 +40,10 @@
 													$ <%= finalPrice %>
 												</h2>
 												<span>
-													<%= product.descuento %> %OFF
+													<%= product.discount %> %OFF
 												</span>
 												<p style="font-size: 1em;">
-													<%= product.nombre %>
+													<%= product.name %>
 												</p>
 												
 												<i class="fas fa-paw iconito"></i>

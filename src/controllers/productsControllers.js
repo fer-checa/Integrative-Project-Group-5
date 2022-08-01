@@ -1,18 +1,15 @@
 const fs = require("fs");
 const path = require("path");
+
 const productsFilePath = path.join(__dirname, "../data/products.json");
+
+
+
 const { validationResult } = require("express-validator");
 
 const db = require('../database/models');
-const sequelize = db.Sequelize;
 
 const productsController = {
-
-
-
-
-
-
 
 
   index: (req, res) => {
@@ -28,53 +25,93 @@ const productsController = {
     res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros });
   },
 
+
+  /* ******************************************************************** */
   todosLosProductos: (req, res) => {
-    const todosLosProductos = JSON.parse(
-      fs.readFileSync(productsFilePath, "utf-8")
-    );
-    res.render("products/todosLosProductos", {
-      titulo: "Mundo Mascota DH-Productos",
-      todosLosProductos,
-    });
+
+  db.Products.findAll()
+			.then((todosLosProductos) => {
+				/* console.log(todosLosProductos); */
+				res.render("products/todosLosProductos", {titulo: "Mundo Mascota DH-Productos", todosLosProductos,})
+		 	}) 
+			.catch(function (error) {
+				console.log(error);
+			}); 
+  /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); */  
   },
 
+  /* ******************************************************************** */
   productDetail: (req, res) => {
-    const todosLosProductos = JSON.parse(
-      fs.readFileSync(productsFilePath, "utf-8")
-    );
-    let id = req.params.id;
-    let product = todosLosProductos.find((product) => product.id == id);
-    res.render("products/productDetail", { titulo: "Mundo Mascota DH-Detalle Producto", product,});
-  },
 
-  /* NO MIDUFICAR */
+    db.Products.findByPk(req.params.id)
+    .then((product) => {
+      res.render("products/productDetail", { titulo: "Mundo Mascota DH-Detalle Producto", product,});
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+
+    /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    let id = req.params.id;
+    let product = todosLosProductos.find((product) => product.id == id); */
+  },
+ 
+  /* ******************************************************************** */
+  /* NO MODIFICAR */
   productCart: (req, res) => {
     res.render("products/productCart", { titulo: "Mundo Mascota DH-Carrito" });
   },
 
-  /* NO MIDUFICAR */
+  /* ******************************************************************** */
+  /* NO MODIFICAR */
   sucursales: (req, res) => {
     res.render("sucursales", { titulo: "Mundo Mascota DH-Sucursales" });
   },
 
+  /* ******************************************************************** */
   productAdmin: (req, res) => {
-    const todosLosProductos = JSON.parse(
-      fs.readFileSync(productsFilePath, "utf-8")
-    );
-    res.render("products/productAdmin", { titulo: "Mundo Mascota DH-Productos Admin", todosLosProductos,});
+    db.Products.findAll()
+			.then((todosLosProductos) => {
+				/* console.log(todosLosProductos); */
+				res.render("products/productAdmin", { titulo: "Mundo Mascota DH-Productos Admin", todosLosProductos,});
+		 	}) 
+			.catch(function (error) {
+				console.log(error);
+			}); 
+    /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); */
   },
 
+  /* ******************************************************************** */
   /* NO MIDUFICAR */
   New: (req, res) => {
     res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto" });
   },
 
+
+  /* ******************************************************************** */
   create: (req, res) => {
-    let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const allProducts = JSON.parse(
-        fs.readFileSync(productsFilePath, "utf-8")
-      );
+
+      db.Products.create({
+        id: parseInt(req.params.id), //parseInt(allProducts[allProducts.length - 1].id) + 1,
+        name: req.body.nombre,
+        description: req.body.descripcion,
+        category: req.body.categoria,
+        family: req.body.familia,
+        price: parseFloat(req.body.precio),
+        discount: parseFloat(req.body.descuento),
+        active: req.body.activo == "SI" ? 1 : 0,
+        image: "/img/products/" +  req.file.filename,
+        usuario: "Admin", 
+      })
+
+      .then((res.redirect("/admin/products")))   
+
+      .catch(function (error) {
+				console.log(error);
+			});
+
+    /* let errors = validationResult(req);
+    if (errors.isEmpty()) { const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
       let newProduct = {
         id: parseInt(allProducts[allProducts.length - 1].id) + 1,
@@ -90,37 +127,40 @@ const productsController = {
       };
 
       allProducts.push(newProduct);
-      fs.writeFileSync(
-        productsFilePath,
-        JSON.stringify(allProducts, null, " ")
-      );
+      fs.writeFileSync(productsFilePath,JSON.stringify(allProducts, null, " "));
 
       res.redirect("/admin/products");
+
     } else {
       const alert = errors.array();
+
       return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
-    }
+    } */
   },
 
+  /* ******************************************************************** */
   Edit: (req, res) => {
+
+
     const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let productToEdit = allProducts.find((user) => req.params.id == user.id);
-    res.render("products/productEdit", {
-      titulo: "Mundo Mascota DH-Editar Producto",
-      productToEdit,
-    });
+
+
+    res.render("products/productEdit", {titulo: "Mundo Mascota DH-Editar Producto", productToEdit,});
   },
 
+
+  /* ******************************************************************** */
   update: (req, res) => {
+
+
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const allProducts = JSON.parse(
-        fs.readFileSync(productsFilePath, "utf-8")
-      );
+    if (errors.isEmpty()) {const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
       let productToEdit = allProducts.find((prod) => req.params.id == prod.id);
+
       let editedProduct = {
         id: parseInt(req.params.id),
-        nombre: req.body.nombre,
+        name: req.body.nombre,
         descripcion: req.body.descripcion,
         imagen: req.file ? req.file.filename : productToEdit.imagen,
         categoria: req.body.categoria,
@@ -131,13 +171,14 @@ const productsController = {
         usuario: "Admin",
         activo: req.body.activo == "SI" ? 1 : 0,
       };
+
       let indice = allProducts.findIndex((prod) => prod.id == req.params.id);
       allProducts[indice] = editedProduct;
-      fs.writeFileSync(
-        productsFilePath,
-        JSON.stringify(allProducts, null, " ")
+      fs.writeFileSync(productsFilePath,JSON.stringify(allProducts, null, " ")
       );
+
       res.redirect("/admin/products");
+
     // }else {
     //     const alert = errors.array();
     //     return res.render("productEdit", {
@@ -148,13 +189,35 @@ const productsController = {
       }
   },
 
+  /* ******************************************************************** */
   inactivar: (req, res) => {
-    const todosLosProductos = JSON.parse(
-      fs.readFileSync(productsFilePath, "utf-8")
-    );
-    let unProd = todosLosProductos.filter(
-      (product) => product.id == req.params.id
-    );
+
+    db.Products.update({ 
+			
+      name: unProd[0].nombre,
+      descripcion: unProd[0].descripcion,
+      image: unProd[0].imagen,
+      category: unProd[0].categoria,
+      family: unProd[0].familia,
+      precio: unProd[0].precio,
+      discount: unProd[0].descuento,
+      date: unProd[0].fecha,
+      user: unProd[0].usuario,
+      active: 0,
+		}, 
+		{ 
+			where: {
+        id: req.params.id,
+		}})
+
+		.then( res.redirect("/admin/products"))
+
+		.catch(function (error) {
+			console.log(error);
+			});
+
+    /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     let editProducto = {
       id: req.params.id,
@@ -175,21 +238,42 @@ const productsController = {
     );
     
     todosLosProductos[indice] = editProducto;
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(todosLosProductos, null, " ")
+    fs.writeFileSync(productsFilePath, JSON.stringify(todosLosProductos, null, " ")
     );
 
-    res.redirect("/admin/products");
+    res.redirect("/admin/products"); */
   },
 
+
+  /* ******************************************************************** */
   activar: (req, res) => {
-    const todosLosProductos = JSON.parse(
-      fs.readFileSync(productsFilePath, "utf-8")
-    );
-    let unProd = todosLosProductos.filter(
-      (product) => product.id == req.params.id
-    );
+
+    db.Products.update({ 
+			
+      name: unProd[0].nombre,
+      descripcion: unProd[0].descripcion,
+      image: unProd[0].imagen,
+      category: unProd[0].categoria,
+      family: unProd[0].familia,
+      precio: unProd[0].precio,
+      discount: unProd[0].descuento,
+      date: unProd[0].fecha,
+      user: unProd[0].usuario,
+      active: 1,
+		}, 
+		{ 
+			where: {
+        id: req.params.id,
+		}})
+
+		.then( res.redirect("/admin/products"))
+
+		.catch(function (error) {
+			console.log(error);
+			});
+
+    /* const todosLosProductos = JSON.parse( fs.readFileSync(productsFilePath, "utf-8"));
+    let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     let editProducto = {
       id: req.params.id,
@@ -204,16 +288,11 @@ const productsController = {
       usuario: unProd[0].usuario,
       activo: 1,
     };
-    let indice = todosLosProductos.findIndex(
-      (product) => product.id == req.params.id
-    );
-    todosLosProductos[indice] = editProducto;
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(todosLosProductos, null, " ")
-    );
 
-    res.redirect("/admin/products");
+    let indice = todosLosProductos.findIndex( (product) => product.id == req.params.id);
+    todosLosProductos[indice] = editProducto; fs.writeFileSync( productsFilePath, JSON.stringify(todosLosProductos, null, " "));
+
+    res.redirect("/admin/products"); */
   },
 };
 module.exports = productsController;
