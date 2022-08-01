@@ -19,7 +19,7 @@
 				<div class="container products-wrapper">
 					<div class="row">
 						<div class="col-12">
-							<h2 class="products-title">Detalle del producto: <%= product.name %>
+							<h2 class="products-title">Detalle del producto: <%= product.nombre %>
 									<br>
 									<br>
 							</h2>
@@ -32,16 +32,16 @@
 								<br>
 								<br>
 
-								<img src="<%= product.image %>" alt="product imagen" style="text-align:center; width: 500px;display: block;margin: auto;">
+								<img src="<%= product.imagen %>" alt="product imagen" style="text-align:center; width: 500px;display: block;margin: auto;">
 								<br>
 								<br>
 
 								<h3 class="product-detail-description">
-									<%= product.description %> Descripcion: 
+									<%= product.title %> Descripcion: 
 								</h3>
 								
 								<p class="product-detail-title" style="text-align: justify; ">
-									<%= product.description %>
+									<%= product.descripcion %>
 								</p>
 								<br>
 								<br>
@@ -50,19 +50,19 @@
 							<div class="col-12 col-lg-4">
 								<article class="product-detail-info">
 
-									<% if(product.discount> 0) {
-										let finalPrice = (product.price * ((100 - product.discount) / 100)).toFixed(0)
+									<% if(product.descuento> 0) {
+										let finalPrice = (product.precio * ((100 - product.descuento) / 100)).toFixed(0)
 										%>
 
-										<h2 class="products-title"><%= product.name %>
+										<h2 class="products-title"><%= product.nombre %>
 												<br>
 												<br>
 										</h2>
 
 										<p  style=" font-size: 1.8em;color: #39b54a;">
-											<span style="text-decoration: line-through;"> $ <%= product.price %></span>
+											<span style="text-decoration: line-through;"> $ <%= product.precio %></span>
 											/
-												<%= product.discount %>% OFF
+												<%= product.descuento %>% OFF
 											</b>
 										</p>
 
@@ -71,7 +71,7 @@
 										</p>
 										<% } else { %>
 											<p class="product-detail-price" style="text-align:center">
-												$<%= product.price %>
+												$<%= product.precio %>
 											</p>
 											
 											<% } %>

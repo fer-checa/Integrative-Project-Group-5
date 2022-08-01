@@ -47,10 +47,12 @@ const productsController = {
     res.render("products/productDetail", { titulo: "Mundo Mascota DH-Detalle Producto", product,});
   },
 
+  /* NO MIDUFICAR */
   productCart: (req, res) => {
     res.render("products/productCart", { titulo: "Mundo Mascota DH-Carrito" });
   },
 
+  /* NO MIDUFICAR */
   sucursales: (req, res) => {
     res.render("sucursales", { titulo: "Mundo Mascota DH-Sucursales" });
   },
@@ -62,6 +64,7 @@ const productsController = {
     res.render("products/productAdmin", { titulo: "Mundo Mascota DH-Productos Admin", todosLosProductos,});
   },
 
+  /* NO MIDUFICAR */
   New: (req, res) => {
     res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto" });
   },
@@ -72,6 +75,7 @@ const productsController = {
       const allProducts = JSON.parse(
         fs.readFileSync(productsFilePath, "utf-8")
       );
+
       let newProduct = {
         id: parseInt(allProducts[allProducts.length - 1].id) + 1,
         nombre: req.body.nombre,
@@ -84,11 +88,13 @@ const productsController = {
         imagen: "/img/products/" +  req.file.filename,
         usuario: "Admin",
       };
+
       allProducts.push(newProduct);
       fs.writeFileSync(
         productsFilePath,
         JSON.stringify(allProducts, null, " ")
       );
+
       res.redirect("/admin/products");
     } else {
       const alert = errors.array();
@@ -163,9 +169,11 @@ const productsController = {
       usuario: unProd[0].usuario,
       activo: 0,
     };
+
     let indice = todosLosProductos.findIndex(
       (product) => product.id == req.params.id
     );
+    
     todosLosProductos[indice] = editProducto;
     fs.writeFileSync(
       productsFilePath,
