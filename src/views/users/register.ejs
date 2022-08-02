@@ -15,7 +15,8 @@
         <h1>Registro de Usuario</h1>
 
         <!-------------------- FORMULARIO DE REGISTRO --------------------->
-       <% if(locals.errors != undefined) { %>
+       <div class="form-seguridad">
+        <% if(locals.errors != undefined) { %>
             <ul>
                 <% for (let i=0; i<locals.errors.length; i++) { %>
                     <li style="color: red">
@@ -26,6 +27,8 @@
 
         <% } %> 
 
+       </div>
+     
         <form action="/user/register" method="POST" class="form-seguridad" enctype="multipart/form-data">
             <div class="contenedor-seguridad">
                 <div>
