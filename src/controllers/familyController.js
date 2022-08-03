@@ -23,6 +23,15 @@ const familyController = {
     });
   },
 
+  
+/* 
+  todasLasFamiliasPEPE: (req, res) => {
+    db.FamilyProducts.findAll().then((familias) => {
+       return familias;
+      });
+    
+  }, */
+
   new: (req, res) => {
     res.render("products/familyNew", {
       titulo: "Mundo Mascota DH-Alta de Familia Producto",

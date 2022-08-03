@@ -82,34 +82,52 @@ const productsController = {
   },
 
   /* ******************************************************************** */
-  /* NO MIDUFICAR */
-  New: (req, res) => {
-    res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto" });
-  },
+  
+  New: (req, res) => { 
 
+    let promFamily = db.FamilyProducts.findAll();
+    let promCategory = db.CategoryAnimals.findAll();
+
+    Promise
+      .all([promFamily, promCategory])
+      .then(([allFamily, allCategory]) => {
+        res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto" , allFamily, allCategory })})
+      .catch(error => res.send(error)) 
+  },
 
   /* ******************************************************************** */
   create: (req, res) => {
 
+    let errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+
       db.Products.create({
-        id: parseInt(req.params.id), //parseInt(allProducts[allProducts.length - 1].id) + 1,
+        id: parseInt(req.params.id), //parseInt(allProducts[allProducts.length - 1].id) + 1, 
         name: req.body.nombre,
         description: req.body.descripcion,
         category: req.body.categoria,
-        family: req.body.familia,
-        price: parseFloat(req.body.precio),
+        family: 1,
+        price: parseFloat(req.body.precio), // req.body.price,
         discount: parseFloat(req.body.descuento),
         active: req.body.activo == "SI" ? 1 : 0,
-        image: "/img/products/" +  req.file.filename,
+        image: "/img/products/" +  req.file.filename, // req.file.filename,
         usuario: "Admin", 
       })
+      .then((res.redirect("/admin/products")))
 
-      .then((res.redirect("/admin/products")))   
+    } else {
 
-      .catch(function (error) {
+      const alert = errors.array();
+
+      return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
+
+      /* .catch(function (error) {
 				console.log(error);
-			});
+			}) */
+    } 
 
+      /* **************************************************************************************************************************** */
     /* let errors = validationResult(req);
     if (errors.isEmpty()) { const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -141,24 +159,56 @@ const productsController = {
   /* ******************************************************************** */
   Edit: (req, res) => {
 
-
-    const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let productToEdit = allProducts.find((user) => req.params.id == user.id);
-
-
-    res.render("products/productEdit", {titulo: "Mundo Mascota DH-Editar Producto", productToEdit,});
+  let productsId = req.params.id;
+    db.Products.findByPk(productsId, {
+        include: [{association: "users"}]
+    })
+    .then(Products => {
+        db.Users.findAll()
+        .then(productToEdit => {
+          res.render("products/productEdit", {titulo: "Mundo Mascota DH-Editar Producto", productToEdit,});
+        })
+    }); 
+    
+    
+   /*  res.render("products/productEdit", {titulo: "Mundo Mascota DH-Editar Producto", productToEdit,}); */
+    /* const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    let productToEdit = allProducts.find((user) => req.params.id == user.id) */
   },
-
 
   /* ******************************************************************** */
   update: (req, res) => {
 
+    /* let productsId = req.params.id;
 
+    db.Productos.update({
+ 
+        name: req.body.nombre,
+        description: req.body.descripcion,
+        category: req.body.categoria,
+        family: req.body.familia,
+        price: parseFloat(req.body.precio), // req.body.price,
+        discount: parseFloat(req.body.descuento),
+        active: req.body.activo == "SI" ? 1 : 0,
+        image: "/img/products/" +  req.file.filename, // req.file.filename,
+        usuario: "Admin", 
+
+    },
+    {
+      where: {id: productsId}
+    })
+    .then(()=> {
+      res.redirect("/admin/products")           
+      .catch(error => res.send(error))
+ */
+
+      /* *********************************** FORMA ANTERIOS CON JSON ************************************************ */
     let errors = validationResult(req);
     if (errors.isEmpty()) {const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
       let productToEdit = allProducts.find((prod) => req.params.id == prod.id);
 
       let editedProduct = {
+        
         id: parseInt(req.params.id),
         name: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -179,18 +229,16 @@ const productsController = {
 
       res.redirect("/admin/products");
 
-    // }else {
+    // } else {
     //     const alert = errors.array();
-    //     return res.render("productEdit", {
-    //       titulo: "Mundo Mascota DH-Editar Producto",
-    //       alert,
-    //       old: req.body,
-    //     });
+    //     return res.render("productEdit", { titulo: "Mundo Mascota DH-Editar Producto", alert, old: req.body });
       }
   },
 
   /* ******************************************************************** */
   inactivar: (req, res) => {
+
+    let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     db.Products.update({ 
 			
@@ -217,6 +265,7 @@ const productsController = {
 			});
 
     /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+
     let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     let editProducto = {
@@ -247,6 +296,8 @@ const productsController = {
 
   /* ******************************************************************** */
   activar: (req, res) => {
+
+    let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     db.Products.update({ 
 			
