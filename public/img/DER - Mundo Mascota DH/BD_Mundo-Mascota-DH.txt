@@ -100,12 +100,27 @@ ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_68617930-9ce9-4211-a378-d
 
 -- SCRIPTS
 
-INSERT INTO mundo_mascota.users VALUES ( , '', '', '' , '', );
+-- ROLES
+select * from roles;
 
-INSERT INTO mundo_mascota.products VALUES ( , '', '', '' , '', );
+INSERT INTO mundo_mascota.roles VALUES (default, '2');
 
-INSERT INTO mundo_mascota.familyProducts VALUES ( , '', '', '' , '', );
+-- USUARIOS
+select * from users;
 
-INSERT INTO mundo_mascota.categoryAnimals VALUES ( , '', '', '' , '', );
+INSERT INTO mundo_mascota.users VALUES (default, 'pepa', 'pepa@pepita.com' ,'1234','image1', 1);
 
-INSERT INTO mundo_mascota.roles VALUES ( , '', '', '' , '', );
+-- CATEGORIAS
+select * from categoryanimals;
+
+INSERT INTO mundo_mascota.categoryanimals VALUES (default, 'gato',2 ,'0','2022-06-01');
+
+-- FAMILIAS
+select * from familyproducts;
+
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'gatito',2 ,'0','2022-06-01');
+
+-- PRODUCTOS
+select * from products;
+
+INSERT INTO mundo_mascota.products VALUES (default, ' alimintos-X ', 'SANO y RICO' ,' IMAGE-ALIMENTOS','PERRO' ,' ALIMENTOS ' , 500 , 15 , '2022-06-01' , ' 1', '1' );
