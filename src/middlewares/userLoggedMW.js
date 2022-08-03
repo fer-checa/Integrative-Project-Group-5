@@ -1,23 +1,28 @@
 const User = require('../models/User');
 
+//const db = require("../database/models");
+
 const userLoggedMW = (req, res, next) => {
 	res.locals.isLogged = false;
   res.locals.isAdmin = false;
 
 	let emailInCookie = req.cookies.userEmail;
-	let userFromCookie = User.findByField('email', emailInCookie);
+	
+	if (emailInCookie) 
+  {
+    let userFromCookie = User.findByField('email', emailInCookie);
+    //let userFromCookie = db.Users.findOne({where : {email :emailInCookie}})
   
+  	req.session.userLogged = userFromCookie;
+  }
 
-	if (userFromCookie) {
-    
-		req.session.userLogged = userFromCookie;
-    //console.log("aa " + req.session.userLogged.isAdmin);
-	}
-
-	if (req.session.userLogged) {
+	if (req.session.userLogged) 
+  {
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
-    if (req.session.userLogged.isAdmin == 1) {
+    
+    if (req.session.userLogged.isAdmin == 1) 
+    {
       res.locals.isAdmin = true;
     }
 	}
