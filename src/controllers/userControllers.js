@@ -4,7 +4,7 @@ const usersFilePath = path.join(__dirname, "../data/usuarios.json");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 
-const User = require("../models/User");
+//const User = require("../models/User");
 
 const db = require("../database/models");
 
@@ -20,8 +20,10 @@ const userController = {
       //include : 'roles' ,
       //attributes : ['id','name','email', 'role_id']
     }).then((usuarios) => {
-      // console.log(resultado);
-      // res.send(resultado);
+      let pepe = require('./familyController');
+
+      console.log(pepe.todasLasFamilias1());
+      console.log('pepep');
       res.render("users/users", { usuarios, titulo: "Lista usuarios" });
     });
   },
@@ -146,7 +148,6 @@ const userController = {
 
   update: (req, res) => {
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-
     let userToEdit = usuarios.find((user) => req.params.id == user.id);
 
     let isAdminAux = req.body.isAdmin;
