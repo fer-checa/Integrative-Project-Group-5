@@ -17,13 +17,9 @@ const userController = {
     //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
 
     db.Users.findAll({
-      //include : 'roles' ,
-      //attributes : ['id','name','email', 'role_id']
+      include : ['roles']
     }).then((usuarios) => {
-      let pepe = require('./familyController');
-
-      console.log(pepe.todasLasFamilias1());
-      console.log('pepep');
+      //res.send(usuarios);
       res.render("users/users", { usuarios, titulo: "Lista usuarios" });
     });
   },

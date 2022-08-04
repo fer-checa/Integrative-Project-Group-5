@@ -13,13 +13,6 @@ const sequelize = db.Sequelize;
 
 const familyController = {
 
-  
-  todasLasFamilias1: (req, res) => {
-    return db.FamilyProducts.findAll();
-  },
-
-  
-
   todasLasFamilias: (req, res) => {
     db.FamilyProducts.findAll().then((familias) => {
       res.render("products/familyAdmin", {
