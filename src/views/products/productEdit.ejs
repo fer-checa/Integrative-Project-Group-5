@@ -43,37 +43,54 @@
                                                 name="descripcion"><%= productToEdit.description %></textarea>
                                         </div>
 
+                                        <!-- COMBOS -->
+
+
                                         <div class=" row">
-                                            <!-- DESDE ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
                                             <div class="col-xs-12 col-md-6">
 
+                                                <!-- COMBO CATEGORIAS -->
                                                 <div class="form-group">
-                                                    <label for="categoria">Seleccione categoria:</label>
-                                                    <select class="form-control" id="categoria" name="categoria">
-                                                        <option></option>
-                                                        <option>Perros</option>
-                                                        <option>Gatos</option>
-                                                    </select>
+                                                    <br>
+                                                    <label for="">Seleccione categoria:</label>
+                                                    
+                                                    <p>
+                                                        <select class="form-control" id="categoria" name="categoria">
+                                                            <option value="" selected disabled>Seleccione categoria:
+                                                            </option>
+
+                                                            <% allCategory.forEach(categoryAnimals=> { %>
+                                                                <option value="<%= categoryAnimals.id %>">
+                                                                    <%= categoryAnimals.name %>
+                                                                </option>
+                                                                <% }) %>
+
+                                                        </select>
+                                                    </p>
                                                 </div>
                                             </div>
+
+                                            <!-- COMBO FAMILIAS -->
                                             <div class="col-xs-12  col-md-6">
                                                 <div class="form-group">
-                                                    <label for="familia">Seleccione familia:</label>
-                                                    <select class="form-control" id="familia"
-                                                        name="familia">
-                                                        <option></option>
-                                                        <option>Alimentos</option>
-                                                        <option>Juguetes</option>
-                                                        <option>Snack</option>
-                                                        <option>Higiene</option>
-                                                        <option>Ropa</option>
-                                                        <option>Comederos</option>
-                                                        <option>Camas</option>
-                                                        <option>Articulos</option>
+                                                    <br>
+                                                    <label for="">Seleccione familia:</label>
+                                                    
+                                                    <select class="form-control" id="familia" name="familia">
+
+                                                        <option value="" selected disabled>Seleccione familia:</option>
+
+                                                        <% allFamily.forEach(FamilyProducts=> { %>
+                                                            <option value="<%= FamilyProducts.id %>">
+                                                                <%= FamilyProducts.name %>
+                                                            </option>
+                                                            <% }) %>
+
                                                     </select>
+
                                                 </div>
                                             </div>
-                                             <!-- HASTA ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+                                        </div>
                                         </div>
 
 
@@ -137,8 +154,8 @@
                                         </div>
                                         
                                         <script type="text/javascript">
-                                            document.getElementById("categoria").value = '<%=productToEdit.category%>';
-                                            document.getElementById("familia").value = '<%=productToEdit.family%>';
+                                            document.getElementById("categoria").value = '<%=productToEdit.familyProducts.name%>';
+                                            document.getElementById("familia").value = '<%=productToEdit.categoryAnimals.name%>';
                                             
                                             if ('<%=productToEdit.active%>' == 1) 
                                             {
