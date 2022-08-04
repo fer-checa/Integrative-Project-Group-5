@@ -1,8 +1,9 @@
-const User = require('../models/User');
+//const User = require('../models/User');
 
-//const db = require("../database/models");
+const db = require("../database/models");
 
 const userLoggedMW = (req, res, next) => {
+
 	res.locals.isLogged = false;
   res.locals.isAdmin = false;
 
@@ -10,8 +11,8 @@ const userLoggedMW = (req, res, next) => {
 	
 	if (emailInCookie) 
   {
-    let userFromCookie = User.findByField('email', emailInCookie);
-    //let userFromCookie = db.Users.findOne({where : {email :emailInCookie}})
+    //let userFromCookie = User.findByField('email', emailInCookie);
+    let userFromCookie = db.Users.findOne({where : {email :emailInCookie}})
   
   	req.session.userLogged = userFromCookie;
   }
@@ -21,7 +22,7 @@ const userLoggedMW = (req, res, next) => {
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
     
-    if (req.session.userLogged.isAdmin == 1) 
+    if (req.session.userLogged.role_id == 1) 
     {
       res.locals.isAdmin = true;
     }

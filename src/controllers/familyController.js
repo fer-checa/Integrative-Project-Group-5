@@ -12,7 +12,7 @@ const db = require("../database/models");
 const sequelize = db.Sequelize;
 
 const familyController = {
-  
+
   todasLasFamilias: (req, res) => {
     db.FamilyProducts.findAll().then((familias) => {
       res.render("products/familyAdmin", {

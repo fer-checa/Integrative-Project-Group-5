@@ -10,13 +10,14 @@
         <!--------------------- HEADER ----------------->
         <%- include('../partials/header') %>
 
-
+            
             <!--------------------- MAIN ----------------->
-            <main>
+            <main class="container">
 
                 <h1>Usuarios Registrados: </h1>
-
+                <a class="btn" href="/admin"><i class="fa-solid fa-circle-left"></i> Volver</a>
                 <div class="box-usuarios">
+                
                     <% for(let user of usuarios) { %>
                    
                     <div  class="user-container">
@@ -25,6 +26,8 @@
                             <p class="user-font">Id: <%= user.id %>
                             </p>
                             <p class="user-font">Nombre: <%= user.name %>
+                            </p>
+                            <p class="user-font">Role : <%= user.roles.role %>
                             </p>
                             <!-- <p class="user-font">Password: <%= user.password %>
                             </p>

@@ -4,7 +4,7 @@ const usersFilePath = path.join(__dirname, "../data/usuarios.json");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 
-const User = require("../models/User");
+//const User = require("../models/User");
 
 const db = require("../database/models");
 
@@ -17,11 +17,9 @@ const userController = {
     //res.render("users/users", { usuarios, titulo: "Lista usuarios" });
 
     db.Users.findAll({
-      //include : 'roles' ,
-      //attributes : ['id','name','email', 'role_id']
+      include : ['roles']
     }).then((usuarios) => {
-      // console.log(resultado);
-      // res.send(resultado);
+      //res.send(usuarios);
       res.render("users/users", { usuarios, titulo: "Lista usuarios" });
     });
   },
@@ -126,16 +124,16 @@ const userController = {
   },
 
   edit: (req, res) => {
-    db.Users.findByPk(req.params.id)
-    .then((userToEdit)=> 
-    {
-      res.render("users/editar", { userToEdit, titulo: "Editar usuario" });
-    })
-    .catch((error)=>
-    {
-      res.send(error);
-    })
-    // const usersFilePath = path.join(__dirname, "../data/usuarios.json");
+     let promUser= db.Users.findByPk(req.params.id); 
+     let promRoles = db.Roles.findAll();
+     Promise
+     .all([promUser, promRoles]) 
+     .then(([userToEdit, rolesToEdit]) => {
+      res.render("users/editar", { titulo: "Mundo Mascota DH-Editar usuario" , userToEdit, rolesToEdit })})
+    .catch(error => res.send(error)) 
+
+    
+    // // const usersFilePath = path.join(__dirname, "../data/usuarios.json");
     // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     // const iduser = req.params.id;
     // const userToEdit = usuarios.find((row) => {
@@ -145,33 +143,48 @@ const userController = {
   },
 
   update: (req, res) => {
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    
 
-    let userToEdit = usuarios.find((user) => req.params.id == user.id);
-
-    let isAdminAux = req.body.isAdmin;
-    if (isAdminAux == "on") {
-      isAdminAux = 1;
-    } else {
-      isAdminAux = 0;
-    }
-
-    let editedUser = {
-      id: req.params.id,
+    db.Users.update({
       name: req.body.name,
       email: req.body.email,
-      password: userToEdit.password,
-      isAdmin: isAdminAux,
-      /* rePassword: req.body.rePassword, */
-      // if ternario ===> condicion? verdadero : falso
-      image: req.file ? req.file.filename : userToEdit.image,
-    };
+      //password: userToEdit.password,
+      //image: req.file ? req.file.filename : userToEdit.image,
+      role_id: req.body.roles
+    },
+    {
+      where : {id:req.params.id}
+    })
+    .then(res.redirect("/user/list"))
+    .catch(
+      error => res.send(error)
+      );
+    // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    // let userToEdit = usuarios.find((user) => req.params.id == user.id);
 
-    let indice = usuarios.findIndex((user) => user.id == req.params.id);
-    usuarios[indice] = editedUser;
+    // let isAdminAux = req.body.isAdmin;
+    // if (isAdminAux == "on") {
+    //   isAdminAux = 1;
+    // } else {
+    //   isAdminAux = 0;
+    // }
 
-    fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
-    res.redirect("/user/list");
+    // let editedUser = {
+    //   id: req.params.id,
+    //   name: req.body.name,
+    //   email: req.body.email,
+    //   password: userToEdit.password,
+    //   isAdmin: isAdminAux,
+    //   /* rePassword: req.body.rePassword, */
+    //   // if ternario ===> condicion? verdadero : falso
+    //   image: req.file ? req.file.filename : userToEdit.image,
+    // };
+
+    // let indice = usuarios.findIndex((user) => user.id == req.params.id);
+    // usuarios[indice] = editedUser;
+
+    // fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
+    // res.redirect("/user/list");
   },
 
   destroy: (req, res) => {
