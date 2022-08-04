@@ -4,7 +4,6 @@
   "name": "Admin",
   "email": "admin@mundomascotadh.com.ar",
   "password": "admin",
-  "rePassword": "admin",
   "image": "adm.jpg",
   "isAdmin": 1
  },
