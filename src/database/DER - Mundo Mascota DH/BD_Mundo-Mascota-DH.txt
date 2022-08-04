@@ -1,0 +1,168 @@
+DROP database mundo_mascota;
+
+CREATE database mundo_mascota;
+USE mundo_mascota;
+
+-- TABLAS
+
+CREATE TABLE `users` (
+   `id` INT AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `email` VARCHAR(255) NOT NULL,
+   `password` VARCHAR(255) NOT NULL,
+   `image` VARCHAR(255) NOT NULL,
+   `role_id` INT,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `products` (
+   `id` INT AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `description` VARCHAR(1000),
+   `image` VARCHAR(255),
+   `categoryAnimal_id` INT NOT NULL,
+   `familyProduct_id` INT NOT NULL,
+   `price` DOUBLE(8, 2),
+   `discount` DOUBLE(8, 2),
+   `date_release` DATETIME,
+   `user_id` INT,
+   `active` BIT NOT NULL DEFAULT true,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `familyProducts` (
+   `id` INT AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `user_id` INT,
+   `active` BIT NOT NULL DEFAULT true,
+   `date_release` DATETIME,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `categoryAnimals` (
+   `id` INT AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `user_id` INT,
+   `active` BIT DEFAULT true,
+   `date_release` DATETIME,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `orders` (
+   `id` INT AUTO_INCREMENT,
+   `user_id` INT,
+   `date_init` DATETIME,
+   `date_confirm` DATETIME,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `ordersDetails` (
+   `id` INT AUTO_INCREMENT,
+   `count` SMALLINT,
+   `price_unit` DOUBLE(8, 2),
+   `discount` DOUBLE(8, 2),
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `productsOrdersDetails` (
+   `id` INT,
+   `order_id` INT,
+   `order_detail_id` INT,
+   `product_id` INT,
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `roles` (
+   `id` INT AUTO_INCREMENT,
+   `role` VARCHAR(50) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+
+-- RELACIONES
+
+ALTER TABLE `users` ADD CONSTRAINT `FK_c5568438-9c47-4529-9666-4b51b935eae6` FOREIGN KEY (`role_id`) REFERENCES `roles`(`id`)  ;
+
+ALTER TABLE `products` ADD CONSTRAINT `FK_bb4bb40c-0f7b-4b34-9d7e-0dc7eb57d7e6` FOREIGN KEY (`familyProduct_id`) REFERENCES `familyProducts`(`id`)  ;
+
+ALTER TABLE `products` ADD CONSTRAINT `FK_03120b45-dacd-4a52-9b62-06dd7b2fd554` FOREIGN KEY (`categoryAnimal_id`) REFERENCES `categoryAnimals`(`id`)  ;
+
+ALTER TABLE `products` ADD CONSTRAINT `FK_8c9f813d-59bc-462a-acb0-97bd56abc8ec` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)  ;
+
+ALTER TABLE `familyProducts` ADD CONSTRAINT `FK_8986ff79-433a-4b55-a3a1-f0a27420e148` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)  ;
+
+ALTER TABLE `categoryAnimals` ADD CONSTRAINT `FK_3c6814ef-43c1-45f5-b577-f14ee7a48ee7` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)  ;
+
+ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_74aca87d-d560-4c92-aad4-4e129bb6ca1a` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`)  ;
+
+ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_fa4aa56e-ca40-4788-8487-c3aa4933e787` FOREIGN KEY (`order_detail_id`) REFERENCES `ordersDetails`(`id`)  ;
+
+ALTER TABLE `productsOrdersDetails` ADD CONSTRAINT `FK_68617930-9ce9-4211-a378-d5a27e956835` FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`)  ;
+
+-- SCRIPTS ------------------------------------------------------------------------
+
+-- ROLES *******************************************************************************************************
+
+INSERT INTO mundo_mascota.roles VALUES (default, 'Admin');
+INSERT INTO mundo_mascota.roles VALUES (default, 'Comprador');
+
+-- USUARIOS ****************************************************************************************************
+
+
+INSERT INTO mundo_mascota.users VALUES (default, 'admin', 'admin@mundomascotadh.com.ar' ,'$2a$10$6ioNuaInb3vJZVkIp5TGLeDcQ1BZRBqUTgWfUymqI6oSYM0oFzYPa','adm.jpg', 1);
+
+-- CATEGORIAS ***************************************************************************************************
+
+
+INSERT INTO mundo_mascota.categoryanimals VALUES (default, 'perro',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.categoryanimals VALUES (default, 'gato', 1 ,true,'2022-06-01');
+
+
+-- FAMILIAS *****************************************************************************************************
+
+
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'juguetes',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'alimentos',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'belleza',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'camas',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'higiene',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'ropa',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'articulos',1 ,true,'2022-06-01');
+INSERT INTO mundo_mascota.familyproducts VALUES (default, 'comederos',1 ,true,'2022-06-01');
+
+
+-- PRODUCTOS **********************************************************************************************************
+
+
+
+ 
+
+INSERT INTO mundo_mascota.products VALUES (default, "Excellent Pollo y Arroz Adulto +7 - 15kg", "La exclusiva combinación de ingredientes seleccionados le confiere a las fórmulas Excellent® la propiedad de generar cambios significativos en la calidad de vida de los perros y gatos, a través de una nutrición de vanguardia con beneficios fácilmente comprobables, que van desde una protección extra al sistema de defensas, un incremento en la absorción de nutrientes, hasta una conformación más consistente de las heces. PURINA® Excellent® ADULT 7+ CHICKEN & RICE brinda una nutrición especializada para los perros que necesitan mejorar su calidad y expectativa de vida. Ofrece una fórmula que incluye proteínas de alta digestibilidad y grasa moderada, prebióticos y minerales quelados, antioxidantes naturales, calcio y fósforo, garantizando así una salud prolongada." ,'/img/products/Default.jpg', 1 , 2 , 6550 , 30 , '2022-06-01' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Excellent Gato Skin Care - 1 kg", "El Alimento Excellent Gato Skin Care está especialmente diseñado para gatos adultos con piel sensible. Al usar salmón como proteína principal de alta digestibilidad, aporta  los niveles esenciales de aminoácidos y contribuye a la vitalidad de la piel de tu mascota." ,'/img/products/Default.jpg', 2 , 2 , 1250 , 15 , '2022-01-20' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Juguete Millex Hueso Algodón Multicolor", "Este Hueso Millex de algodón multicolor es perfecto para jugar con tu mascota. Tiene dos nudos para mordisquear. Sus colores llamativos lo hacen irresistible y su forma facilita al agarre. Además, jugar con cuerdas de algodón ayuda a que tu peludo mantenga la higiene dental." ,'/img/products/Default.jpg', 1 , 1 , 3605 , 5 , '2021-09-14' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Tunel Zootec De Tela - 50 Cm", "El Tunel Zootec De Tela, es una excelente opción para que tu gatito pase las mejores horas de juego. Está hecho en materiales resistentes, con colores que llaman su atención." ,'/img/products/Default.jpg', 2 , 1 , 3251 , 20 , '2022-04-12' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Lata Pedigree Carne para Perros Cachorros - 340Gr", "Alimento rico en proteína animal de alto valor biológico, contiene minerales como calcio, fósforo, potasio y hierro, vitaminas A, D y E, fibras y ácidos grasos esenciales. Estos nutrientes favorecen el fortalecimiento del sistema inmunológico de tu mascota y el correcto funcionamiento de sus sistemas vitales. Además, contribuyen a la salud de su pelo, piel y uñas y al mantenimiento de sus tendones, músculos y huesos." ,'/img/products/Default.jpg', 1 , 8 , 5365 , 15 , '2021-07-01' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Pipeta Block Fipro - 11-20 Kg", "Solución Spot-on para el tratamiento y prevención de la infestación de pulgas y garrapatas. Para Perros de Raza Mediana." ,'/img/products/Default.jpg', 1 , 5 , 1990 , 32 , '2021-09-26' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Piedras Sanitarias Tidy Cats - 1,8 Kg", "Las Piedras Sanitarias Tidy Cats son ideales para mantener la comodidad e higiene de tu gato en todo momento y por tiempo prolongado. Son la mejor opción porque no se pegan a sus patitas, su poder aglutinante facilita la limpieza y cuentan con una gran absorción, por lo que no tendrás líquidos en tu caja." ,'/img/products/Default.jpg', 2 , 5 , 4390 , 45 , '2021-09-22' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Polar Corderito Oso Marrón", "El Polar Corderito MiAmore Oso Marrón es ideal para que tu mascota permanezca calentita este invierno. Está fabricado con corderito de alta calidad, lo que lo convierte en una opción suave y cómoda para tu perro." ,'/img/products/Default.jpg', 1 , 6 , 2990 , 10 , '2022-05-03' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Comedero Doble Lazy Dog Acero Inoxidable", "Comedero Doble." ,'/img/products/Default.jpg', 1 , 8 , 1295 , 15 , '2022-04-16' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Shampoo Antiparasitario Pulguicida Osspret - 250 Cc", "El Shampoo Antiparasitario Pulguicida Osspret se utiliza para el control de pulgas, piojos y garrapatas, y para la higiene general de tu gato. Especialmente para felinos mayores de 45 días." ,'/img/products/Default.jpg', 2 , 5 , 5915 , 40 , '2022-10-05' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Arena X 7 KG", "La arena Sanicat Strong Clumps es una arena bentonita ultra aglomerante que elimina de forma natural y eficiente los olores desagradables absorbiendo el olor de forma natural, reteniendo 2.5 veces su peso en orina. Las propiedades de esta arena aportan un alto rendimiento por sus aglomerados más duros e instantáneos. Además, genera muy poco polvo. Estos aglomerados sólidos, que se forman de manera natural, retienen el mal olor mientras absorben la orina. Gracias a que son muy fáciles de retirar, se pueden recoger regularmente para una mayor frescura e higiene de la bandeja sanitaria." ,'/img/products/Default.jpg', 2 , 5 , 1456 , 20 , '2022-05-10' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Cama colchoneta rectangular con corderito 73 X 51 CM", "Colchoneta con corderito ideal para permitir un plácido descanso a tu mascota. Al estar elevada 7,6 cm del suelo, tu perro estará aislado del frío y la humedad del suelo. Además, tiene corderito en su superficie para mantenerlo cálido. Es desmontable, lo que la vuelve muy fácil de limpiar. Medidas: 73 x 51 cm." ,'/img/products/Default.jpg', 1 , 4 , 8339 , 30 , '2022-05-10' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Chapita basica Boston", "Chapita basica Boston personalizada." ,'/img/products/Default.jpg', 1 , 7 , 2794 , 35 , '2022-05-10' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Correa cordon Alpino 20 MM X 120 CM", "La correa cordón alpino para perros es súper resistente y de fácil ajuste. La calidad del material brinda una mayor seguridad para controlar a tu mascota." ,'/img/products/Default.jpg', 1 , 7 , 1794 , 20 , '2022-05-10' , 1 , 1 );
+
+INSERT INTO mundo_mascota.products VALUES (default, "Rascador para gatos - CONDO DELUXE MULTINIVEL", "Posee 3 posiciones de rascado, y su abrojo permite poner la superficie de rascado tanto en el frente como en la parte interna, y que asi el gato pueda usar el rascador como le quede mas comodo, o incluso ir variandolo." ,'/img/products/Default.jpg', 2 , 7 , 27300 , 40 , '2022-05-10' , 1 , 1 );
+
