@@ -1,3 +1,6 @@
+-- Usuario Admin  : admin@mundomascotadh.com.ar 
+-- Contraseña : 1234
+
 DROP database mundo_mascota;
 
 CREATE database mundo_mascota;
