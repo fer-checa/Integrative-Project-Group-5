@@ -107,7 +107,7 @@ const productsController = {
         name: req.body.nombre,
         description: req.body.descripcion,
         category: req.body.categoria,
-        family: 1,
+        family: req.body.familia, 
         price: parseFloat(req.body.precio), // req.body.price,
         discount: parseFloat(req.body.descuento),
         active: req.body.activo == "SI" ? 1 : 0,
@@ -116,17 +116,18 @@ const productsController = {
       })
       .then((res.redirect("/admin/products")))
 
+       .catch(function (error) {
+				console.log(error);
+			})
+
     } else {
 
       const alert = errors.array();
 
       return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
 
-      /* .catch(function (error) {
-				console.log(error);
-			}) */
     } 
-
+  },
       /* **************************************************************************************************************************** */
     /* let errors = validationResult(req);
     if (errors.isEmpty()) { const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -154,7 +155,7 @@ const productsController = {
 
       return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
     } */
-  },
+ 
 
   /* ******************************************************************** */
   Edit: (req, res) => {

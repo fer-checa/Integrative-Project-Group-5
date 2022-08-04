@@ -9,11 +9,11 @@
     <body>
         <!--------------------- HEADER ----------------->
         <%- include('../partials/header') %>
-        
-  
-        <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        </script>
+
+
+            <script>
+                document.getElementById("demo").innerHTML = "Hello JavaScript!";
+            </script>
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
@@ -28,7 +28,8 @@
                                 <% } %>
 
                                     <form action="/admin/productNew" method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i>
+                                            Volver</a>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
@@ -42,75 +43,53 @@
                                                 name="descripcion"><%=locals.old && old.description%></textarea>
                                         </div>
 
+                                        <!-- COMBOS -->
+
+
                                         <div class=" row">
                                             <div class="col-xs-12 col-md-6">
 
-
                                                 <!-- COMBO CATEGORIAS -->
-                                               <!--  <div class="form-group">
+                                                <div class="form-group">
+                                                    <br>
+                                                    <label for="">Seleccione categoria:</label>
                                                     
-                                                    <label for="categoria">Seleccione categoria:</label>
-                                                    
-                                                    <select class="form-control" id="categoria" name="categoria">
-                                                        <option value="" selected disabled>Seleccione categoria:</option>
-                                                        <option></option>
-                                                        <option>Perros</option>
-                                                        <option>Gatos</option>
-                                                    </select>
+                                                    <p>
+                                                        <select class="form-control" id="categoria" name="categoria">
+                                                            <option value="" selected disabled>Seleccione categoria:
+                                                            </option>
+
+                                                            <% allCategory.forEach(categoryAnimals=> { %>
+                                                                <option value="<%= categoryAnimals.id %>">
+                                                                    <%= categoryAnimals.name %>
+                                                                </option>
+                                                                <% }) %>
+
+                                                        </select>
+                                                    </p>
                                                 </div>
-                                            </div> -->
-
-                                            <!-- COMBO CATEGORIAS -->
-                                            <div class="form-group">
-                                                <!-- <label for="categoria">Seleccione categoria:</label> -->
-                                                <label for=" ">Seleccione categoria:</label>
-                                                
-                                                <select class="form-control" id="categoria" name="categoria">
-                                                    <option value="" selected disabled>Seleccione categoria:</option>
-
-                                                    <% allCategory.forEach(categoryAnimals => { %>
-                                                        <!-- <option value="1">Accion</option> -->
-                                                        <option value="<%= categoryAnimals.id %>"><%= categoryAnimals.name %></option>
-                                                    <% }) %>
-                                                    
-                                                    <!-- <option>Perros</option>
-                                                    <option>Gatos</option> -->
-                                                </select>
                                             </div>
-                                        </div>
 
                                             <!-- COMBO FAMILIAS -->
                                             <div class="col-xs-12  col-md-6">
                                                 <div class="form-group">
-                                                    <!-- <label for="familia">Seleccione familia:</label> -->
-                                                    <label for=" ">Seleccione familia:</label>
-                                                    <!-- <select class="form-control" id="familia" name="familia"></select> -->
+                                                    <br>
+                                                    <label for="">Seleccione familia:</label>
+                                                    
+                                                    <select class="form-control" id="familia" name="familia">
 
-                                                    <select class="form-control" id="familia" name="familia"></select>
-                                                    <option value="" selected disabled>Seleccione familia:</option>
+                                                        <option value="" selected disabled>Seleccione familia:</option>
 
-                                                    <% allFamily.forEach(FamilyProducts => { %>
-                                                        <!-- <option value="1">Accion</option> -->
-                                                        <option value="<%= FamilyProducts.id %>"><%= FamilyProducts.name %></option>
-                                                    <% }) %>
+                                                        <% allFamily.forEach(FamilyProducts=> { %>
+                                                            <option value="<%= FamilyProducts.id %>">
+                                                                <%= FamilyProducts.name %>
+                                                            </option>
+                                                            <% }) %>
 
-                                                        <!-- <option></option>
-                                                        <option>Alimentos</option>
-                                                        <option>Juguetes</option>
-                                                        <option>Snack</option>
-                                                        <option>Higiene</option>
-                                                        <option>Ropa</option>
-                                                        <option>Comederos</option>
-                                                        <option>Camas</option>
-                                                        <option>Articulos</option> -->
                                                     </select>
+
                                                 </div>
                                             </div>
-
-                                            <label for="genre">Genre </label>
-            
-
-
                                         </div>
 
 
@@ -169,9 +148,10 @@
                                             </div>
                                             <div class="col-xs-12 col-md-6">
                                                 <button id="btnLimpiar" type="reset"
-                                                    class="btn btn-warning btn-md btn-block"><i class="fa-solid fa-broom"></i> Limpiar</button>
+                                                    class="btn btn-warning btn-md btn-block"><i
+                                                        class="fa-solid fa-broom"></i> Limpiar</button>
                                             </div>
-                                         
+
                                         </div>
                                     </form>
                 </div>
@@ -182,4 +162,3 @@
     </body>
 
 </html>
-
