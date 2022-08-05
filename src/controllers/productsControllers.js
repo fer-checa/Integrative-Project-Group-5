@@ -6,13 +6,10 @@ const productsFilePath = path.join(__dirname, "../data/products.json");
 /* ELIMINARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
 
 const { validationResult } = require("express-validator");
-const db = require('../database/models');
+const db = require("../database/models");
 
 const productsController = {
-
-
   index: (req, res) => {
-
     /*  let promGatos = db.Products.findAll();
 
     let promPerros = db.Products.findAll();
@@ -24,8 +21,7 @@ const productsController = {
     })
     .catch(error => res.send(error)) 
 }, */
-
-  /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
+    /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
 
     const Gatos = todosLosProductos.filter(function (product) {
       return product.categoria == 'Gatos'
@@ -36,18 +32,21 @@ const productsController = {
 
     res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros }); */
   },
- 
+
   /* **************************************************************************************************************************** */
 
   todosLosProductos: (req, res) => {
-
     db.Products.findAll({
-      include: [{association: "familyProducts"}, {association: "categoryAnimals"}]
-  })
-      .then((todosLosProductos) => {
-     
-        res.render("products/todosLosProductos", { titulo: "Mundo Mascota DH-Productos", todosLosProductos, });
-      })
+      include: [
+        { association: "familyProducts" },
+        { association: "categoryAnimals" },
+      ],
+    }).then((todosLosProductos) => {
+      res.render("products/todosLosProductos", {
+        titulo: "Mundo Mascota DH-Productos",
+        todosLosProductos,
+      });
+    });
     /* 	.catch(function (error) {
         console.log(error);
       });  */
@@ -57,14 +56,16 @@ const productsController = {
   /* **************************************************************************************************************************** */
 
   productDetail: (req, res) => {
-
     db.Products.findByPk(req.params.id)
       .then((product) => {
-        res.render("products/productDetail", { titulo: "Mundo Mascota DH-Detalle Producto", product, });
+        res.render("products/productDetail", {
+          titulo: "Mundo Mascota DH-Detalle Producto",
+          product,
+        });
       })
       .catch(function (error) {
         console.log(error);
-      })
+      });
     /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let id = req.params.id;
     let product = todosLosProductos.find((product) => product.id == id); */
@@ -86,11 +87,17 @@ const productsController = {
 
   productAdmin: (req, res) => {
     db.Products.findAll({
-      include: [{association: "familyProducts"}, {association: "categoryAnimals"}]
-})
+      include: [
+        { association: "familyProducts" },
+        { association: "categoryAnimals" },
+      ],
+    })
       .then((todosLosProductos) => {
         //res.send(todosLosProductos.famili)
-        res.render("products/productAdmin", { titulo: "Mundo Mascota DH-Productos Admin", todosLosProductos, });
+        res.render("products/productAdmin", {
+          titulo: "Mundo Mascota DH-Productos Admin",
+          todosLosProductos,
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -101,56 +108,53 @@ const productsController = {
   /* **************************************************************************************************************************** */
 
   New: (req, res) => {
-
     let promFamily = db.FamilyProducts.findAll();
     let promCategory = db.CategoryAnimals.findAll();
 
-    Promise
-      .all([promFamily, promCategory])
+    Promise.all([promFamily, promCategory])
       .then(([allFamily, allCategory]) => {
-        res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto", allFamily, allCategory })
+        res.render("products/productNew", {
+          titulo: "Mundo Mascota DH-Alta Producto",
+          allFamily,
+          allCategory,
+        });
       })
-      .catch(error => res.send(error))
+      .catch((error) => res.send(error));
   },
 
   /* **************************************************************************************************************************** */
-  
+
   create: (req, res) => {
+    // let errors = validationResult(req);
 
-    let errors = validationResult(req);
+    // if (errors.isEmpty()) {
 
-    if (errors.isEmpty()) {
-
-      db.Products.create({
-                
-        name: req.body.nombre,
-        description: req.body.descripcion,
-        image: "/img/products/" + req.file.filename,         
-        categoryAnimal_id: req.body.categoria, 
-        familyProduct_id: req.body.familia,
-        price: parseFloat(req.body.precio),           
-        discount: parseFloat(req.body.descuento),
-        date_release: req.body.release_date,
-        user_id: 1,
-        active: req.body.activo == "SI" ? 1 : 0
-
-
-      },{
-        include: [{association: "familyProducts"}, {association: "categoryAnimals"}]
+    db.Products.create({
+      name: req.body.nombre,
+      description: req.body.descripcion,
+      image: "/img/products/" + req.file.filename,
+      categoryAnimal_id: req.body.categoria,
+      familyProduct_id: req.body.familia,
+      price: parseFloat(req.body.precio),
+      discount: parseFloat(req.body.descuento),
+      //date_release: req.body.release_date,
+      user_id:  req.session.userLogged.id,
+      active: req.body.activo == "SI" ? 1 : 0,
     })
-      .then((res.redirect("/admin/products")))
+      .then(res.redirect("/admin/products"))
 
       .catch(function (error) {
-          console.log(error);
-        })
+        console.log(error);
+      });
 
-    } else {
+    // } else
+    // {
+    //   res.send('hola');
+    //   //const alert = errors.array();
 
-      const alert = errors.array();
+    //   //return res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
 
-      return res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
-
-    }
+    // }
   },
 
   /* **************************************************************************************************************************** */
@@ -181,59 +185,63 @@ const productsController = {
     return res.render("products/productNew", {titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
   } */
 
-
   /* **************************************************************************************************************************** */
   Edit: (req, res) => {
-
-    let promProductToEdit = db.Products.findByPk(req.params.id) ;   
+    let promProductToEdit = db.Products.findByPk(req.params.id);
     let promFamily = db.FamilyProducts.findAll();
     let promCategory = db.CategoryAnimals.findAll();
 
-    Promise
-      .all([promFamily, promCategory, promProductToEdit])
+    Promise.all([promFamily, promCategory, promProductToEdit])
       .then(([allFamily, allCategory, allProductToEdit]) => {
-        res.send();
-        res.render("products/productEdit", { titulo: "Mundo Mascota DH-Editar Producto", allFamily, allCategory, allProductToEdit});
+        res.render("products/productEdit", {
+          titulo: "Mundo Mascota DH-Editar Producto",
+          allFamily,
+          allCategory,
+          allProductToEdit,
+        });
       })
-      .catch(error => res.send(error))
-
+      .catch((error) => res.send(error));
   },
 
   /*  res.render("products/productEdit", {titulo: "Mundo Mascota DH-Editar Producto", productToEdit,}); */
   /* const allProducts = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
   let productToEdit = allProducts.find((user) => req.params.id == user.id) */
 
-
   /* **************************************************************************************************************************** */
   update: (req, res) => {
-    let errors = validationResult(req);
+    //let errors = validationResult(req);
 
+    // if (errors.isEmpty()) {
+    console.log(req.file);
 
-if (errors.isEmpty()) {
-    db.Products.update({
-                
-        name: req.body.nombre,
-        description: req.body.descripcion,
-        image: "/img/products/" + req.file.filename,         
-        categoryAnimal_id: req.body.categoria, 
-        familyProduct_id: req.body.familia,
-        price: parseFloat(req.body.precio),           
-        discount: parseFloat(req.body.descuento),
-        user_id: 1,
-        active: req.body.activo == "SI" ? 1 : 0
-    },
-    {
-      where : {id:req.params.id}
-    })
-    .then(res.redirect("/admin/products"))
-    .catch(
-      error => res.send(error)
-      );
-    } else {
-      const alert = errors.array();
-      return res.render("productEdit", { titulo: "Mundo Mascota DH-Editar Producto", alert, old: req.body });
-  }
-},
+      db.Products.update(
+        {
+      
+          name: req.body.nombre,
+          description: req.body.descripcion,
+          image:  req.file==undefined ? req.body.lblPathFotoOriginal :  "/img/products/" + req.file.filename,
+          categoryAnimal_id: req.body.categoria,
+          familyProduct_id:  req.body.familia,
+          price: parseFloat(req.body.precio),
+          discount: parseFloat(req.body.descuento),
+          user_id: req.session.userLogged.id,
+          active: req.body.activo == "SI" ? 1 : 0,
+        },
+        {
+          where: { id: req.params.id },
+        }
+      )
+        .then(res.redirect("/admin/products"))
+        .catch((error) => res.send(error));
+    // } else {
+    //   const alert = errors.array();
+    //   return res.render("productEdit", {
+    //     titulo: "Mundo Mascota DH-Editar Producto",
+    //     alert,
+    //     old: req.body,
+    //   });
+    //}
+  },
 
   /* **************************************************************************************************************************** */
   /* let errors = validationResult(req);
@@ -272,27 +280,25 @@ if (errors.isEmpty()) {
 
   /* **************************************************************************************************************************** */
   inactivar: (req, res) => {
-
-    db.Products.update({
-
-        user_id: 1,
-        active: 0
-
-    },
+    db.Products.update(
+      {
+        user_id:  req.session.userLogged.id,
+        active: 0,
+      },
       {
         where: {
           id: req.params.id,
-        }
-      })
+        },
+      }
+    )
 
       .then(res.redirect("/admin/products"))
 
       .catch(function (error) {
         console.log(error);
       });
-
-    },
-    /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+  },
+  /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
     let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
@@ -319,31 +325,29 @@ if (errors.isEmpty()) {
     );
 
     res.redirect("/admin/products"); */
-  
 
   /* **************************************************************************************************************************** */
 
   activar: (req, res) => {
-
-    db.Products.update({
-
-      user_id: 1,
-      active: 1
-
-  },
-    {
-      where: {
-        id: req.params.id,
+    db.Products.update(
+      {
+        user_id: req.session.userLogged.id,
+        active: 1,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
       }
-    })
+    )
 
-    .then(res.redirect("/admin/products"))
+      .then(res.redirect("/admin/products"))
 
-    .catch(function (error) {
-      console.log(error);
-    });
+      .catch(function (error) {
+        console.log(error);
+      });
   },
-    /* const todosLosProductos = JSON.parse( fs.readFileSync(productsFilePath, "utf-8"));
+  /* const todosLosProductos = JSON.parse( fs.readFileSync(productsFilePath, "utf-8"));
     let unProd = todosLosProductos.filter((product) => product.id == req.params.id);
 
     let editProducto = {
@@ -364,8 +368,6 @@ if (errors.isEmpty()) {
     todosLosProductos[indice] = editProducto; fs.writeFileSync( productsFilePath, JSON.stringify(todosLosProductos, null, " "));
 
     res.redirect("/admin/products"); */
- 
-
 };
 
 module.exports = productsController;

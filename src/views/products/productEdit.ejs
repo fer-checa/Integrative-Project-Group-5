@@ -9,15 +9,16 @@
     <body>
         <!--------------------- HEADER ----------------->
         <%- include('../partials/header') %>
-        
-      
+
+
 
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
                     <h1>Editar Producto</h1>
-                    <h4>Id : <%= allProductToEdit.id %> - <%= allProductToEdit.name %></h4>
-                    
+                    <h4>Id : <%= allProductToEdit.id %> - <%= allProductToEdit.name %>
+                    </h4>
+
                     <% if(typeof alert !='undefined' ) { %>
                         <% alert.forEach(function(error) { %>
                             <div class="alert alert-danger alert-dismissible fade in">
@@ -27,19 +28,22 @@
                             <% }) %>
                                 <% } %>
 
-                                    <form action="/admin/productEdit/<%= allProductToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                                    <form action="/admin/productEdit/<%= allProductToEdit.id %>?_method=PATCH"
+                                        method="POST" enctype="multipart/form-data">
+                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i>
+                                            Volver</a>
                                         <div class="form-group">
                                             <label for="nombre">Nombre Producto:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=allProductToEdit.name %>" placeholder="<%= allProductToEdit.name %>">
+                                                value="<%=allProductToEdit.name %>"
+                                                placeholder="<%= allProductToEdit.name %>">
                                         </div>
- 
+
 
                                         <div class="input-group" style="width:100% ;">
                                             <label for="comment">Descripcion del producto :</label>
                                             <textarea class="form-control" rows="5" id="descripcion"
-                                                 placeholder="<%= allProductToEdit.description %>"
+                                                placeholder="<%= allProductToEdit.description %>"
                                                 name="descripcion"><%= allProductToEdit.description %></textarea>
                                         </div>
 
@@ -52,14 +56,16 @@
                                                 <div class="form-group">
                                                     <br>
                                                     <label for="">Seleccione categoria:</label>
-                                                    
+
                                                     <p>
                                                         <select class="form-control" id="categoria" name="categoria">
-                                                            <option value="" selected disabled>Seleccione categoria:
-                                                            </option>
-
+                                                            <option value="" selected disabled>Seleccione categoria:</option>
                                                             <% allCategory.forEach(categoryAnimals=> { %>
-                                                                <option value="<%= categoryAnimals.id %>">
+                                                                <option value="<%= categoryAnimals.id %>"
+                                                                    <% if (allProductToEdit.categoryAnimal_id == categoryAnimals.id) { %> 
+                                                                        selected
+                                                                    <% } %> 
+                                                                >
                                                                     <%= categoryAnimals.name %>
                                                                 </option>
                                                                 <% }) %>
@@ -74,13 +80,17 @@
                                                 <div class="form-group">
                                                     <br>
                                                     <label for="">Seleccione familia:</label>
-                                                    
+
                                                     <select class="form-control" id="familia" name="familia">
 
                                                         <option value="" selected disabled>Seleccione familia:</option>
 
                                                         <% allFamily.forEach(FamilyProducts=> { %>
-                                                            <option value="<%= FamilyProducts.id %>">
+                                                            <option value="<%= FamilyProducts.id %>"
+                                                                <% if (allProductToEdit.familyProduct_id == FamilyProducts.id) { %> 
+                                                                    selected
+                                                                <% } %> 
+                                                            >
                                                                 <%= FamilyProducts.name %>
                                                             </option>
                                                             <% }) %>
@@ -89,18 +99,12 @@
 
                                                 </div>
                                             </div>
-
-                                            
-
-
                                         </div>
-                                        
-
 
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
                                                 <div class="input-group">
-                                                    <span title="Importe Producto"  class="input-group-addon"><i
+                                                    <span title="Importe Producto" class="input-group-addon"><i
                                                             class="fa-solid fa-sack-dollar"></i></span>
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
@@ -119,66 +123,53 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <%= allProductToEdit.image%>
-                                        <div class="form-group row">
-                                            <div class="col-xs-12 col-md-6">
-                                                <label for="fotoProducto">Imagen del producto: </label>
-                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= allProductToEdit.image%>">
+                                        <input type="text" hidden   name="lblPathFotoOriginal" id="lblPathFotoOriginal" 
+                                                        value="<%= allProductToEdit.image%>">
+                                        
+                                        
+                                            <div class="form-group row">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <label for="fotoProducto">Imagen del producto: </label>
+                                                    <input type="file" name="fotoProducto" id="foto" class="input"
+                                                        value="/img/products/<%= allProductToEdit.image%>">
+                                                </div>
+                                                <div class="col-xs-12  col-md-6">
+                                                    <img src="<%= allProductToEdit.image%>" alt="imagen-no-disponible"
+                                                        style="width:250px; height:300px ;">
+                                                </div>
+
                                             </div>
-                                            <div class="col-xs-12  col-md-6">
-                                                        <img src="<%= allProductToEdit.image%>"
-                                                            alt="imagen-no-disponible" style="width:250px; height:300px ;">
-                                                    </div>
 
-                                        </div>
+                                            <div class="form-group row">
+                                                <div class="col-xs-6 col-md-4">
+                                                    <label for="activo">Producto activo:</label>
+                                                    <select id="activo" name="activo" class="form-control">
+                                                        <option value="" selected disabled>Seleccione activo:</option>
+                                                        
+                                                        <option>SI</option>
+                                                        <option>NO</option>
 
-                                        <div class="form-group row">
-                                            <div class="col-xs-6 col-md-4">
-                                               <label for="activo">Producto activo:</label>
-                                               <select id="activo" name="activo" class="form-control">
-                                                   <option></option>
-                                                   <option>SI</option>
-                                                   <option>NO</option>
-
-                                               </select>
-                                           </div>
-                                          </div> 
-                                              
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-12 ">
-                                                <button id="btnGuardar" type="submit"
-                                                    class="btn btn-primary btn-md btn-block"><i
-                                                        class="far fa-check-circle"></i>
-                                                    Guardar</button>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            
-                                         
-                                        </div>
-                                        
-                                        <!-- <script type="text/javascript">
-                                            document.getElementById("categoria").value = '<%=allProductToEdit.categoryAnimals.name%>';
-                                            document.getElementById("familia").value = '<%=allProductToEdit.familyProducts.name%>';
-                                            
-                                            if ('<%=allProductToEdit.active%>' == 1) 
-                                            {
-                                                document.getElementById("activo").value ='SI';
-                                            } else {document.getElementById("activo").value = 'NO'}
-                                            
-                                        </script> -->
-                                        
 
-
-                                        
-                                   
+                                            <hr>
+                                            <div class="form-group row">
+                                                <div class="col-12 ">
+                                                    <button id="btnGuardar" type="submit"
+                                                        class="btn btn-primary btn-md btn-block"><i
+                                                            class="far fa-check-circle"></i>
+                                                        Guardar</button>
+                                                </div>
+                                            </div>
                                     </form>
                 </div>
-                
+
             </main>
 
             <!-- FOOTER -->
             <%- include ('../partials/footer.ejs') %>
-          
+
     </body>
-   
+
 </html>

@@ -41,7 +41,7 @@ const familyController = {
   create: (req, res) => {
     db.FamilyProducts.create({
       name: req.body.nombre,
-      user_id: 1,
+      user_id: req.session.userLogged.id,
       active: req.body.activo == "SI" ? 1 : 0,
     }).then(res.redirect("/admin/family"));
 

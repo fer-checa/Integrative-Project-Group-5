@@ -35,7 +35,7 @@ const categoryController =
 
 		db.CategoryAnimals.create({
 			name: req.body.nombre,
-			user_id: 1,
+			user_id: req.session.userLogged.id,
 			active: req.body.activo == "SI" ? 1 : 0,
 		})
 		.then(res.redirect("/admin/category"))
@@ -94,7 +94,7 @@ const categoryController =
 
 		db.CategoryAnimals.update({ 
 			name: req.body.nombre,
-			user_id: 1,
+			user_id: req.session.userLogged.id,
 			active: req.body.activo == "SI" ? 1 : 0,
 		}, 
 		{ 
@@ -135,7 +135,7 @@ const categoryController =
 	inactivar: (req, res) => {
 
 		db.CategoryAnimals.update({ 
-			user_id: 1,
+			user_id: req.session.userLogged.id,
 			active: 0
 		}, 
 		{ 
@@ -177,7 +177,7 @@ const categoryController =
 	activar: (req, res) => {
 
 		db.CategoryAnimals.update({ 
-			user_id: 1,
+			user_id: req.session.userLogged.id,
 			active: 1
 		}, 
 		{ 
