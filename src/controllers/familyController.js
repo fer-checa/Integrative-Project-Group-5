@@ -99,15 +99,19 @@ const familyController = {
     // res.redirect("/admin/family");
     // //}
     db.FamilyProducts.update(
+      
       {
+        
         name: req.body.nombre,
-        user_id: 2,
+        user_id: req.session.userLogged.id,
         active: req.body.activo == "SI" ? 1 : 0,
       },
       {
         where: { id: req.params.id },
       }
     ).then(res.redirect("/admin/family"));
+    //console.log(FamilyProducts);
+    //.then(res.redirect("/admin/family"));
   },
 
   inactivar: (req, res) => {
