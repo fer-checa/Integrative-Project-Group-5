@@ -1,5 +1,3 @@
-const sequelize = require("sequelize");
-
 module.exports = (sequelize, dataTypes) => {
     let cols = {
         id: {
@@ -32,7 +30,6 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
 
-    const User = sequelize.define('Users', cols, config);
 
     /* Aqui van las asociaciones */
 
