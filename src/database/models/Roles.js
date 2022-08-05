@@ -1,3 +1,5 @@
+
+
 module.exports = (sequelize, dataTypes) => {
     
    
@@ -37,3 +39,4 @@ module.exports = (sequelize, dataTypes) => {
 
     return Role;
 }
+
