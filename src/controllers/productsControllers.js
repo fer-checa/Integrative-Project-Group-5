@@ -13,7 +13,7 @@ const productsController = {
 
   index: (req, res) => {
 
-     /* let promGatos = db.Products.findAll();
+    /*  let promGatos = db.Products.findAll();
 
     let promPerros = db.Products.findAll();
 
@@ -25,7 +25,7 @@ const productsController = {
     .catch(error => res.send(error)) 
 }, */
 
-  const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
+  /* const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
 
     const Gatos = todosLosProductos.filter(function (product) {
       return product.categoria == 'Gatos'
@@ -34,7 +34,7 @@ const productsController = {
       return product.categoria == 'Perros'
     });
 
-    res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros });
+    res.render('index', { titulo: 'Mundo Mascota DH', Gatos, Perros }); */
   },
  
   /* **************************************************************************************************************************** */
@@ -185,10 +185,17 @@ const productsController = {
   /* **************************************************************************************************************************** */
   Edit: (req, res) => {
 
-    db.Products.findByPk(req.params.id)
-      .then((productToEdit) => {
-        res.render("products/productEdit", { titulo: "Mundo Mascota DH-Editar Producto", productToEdit, });
-      });
+    let promProductToEdit = db.Products.findByPk(req.params.id) ;   
+    let promFamily = db.FamilyProducts.findAll();
+    let promCategory = db.CategoryAnimals.findAll();
+
+    Promise
+      .all([promFamily, promCategory, promProductToEdit])
+      .then(([allFamily, allCategory, allProductToEdit]) => {
+        res.send();
+        res.render("products/productEdit", { titulo: "Mundo Mascota DH-Editar Producto", allFamily, allCategory, allProductToEdit});
+      })
+      .catch(error => res.send(error))
 
   },
 
