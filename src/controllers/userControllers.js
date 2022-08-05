@@ -37,6 +37,7 @@ const userController = {
         email: req.body.email,
         password: bcryptjs.hashSync(req.body.password, 10),
         image: req.file.filename,
+        role_id :2
       })
         .then(() => {
           res.redirect("/user/login");
