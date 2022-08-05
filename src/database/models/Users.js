@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
 
-
+    
     /* Aqui van las asociaciones */
 
     User.associate = function (models) {
