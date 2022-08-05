@@ -16,7 +16,7 @@
             <main>
                 <div class="container">
                     <h1>Editar Producto</h1>
-                    <h4>Id : <%= productToEdit.id %> - <%= productToEdit.name %></h4>
+                    <h4>Id : <%= allProductToEdit.id %> - <%= allProductToEdit.name %></h4>
                     
                     <% if(typeof alert !='undefined' ) { %>
                         <% alert.forEach(function(error) { %>
@@ -27,24 +27,23 @@
                             <% }) %>
                                 <% } %>
 
-                                    <form action="/admin/productEdit/<%= productToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+                                    <form action="/admin/productEdit/<%= allProductToEdit.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
                                         <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i> Volver</a>
                                         <div class="form-group">
                                             <label for="nombre">Nombre Producto:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=productToEdit.name %>" placeholder="<%= productToEdit.name %>">
+                                                value="<%=allProductToEdit.name %>" placeholder="<%= allProductToEdit.name %>">
                                         </div>
  
 
                                         <div class="input-group" style="width:100% ;">
                                             <label for="comment">Descripcion del producto :</label>
                                             <textarea class="form-control" rows="5" id="descripcion"
-                                                 placeholder="<%= productToEdit.description %>"
-                                                name="descripcion"><%= productToEdit.description %></textarea>
+                                                 placeholder="<%= allProductToEdit.description %>"
+                                                name="descripcion"><%= allProductToEdit.description %></textarea>
                                         </div>
 
                                         <!-- COMBOS -->
-
 
                                         <div class=" row">
                                             <div class="col-xs-12 col-md-6">
@@ -90,8 +89,21 @@
 
                                                 </div>
                                             </div>
+
+                                            <% rolesToEdit.forEach(rol=> { %>
+                                                <option value="<%= rol.id %>"
+                                                    <% if (userToEdit.role_id == rol.id) { %> 
+                                                            selected
+                                                        <% } %> 
+                                                    >
+                                                    <%= rol.role %>
+                                                </option>
+                                                <% }) %>
+
+
+
                                         </div>
-                                        </div>
+                                        
 
 
                                         <div class="form-group row">
@@ -101,8 +113,8 @@
                                                             class="fa-solid fa-sack-dollar"></i></span>
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
-                                                        placeholder="<%= productToEdit.price %>"
-                                                        value="<%= productToEdit.price %>">
+                                                        placeholder="<%= allProductToEdit.price %>"
+                                                        value="<%= allProductToEdit.price %>">
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
@@ -111,19 +123,19 @@
                                                             class="fa-solid fa-percent"></i></span>
                                                     <input step="0.01" min="0" name="descuento" id="descuento"
                                                         type="number" class="form-control" name="descuento"
-                                                        placeholder="<%= productToEdit.discount %>"
-                                                        value="<%= productToEdit.discount %>">
+                                                        placeholder="<%= allProductToEdit.discount %>"
+                                                        value="<%= allProductToEdit.discount %>">
                                                 </div>
                                             </div>
                                         </div>
-                                        <%= productToEdit.image%>
+                                        <%= allProductToEdit.image%>
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
                                                 <label for="fotoProducto">Imagen del producto: </label>
-                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= productToEdit.image%>">
+                                                <input type="file" name="fotoProducto" id="foto" class="input" value="/img/products/<%= allProductToEdit.image%>">
                                             </div>
                                             <div class="col-xs-12  col-md-6">
-                                                        <img src="<%= productToEdit.image%>"
+                                                        <img src="<%= allProductToEdit.image%>"
                                                             alt="imagen-no-disponible" style="width:250px; height:300px ;">
                                                     </div>
 
@@ -153,19 +165,19 @@
                                          
                                         </div>
                                         
-                                        <script type="text/javascript">
-                                            document.getElementById("categoria").value = '<%=productToEdit.familyProducts.name%>';
-                                            document.getElementById("familia").value = '<%=productToEdit.categoryAnimals.name%>';
+                                        <!-- <script type="text/javascript">
+                                            document.getElementById("categoria").value = '<%=allProductToEdit.categoryAnimals.name%>';
+                                            document.getElementById("familia").value = '<%=allProductToEdit.familyProducts.name%>';
                                             
-                                            if ('<%=productToEdit.active%>' == 1) 
+                                            if ('<%=allProductToEdit.active%>' == 1) 
                                             {
                                                 document.getElementById("activo").value ='SI';
                                             } else {document.getElementById("activo").value = 'NO'}
                                             
-                                            
-                                            
-                                           
-                                        </script>
+                                        </script> -->
+                                        
+
+
                                         
                                    
                                     </form>
