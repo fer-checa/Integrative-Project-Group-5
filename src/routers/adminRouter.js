@@ -46,19 +46,31 @@ router.patch('/productEdit/:id',userRouteAdminMW,upload.single('fotoProducto'), 
 router.post('/productInactivar/:id',userRouteAdminMW, productsController.inactivar);
 router.post('/productActivar/:id',userRouteAdminMW, productsController.activar);
 
+// FAMILIA
+
+const validarFamilia = [
+    body('nombre').notEmpty().withMessage('Debes completar el Nombre de la Familia.').bail(),
+    body('activo').notEmpty().withMessage('Debe indicar familia activa SI/NO'),
+]
+
 
 router.get('/family',userRouteAdminMW,familyController.todasLasFamilias);
 router.get('/familyNew',userRouteAdminMW,familyController.new);
-router.post('/familyNew',userRouteAdminMW,familyController.create);
+router.post('/familyNew',userRouteAdminMW,validarFamilia ,familyController.create);
 router.post('/familyInactivar/:id',userRouteAdminMW, familyController.inactivar);
 router.post('/familyActivar/:id',userRouteAdminMW, familyController.activar);
 router.get('/familyEdit/:id',userRouteAdminMW,familyController.Edit);
 router.patch('/familyEdit/:id',userRouteAdminMW, familyController.update); 
 
+const validarCategoria = [
+    body('nombre').notEmpty().withMessage('Debes completar el Nombre de la Categoria.').bail(),
+    body('activo').notEmpty().withMessage('Debe indicar Categoria activa SI/NO'),
+]
 
 router.get('/category',userRouteAdminMW,categoryController.todasLasCategorias);
 router.get('/categoryNew',userRouteAdminMW,categoryController.new);
-router.post('/categoryNew',userRouteAdminMW,categoryController.create);
+
+router.post('/categoryNew',userRouteAdminMW, validarCategoria, categoryController.create);
 router.post('/categoryInactivar/:id',userRouteAdminMW, categoryController.inactivar);
 router.post('/categoryActivar/:id',userRouteAdminMW, categoryController.activar);
 router.get('/categoryEdit/:id',userRouteAdminMW,categoryController.Edit);

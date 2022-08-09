@@ -19,14 +19,21 @@
                 <div class="container">
                     <h1>Alta Familia</h1>
                     
-                    <% if(typeof alert !='undefined' ) { %>
-                        <% alert.forEach(function(error) { %>
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <%= error.msg %>
-                            </div>
-                            <% }) %>
-                                <% } %>
+                    
+
+                                <div class="form-seguridad">
+                                    <% if(locals.errors != undefined) { %>
+                                        <ul>
+                                            <% for (let i=0; i<locals.errors.length; i++) { %>
+                                                <li style="color: red">
+                                                    <%= errors[i].msg %> 
+                                                </li>
+                                                <% } %> 
+                                        </ul>
+                            
+                                    <% } %> 
+                            
+                                   </div>
 
                                     <form action="/admin/familyNew" method="POST" >
                                         <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>

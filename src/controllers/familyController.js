@@ -5,7 +5,7 @@
 
 const fs = require("fs");
 const path = require("path");
-
+const { validationResult } = require("express-validator");
 //const familyFilePath = path.join(__dirname, "../data/family.json");
 
 const db = require("../database/models");
@@ -39,11 +39,28 @@ const familyController = {
   },
 
   create: (req, res) => {
+    let errors = validationResult(req);
+    
+    if (errors.isEmpty()) {
     db.FamilyProducts.create({
       name: req.body.nombre,
       user_id: req.session.userLogged.id,
       active: req.body.activo == "SI" ? 1 : 0,
-    }).then(res.redirect("/admin/family"));
+    })
+    .then(res.redirect("/admin/family"))
+    .catch((error) => { console.log(error) });
+  } else {
+    return res.render("products/familyNew", {
+      titulo: "Mundo Mascota DH-Alta de Familia Producto",
+      errors: errors.errors,
+    });
+  }
+},
+
+
+
+
+
 
     // const allFamily = JSON.parse(fs.readFileSync(familyFilePath, "utf-8"));
     // let newFamily = {
@@ -55,7 +72,7 @@ const familyController = {
     // allFamily.push(newFamily);
     // fs.writeFileSync(familyFilePath, JSON.stringify(allFamily, null, " "));
     // res.redirect("/admin/family");
-  },
+  
 
   // family: (req, res) => {
   //   let familia = req.params.familia;

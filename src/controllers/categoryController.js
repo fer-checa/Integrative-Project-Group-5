@@ -1,7 +1,7 @@
 const { Console } = require('console');
 const fs = require('fs');
 const path = require('path');
-
+const { validationResult } = require("express-validator");
 /* const categoryFilePath = path.join(__dirname, '../data/category.json'); */
 
 const db = require('../database/models');
@@ -32,7 +32,9 @@ const categoryController =
 	
 	/* ******************************************************************** */
 	create: function (req, res) {
-
+		let errors = validationResult(req);
+    
+		if (errors.isEmpty()) {
 		db.CategoryAnimals.create({
 			name: req.body.nombre,
 			user_id: req.session.userLogged.id,
@@ -43,6 +45,14 @@ const categoryController =
 		.catch(function (error) {
 				console.log(error);
 			});
+
+		} else {
+			return res.render("products/categoryNew", {
+			  titulo: "Mundo Mascota DH-Alta de Categoria Producto",
+			  errors: errors.errors,
+			});
+		  }
+		},	
 
 		/* .then(Function(categoryAnimal) {
 		  return res.redirect("/admin/category")
@@ -64,7 +74,7 @@ const categoryController =
 			JSON.stringify(allCategory, null, " ")
 		  ); */
 
-	},
+	
 
 
 	/* ******************************************************************** */
