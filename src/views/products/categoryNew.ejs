@@ -14,6 +14,8 @@
             <main>
                 <div class="container">
                     <h1>Alta Categoria</h1>
+                    <br>
+                    <ul class="errores"></ul>
                     
                     <div class="form-seguridad">
                         <% if(locals.errors != undefined) { %>
@@ -29,7 +31,7 @@
                 
                        </div>
 
-                                    <form action="/admin/categoryNew" method="POST">
+                                    <form action="/admin/categoryNew" method="POST" class="form">
                                         <a class="btn" href="/admin/category"><i class="fa-solid fa-circle-left"></i>
                                             Volver</a>
                                         <div class="input-group">
@@ -72,6 +74,7 @@
 
             <!-- FOOTER -->
             <%- include ('../partials/footer.ejs') %>
+            <script src="/js/categoryAnimals.js"></script>
     </body>
 
 </html>

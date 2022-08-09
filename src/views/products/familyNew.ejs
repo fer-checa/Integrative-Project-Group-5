@@ -11,14 +11,12 @@
         <%- include('../partials/header') %>
 
 
-            <script>
-                document.getElementById("demo").innerHTML = "Hello JavaScript!";
-            </script>
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
-                    <h1>Alta Familia</h1>
-                    
+                    <h1>Alta Familia de Productos</h1>
+                    <br>
+                    <ul class="errores"></ul>
                     
 
                                 <div class="form-seguridad">
@@ -33,9 +31,9 @@
                             
                                     <% } %> 
                             
-                                   </div>
+                                </div>
 
-                                    <form action="/admin/familyNew" method="POST" >
+                                    <form action="/admin/familyNew" method="POST" class="form" >
                                         <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>
                                             Volver</a>
                                         <div class="input-group">
@@ -74,6 +72,7 @@
             </main>
             <!-- FOOTER -->
             <%- include ('../partials/footer.ejs') %>
+            <script src="/js/familyProducts.js"></script>
     </body>
 
 </html>
