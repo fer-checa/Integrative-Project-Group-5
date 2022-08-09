@@ -447,7 +447,34 @@ margin: auto;
   
 }
 
+.profile{
+  text-align: center;
+  
+}
 
+.user-name{
+  font-size: 300%;
+  color: #679436;
+}
+
+.user-imagen{
+  width: 35%;
+  border-radius: 100px;
+}
+
+.user-email{
+  font-size: 120%;
+  border: black 1px solid;
+  width: 30%;
+  margin-left: 35%;
+  border-radius: 10px;
+  background-color: lightgreen;
+  margin-bottom: -3%;
+}
+
+.boton-editar{
+  margin-bottom: 2%;
+}
 
 @media (min-width: 425px) {}
 

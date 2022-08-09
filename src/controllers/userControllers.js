@@ -143,6 +143,18 @@ const userController = {
     // res.render("users/editar", { userToEdit, titulo: "Editar usuario" });
   },
 
+  editProfile: (req, res) => {
+    let promUser= db.Users.findByPk(req.params.id); 
+    let promRoles = db.Roles.findAll();
+    Promise
+    .all([promUser, promRoles]) 
+    .then(([userToEdit, rolesToEdit]) => {
+     res.render("users/editarProfile", { titulo: "Mundo Mascota DH-Editar Datos Usuario" , userToEdit, rolesToEdit })})
+   .catch(error => res.send(error)) 
+
+  },
+
+
   update: (req, res) => {
     
 
@@ -187,6 +199,27 @@ const userController = {
     // fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
     // res.redirect("/user/list");
   },
+
+  updateProfile: (req, res) => {
+    
+
+    db.Users.update({
+      name: req.body.name,
+      /* email: req.body.email, */
+      //password: userToEdit.password,
+      /* image: req.file ? req.file.filename : userToEdit.image, */
+      image: req.file ? req.file.filename : db.Users.image,
+      /* role_id: req.body.roles */
+    },
+    {
+      where : {id:req.params.id}
+    })
+    .then(res.redirect("/user/profile"))
+    .catch(
+      error => res.send(error)
+      );
+
+    },
 
   destroy: (req, res) => {
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));

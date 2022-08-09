@@ -53,6 +53,12 @@ router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userCo
 router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
 
+
+router.get('/editProfile/:id', userController.editProfile); 
+router.patch('/editProfile/:id',upload.single("product-image"), userController.updateProfile); 
+
+
+
 /* LOGIN */
 //Presenta la pantalla para loguearse , tiene un MW que si esta logueado te redirecciona.
 router.get('/login', guestRouteMW ,userController.login); 

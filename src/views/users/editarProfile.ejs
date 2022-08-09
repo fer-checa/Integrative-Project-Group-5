@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-------------------- HEAD --------------------->
+<%- include('../partials/head') %>
+
+    <!-------------------- BODY --------------------->
+
+    <body>
+
+        <!-------------------- HEADER --------------------->
+        <%- include('../partials/header') %>
+
+            <!-------------------- MAIN --------------------->
+            <main>
+                <div class="container">
+                <h1>Editar Perfil</h1>
+                
+                <form action="/user/editProfile/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad"
+                    enctype="multipart/form-data">
+                    <div class="contenedor-seguridad">
+                        <a class="btn" href="/user/profile"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                        <div>
+                            <label for="name" class="input-registro">Nombre del Usuario:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.name %>" id="name" name="name"
+                                placeholder="<%= userToEdit.name %>" class="form-input-edit">
+                        </div>
+                        <!-- <div>
+                            <label for="email" class="input-registro">Email del Usuario:</label>
+                            <br>
+                            <input type="email" value="<%= userToEdit.email %>" id="email" name="email"
+                                placeholder="<%= userToEdit.email %>" class="form-input-edit">
+                        </div> -->
+
+                        <!-- <div class="form-group">
+                            
+                            <label for="roles" class="input-registro">Rol :</label>
+                            
+                                <select class="form-input-edit" id="roles" name="roles">
+                                    <option value="" selected disabled>Seleccione un rol</option>
+                                    <% rolesToEdit.forEach(rol=> { %>
+                                        <option value="<%= rol.id %>"
+                                            <% if (userToEdit.role_id == rol.id) { %> 
+                                                    selected
+                                                <% } %> 
+                                            >
+                                            <%= rol.role %>
+                                        </option>
+                                        <% }) %>
+
+                                </select>
+                            
+                        </div> -->
+
+
+                        <!-- <div >
+                            <label for="password" class="input-registro">Contraseña:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.password %>" id="password" name="password" placeholder="<%= userToEdit.password %>" class="form-input-edit">
+                        </div> -->
+                        <!-- <div >
+                            <label for="rePassword" class="input-registro">Repetir Contraseña:</label>
+                            <br>
+                            <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
+                        </div> -->
+
+                        <div>
+                            <label for="product-image" class="input-registro">Imagen:</label>
+                            <input type="file" id="product-image" name="product-image" class="product-image">
+                        </div>
+
+
+                        <div>
+                            <button type="submit" class="btn-success boton-editar">
+                                <i class="fa-solid fa-user-check"></i> Guardar Cambios</button>
+                        </div>
+
+
+                    </div>
+                </form>
+<!-- 
+                <div class="form-delete">
+                    <form action="/user/delete/<%= userToEdit.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
+                    </form>
+                </div> -->
+                </div>
+            </main>
+
+            <!-------------------- FOOTER --------------------->
+            <%- include ('../partials/footer.ejs') %>
+
+    </body>
+
+</html>

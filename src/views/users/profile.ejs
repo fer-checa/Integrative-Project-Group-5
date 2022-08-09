@@ -27,22 +27,26 @@
                 <div class=" jumbotron" style="padding:70px; text-align: center;">
                     <h1>Bienvenido a tu perfil</h1>
                 </div>
-                <div class="container" style="margin-top: 40px;" >
-                  <div class="row">
-                    <div class="col-md-3">
-                      <h2>Hola <%= user.name %> </h2>
+                <div class="profile"  >
+                  
+                    <div >
+                      <h2 class="user-name">Hola <%= user.name %> </h2>
                       <figure >
-                        <img class="box-imagen" src="/img/usersImage/<%= user.image %> " alt="imagen de usuario">
-                    </figure>
+                        <img class="user-imagen" src="/img/usersImage/<%= user.image %> " alt="imagen de usuario">
+                      </figure>
                      
                       <br>
-                      <div class="alert alert-success"><%= user.email %> </div>
-                    </div>
+                      <div class="user-email"><%= user.email %> </div>
+                    
                   </div>
                 </div>
               </div>
               <!-- PERFIL -->
              
+              <div>
+                <a href="/user/editProfile/<%= user.id %> "><button type="submit" class="btn-success boton-editar">
+                    <i class="fa-solid fa-user-check"></i>Editar Usuario</button></a>
+            </div>
               
             </main>
 
