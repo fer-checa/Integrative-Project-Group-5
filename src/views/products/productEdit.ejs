@@ -16,8 +16,8 @@
             <main>
                 <div class="container">
                     <h1>Editar Producto</h1>
-                    <h4>Id : <%= allProductToEdit.id %> - <%= allProductToEdit.name %>
-                    </h4>
+                    <br>
+                    
 
                     <% if(typeof alert !='undefined' ) { %>
                         <% alert.forEach(function(error) { %>
@@ -28,10 +28,11 @@
                             <% }) %>
                                 <% } %>
 
+                                <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i>Volver</a>
                                     <form action="/admin/productEdit/<%= allProductToEdit.id %>?_method=PATCH"
                                         method="POST" enctype="multipart/form-data">
-                                        <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i>
-                                            Volver</a>
+                                        <h4>Producto: <%= allProductToEdit.id %> - <%= allProductToEdit.name %></h4>
+                                        <br>
                                         <div class="form-group">
                                             <label for="nombre">Nombre Producto:</label>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
@@ -103,6 +104,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
+                                                <label for="">Precio:</label>
                                                 <div class="input-group">
                                                     <span title="Importe Producto" class="input-group-addon"><i
                                                             class="fa-solid fa-sack-dollar"></i></span>
@@ -113,6 +115,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
+                                                <label for="">Descuento:</label>
                                                 <div class="input-group">
                                                     <span title="Descuento Producto" class="input-group-addon"><i
                                                             class="fa-solid fa-percent"></i></span>

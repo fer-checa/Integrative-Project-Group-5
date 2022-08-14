@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 /* ELIMINARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
-const productsFilePath = path.join(__dirname, "../data/products.json");
+//const productsFilePath = path.join(__dirname, "../data/products.json");
 /* ELIMINARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
 
 const { validationResult } = require("express-validator");
