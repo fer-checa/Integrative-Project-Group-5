@@ -19,21 +19,28 @@
                 <div class="container">
                     <h1>Alta Producto</h1>
                     <br>
-                    <ul class="errores" style="color: red;"></ul>
+                    <!-- ****************************************** -->
+                    <ul class="errores"></ul>
                     
-                    <% if(typeof alert !='undefined' ) { %>
-                        <% alert.forEach(function(error) { %>
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <%= error.msg %>
-                            </div>
-                            <% }) %>
-                                <% } %>
+                    <div class="form-seguridad">
+                        <% if(locals.errors != undefined) { %>
+                            <ul>
+                                <% for (let i=0; i<locals.errors.length; i++) { %>
+                                    <li style="color: red">
+                                        <%= errors[i].msg %> 
+                                    </li>
+                                   
+                                    <% } %> 
+                            </ul>
+                
+                        <% } %> 
+                            
+                       </div>
 
-
-
+                    <!-- ****************************************** -->
+                
                                 <a class="btn" href="/admin/products"><i class="fa-solid fa-circle-left"></i>Volver</a>
-                                
+
                                     <form action="/admin/productNew" method="POST" enctype="multipart/form-data" class="formProduct">
                                         
                                             <label for="comment">Nombre del producto :</label>
@@ -41,7 +48,7 @@
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
-                                                value="<%=locals.old && old.name%>" placeholder="Nombre del Producto">
+                                                value="<%=locals.old && old.name%>" placeholder="Nombre del Producto" >
                                         </div>
                                         <br>
                                         <div class="input-group" style="width:100% ;">
@@ -110,7 +117,7 @@
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
                                                         placeholder="Precio del Producto"
-                                                        value="<%=locals.old && old.price%>">
+                                                        value="<%=locals.old && old.price%>" required>
                                                 </div>
                                             </div>
                                             

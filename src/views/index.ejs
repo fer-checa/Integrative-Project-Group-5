@@ -82,14 +82,14 @@
 
                         </div>
 
-                        <% Perros.forEach(function(product){ let finalPrice=(product.precio * ((100 - product.descuento)
+                        <% Perros.forEach(function(product){ let finalPrice=(product.price * ((100 - product.discount)
                             / 100)).toFixed(0) %>
 
                             <div class="col-12 col-sm-6 col-lg-3">
                                 <section class="product-box" style="text-align:center;">
                                     <a href="/products/productDetail/<%= product.id %>">
                                         <figure class="product-box_image">
-                                            <img src="<%= product.imagen %>" alt="imagen de producto"
+                                            <img src="<%= product.image %>" alt="imagen de producto"
                                                 style="width:170px;">
                                         </figure>
                                         <hr>
@@ -100,10 +100,10 @@
                                                 $ <%= finalPrice %>
                                             </h2>
                                             <span>
-                                                <%= product.descuento %> %OFF
+                                                <%= product.discount %> %OFF
                                             </span>
                                             <p style="font-size: 1em;">
-                                                <%= product.nombre %>
+                                                <%= product.name %>
                                             </p>
                                             <i class="fas fa-paw iconito"></i>
                                         </article>
@@ -125,14 +125,14 @@
 
                             </div>
                            
-                            <% Gatos.forEach(function(product){ let finalPrice=(product.precio * ((100 -
-                                product.descuento) / 100)).toFixed(0) %>
+                            <% Gatos.forEach(function(product){ let finalPrice=(product.price * ((100 -
+                                product.discount) / 100)).toFixed(0) %>
                                 <div class="col-12 col-sm-6 col-lg-3">
 
                                     <section class="product-box" style="text-align:center;">
                                         <a href="/products/productDetail/<%= product.id %>">
                                             <figure class="product-box_image">
-                                                <img src="<%= product.imagen %>" alt="imagen de producto"
+                                                <img src="<%= product.image %>" alt="imagen de producto"
                                                     style="width:170px;">
                                             </figure>
                                             <hr>
@@ -144,10 +144,10 @@
                                                   $  <%= finalPrice %>
                                                 </h2>
                                                 <span>
-                                                    <%= product.descuento %> %OFF
+                                                    <%= product.discount %> %OFF
                                                 </span>
                                                 <p style="font-size: 1em;">
-                                                    <%= product.nombre %>
+                                                    <%= product.name %>
                                                 </p>
 
                                                 <i class="fas fa-paw iconito"></i>
