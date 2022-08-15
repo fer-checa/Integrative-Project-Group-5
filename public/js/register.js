@@ -1,6 +1,9 @@
 
 window.addEventListener("load", () => {
+     
     let form = document.querySelector("form");
+    
+
     form.addEventListener("submit", (event) => {
            
         let errors = [];
@@ -24,12 +27,19 @@ window.addEventListener("load", () => {
             name.classList.remove("is-invalid");
         };
 
+        let  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
         if (email.value == "") {
             errors.push("Js : El campo email no puede estar vacío");
             email.classList.remove("is-valid");
             email.classList.add("is-invalid");
             //form.email.focus();
-        } else {
+        } else if (!emailRegex.test(email.value)) 
+        {
+            errors.push("Js : El campo email es incorrecto");
+            email.classList.remove("is-valid");
+            email.classList.add("is-invalid");
+        } 
+        else {
             email.classList.add("is-valid");
             email.classList.remove("is-invalid");
         };

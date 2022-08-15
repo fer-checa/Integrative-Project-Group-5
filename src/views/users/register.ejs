@@ -21,8 +21,9 @@
 
                 <form action="/user/register" method="POST" class="form-seguridad" enctype="multipart/form-data">
                     <div class="contenedor-seguridad">
-
+                        
                         <ul class="errores"></ul>
+
                         <% if(locals.errors !=undefined) { %>
                             <ul>
                                 <% for (let i=0; i<locals.errors.length; i++) { %>
@@ -34,19 +35,17 @@
 
                             <% } %>
 
-
-
                                 <div>
                                     <input type="text" class="input-registro" id="name" name="name"
                                         placeholder="Nombre">
                                 </div>
-                                <div><input class="input-registro" type="email" id="email" name="email"
+                                <div><input class="input-registro" id="email" name="email"
                                         placeholder="E-mail"></div>
                                 <div><input class="input-registro" type="password" id="password" name="password"
                                         placeholder="Contraseña"></div>
                                 <div>
                                     <label for="product-image" class="input-registro">Imagen:</label>
-                                    <input type="file" id="product-image" name="product-image" class="product-image">
+                                    <input type="file" id="product-image" name="product-image" accept="image/png, image/gif, image/jpeg" class="product-image">
                                 </div>
 
                                 <div class="boton-final contenedor-botones ">
