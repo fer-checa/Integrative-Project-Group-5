@@ -1,15 +1,29 @@
 
 window.addEventListener("load", () => {
-    
     let form = document.querySelector("form");
-
     form.addEventListener("submit", (event) => {
-        
+           
         let errors = [];
         
+        let name = document.querySelector("#name");
         let email = document.querySelector("#email");
         let password = document.querySelector("#password");
         
+        if (name.value == "") {
+            errors.push("Js : El campo Nombre no puede estar vacío");
+            name.classList.remove("is-valid");
+            name.classList.add("is-invalid");
+            
+        } else if (name.value.length < 2 ) {
+            errors.push("Js : El campo nombre debe tener como minimo 2 caracteres");
+            name.classList.remove("is-valid");
+            name.classList.add("is-invalid");
+        } 
+        else {
+            name.classList.add("is-valid");
+            name.classList.remove("is-invalid");
+        };
+
         if (email.value == "") {
             errors.push("Js : El campo email no puede estar vacío");
             email.classList.remove("is-valid");
@@ -36,7 +50,7 @@ window.addEventListener("load", () => {
             password.classList.add("is-valid");
             password.classList.remove("is-invalid");
         };
-        
+        console.log(errors);
         if (errors.length > 0) {
             
             event.preventDefault();

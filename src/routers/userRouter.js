@@ -20,15 +20,15 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 const validarDatos = [
-    body('name').notEmpty().withMessage('Debes Completar el Nombre').bail(),
-    body('email').notEmpty().withMessage('Debes Completar el email').bail().isEmail().withMessage('Debes completar un email valido'),
-    body('password').notEmpty().withMessage('Debes Completar la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 4 caracteres'),
-    /* body('rePassword').notEmpty().withMessage('Debes Completar Repetir la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 8 caracteres') */
+    body('name').notEmpty().withMessage('Router : El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
+    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
+    body('password').notEmpty().withMessage('Router : El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
+    
 ]
 
 const validarDatosLogin = [
     body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email válido'),
-    body('password').notEmpty().withMessage('Router : El campo password no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
+    body('password').notEmpty().withMessage('Router : El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
    
 ]
 
