@@ -26,6 +26,13 @@ const validarDatos = [
     
 ]
 
+const validarDatosEditUser = [
+    body('name').notEmpty().withMessage('Router : El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
+    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
+    
+    
+]
+
 const validarDatosLogin = [
     body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email válido'),
     body('password').notEmpty().withMessage('Router : El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
@@ -54,7 +61,7 @@ router.get('/list',userRouteAdminMW, userController.list);
 //aca presenta los datos para editar un usuario, solo pueden ingresar los admin
 router.get('/edit/:id',userRouteAdminMW, userController.edit); 
 //graba la edicion en BD solo pueden ingresar los admin
-router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), userController.update); 
+router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), validarDatosEditUser,userController.update); 
 //borra un usuario en BD solo pueden ingresar los admin
 router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 

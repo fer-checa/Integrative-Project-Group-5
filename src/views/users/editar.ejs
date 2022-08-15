@@ -14,72 +14,84 @@
             <!-------------------- MAIN --------------------->
             <main>
                 <div class="container">
-                <h1>Editar Usuario</h1>
-                
-                <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad"
-                    enctype="multipart/form-data">
-                    <div class="contenedor-seguridad">
-                        <a class="btn" href="/user/list"><i class="fa-solid fa-circle-left"></i> Volver</a>
-                        <div>
-                            <label for="name" class="input-registro">Nombre del Usuario:</label>
-                            <br>
-                            <input type="text" value="<%= userToEdit.name %>" id="name" name="name"
-                                placeholder="<%= userToEdit.name %>" class="form-input-edit">
-                        </div>
-                        <div>
-                            <label for="email" class="input-registro">Email del Usuario:</label>
-                            <br>
-                            <input type="email" value="<%= userToEdit.email %>" id="email" name="email"
-                                placeholder="<%= userToEdit.email %>" class="form-input-edit">
-                        </div>
+                    <h1>Editar Usuario</h1>
+                    <br>
+                    <br>
+                    <ul class="errores"></ul>
+                    <% if(locals.errors !=undefined) { %>
+                        <ul>
+                            <% for (let i=0; i<locals.errors.length; i++) { %>
+                                <li style="color: red">
+                                    <%= errors[i].msg %>
+                                </li>
+                                <% } %>
+                        </ul>
 
-                        <div class="form-group">
-                            <!-- <label for="categoria">Seleccione categoria:</label> -->
-                            <label for="roles" class="input-registro">Rol :</label>
-                            
+                        <% } %>
+                    <form action="/user/edit/<%= userToEdit.id %>?_method=PATCH" method="POST" class="form-seguridad"
+                        enctype="multipart/form-data">
+                
+                        <div class="contenedor-seguridad">
+                            <a class="btn" href="/user/list"><i class="fa-solid fa-circle-left"></i> Volver</a>
+                            <div>
+                                <label for="name" class="input-registro">Nombre del Usuario:</label>
+                                <br>
+                                <input type="text" value="<%= userToEdit.name %>" id="name" name="name"
+                                    placeholder="<%= userToEdit.name %>" class="form-input-edit">
+                            </div>
+                            <div>
+                                <label for="email" class="input-registro">Email del Usuario:</label>
+                                <br>
+                                <input type="email" value="<%= userToEdit.email %>" id="email" name="email"
+                                    placeholder="<%= userToEdit.email %>" class="form-input-edit">
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label for="categoria">Seleccione categoria:</label> -->
+                                <label for="roles" class="input-registro">Rol :</label>
+
                                 <select class="form-input-edit" id="roles" name="roles">
                                     <option value="" selected disabled>Seleccione un rol</option>
                                     <% rolesToEdit.forEach(rol=> { %>
-                                        <option value="<%= rol.id %>"
-                                            <% if (userToEdit.role_id == rol.id) { %> 
-                                                    selected
-                                                <% } %> 
-                                            >
-                                            <%= rol.role %>
+                                        <option value="<%= rol.id %>" <% if (userToEdit.role_id==rol.id) { %>
+                                            selected
+                                            <% } %>
+                                                >
+                                                <%= rol.role %>
                                         </option>
                                         <% }) %>
 
                                 </select>
-                            
-                        </div>
+
+                            </div>
 
 
-                        <!-- <div >
+                            <!-- <div >
                             <label for="password" class="input-registro">Contraseña:</label>
                             <br>
                             <input type="text" value="<%= userToEdit.password %>" id="password" name="password" placeholder="<%= userToEdit.password %>" class="form-input-edit">
                         </div> -->
-                        <!-- <div >
+                            <!-- <div >
                             <label for="rePassword" class="input-registro">Repetir Contraseña:</label>
                             <br>
                             <input type="text" value="<%= userToEdit.rePassword %>" id="rePassword" name="rePassword" placeholder="<%= userToEdit.rePassword %>" class="form-input-edit">
                         </div> -->
 
-                        <div>
-                            <label for="product-image" class="input-registro">Imagen:</label>
-                            <input type="file" id="product-image" name="product-image" class="product-image">
+                            <div>
+                                <label for="product-image" class="input-registro">Imagen:</label>
+                                <input type="file" id="product-image" name="product-image" class="product-image">
+                            </div>
+
+
+                            <div>
+                                <button type="submit" class="btn-success boton-editar">
+                                    <i class="fa-solid fa-user-check"></i> Guardar Cambios</button>
+                            </div>
+
+
                         </div>
-
-
-                        <div>
-                            <button type="submit" class="btn-success boton-editar">
-                                <i class="fa-solid fa-user-check"></i> Guardar Cambios</button>
-                        </div>
-
-
-                    </div>
-                </form>
-<!-- 
+                    </form>
+                    <!-- 
                 <div class="form-delete">
                     <form action="/user/delete/<%= userToEdit.id %>?_method=DELETE" method="POST">
                         <button type="submit" class="boton-eliminar">Eliminar Usuario</button>
@@ -90,6 +102,7 @@
 
             <!-------------------- FOOTER --------------------->
             <%- include ('../partials/footer.ejs') %>
+                <script src="/js/adminUser.js"></script>
 
     </body>
 

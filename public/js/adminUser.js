@@ -1,13 +1,14 @@
 
 window.addEventListener("load", () => {
     let form = document.querySelector("form");
+    
+   
     form.addEventListener("submit", (event) => {
            
         let errors = [];
         
         let name = document.querySelector("#name");
         let email = document.querySelector("#email");
-        let password = document.querySelector("#password");
         
         if (name.value == "") {
             errors.push("Js : El campo Nombre no puede estar vacío");
@@ -34,23 +35,6 @@ window.addEventListener("load", () => {
             email.classList.remove("is-invalid");
         };
 
-        if (password.value == "") {
-            errors.push("Js : El campo constraseña no puede estar vacío");
-            password.classList.remove("is-valid");
-            password.classList.add("is-invalid");
-            
-        } else if (password.value.length < 4 ) 
-        {
-            errors.push("Js : La constraseña debe tener como minimo 4 caracteres");
-            password.classList.remove("is-valid");
-            password.classList.add("is-invalid");
-        }  
-        else 
-        {
-            password.classList.add("is-valid");
-            password.classList.remove("is-invalid");
-        };
-        
         if (errors.length > 0) {
             
             event.preventDefault();
@@ -61,7 +45,7 @@ window.addEventListener("load", () => {
                 ulErrors.innerHTML += "<li>" + errors[i] + "</li>";
             };
         } else {
-            //alert("La validación fue exitosa")
+            
             form.submit();
         }
     });
