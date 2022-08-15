@@ -68,47 +68,59 @@ const userController = {
   },
 
   login: (req, res) => {
+
     return res.render("users/login", { titulo: "Mundo Mascota DH-Login" });
   },
 
   loginProcess: (req, res) => {
+    let errors = validationResult(req);
+    
     //let userToLogin = User.findByField("email", req.body.email);
-    db.Users.findOne({where : {email :req.body.email}})
-    .then((userToLogin)=> 
-    {
-      if (userToLogin) {
-        let isOkThePassword =  bcryptjs.compareSync(req.body.password,userToLogin.password)
+    if (errors.isEmpty()) 
+    { 
+      db.Users.findOne({where : {email :req.body.email}})
+      .then((userToLogin)=> 
+      {
         
-        if (isOkThePassword) {
-          delete userToLogin.password;
-          req.session.userLogged = userToLogin;
-  
-          if (req.body.remember_user) {
-            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+        if (userToLogin) {
+          let isOkThePassword =  bcryptjs.compareSync(req.body.password,userToLogin.password)
+          
+          if (isOkThePassword) {
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;
+    
+            if (req.body.remember_user) {
+              res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+            }
+    
+            return res.redirect("/user/profile");
           }
-  
-          return res.redirect("/user/profile");
+          else 
+          {
+            //Esta mal la contraseña
+            let errors =  [{msg: "Controlador : Las credenciales son inválidas (borrar CONTRASEÑA)."}];
+            return res.render("users/login", {
+              titulo: "Mundo Mascota DH-Login",errors});  
+          }
+         
+        } else 
+        {
+          //Esta mal el email 
+          let errors =  [{msg: "Controlador : Las credenciales son inválidas (borrar EMAIL )."}];
+          return res.render("users/login", {
+            titulo: "Mundo Mascota DH-Login",errors});  
         }
-        return res.render("users/login", {
-          titulo: "Mundo Mascota DH-Login",
-          errors: {
-            email: {
-              msg: "Las credenciales son inválidas",
-            },
-          },
-        });
-      }
-  
+    
+      });
+    }
+    else 
+    {
+      //errors controlados del el router.
       return res.render("users/login", {
         titulo: "Mundo Mascota DH-Login",
-        errors: {
-          email: {
-            msg: "No se encuentra este email en nuestra base de datos",
-          },
-        },
+        errors: errors.errors,
       });
-    })
-    
+    }
   },
 
   profile: (req, res) => {

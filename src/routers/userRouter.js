@@ -22,8 +22,14 @@ const upload = multer({storage: storage});
 const validarDatos = [
     body('name').notEmpty().withMessage('Debes Completar el Nombre').bail(),
     body('email').notEmpty().withMessage('Debes Completar el email').bail().isEmail().withMessage('Debes completar un email valido'),
-    body('password').notEmpty().withMessage('Debes Completar la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 8 caracteres'),
+    body('password').notEmpty().withMessage('Debes Completar la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 4 caracteres'),
     /* body('rePassword').notEmpty().withMessage('Debes Completar Repetir la contraseña').bail().isLength({min: 4}).withMessage('La constraseña debe tener como minimo 8 caracteres') */
+]
+
+const validarDatosLogin = [
+    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email válido'),
+    body('password').notEmpty().withMessage('Router : El campo password no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
+   
 ]
 
 const userController = require('../controllers/userControllers');
@@ -62,7 +68,7 @@ router.patch('/editProfile/:id',upload.single("product-image"), userController.u
 /* LOGIN */
 //Presenta la pantalla para loguearse , tiene un MW que si esta logueado te redirecciona.
 router.get('/login', guestRouteMW ,userController.login); 
-router.post('/login', userController.loginProcess);
+router.post('/login', validarDatosLogin,  userController.loginProcess);
 
 /* PERFIL DEL USUARIO tiene un MW que valida si el usuario esta logueado */
 router.get('/profile', authRouteMW,  userController.profile);
