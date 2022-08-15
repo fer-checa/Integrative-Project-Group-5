@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
     let formulario = document.querySelector(".formProduct");
     console.log(formulario);
 
-    formulario.nombre.focus();
+    //formulario.nombre.focus();
 
 
     /* ********************************************************* */
@@ -14,7 +14,6 @@ window.addEventListener("load", function () {
         /* VALIDACION NOMBRE DEL PRODUCTO */
         let nameProduct = document.querySelector("#nombre");
        
-
         if (nameProduct.value == "") {
 
             errors.push("El campo Nombre del Producto debe que estar completo");
@@ -23,15 +22,15 @@ window.addEventListener("load", function () {
 
         } else if (nameProduct.value.length < 5) {
 
-            errors.push("El campo Nombre del Producto no puede estar vacío");
+            errors.push("El campo Nombre del Producto tienen que tener mayor a 5 caracteres");
             nameProduct.classList.remove("is-valid");
             nameProduct.classList.add("is-invalid");
 
         } else {
             nameProduct.classList.add("is-valid");
             nameProduct.classList.remove("is-invalid");
-            formulario.descripcion.focus();
-        };
+            //formulario.descripcion.focus();
+        }; 
 
         /* VALIDACION DESCRIPCION DEL PRODUCTO */
         let descriptionProduct = document.querySelector("#descripcion");
@@ -60,7 +59,6 @@ window.addEventListener("load", function () {
 
         /* VALIDACION CATEGORIA DEL PRODUCTO */
         let categoryProduct = document.querySelector("#categoria");
-        
 
         if (categoryProduct.value == "") {
 
@@ -79,7 +77,7 @@ window.addEventListener("load", function () {
             errors.push("El campo Seleccione Familia no puede estar vacío");
             familyProduct.classList.remove("is-valid");
             familyProduct.classList.add("is-invalid");
-            formulario.precio.focus();
+            //formulario.precio.focus();
         };
 
 
@@ -121,12 +119,19 @@ window.addEventListener("load", function () {
 
         /* VALIDACION IMAGEN DEL PRODUCTO */
         /* FALTA LA LOGICA PARA LA IMAGEN */
-        /*  let fileProduct = document.querySelector("#foto"); */
+        let fileProduct = document.querySelector("#foto");
+
+        if (fileProduct.value == "") {
+
+            errors.push("El campo Foto del producto no puede estar vacío");
+            fileProduct.classList.remove("is-valid");
+            fileProduct.classList.add("is-invalid");
+        }
 
 
         /* VALIDACION PRODUCTO ACTIVO*/
-        let activeProduct = document.querySelector("#selActivo");
-        
+        let activeProduct = document.querySelector("#selectActivo");
+    
 
         if (activeProduct.value == "") {
 
@@ -141,7 +146,7 @@ window.addEventListener("load", function () {
             formulario.activo.focus();
 
         };
-
+        /* *************************************************++ */
 
         if (errors.length > 0) {
 
@@ -153,7 +158,7 @@ window.addEventListener("load", function () {
                 ulErrors.innerHTML += "<li>" + errors[i] + "</li>";
             };
         } else {
-            alert("VALIDACION EXITOSAAA")
+            //alert("VALIDACION EXITOSAAA")
             formulario.submit();
         }
         /* ************************************************************** */

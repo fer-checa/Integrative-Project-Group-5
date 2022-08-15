@@ -117,7 +117,7 @@
                                                     <input step="0.01" min="1" type="number" name="precio" id="precio"
                                                         class="form-control" name="precio"
                                                         placeholder="Precio del Producto"
-                                                        value="<%=locals.old && old.price%>" required>
+                                                        value="<%=locals.old && old.price%>" >
                                                 </div>
                                             </div>
                                             
@@ -146,9 +146,10 @@
 
                                             <div class="col-xs-12 col-md-6">
                                                 <label for="selActivo">Producto activo:</label>
+
                                                 <select id="selectActivo" name="activo" class="form-control"
                                                     id="selActivo">
-                                                    <option></option>
+                                                    <option value="" selected disabled> Seleccione activo:</option>
                                                     <option>SI</option>
                                                     <option>NO</option>
 
