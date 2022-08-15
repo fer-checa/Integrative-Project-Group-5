@@ -174,6 +174,7 @@ ul li {
   margin-top: 0%;
   margin-bottom: 20px;
 }
+
 /* BANNER COMUNICACION*/
 .banner-comunicacion {
   background: #31b0d5;
@@ -206,6 +207,11 @@ ul li {
   text-decoration: dashed;
 }
 
+.input-group{
+margin-left: 20%;
+margin-bottom: 1.5%;
+display: flex;
+}
 
 
 
