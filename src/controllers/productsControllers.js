@@ -96,9 +96,6 @@ const productsController = {
   /* **************************************************************************************************************************** */
 
   create: (req, res) => {
-    // let errors = validationResult(req);
-
-    // if (errors.isEmpty()) {
 
     db.Products.create({
       name: req.body.nombre,
@@ -118,14 +115,6 @@ const productsController = {
         console.log(error);
       });
 
-    // } else
-    // {
-    //   res.send('hola');
-    //   //const alert = errors.array();
-
-    //   //return res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto", alert, old: req.body, });
-
-    // }
   },
 
   /* **************************************************************************************************************************** */

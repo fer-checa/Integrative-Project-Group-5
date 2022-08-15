@@ -481,11 +481,12 @@ margin: auto;
 }
 
 .is-invalid {
-  color: #842029;
+  color: red;
 }
 
 .alert-warning{
-  color:#842029;
+  color:red !important; 
+  font-weight: bold;
   background-color: #F8D7DA;
   text-align: center;
   border-radius: 10px;
