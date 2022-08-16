@@ -20,22 +20,22 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 const validarDatos = [
-    body('name').notEmpty().withMessage('Router : El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
-    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
-    body('password').notEmpty().withMessage('Router : El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
+    body('name').notEmpty().withMessage('El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
+    body('email').notEmpty().withMessage('El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
+    body('password').notEmpty().withMessage('El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
     
 ]
 
 const validarDatosEditUser = [
-    body('name').notEmpty().withMessage('Router : El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
-    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
+    body('name').notEmpty().withMessage('El campo Nombre no puede estar vacío').bail().isLength({min: 2}).withMessage('Router : El campo nombre debe tener como minimo 2 caracteres'),
+    body('email').notEmpty().withMessage('El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email valido'),
     
     
 ]
 
 const validarDatosLogin = [
-    body('email').notEmpty().withMessage('Router : El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email válido'),
-    body('password').notEmpty().withMessage('Router : El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
+    body('email').notEmpty().withMessage('El campo email no puede estar vacío').bail().isEmail().withMessage('Router : Debes completar un email válido'),
+    body('password').notEmpty().withMessage('El campo constraseña no puede estar vacío').bail().isLength({min: 4}).withMessage('Router : La constraseña debe tener como minimo 4 caracteres'),
    
 ]
 

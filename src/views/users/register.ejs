@@ -17,11 +17,13 @@
                 <br>
                 <h1>Registro de Usuario</h1>
                 <br>
+                
                 <!-------------------- FORMULARIO DE REGISTRO --------------------->
 
                 <form action="/user/register" method="POST" class="form-seguridad" enctype="multipart/form-data">
                     <div class="contenedor-seguridad">
-                        
+                        <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>
+                            Volver</a>
                         <ul class="errores"></ul>
 
                         <% if(locals.errors !=undefined) { %>

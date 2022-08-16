@@ -79,6 +79,7 @@ const productsController = {
   /* **************************************************************************************************************************** */
 
   New: (req, res) => {
+
     let promFamily = db.FamilyProducts.findAll();
     let promCategory = db.CategoryAnimals.findAll();
 
@@ -94,8 +95,12 @@ const productsController = {
   },
 
   /* **************************************************************************************************************************** */
-
+  
   create: (req, res) => {
+
+  let errors = validationResult(req);
+
+  if (errors.isEmpty()) {
 
     db.Products.create({
       name: req.body.nombre,
@@ -114,6 +119,19 @@ const productsController = {
       .catch(function (error) {
         console.log(error);
       });
+
+    } else {
+      //const alert = errors.array();
+
+      let promFamily = db.FamilyProducts.findAll();
+      let promCategory = db.CategoryAnimals.findAll();
+  
+      Promise.all([promFamily, promCategory])
+        .then(([allFamily, allCategory]) => {
+          res.render("products/productNew", { titulo: "Mundo Mascota DH-Alta Producto", allFamily, allCategory,errors:errors.errors, old: req.body });
+        })
+        .catch((error) => res.send(error));
+    } 
 
   },
 

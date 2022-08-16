@@ -13,12 +13,12 @@ window.addEventListener("load", () => {
         let password = document.querySelector("#password");
         
         if (name.value == "") {
-            errors.push("Js : El campo Nombre no puede estar vacío");
+            errors.push("El campo Nombre no puede estar vacío");
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
             
         } else if (name.value.length < 2 ) {
-            errors.push("Js : El campo nombre debe tener como minimo 2 caracteres");
+            errors.push("El campo nombre debe tener como minimo 2 caracteres");
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
         } 
@@ -29,13 +29,13 @@ window.addEventListener("load", () => {
 
         let  emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
         if (email.value == "") {
-            errors.push("Js : El campo email no puede estar vacío");
+            errors.push("El campo email no puede estar vacío");
             email.classList.remove("is-valid");
             email.classList.add("is-invalid");
             //form.email.focus();
         } else if (!emailRegex.test(email.value)) 
         {
-            errors.push("Js : El campo email es incorrecto");
+            errors.push("El campo email es incorrecto");
             email.classList.remove("is-valid");
             email.classList.add("is-invalid");
         } 
@@ -45,13 +45,13 @@ window.addEventListener("load", () => {
         };
 
         if (password.value == "") {
-            errors.push("Js : El campo constraseña no puede estar vacío");
+            errors.push("El campo constraseña no puede estar vacío");
             password.classList.remove("is-valid");
             password.classList.add("is-invalid");
             
         } else if (password.value.length < 4 ) 
         {
-            errors.push("Js : La constraseña debe tener como minimo 4 caracteres");
+            errors.push("La constraseña debe tener como minimo 4 caracteres");
             password.classList.remove("is-valid");
             password.classList.add("is-invalid");
         }  
