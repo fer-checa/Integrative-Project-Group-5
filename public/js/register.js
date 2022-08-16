@@ -61,6 +61,14 @@ window.addEventListener("load", () => {
             password.classList.remove("is-invalid");
         };
         
+        let foto = document.querySelector("#fotoUsuario");
+        if (foto.value == "") {
+            
+            errors.push("Js : El campo Foto del usuario no puede estar vacío");
+            foto.classList.remove("is-valid");
+            foto.classList.add("is-invalid");
+        }
+
         if (errors.length > 0) {
             
             event.preventDefault();
