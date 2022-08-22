@@ -3,8 +3,7 @@ window.addEventListener("load", function () {
     let formulario = document.querySelector(".formProduct");
     console.log(formulario);
 
-    //formulario.nombre.focus();
-
+    formulario.nombre.focus();
 
     /* ********************************************************* */
     formulario.addEventListener("submit", function (evento) {
@@ -35,7 +34,6 @@ window.addEventListener("load", function () {
         /* VALIDACION DESCRIPCION DEL PRODUCTO */
         let descriptionProduct = document.querySelector("#descripcion");
         
-
         if (descriptionProduct.value == "") {
 
             errors.push("El campo Descripcion del Producto debe que estar completo");
@@ -44,18 +42,17 @@ window.addEventListener("load", function () {
 
         } else if (descriptionProduct.value.length < 20) {
 
-            errors.push("El campo Descripcion del Producto no puede estar vacío");
+            errors.push("El campo Descripcion debe tener minimo 20 caracteres");
             descriptionProduct.classList.remove("is-valid");
             descriptionProduct.classList.add("is-invalid");
             
 
         } else {
-
+            /* errors.push("El campo Descripcion del Producto no puede estar vacío"); */
             descriptionProduct.classList.add("is-valid");
             descriptionProduct.classList.remove("is-invalid");
             formulario.categoria.focus();
         };
-
 
         /* VALIDACION CATEGORIA DEL PRODUCTO */
         let categoryProduct = document.querySelector("#categoria");
@@ -84,27 +81,12 @@ window.addEventListener("load", function () {
         /* VALIDACION PRECIO PRODUCTO */
         let priceProduct = document.querySelector("#precio");
         
-
         if (priceProduct.value == "") {
-
-            errors.push("El campo Precio debe que estar completo");
-            priceProduct.classList.remove("is-valid");
-            priceProduct.classList.add("is-invalid");
-
-        } else if (priceProduct.value.length < 1000) {
-
-            errors.push("El campo Precio no puede estar vacío");
-            priceProduct.classList.remove("is-valid");
-            priceProduct.classList.add("is-invalid");
-            
-
-        } else {
-            priceProduct.classList.add("is-valid");
-            priceProduct.classList.remove("is-invalid");
-            formulario.descuento.focus();
+        errors.push("El campo Precio debe que estar completo");
+        priceProduct.classList.remove("is-valid");
+        priceProduct.classList.add("is-invalid");
 
         };
-
 
         /* VALIDACION PRECIO PRODUCTO */
         let discountProduct = document.querySelector("#descuento");
@@ -118,7 +100,7 @@ window.addEventListener("load", function () {
         }
 
         /* VALIDACION IMAGEN DEL PRODUCTO */
-        /* FALTA LA LOGICA PARA LA IMAGEN */
+       
         let fileProduct = document.querySelector("#foto");
 
         if (fileProduct.value == "") {
@@ -146,7 +128,7 @@ window.addEventListener("load", function () {
             formulario.activo.focus();
 
         };
-        /* *************************************************++ */
+        
 
         if (errors.length > 0) {
 
@@ -161,7 +143,7 @@ window.addEventListener("load", function () {
             //alert("VALIDACION EXITOSAAA")
             formulario.submit();
         }
-        /* ************************************************************** */
+        
 
         
     })
