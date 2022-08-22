@@ -55,13 +55,13 @@ router.get('/register',guestRouteMW ,userController.register);
 
 /* PROCESAR EL REGISTRO */
 //aca queremos insertar el registro en la BD , no usamos MW
-router.post('/register', upload.single("product-image"),validarDatos ,userController.create);
+router.post('/register', upload.single("fotoUsuario"),validarDatos ,userController.create);
 //aca listamos  todos los usuarios, para poder editarlos o eliminarlos. solo pueden ingresar los admin
 router.get('/list',userRouteAdminMW, userController.list);
 //aca presenta los datos para editar un usuario, solo pueden ingresar los admin
 router.get('/edit/:id',userRouteAdminMW, userController.edit); 
 //graba la edicion en BD solo pueden ingresar los admin
-router.patch('/edit/:id',userRouteAdminMW,upload.single("product-image"), validarDatosEditUser,userController.update); 
+router.patch('/edit/:id',userRouteAdminMW,upload.single("fotoUsuario"), validarDatosEditUser,userController.update); 
 //borra un usuario en BD solo pueden ingresar los admin
 router.delete('/delete/:id',userRouteAdminMW, userController.destroy);
 
