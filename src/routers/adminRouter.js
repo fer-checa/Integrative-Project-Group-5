@@ -25,7 +25,7 @@ const validarDatosNew = [
     // body('familia').notEmpty().withMessage('Debe seleccionar familia'),
     body('precio').notEmpty().withMessage('Debe indicar precio'),
     body('activo').notEmpty().withMessage('Debe indicar producto activo SI/NO'),
-    body('fotoProducto').notEmpty().withMessage('Debe igresar una imagen')
+    //body('fotoProducto').notEmpty().withMessage('Debe igresar una imagen')
 ]
 
 

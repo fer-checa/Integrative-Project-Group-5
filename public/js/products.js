@@ -109,8 +109,15 @@ window.addEventListener("load", function () {
             fileProduct.classList.remove("is-valid");
             fileProduct.classList.add("is-invalid");
         }
-
-
+    
+        /* let foto = document.querySelector("#fotoUsuario");
+        if (foto.value == "") {
+            
+            errors.push("Js : El campo Foto del usuario no puede estar vacío");
+            foto.classList.remove("is-valid");
+            foto.classList.add("is-invalid");
+        }
+ */
         /* VALIDACION PRODUCTO ACTIVO*/
         let activeProduct = document.querySelector("#selectActivo");
     

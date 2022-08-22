@@ -64,7 +64,7 @@ window.addEventListener("load", () => {
         let foto = document.querySelector("#fotoUsuario");
         if (foto.value == "") {
             
-            errors.push("Js : El campo Foto del usuario no puede estar vacío");
+            errors.push("El campo Foto del usuario no puede estar vacío");
             foto.classList.remove("is-valid");
             foto.classList.add("is-invalid");
         }
