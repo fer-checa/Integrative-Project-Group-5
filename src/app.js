@@ -35,6 +35,7 @@ app.set("views", path.resolve(__dirname, "views"));
 
 //Aquí pueden colocar las rutas de las APIs-----------------------------------
 const apiProducts = require('./routers/api/productsRoutes');
+const apiUsers = require('./routers/api/usersRoutes');
 
 //app.use(userLoggedMW);
 
@@ -66,6 +67,7 @@ app.use("/admin", adminRouter);
 
 //Ruta API--------------------------------------------------------------------------
 app.use('/api',apiProducts);
+app.use('/api',apiUsers);
 
 app.use((req, res, next) => {
   res.status(404).render('404');
