@@ -173,6 +173,7 @@ ul li {
   padding: 2px;
   margin-top: 0%;
   margin-bottom: 20px;
+  display: none;
 }
 
 /* BANNER COMUNICACION*/
@@ -226,8 +227,9 @@ display: flex;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        margin-top: 1.5%;
+        margin-top: 0.2%;
         margin-left: 5%;
+        margin-bottom: -0.8%;
     }
 
   .carrito {
@@ -322,6 +324,6 @@ display: flex;
   }
 
   .main-header {
-    margin-bottom: -4%;
+    margin-bottom: -2.5%;
   }
 }
