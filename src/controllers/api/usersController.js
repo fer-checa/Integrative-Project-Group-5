@@ -53,8 +53,6 @@ const usersController = {
                 res.json(usersRespuesta);
             });
     }
-    
-   
 }
 
 
