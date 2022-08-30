@@ -17,7 +17,7 @@ const usersController = {
              id: usersAux[index].id,
              name : usersAux[index].name,
              email: usersAux[index].email,
-             detalle : "api/users/" + usersAux[index].id
+             detalle : "/api/users/" + usersAux[index].id
         });
       }
       
@@ -54,6 +54,20 @@ const usersController = {
       res.json(userAux);
     });
   },
+
+//   const userList = catchAsync(async (req,res = res, next) => {
+//     const { page = 0, size = 5} = req.query;
+//     let pageSize = {
+//         limit: +size,
+//         offset:(+page) * (+size)
+//     }
+//     const { count, rows} = await Users.findAndCountAll(pageSize)
+
+//     res.json({
+//         status: 'Usuarios preparados', Users
+//     })
+// });
+// res.json(usersRespuesta);
 };
 
 module.exports = usersController;
