@@ -17,7 +17,7 @@ const usersController = {
              id: usersAux[index].id,
              name : usersAux[index].name,
              email: usersAux[index].email,
-             detalle : "/api/users/" + usersAux[index].id
+             detalle : "api/users/" + usersAux[index].id
         });
       }
       

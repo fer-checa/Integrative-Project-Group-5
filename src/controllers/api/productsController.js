@@ -77,9 +77,23 @@ const productsController = {
                 },
                 data: products
             }
-            res.json(respuesta);
+            const listProducts = catchAsync(async (req,res = res, next) => {
+                const { page = 0, size = 5} = req.query;
+                let pageSize = {
+                    limit: +size,
+                    offset:(+page) * (+size)
+                }
+                const { count, rows} = await Products.findAndCountAll(pageSize)
+            
+                res.json({
+                    status: 'Productos  paginados', products
+                })
+            });
+            res.json(respuesta)
         });
 }
 }
+
+
 
 module.exports = productsController;
