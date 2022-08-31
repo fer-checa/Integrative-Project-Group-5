@@ -28,7 +28,6 @@ const productsController = {
 })
 },
 
-
 /* 'detail': (req, res) => {
 
     db.Products.findByPk(req.params.id, {
@@ -72,12 +71,12 @@ const productsController = {
             let respuesta = {
                 meta: {
                     status: 200,
-                    total: products.length,
+                    Count: products.length,
                     url: '/api/products/:id'
                 },
                 data: products
             }
-            const listProducts = catchAsync(async (req,res = res, next) => {
+          /*   const listProducts = catchAsync(async (req,res = res, next) => {
                 const { page = 0, size = 5} = req.query;
                 let pageSize = {
                     limit: +size,
@@ -88,7 +87,7 @@ const productsController = {
                 res.json({
                     status: 'Productos  paginados', products
                 })
-            });
+            }); */
             res.json(respuesta)
         });
 }
