@@ -78,7 +78,7 @@ const productsController = {
                 data: products
             }
             const listProducts = catchAsync(async (req,res = res, next) => {
-                const { page = 0, size = 5} = req.query;
+                const { page = 2, size = 5} = req.query;
                 let pageSize = {
                     limit: +size,
                     offset:(+page) * (+size)
