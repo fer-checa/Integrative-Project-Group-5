@@ -29,40 +29,57 @@ const userController = {
   },
 
   create: (req, res) => {
-    let errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      db.Users.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        image: req.file.filename,
-        role_id: 2,
-      })
-        .then(() => {
-          res.redirect("/user/login");
+    
+    let errors = validationResult(req);
+    let  msgUserRegistered = ""; 
+    
+    if (errors.isEmpty()) 
+    {
+   
+      db.Users.findOne({ where: { email: req.body.email } })
+        .then((resu) => {
+          
+          return resu;
+        })
+        .then((resu) => {
+          if (!resu) {
+            db.Users.create({
+              name: req.body.name,
+              email: req.body.email,
+              password: bcryptjs.hashSync(req.body.password, 10),
+              image: req.file.filename,
+              role_id: 2,
+            });
+          }
+          return resu;
+        })
+        .then((resu) => {
+          
+          if (!resu) {
+            res.redirect("/user/login");
+          } 
+          else 
+          {
+            msgUserRegistered =  "El E-mail " + req.body.email + " ya se encuentra registrado!";  
+            return res.render("users/register", {
+              titulo: "Mundo Mascota DH-Register",
+              userRegistered: msgUserRegistered
+
+            });
+          }
         })
         .catch((error) => {
-          console.log;
+          console.log(error);
         });
+    } else 
+    {
+ 
 
-      // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-
-      // let newUser = {
-      //   id: usuarios[usuarios.length - 1].id + 1,
-      //   name: req.body.name,
-      //   email: req.body.email,
-      //   password: bcryptjs.hashSync(req.body.password, 10),
-      //   image: req.file.filename,
-      //   isAdmin: 0,
-      // };
-
-      // usuarios.push(newUser);
-      // fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, " "));
-    } else {
       return res.render("users/register", {
         titulo: "Mundo Mascota DH-Register",
         errors: errors.errors,
+        userRegistered: ""
       });
     }
   },
@@ -204,12 +221,12 @@ const userController = {
           res.render("users/editar", {
             titulo: "Mundo Mascota DH-Editar usuario",
             userToEdit,
-            rolesToEdit, errors: errors.errors
+            rolesToEdit,
+            errors: errors.errors,
           });
         })
         .catch((error) => res.send(error));
       //errors controlados del el router.
-     
     }
 
     // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
