@@ -8,13 +8,29 @@ const productsController = {
 
 'list': (req, res) => {
 
-    db.Products.findAll({
-        include: ['categoryAnimals','familyProducts']
-    })
+    db.Products.findAll(
+
+        {
+            raw: true
+        },
+
+        {
+            include: ['categoryAnimals','familyProducts']
+        }
     
+    )
+
             .then(products => {
-               return res.json({
-              
+               //estamos en el endpoint del list
+               
+                products.forEach(product => {
+                    
+                    product.detailUrl = 'http://localhost:3050/api/products/' + product.id
+
+                });
+               
+                return res.json({
+                    
                        meta : {
                            status: 200,
                            Count: products.length,
@@ -71,8 +87,7 @@ const productsController = {
             let respuesta = {
                 meta: {
                     status: 200,
-                    Count: products.length,
-                    url: '/api/products/:id'
+                    url: '/api/products/' + req.params.id
                 },
                 data: products
             }
