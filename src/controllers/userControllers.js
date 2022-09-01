@@ -116,7 +116,7 @@ const userController = {
               //Esta mal la contraseña
               let errors = [
                 {
-                  msg: "Controlador : Las credenciales son inválidas (borrar CONTRASEÑA).",
+                  msg: "Controlador : Las credenciales son inválidas.",
                 },
               ];
               return res.render("users/login", {
