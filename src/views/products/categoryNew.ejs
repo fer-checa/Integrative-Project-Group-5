@@ -34,23 +34,42 @@
                                     <form action="/admin/categoryNew" method="POST" class="form">
                                         <a class="btn" href="/admin/category"><i class="fa-solid fa-circle-left"></i>
                                             Volver</a>
-                                        <div class="input-group">
+                                        
+                                            <div class="form-group">
+                                                <label for="nombre">Nombre Categoria:</label>
+                                                <input id="nombre" type="text" class="form-control" name="nombre"
+                                                value="<%=locals.old && old.name%>"
+                                                placeholder="Nombre de la categoria">
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <div class="col-xs-6 col-md-4">
+                                                    <label for="selectActivo">Categoria Activa:</label>
+                                                    <select id="selectActivo" name="activo" class="form-control">
+                                                        <option></option>
+                                                        <option>SI</option>
+                                                        <option>NO</option>
+    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        <!-- <div class="input-group">
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
                                                 value="<%=locals.old && old.name%>"
                                                 placeholder="Nombre de la categoria">
-                                        </div>
+                                        </div> -->
 
-                                        <div class="col-xs-12 col-md-6">
+                                        <!-- <div class="col-xs-12 col-md-6">
                                             <label for="selActivo">Categoria Activa:</label>
-                                            <select id="selectActivo" name="activo" class="form-control" id="selActivo">
+                                            <select id="selectActivo" name="activo" class="selectActivo form-control" id="selActivo">
                                                 <option></option>
                                                 <option>SI</option>
                                                 <option>NO</option>
 
                                             </select>
-                                        </div>
+                                        </div> -->
 
 
                                         <hr>

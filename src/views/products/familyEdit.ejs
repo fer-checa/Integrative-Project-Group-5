@@ -33,8 +33,8 @@
                                         <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>
                                             Volver</a>
                                         <div class="form-group">
-                                            <label for="nombre">Nombre Categoria:</label>
-                                            <input id="nombre" type="text" class="form-control" name="nombre"
+                                            <label for="nombre">Nombre Familia:</label>
+                                            <input id="nombre" type="text" class="form-control" name="nombre" maxlength="50"
                                                 value="<%=familyToEdit.name %>"
                                                 placeholder="<%= familyToEdit.name %>">
                                         </div>
@@ -44,7 +44,7 @@
 
                                         <div class="form-group row">
                                             <div class="col-xs-6 col-md-4">
-                                                <label for="activo">Categoria Activa:</label>
+                                                <label for="activo">Familia Activa:</label>
                                                 <select id="activo" name="activo" class="form-control">
                                                     <option></option>
                                                     <option>SI</option>

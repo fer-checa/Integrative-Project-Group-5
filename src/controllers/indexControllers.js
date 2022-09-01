@@ -10,9 +10,9 @@ const indexController =
 {
 	index: (req, res) => {
 
-	let promGatos = db.Products.findAll();
+	let promGatos = db.Products.findAll({where : {categoryAnimal_id : 2 }});
 
-    let promPerros = db.Products.findAll();
+    let promPerros = db.Products.findAll({where : {categoryAnimal_id : 1 }});
 
     Promise
     .all([promGatos, promPerros])

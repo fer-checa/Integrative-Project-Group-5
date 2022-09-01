@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
                 ulErrors.innerHTML += "<li>" + errors[i] + "</li>";
             };
         } else {
-            alert("La validación fue exitosa")
+            //alert("La validación fue exitosa")
             form.submit();
         }
     });

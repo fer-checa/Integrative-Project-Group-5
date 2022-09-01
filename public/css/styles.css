@@ -314,6 +314,11 @@ p {
   margin: 20px 0;
 }
 
+.product-box article p {
+  height: 60px;
+  margin-top: 15px;
+}
+
 .product-box a {
   display: block;
 }
@@ -335,6 +340,7 @@ p {
   border-top: 10px var(--Gris-claro) solid;
   text-align: left;
   border-width: 1px;
+  
     
 }
 
@@ -383,10 +389,10 @@ p {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.product-box:hover p {
+/* .product-box:hover p {
   height: 40px;
   margin-top: 15px;
-}
+} */
 
 .product-box:hover i {
   transform: rotate(360deg);

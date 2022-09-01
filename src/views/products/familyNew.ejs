@@ -37,7 +37,25 @@
                                     <form action="/admin/familyNew" method="POST" class="form" >
                                         <a class="btn" href="/admin/family"><i class="fa-solid fa-circle-left"></i>
                                             Volver</a>
-                                        <div class="input-group">
+                                            <div class="form-group">
+                                                <label for="nombre">Nombre Familia :</label>
+                                                <input id="nombre" type="text" class="form-control" name="nombre" maxlength="50"
+                                                value="<%=locals.old && old.name%>"
+                                                placeholder="Nombre de la familia">
+                                                
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-xs-6 col-md-4">
+                                                    <label for="selectActivo">Familia Activa:</label>
+                                                    <select id="selectActivo" name="activo" class="form-control">
+                                                        <option></option>
+                                                        <option>SI</option>
+                                                        <option>NO</option>
+    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        <!-- <div class="input-group">
                                             <span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-user"></i></span>
                                             <input id="nombre" type="text" class="form-control" name="nombre"
@@ -51,7 +69,7 @@
                                                 <option>SI</option>
                                                 <option>NO</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                         <hr>
                                         <div class="form-group row">
                                             <div class="col-xs-12 col-md-6">
