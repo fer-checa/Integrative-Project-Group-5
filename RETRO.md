@@ -53,14 +53,11 @@ La unica cosa relevante por cambiar aun es que en cada weekly se muestren los ca
 
 ## Sprint 5 - Middlewares + Auth"
 
-En este sprint realizamos la división de tareas, priorizando las más importantes, las que lleven a un producto mínimo viable, pero sin descuidar
-las implementaciones de mejoras del sitio web.
+En este sprint realizamos la división de tareas, priorizando las más importantes, las que lleven a un producto mínimo viable, pero sin descuidar las implementaciones de mejoras del sitio web.
 
-Si bien cumplimos con todas las tareas del sprint actual, tuvimos que solicitar 2 días más de extensión para la entrega, para poder finalizar
-con los detalles del login de los usuarios.
+Si bien cumplimos con todas las tareas del sprint actual, tuvimos que solicitar 2 días más de extensión para la entrega, para poder finalizar con los detalles del login de los usuarios.
 
-Lo que aún sigue siendo relevante es el compromiso de cada sprint, no solo asistir a las daylis sino cumplimentar con los commits en tiempo y forma,
-para poder avanzar todos en equipo y en conjunto.
+Lo que aún sigue siendo relevante es el compromiso de cada sprint, no solo asistir a las daylis sino cumplimentar con los commits en tiempo y forma, para poder avanzar todos en equipo y en conjunto.
 
 Como posible mejora para este nuevo sprint, sería ideal seguir con más comunicación, contestar a los mjs y las preguntas respecto a los avances del proyecto en el equipo.
 
@@ -68,8 +65,16 @@ Más allá de esto logramos una gran mejora en el sitio web, en todo el proyecto
 
 ## Sprint 6 - "Base de Datos"
 
+Llego el sprint 6, y la organizacion de la base de datos del proyecto. Lo primero que realizamos fue la proyeccion y el armadod de las tablas de nuestra BD para luego conformar las relaciones de las mismas. Sin ningun inconveniente realizamos la division de tareas, 
+
+Se sigue trabajando en la  mejora de la comunicacion, sería ideal seguir con más comunicación fluiida, contestar a los mjs y las preguntas respecto a los avances del proyecto en el equipo.
+
+Un punto a destacar en todo este proceso, fue que realizamos todas las pruebas de conexion con la Base de Datos creada, si bien llevo su trabajo conformarla y darle el 100% de funcionalidad, nos dio mucha satisfaccion lograr lo propuesto en este sprint. 
 
 ## Sprint 7 - "Validaciones"
+
+
+
 
 
 ## Sprint 8 - "API's + React"
