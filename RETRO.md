@@ -97,40 +97,40 @@ Podemos destacar que en esta ultima etapa se terminaron detalles de correccion e
 
 ### Sprint 1
 
-Cosas POSITIVAS: Rapidamente de acuerdo respecto equitativamente en la tematica del proyecto.
-Cosas NEGATIVAS: Inconvenientes en el ensamblado de los distintos wireframes en un solo proyecto.
+- Cosas POSITIVAS: Rapidamente de acuerdo respecto equitativamente en la tematica del proyecto.
+- Cosas NEGATIVAS: Inconvenientes en el ensamblado de los distintos wireframes en un solo proyecto.
 
 ### Sprint 2
 
-Cosas POSITIVAS: Trabajar en equipo y siempre con la misma sinergia que se comenzo, de forma estable. 
-Cosas NEGATIVAS: El no avisar con tiempo que no se asistira a la Weekly.
+- Cosas POSITIVAS: Trabajar en equipo y siempre con la misma sinergia que se comenzo, de forma estable. 
+- Cosas NEGATIVAS: El no avisar con tiempo que no se asistira a la Weekly.
 
 ### Sprint 3
 
-Cosas POSITIVAS: Se fue aumentando la fluidez de la comunicacion.
-Cosas NEGATIVAS: Nos quedamos con un integrante menos, entonces reorganizar todas las tareas asignadas.
+- Cosas POSITIVAS: Se fue aumentando la fluidez de la comunicacion.
+- Cosas NEGATIVAS: Nos quedamos con un integrante menos, entonces reorganizar todas las tareas asignadas.
 
 ### Sprint 4
 
-Cosas POSITIVAS: Gran mejora en el equipo, en cuanto a la comunicacion y la fluidez en lograr todas las tareas.
-Cosas NEGATIVAS: En cada weekly mostrar los cambios/avances que se realizaron.
+- Cosas POSITIVAS: Gran mejora en el equipo, en cuanto a la comunicacion y la fluidez en lograr todas las tareas.
+- Cosas NEGATIVAS: En cada weekly mostrar los cambios/avances que se realizaron.
 
 ### Sprint 5
 
-Cosas POSITIVAS: Gran mejora en el sitio web, en todo el proyecto, con respecto al frontend y a las funcionalidades del backend.
-Cosas NEGATIVAS:
+- Cosas POSITIVAS: Gran mejora en el sitio web, en todo el proyecto, con respecto al frontend y a las funcionalidades del backend.
+- Cosas NEGATIVAS: Perdida de tiempo hasta conformar el login y configuracion de cookies en la web.
 
 ### Sprint 6
 
-Cosas POSITIVAS: Excelente armado de Base de Datos y conexion con API's.
-Cosas NEGATIVAS: Mucho tiempo perdida en la desicion de las tablar y relaciones.
+- Cosas POSITIVAS: Excelente armado de Base de Datos y conexion con API's.
+- Cosas NEGATIVAS: Mucho tiempo perdida en la desicion de las tablar y relaciones.
 
 ### Sprint 7
 
-Cosas POSITIVAS: Excelente equipo de trabajo se armo, cada uno con su organizacion.
-Cosas NEGATIVAS: Costo tiempo que las validaciones detecten un usuario repetido en BD para que no ingrese.
+- Cosas POSITIVAS: Excelente equipo de trabajo se armo, cada uno con su organizacion.
+- Cosas NEGATIVAS: Costo tiempo que las validaciones detecten un usuario repetido en BD para que no ingrese.
 
 ### Sprint 8
 
-Cosas POSITIVAS: Se obtuvo un producto final excelente, muy contentos.
-Cosas NEGATIVAS: Se realiza como mejora a futuro la compra de productos desde la web.
+- Cosas POSITIVAS: Se obtuvo un producto final excelente, muy contentos.
+- Cosas NEGATIVAS: Se realiza como mejora a futuro la compra de productos desde la web.
