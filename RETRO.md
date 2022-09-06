@@ -85,7 +85,13 @@ Los puentos claves a mejorar y a pulir serian dos:
 
 ## Sprint 8 - "API's + React"
 
+Llegamos al ultimo sprint, como primera instancia estamos muy contesnto de haber llegado al producto final con todos los detalles, tanto de funcionalidad como de diseño. 
 
+Podemos destacar que al implementar API's junto con React y el proyecto de Express, fue algo distinto y unico.
+
+Si bien dividimos las tareas de forma equitativamente como se realizo en cada sprint, en este fue diferente, ya que al utilizar una nueva tecnologia, que fue enseñada durante las clases, y prontamente implementada, se ha llegado a un producto final muy exquisito en cuanto al tiempo de desempeño en relacion del Dashboard terminado. 
+
+Podemos destacar que en esta ultima etapa se terminaron detalles de correccion en cuanto al frontend, asi como tambien validaciones y seguridad de la pagina web. 
 
 
 
