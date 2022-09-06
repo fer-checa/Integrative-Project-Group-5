@@ -25,9 +25,10 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%; text-align: center; ">id</th>
-                                <th style="width: 70%;text-align: center;">Nombre</th>
+                                <th style="width: 60%;text-align: center;">Nombre</th>
                                 <th style="width: 10%;text-align: center;">Activo</th>
-                                <th style="width: 15%;text-align: center;">Acciones</th>
+                                <th style="width: 10%;text-align: center;">Editar</th>
+                                <th style="width: 15%;text-align: center;">Activar/Desactivar</th>
                             </tr>
                         </thead>
                         <tbody id="myTable">
@@ -46,25 +47,24 @@
                                     <td>
                                         <a href="/admin/categoryEdit/<%= aux.id%>" class="btn-edit-grid"><i
                                                 title="Editar Categoria" class="fa-solid fa-pen-to-square"></i></a>
-
+                                    </td>
+                                    <td>
                                         <% if (aux.active==1) { %>
                                             <form style="display:inline; "
                                                 action="/admin/categoryInactivar/<%= aux.id%>" method="POST">
-                                                <button type="submit" class="btn-inactivar-grid"><i
+                                                <button type="submit" class="btn-activar-grid"><i
                                                         title="Inactivar categoria"
-                                                        class="fa-solid fa-thumbs-down"></i></button>
+                                                        class="fa-regular fa-square-check"></i></button>
                                             </form>
 
                                             <% } else { %>
                                                 <form style="display:inline; "
                                                     action="/admin/categoryActivar/<%= aux.id%>" method="POST">
-                                                    <button type="submit" class="btn-activar-grid"><i
+                                                    <button type="submit" class="btn-inactivar-grid"><i
                                                             title="Activar categoria"
-                                                            class="fa-solid fa-thumbs-up"></i></button>
+                                                            class="fa-regular fa-square"></i></button>
                                                 </form>
                                                 <% } %>
-
-
 
                                     </td>
                                 </tr>
