@@ -73,8 +73,14 @@ Un punto a destacar en todo este proceso, fue que realizamos todas las pruebas d
 
 ## Sprint 7 - "Validaciones"
 
+Para el septimo sprint, nos organizamos diferente, realizamos la division de tareas, aun tenemos cosas para seguir mejorando y trabajando en equipo, pero de todas formas se puede ver el porgreso en el proyecto, tanto en el producto final, como en el equipo. 
 
+Realmente se armo un excelente equio de trabajo, en el cual, ensamblamos bien, cada uno con su organizacion. 
+Los puentos claves a mejorar y a pulir serian dos:
 
+- Reuniones mas puntuales a la hora de la divicion de tareas, y sobre todo planificacion de las mismas, de acuerdo al tiempo o inconvenientes que surgen de por medio, para llegar al objetivo cumplido. 
+
+- Reuniones de los miercoles que son dedicadas a resolucion de conflictos que se hayan tenido en el transcurso del desarrollo, compartirlo con el grupo para que todos esten en tema y puedan ayudar colaborativamente y equitativamente.  
 
 
 ## Sprint 8 - "API's + React"
