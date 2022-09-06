@@ -65,7 +65,7 @@ Más allá de esto logramos una gran mejora en el sitio web, en todo el proyecto
 
 ## Sprint 6 - "Base de Datos"
 
-Llego el sprint 6, y la organizacion de la base de datos del proyecto. Lo primero que realizamos fue la proyeccion y el armadod de las tablas de nuestra BD para luego conformar las relaciones de las mismas. Sin ningun inconveniente realizamos la division de tareas, 
+Llego el sprint 6, y la organizacion de la base de datos del proyecto. Lo primero que realizamos fue la proyeccion y el armado de las tablas de nuestra BD para luego conformar las relaciones de las mismas. Sin ningun inconveniente realizamos la division de tareas, 
 
 Se sigue trabajando en la  mejora de la comunicacion, sería ideal seguir con más comunicación fluiida, contestar a los mjs y las preguntas respecto a los avances del proyecto en el equipo.
 
@@ -75,7 +75,7 @@ Un punto a destacar en todo este proceso, fue que realizamos todas las pruebas d
 
 Para el septimo sprint, nos organizamos diferente, realizamos la division de tareas, aun tenemos cosas para seguir mejorando y trabajando en equipo, pero de todas formas se puede ver el porgreso en el proyecto, tanto en el producto final, como en el equipo. 
 
-Realmente se armo un excelente equio de trabajo, en el cual, ensamblamos bien, cada uno con su organizacion. 
+Realmente se armo un excelente equipo de trabajo, en el cual, ensamblamos bien, cada uno con su organizacion. 
 Los puentos claves a mejorar y a pulir serian dos:
 
 - Reuniones mas puntuales a la hora de la divicion de tareas, y sobre todo planificacion de las mismas, de acuerdo al tiempo o inconvenientes que surgen de por medio, para llegar al objetivo cumplido. 
@@ -93,5 +93,44 @@ Si bien dividimos las tareas de forma equitativamente como se realizo en cada sp
 
 Podemos destacar que en esta ultima etapa se terminaron detalles de correccion en cuanto al frontend, asi como tambien validaciones y seguridad de la pagina web. 
 
+## "Retrospectiva de línea de tiempo"
 
+### Sprint 1
 
+Cosas POSITIVAS: Rapidamente de acuerdo respecto equitativamente en la tematica del proyecto.
+Cosas NEGATIVAS: Inconvenientes en el ensamblado de los distintos wireframes en un solo proyecto.
+
+### Sprint 2
+
+Cosas POSITIVAS: Trabajar en equipo y siempre con la misma sinergia que se comenzo, de forma estable. 
+Cosas NEGATIVAS: El no avisar con tiempo que no se asistira a la Weekly.
+
+### Sprint 3
+
+Cosas POSITIVAS: Se fue aumentando la fluidez de la comunicacion.
+Cosas NEGATIVAS: Nos quedamos con un integrante menos, entonces reorganizar todas las tareas asignadas.
+
+### Sprint 4
+
+Cosas POSITIVAS: Gran mejora en el equipo, en cuanto a la comunicacion y la fluidez en lograr todas las tareas.
+Cosas NEGATIVAS: En cada weekly mostrar los cambios/avances que se realizaron.
+
+### Sprint 5
+
+Cosas POSITIVAS: Gran mejora en el sitio web, en todo el proyecto, con respecto al frontend y a las funcionalidades del backend.
+Cosas NEGATIVAS:
+
+### Sprint 6
+
+Cosas POSITIVAS: Excelente armado de Base de Datos y conexion con API's.
+Cosas NEGATIVAS: Mucho tiempo perdida en la desicion de las tablar y relaciones.
+
+### Sprint 7
+
+Cosas POSITIVAS: Excelente equipo de trabajo se armo, cada uno con su organizacion.
+Cosas NEGATIVAS: Costo tiempo que las validaciones detecten un usuario repetido en BD para que no ingrese.
+
+### Sprint 8
+
+Cosas POSITIVAS: Se obtuvo un producto final excelente, muy contentos.
+Cosas NEGATIVAS: Se realiza como mejora a futuro la compra de productos desde la web.
