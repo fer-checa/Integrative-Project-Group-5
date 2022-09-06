@@ -92,7 +92,9 @@ const categoryController =
 		
 		db.CategoryAnimals.findByPk(req.params.id)
 		.then((categoryToEdit) => {
+			
 			res.render("products/categoryEdit", {titulo: "Mundo Mascota DH-Editar Producto", categoryToEdit})
+
 		})
 		.catch(function (error) {
 		console.log(error);

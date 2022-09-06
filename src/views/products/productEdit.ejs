@@ -149,9 +149,13 @@
                                                     <select id="activo" name="activo" class="form-control">
                                                         <option value="" selected disabled>Seleccione activo:</option>
                                                         
-                                                        <option>SI</option>
-                                                        <option>NO</option>
-
+                                                        <option  
+                                                        <% if (allProductToEdit.active) { %> 
+                                                            selected
+                                                        <% } %> >SI</option>    
+                                                        <option  <% if (!allProductToEdit.active) { %> 
+                                                            selected
+                                                        <% } %> >NO</option>
                                                     </select>
                                                 </div>
                                             </div>

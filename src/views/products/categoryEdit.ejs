@@ -41,15 +41,21 @@
                                                 value="<%=categoryToEdit.name %>"
                                                 placeholder="<%= categoryToEdit.name %>">
                                         </div>
-
-
+                                        
+                                         <p><%= categoryToEdit.active %>  </p>    
                                         <div class="form-group row">
                                             <div class="col-xs-6 col-md-4">
                                                 <label for="activo">Categoria Activa:</label>
                                                 <select id="activo" name="activo" class="form-control">
+                                                 
                                                     <option></option>
-                                                    <option>SI</option>
-                                                    <option>NO</option>
+                                                    <option  
+                                                    <% if (categoryToEdit.active) { %> 
+                                                        selected
+                                                    <% } %> >SI</option>    
+                                                    <option  <% if (!categoryToEdit.active) { %> 
+                                                        selected
+                                                    <% } %> >NO</option>
 
                                                 </select>
                                             </div>
@@ -69,9 +75,9 @@
 
                                         <script type="text/javascript">
 
-                                            if ('<%=categoryToEdit.active%>' == 1) {
-                                                document.getElementById("activo").value = 'SI';
-                                            } else { document.getElementById("activo").value = 'NO' }
+                                            // if ('<%=categoryToEdit.active%>' == 1) {
+                                            //     document.getElementById("activo").value = 'SI';
+                                            // } else { document.getElementById("activo").value = 'NO' }
 
 
 

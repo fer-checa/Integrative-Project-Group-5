@@ -47,8 +47,13 @@
                                                 <label for="activo">Familia Activa:</label>
                                                 <select id="activo" name="activo" class="form-control">
                                                     <option></option>
-                                                    <option>SI</option>
-                                                    <option>NO</option>
+                                                    <option  
+                                                    <% if (familyToEdit.active) { %> 
+                                                        selected
+                                                    <% } %> >SI</option>    
+                                                    <option  <% if (!familyToEdit.active) { %> 
+                                                        selected
+                                                    <% } %> >NO</option>
 
                                                 </select>
                                             </div>
@@ -68,9 +73,9 @@
 
                                         <script type="text/javascript">
 
-                                            if ('<%=familyToEdit.active%>' == 1) {
-                                                document.getElementById("activo").value = 'SI';
-                                            } else { document.getElementById("activo").value = 'NO' }
+                                            // if ('<%=familyToEdit.active%>' == 1) {
+                                            //     document.getElementById("activo").value = 'SI';
+                                            // } else { document.getElementById("activo").value = 'NO' }
 
                                         </script>
 
